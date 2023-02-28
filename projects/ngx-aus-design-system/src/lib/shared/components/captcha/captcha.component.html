@@ -1,0 +1,8 @@
+<div style="margin-bottom: 12px">
+  <re-captcha
+    (resolved)="resolved($event)"
+    (errored)="onError($event)"
+    errorMode="handled"
+    [siteKey]="siteKey"
+  ></re-captcha>
+</div>

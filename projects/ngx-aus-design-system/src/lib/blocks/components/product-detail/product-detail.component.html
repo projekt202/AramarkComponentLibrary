@@ -1,0 +1,116 @@
+<main class="o-container">
+  <div class="o-grid">
+    <div class="o-grid__col">
+      <div class="product">
+        <div class="product__preview">
+          <div class="product__img-container">
+            <div
+              class="product-card__tag"
+              *ngIf="product.options[selectedIdx].tag"
+            >
+              <aus-typography
+                variant="span"
+                [text]="product.options[selectedIdx].tag || ''"
+              ></aus-typography>
+            </div>
+            <div
+              aria-label="Product preview"
+              class="product__img"
+              [lazyLoad]="product.options[selectedIdx].imgUrl"
+            ></div>
+            <aus-typography
+              class="product__color-name"
+              [text]="product.options[selectedIdx].colorName"
+            ></aus-typography>
+          </div>
+          <div
+            class="product__color-selector"
+            *ngIf="product.options.length > 1"
+          >
+            <aus-carousel
+              #carousel
+              [controls]="false"
+              [config]="{
+                slidesPerView: 3,
+                autoplay: {
+                  delay: 3000,
+                  disableOnInteraction: true
+                }
+              }"
+            >
+              <ng-template
+                #slide
+                *ngFor="let option of product.options; let i = index"
+              >
+                <button
+                  class="product__color-option"
+                  (click)="updateColor(i, true)"
+                  (mouseenter)="updateColor(i)"
+                  (mouseleave)="resetColor()"
+                  [ngClass]="{
+                    'product__color-option--active': i === selectedIdx
+                  }"
+                >
+                  <div
+                    [lazyLoad]="option.imgUrl"
+                    [attr.label]="option.colorName"
+                    class="product__color-img"
+                  ></div>
+                </button>
+              </ng-template>
+            </aus-carousel>
+          </div>
+        </div>
+        <div class="product__info">
+          <div class="product__info-intro">
+            <aus-typography
+              [text]="product.name"
+              variant="h2"
+              tag="h1"
+            ></aus-typography>
+            <aus-typography
+              [text]="product.id"
+              variant="p-md"
+              weight="500"
+            ></aus-typography>
+          </div>
+          <div>
+            <aus-typography text="Sizes" weight="500"></aus-typography>
+            <aus-typography
+              variant="p-md"
+              [text]="product.details.sizes"
+            ></aus-typography>
+          </div>
+          <div>
+            <aus-typography text="Description" weight="500"></aus-typography>
+            <aus-wysiwyg
+              [embedded]="true"
+              bgColor="transparent"
+              [data]="product.details.description"
+            ></aus-wysiwyg>
+          </div>
+          <div class="product__cta-desktop">
+            <ng-template [ngTemplateOutlet]="modalCta"></ng-template>
+          </div>
+        </div>
+        <div class="product__cta-mobile">
+          <ng-template [ngTemplateOutlet]="modalCta"></ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<ng-template #modalCta>
+  <aus-button
+    variant="red"
+    target="_self"
+    text="Request a Quote"
+    href="/request-a-quote"
+    class="product__btn"
+  ></aus-button>
+  <aus-typography
+    class="product__legal"
+    [text]="product.legal || ''"
+  ></aus-typography>
+</ng-template>

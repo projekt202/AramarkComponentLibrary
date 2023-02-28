@@ -1,0 +1,144 @@
+@import "styles";
+
+.article-card {
+  &__wrapper {
+    display: block;
+    overflow: hidden;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: $c-white;
+    min-height: 402px;
+    @include iota-breakpoint(md) {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+    }
+  }
+  @mixin article-card-image {
+    height: 225px;
+    @include iota-breakpoint(md) {
+      width: 40%;
+      height: auto;
+      max-width: 510px;
+    }
+  }
+  &__img {
+    position: relative;
+    display: block;
+    @include article-card-image;
+    ::ng-deep > figure > * {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__main {
+    padding: 20px 15px 30px 15px;
+    @include iota-breakpoint(md) {
+      padding: 30px;
+      flex: 1;
+    }
+    @include iota-breakpoint(xl) {
+      padding: 55px 40px;
+    }
+  }
+  &__date {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-transform: uppercase;
+    ::ng-deep {
+      .icon,
+      span.typography {
+        color: $c-gray-drk !important;
+      }
+      .typography {
+        margin-left: 10px;
+        min-width: 100px;
+        display: inline-block;
+      }
+    }
+  }
+  &__title {
+    margin: 10px 0;
+    @include iota-breakpoint(md) {
+      margin: 19px 0 16px 0;
+    }
+    @include iota-breakpoint(lg) {
+      margin: 12px 0;
+    }
+  }
+  &__text {
+    ::ng-deep {
+      .typography {
+        color: $c-gray-drk;
+        @include iota-breakpoint(md) {
+          @include iota-type(
+            (
+              lg: (
+                16px,
+                23px,
+              ),
+            )
+          );
+        }
+      }
+    }
+  }
+  &__btn {
+    margin-top: 26px;
+    ::ng-deep {
+      .button {
+        width: 100%;
+        @include iota-breakpoint(md) {
+          width: auto;
+        }
+      }
+    }
+    @include iota-breakpoint(md) {
+      margin-top: 18px;
+    }
+    @include iota-breakpoint(lg) {
+      margin-top: 36px;
+    }
+  }
+
+  &--img-right {
+    .article-card {
+      @include iota-breakpoint(md) {
+        &__img {
+          order: 1;
+        }
+        &__main {
+          order: 0;
+        }
+      }
+    }
+  }
+  &--img-top {
+    .article-card {
+      &__wrapper {
+        @include iota-breakpoint(md) {
+          display: block;
+        }
+      }
+      &__img {
+        @include iota-breakpoint(md) {
+          width: auto;
+          height: 225px;
+          max-width: none;
+        }
+      }
+      &__main {
+        $padding: 20px 15px 30px 15px;
+        @include iota-breakpoint(md) {
+          padding: $padding;
+        }
+        @include iota-breakpoint(xl) {
+          padding: $padding;
+        }
+      }
+    }
+  }
+}

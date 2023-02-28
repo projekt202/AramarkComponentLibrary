@@ -1,0 +1,36 @@
+<nav aria-label="Breadcrumb" class="o-container">
+  <ol
+    class="breadcrumbs"
+    [ngClass]="{
+      'breadcrumbs--arrow': variant === 'arrow'
+    }"
+  >
+    <li
+      *ngFor="let path of paths; let i = index"
+      class="breadcrumbs__item"
+      [attr.aria-current]="i === paths.length - 1"
+    >
+      <a [href]="path.url" class="breadcrumbs__item-link">
+        <aus-icon
+          *ngIf="variant === 'arrow' && i === 0"
+          class="breadcrumbs__icon"
+          name="arrow"
+          variant="transparent"
+          size="xs"
+        ></aus-icon>
+        <aus-typography
+          variant="p-md"
+          [text]="path.title"
+          [weight]="i === paths.length - 1 ? '500' : '400'"
+        ></aus-typography>
+        <aus-typography
+          aria-hidden="true"
+          *ngIf="i !== paths.length - 1"
+          variant="p-md"
+          text="&nbsp;/&nbsp;"
+          class="breadcrumbs__item-divider"
+        ></aus-typography>
+      </a>
+    </li>
+  </ol>
+</nav>

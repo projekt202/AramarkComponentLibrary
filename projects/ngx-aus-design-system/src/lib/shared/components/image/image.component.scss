@@ -1,0 +1,109 @@
+@import "styles";
+
+.image {
+  height: 100%;
+  &__img {
+    opacity: 0;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    transition: opacity 0.25s;
+    &.ng-lazyloaded {
+      opacity: 1;
+    }
+  }
+  &__bg {
+    opacity: 0;
+    transition: opacity 0.25s;
+    max-width: 100%;
+    max-height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    &.ng-lazyloaded {
+      opacity: 1;
+    }
+  }
+  &__caption {
+    padding: 8px 16px;
+    @include iota-breakpoint(md) {
+      padding: 36px 16px;
+      text-align: center;
+      width: 50%;
+      max-width: 506px;
+      margin: 0 auto;
+    }
+    @include iota-breakpoint(lg) {
+      padding: 24px 16px;
+    }
+    &-text {
+      ::ng-deep {
+        .typography {
+          font-weight: 500;
+          @include iota-type(
+            (
+              null: (
+                12px,
+                19px,
+              ),
+              md: (
+                14px,
+                19px,
+              ),
+            )
+          );
+        }
+      }
+    }
+    &-subtitle {
+      display: block;
+      margin-top: 16px;
+      ::ng-deep {
+        .typography {
+          font-weight: 300;
+          color: $c-gray-drk-alt;
+          @include iota-type(
+            (
+              null: (
+                12px,
+                14px,
+              ),
+              md: (
+                14px,
+                19px,
+              ),
+            )
+          );
+        }
+      }
+    }
+  }
+  &--bg-black {
+    background-color: $c-black;
+    ::ng-deep {
+      .image__caption {
+        &-text,
+        &-subtitle {
+          ::ng-deep {
+            .typography {
+              color: $c-white;
+            }
+          }
+        }
+      }
+    }
+  }
+  &--bg-white {
+    background-color: $c-white;
+  }
+  &--bg-gray {
+    background-color: $c-white-lgt-alt;
+  }
+  &--fullwidth {
+    & > * {
+      max-width: 1366px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

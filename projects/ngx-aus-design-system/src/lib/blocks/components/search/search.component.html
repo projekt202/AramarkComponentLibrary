@@ -1,0 +1,242 @@
+<section class="search">
+  <div class="search__header">
+    <div class="o-container">
+      <div class="o-grid o-grid--center">
+        <div class="o-grid__col u-10/12@lg u-8/12@xl">
+          <div class="search__header-intro">
+            <aus-typography
+              variant="h2"
+              tag="h1"
+              color="white"
+              [text]="'Results for “' + getKeyword() + '”'"
+              class="search__header-title"
+            ></aus-typography>
+            <aus-typography
+              variant="h6"
+              tag="h3"
+              color="white"
+              [text]="getNumResults()"
+            ></aus-typography>
+          </div>
+          <form
+            role="search"
+            (submit)="getResults()"
+            class="search__header-cta"
+          >
+            <aus-input
+              #input
+              name="keyword"
+              type="search"
+              placeholder="Keywords to search"
+              (valueChange)="onKeywordChangeHandler($event)"
+            ></aus-input>
+            <aus-button
+              variant="red"
+              text="Search"
+              [useButton]="true"
+              (click)="getResults()"
+            ></aus-button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="search__main">
+    <div class="o-container">
+      <div class="o-grid o-grid--center">
+        <div *ngIf="isLoading" class="o-grid__col">
+          <div class="search__loader">
+            <ngx-skeleton-loader
+              count="1"
+              class="search__loader-tabs"
+            ></ngx-skeleton-loader>
+            <ngx-skeleton-loader
+              count="4"
+              class="search__loader-cards"
+            ></ngx-skeleton-loader>
+          </div>
+        </div>
+        <div
+          *ngIf="!isLoading"
+          class="o-grid__col"
+          [ngClass]="{
+            'u-10/12@lg u-8/12@xl':
+              (selectedCategory !== 'Products' &&
+                selectedCategory !== 'Locations') ||
+              numResults === 0
+          }"
+        >
+          <div *ngIf="numResults > 0" class="search__filters">
+            <aus-tabs
+              #tabs
+              name="Results categories"
+              (onSelection)="onCategoryChanged($event)"
+              [categories]="getResultsCategories()"
+            ></aus-tabs>
+          </div>
+          <div *ngIf="numResults > 0" class="search__results">
+            <ng-container [ngSwitch]="selectedCategory">
+              <!-- Products -->
+              <ng-container *ngSwitchCase="'Products'">
+                <aus-product-card-row
+                  *ngIf="this.results.products.length"
+                  #productsrow
+                  [noCarousel]="true"
+                  [desktopWrap]="true"
+                  [noQueryParamsUpdate]="true"
+                  [products]="getPageProducts()"
+                ></aus-product-card-row>
+                <div
+                  *ngIf="this.results.products.length > 12"
+                  class="search__results-pagination"
+                >
+                  <aus-pagination
+                    [index]="currProdsPage + 1"
+                    (page)="onPageHandler($event)"
+                    [pageSize]="getPaginationConfig().size"
+                    [rulerLength]="getPaginationConfig().size"
+                    [totalCount]="getPaginationConfig().total"
+                  ></aus-pagination>
+                </div>
+                <ng-container
+                  *ngIf="!this.results.products.length"
+                  [ngTemplateOutlet]="emptycategory"
+                  [ngTemplateOutletContext]="{
+                    condition: !this.results.products.length
+                  }"
+                ></ng-container>
+              </ng-container>
+
+              <!-- Site Results & Newsroom -->
+              <ng-container *ngSwitchCase="'Site Results'">
+                <ng-template
+                  [ngTemplateOutlet]="links"
+                  [ngTemplateOutletContext]="{
+                    data: results.siteResults
+                  }"
+                ></ng-template>
+              </ng-container>
+              <ng-container *ngSwitchCase="'Newsroom'">
+                <ng-template
+                  [ngTemplateOutlet]="links"
+                  [ngTemplateOutletContext]="{
+                    data: results.articles
+                  }"
+                ></ng-template>
+              </ng-container>
+
+              <!-- Locations -->
+              <ng-container *ngSwitchCase="'Locations'">
+                <div
+                  *ngIf="results.locations.length"
+                  class="search__results-locations"
+                >
+                  <div
+                    *ngFor="let location of results.locations"
+                    class="search__results-locations-item"
+                  >
+                    <aus-location-card
+                      [map]="true"
+                      [city]="location.city"
+                      [name]="location.name"
+                      [address]="location.address"
+                      [zip]="location.zip"
+                      [phone]="location.phone"
+                      [url]="location.url"
+                      [coords]="location.coords"
+                    ></aus-location-card>
+                  </div>
+                </div>
+                <ng-container
+                  *ngIf="!results.locations.length"
+                  [ngTemplateOutlet]="emptycategory"
+                  [ngTemplateOutletContext]="{
+                    condition: !results.locations.length
+                  }"
+                ></ng-container>
+              </ng-container>
+            </ng-container>
+          </div>
+          <div *ngIf="numResults === 0" class="search__empty">
+            <div class="search__empty-copy">
+              <aus-typography
+                variant="h4"
+                [text]="
+                  'Sorry, there are no matches for “' + getKeyword() + '”'
+                "
+              ></aus-typography>
+              <aus-wysiwyg
+                *ngIf="noResults.wysiwyg"
+                class="search__empty-text"
+                [data]="noResults.wysiwyg"
+                bgColor="transparent"
+                [embedded]="true"
+              ></aus-wysiwyg>
+            </div>
+            <div *ngIf="noResults.terms.length" class="search__empty-popular">
+              <div
+                *ngFor="let term of noResults.terms"
+                class="search__empty-popular-group"
+              >
+                <aus-typography
+                  *ngIf="term.title"
+                  variant="h6"
+                  [text]="term.title"
+                ></aus-typography>
+                <ul
+                  *ngIf="term.items.length"
+                  class="search__empty-popular-group-list"
+                >
+                  <li *ngFor="let item of term.items">
+                    <button (click)="searchByTerm(item)">
+                      <aus-typography [text]="item"></aus-typography>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #emptycategory let-condition="condition">
+  <aus-typography
+    *ngIf="condition"
+    variant="h6"
+    class="search__results-empty-category"
+    text="No results found in this category"
+  ></aus-typography>
+</ng-template>
+
+<ng-template #links let-data="data">
+  <div *ngIf="data.length" class="search__results-links">
+    <article *ngFor="let link of data" class="search__results-link">
+      <a [href]="link.link" class="search__results-link-inner">
+        <div class="search__results-link-title">
+          <aus-typography variant="h5" [text]="link.title"></aus-typography>
+          <aus-icon
+            size="small"
+            name="arrow-link"
+            variant="transparent"
+          ></aus-icon>
+        </div>
+        <aus-typography
+          *ngIf="link.description"
+          class="search__results-link-text"
+          variant="p-sm"
+          [text]="getExcerpt(link.description)"
+        ></aus-typography>
+      </a>
+    </article>
+  </div>
+  <ng-container
+    *ngIf="!data.length"
+    [ngTemplateOutlet]="emptycategory"
+    [ngTemplateOutletContext]="{
+      condition: !data.length
+    }"
+  ></ng-container>
+</ng-template>

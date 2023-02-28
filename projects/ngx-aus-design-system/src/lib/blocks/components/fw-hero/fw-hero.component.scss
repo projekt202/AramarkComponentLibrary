@@ -1,0 +1,557 @@
+@import "styles";
+
+.fw-hero {
+  width: 100%;
+  &__container {
+    z-index: 3;
+    position: relative;
+    @media screen and (max-width: 768px) {
+      padding: 0;
+    }
+  }
+  &__main {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right center;
+    @include iota-breakpoint(md) {
+      padding: 180px 0;
+    }
+    @include iota-breakpoint(lg) {
+      padding: 60px 0;
+    }
+    .lazy-bg-img {
+      object-position: right center;
+    }
+  }
+  &__blur {
+    display: none;
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right center;
+    mask-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 1) 30%,
+      rgba(0, 0, 0, 0) 50%
+    );
+    .lazy-bg-img {
+      object-position: right center;
+    }
+  }
+  &__card {
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    padding: 60px 16px;
+    @include iota-breakpoint(md) {
+      border-radius: 15px;
+      padding: 60px 50px;
+      text-align: left;
+      max-width: 450px;
+      width: 100%;
+    }
+    @include iota-breakpoint(lg) {
+      width: 50%;
+    }
+    &-content {
+      z-index: 1;
+      position: relative;
+    }
+    &-icon {
+      margin-bottom: 16px;
+    }
+    &-text {
+      display: block;
+    }
+    &-btns {
+      margin-top: 30px;
+      @include iota-breakpoint(md) {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+    }
+    &-btn {
+      & + & {
+        margin-top: 10px;
+        display: block;
+        @include iota-breakpoint(md) {
+          margin-top: 0;
+          margin-left: 24px;
+        }
+      }
+    }
+    &-bg-mobile {
+      display: none;
+    }
+    &:after {
+      content: "";
+      left: 0;
+      bottom: 0;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background-color: $c-red;
+    }
+    &--white {
+      background-color: $c-white;
+    }
+    &--black {
+      background-color: $c-black;
+    }
+    &--transparent {
+      text-align: left;
+      overflow: visible;
+      padding: 25px 16px 50px 16px;
+      background-color: $c-black;
+      @include iota-breakpoint(md) {
+        padding: 0;
+        background-color: transparent;
+      }
+      .fw-hero {
+        &__card {
+          &-btns {
+            margin-top: 25px;
+          }
+        }
+      }
+    }
+  }
+  &__bg-mobile {
+    height: 200px;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right center;
+    @include iota-breakpoint(md) {
+      display: none;
+    }
+    .lazy-bg-img {
+      object-position: right center;
+    }
+  }
+  &__banner {
+    padding: 12px 0;
+    @include iota-breakpoint(md) {
+      padding: 22px 0;
+    }
+    &-text {
+      text-align: left;
+    }
+    &-cta {
+      margin-top: 30px;
+      @include iota-breakpoint(md) {
+        margin-top: 0;
+        text-align: right;
+      }
+    }
+    &--white {
+      background-color: $c-white;
+    }
+    &--black {
+      background-color: $c-black;
+    }
+  }
+  &--blur {
+    .fw-hero {
+      &__container {
+        @include iota-breakpoint(md) {
+          flex: 1;
+          width: 100%;
+        }
+      }
+      &__blur {
+        @include iota-breakpoint(md) {
+          display: block;
+        }
+      }
+      &__main {
+        position: relative;
+        @include iota-breakpoint(md) {
+          min-height: 530px;
+          display: flex;
+          align-items: center;
+        }
+        &:before {
+          content: "";
+          z-index: 1;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: none;
+          position: absolute;
+          pointer-events: none;
+          @include iota-breakpoint(md) {
+            display: block;
+          }
+        }
+      }
+      &__internal {
+        display: flex;
+        flex-direction: column;
+        @include iota-breakpoint(md) {
+          display: block;
+        }
+      }
+      &__card {
+        order: 1;
+        text-align: center;
+        padding: 80px 16px;
+        position: relative;
+        background-color: transparent;
+        @include iota-breakpoint(md) {
+          width: 80%;
+          padding: 0;
+          max-width: 440px;
+          text-align: left;
+        }
+        &:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba($c-black, 0.5);
+          @include iota-breakpoint(md) {
+            display: none;
+          }
+        }
+        &-content {
+          z-index: 1;
+          position: relative;
+        }
+        &-icon {
+          ::ng-deep {
+            aus-icon {
+              display: inline-block;
+            }
+          }
+        }
+      }
+      &__bg-mobile {
+        order: 0;
+        display: none;
+      }
+    }
+  }
+  &--gradient {
+    .fw-hero {
+      &__main {
+        &:before {
+          backdrop-filter: blur(10px);
+        }
+      }
+    }
+  }
+  &--transparency {
+    position: relative;
+    .fw-hero {
+      &__internal {
+        position: relative;
+        height: 350px;
+        @include iota-breakpoint(md) {
+          height: auto;
+        }
+      }
+      &__bg-mobile {
+        height: 100%;
+      }
+      &__main {
+        @include iota-breakpoint(md) {
+          padding: 150px 0 250px 0;
+        }
+        @include iota-breakpoint(lg) {
+          padding: 140px 0 230px 0;
+        }
+      }
+      &__card {
+        order: 1;
+        overflow: hidden;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 16px 16px 20px 16px;
+        @include iota-breakpoint(md) {
+          position: relative;
+          padding: 40px 35px;
+          max-width: 450px;
+          order: 0;
+        }
+        &-content {
+          z-index: 1;
+          position: relative;
+        }
+        &-bg-mobile {
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 350px;
+          display: block;
+          position: absolute;
+          filter: blur(10px);
+          pointer-events: none;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: right center;
+          @include iota-breakpoint(md) {
+            display: none;
+          }
+          &:after {
+            top: 0;
+            left: 0;
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+          }
+          .lazy-bg-img {
+            object-position: right center;
+          }
+        }
+        ::ng-deep {
+          p {
+            margin-top: 10px;
+          }
+        }
+        &--white {
+          @include iota-breakpoint(md) {
+            background-color: rgba($c-white, 0.85);
+          }
+          .fw-hero__card-bg-mobile:after {
+            background-color: rgba($c-white, 0.8);
+          }
+        }
+        &--black {
+          @include iota-breakpoint(md) {
+            background-color: rgba($c-black, 0.85);
+          }
+          .fw-hero__card-bg-mobile:after {
+            background-color: rgba($c-black, 0.8);
+          }
+          ::ng-deep {
+            .typography {
+              color: $c-white;
+            }
+          }
+        }
+      }
+      &__banner {
+        @include iota-breakpoint(md) {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+        }
+        &-centered {
+          @include iota-breakpoint(md) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          & > div {
+            @include iota-breakpoint(md) {
+              margin-left: 30px;
+            }
+            &:first-child {
+              @include iota-breakpoint(md) {
+                max-width: 50%;
+                margin-left: 0;
+              }
+            }
+          }
+          ::ng-deep {
+            .button {
+              white-space: nowrap;
+            }
+          }
+        }
+        &-text {
+          text-align: center;
+          margin-bottom: 10px;
+          @include iota-breakpoint(md) {
+            text-align: left;
+            margin-bottom: 0;
+          }
+        }
+        &-cta {
+          margin: -5px;
+          @include iota-breakpoint(md) {
+            margin: 0;
+          }
+        }
+        &-btn {
+          padding: 5px;
+          display: block;
+          @include iota-breakpoint(md) {
+            padding: 0;
+            display: inline-block;
+          }
+          &:last-child {
+            @include iota-breakpoint(md) {
+              margin-left: 25px;
+              margin-top: 10px;
+            }
+          }
+        }
+        &--centered {
+          .fw-hero__banner-text {
+            @include iota-breakpoint(md) {
+              text-align: center;
+            }
+          }
+        }
+        &--white {
+          background-color: $c-white;
+          @include iota-breakpoint(md) {
+            background-color: rgba($c-white, 0.8);
+          }
+        }
+        &--black {
+          background-color: $c-black;
+          @include iota-breakpoint(md) {
+            background-color: rgba($c-black, 0.8);
+          }
+        }
+        &--white-mobile {
+          @media screen and (max-width: 768px) {
+            background-color: $c-white;
+            ::ng-deep {
+              .fw-hero__banner-text {
+                .typography {
+                  color: $c-black;
+                }
+              }
+              .button--bg-white {
+                color: $c-white;
+                background-color: $c-black;
+                &:hover {
+                  background-color: $c-black-lgt;
+                }
+                &:focus-visible {
+                  box-shadow: 0 0 0 4px rgba($c-black, 0.4);
+                }
+              }
+            }
+          }
+        }
+        &--black-mobile {
+          @media screen and (max-width: 768px) {
+            background-color: $c-black;
+            ::ng-deep {
+              .fw-hero__banner-text {
+                .typography {
+                  color: $c-white;
+                }
+              }
+              .button--bg-black {
+                color: $c-black;
+                background-color: $c-white;
+                &:hover {
+                  background-color: $c-gray-lgt;
+                }
+                &:focus-visible {
+                  box-shadow: 0 0 0 4px rgba($c-white, 0.4);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &.fw-hero--no-banner {
+      .fw-hero {
+        &__main {
+          @include iota-breakpoint(md) {
+            padding: 150px 0;
+          }
+          @include iota-breakpoint(lg) {
+            padding: 140px 0;
+          }
+        }
+      }
+    }
+  }
+  &--right {
+    .fw-hero {
+      &__bg-mobile,
+      &__main {
+        background-position: left center;
+        .lazy-bg-img {
+          object-position: left center;
+        }
+      }
+      &__card {
+        margin: 0 0 0 auto;
+      }
+    }
+    &.fw-hero--transparency {
+      .fw-hero {
+        &__card {
+          &-bg-mobile {
+            background-position: left center;
+            .lazy-bg-img {
+              object-position: left center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+:host ::ng-deep {
+  .fw-hero {
+    .button {
+      width: 100%;
+      @include iota-breakpoint(md) {
+        width: auto;
+      }
+    }
+    &__card {
+      &--black {
+        h1 {
+          color: $c-white;
+        }
+      }
+    }
+    &__banner {
+      &--white {
+        p {
+          color: $c-black;
+        }
+      }
+      &--black {
+        p {
+          color: $c-white;
+        }
+      }
+    }
+    &--blur {
+      .fw-hero {
+        &__card {
+          h1,
+          p {
+            color: $c-white;
+            @media screen and (max-width: 768px) {
+              color: $c-white !important;
+            }
+          }
+          p {
+            margin-top: 25px;
+          }
+        }
+      }
+    }
+  }
+}

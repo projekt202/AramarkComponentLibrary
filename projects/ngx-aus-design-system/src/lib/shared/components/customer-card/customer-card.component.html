@@ -1,0 +1,54 @@
+<blockquote
+  *ngIf="route"
+  class="customer-card"
+  [ngClass]="{
+    'customer-card--centered': variant === 'center',
+    'customer-card--center-left': variant === 'center-left',
+    'customer-card--left-center': variant === 'left-center',
+    'customer-card--no-img': !imgUrl
+  }"
+>
+  <a [routerLink]="route" class="customer-card__wrapper">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </a>
+</blockquote>
+<blockquote
+  *ngIf="href"
+  class="customer-card"
+  [ngClass]="{
+    'customer-card--centered': variant === 'center',
+    'customer-card--no-img': !imgUrl
+  }"
+>
+  <a [href]="href" class="customer-card__wrapper">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </a>
+</blockquote>
+
+<ng-template #content>
+  <div
+    *ngIf="imgUrl"
+    class="customer-card__img"
+    aria-hidden="true"
+    [lazyLoad]="imgUrl"
+  ></div>
+  <div class="customer-card__content">
+    <aus-typography variant="h5" [text]="title"></aus-typography>
+    <aus-typography variant="p-md" [text]="text"></aus-typography>
+    <div class="customer-card__author" *ngIf="author">
+      <aus-icon [fontSize]="20" name="user"></aus-icon>
+      <aus-typography
+        variant="span"
+        [text]="author.name + ', ' + author.title"
+      ></aus-typography>
+    </div>
+    <div class="customer-card__rating" *ngIf="rating && date">
+      <aus-icon
+        name="star"
+        [fontSize]="20"
+        *ngFor="let _ of [].constructor(rating)"
+      ></aus-icon>
+      <aus-typography variant="p-md" [text]="date | timeAgo"></aus-typography>
+    </div>
+  </div>
+</ng-template>

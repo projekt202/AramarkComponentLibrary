@@ -1,0 +1,399 @@
+@import "styles";
+
+.accordion {
+  padding: 16px 0;
+  @include iota-breakpoint(md) {
+    padding: 32px 0;
+  }
+  @include iota-breakpoint(lg) {
+    padding: 56px 0;
+  }
+  &__content {
+    margin: 0 auto;
+    @include iota-breakpoint(lg) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  &__intro {
+    text-align: center;
+    @include iota-breakpoint(lg) {
+      text-align: left;
+      width: 50%;
+      max-width: 510px;
+    }
+    &-img {
+      opacity: 0;
+      width: 65%;
+      margin: 0 auto;
+      max-width: 235px;
+      border-radius: 10px;
+      transition: all 0.25s;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      @include iota-breakpoint(md) {
+        max-width: 320px;
+      }
+      @include iota-breakpoint(lg) {
+        margin: 0;
+      }
+      &:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+      &.ng-lazyloaded {
+        opacity: 1;
+      }
+    }
+    ::ng-deep {
+      h1 {
+        margin: 20px 0;
+        @include iota-breakpoint(md) {
+          margin: 25px 0;
+        }
+        @include iota-breakpoint(lg) {
+          margin: 28px 0;
+        }
+      }
+    }
+  }
+  &__main {
+    flex: 1;
+    margin-top: 70px;
+    @include iota-breakpoint(md) {
+      margin-top: 65px;
+    }
+    @include iota-breakpoint(lg) {
+      margin-top: 0;
+      margin-left: 44px;
+    }
+    ::ng-deep {
+      collapsible {
+        &-list {
+          margin: 0;
+          border: 0;
+          box-shadow: none;
+          padding: 30px 18px;
+          border-radius: 10px;
+          background-color: $c-white-lgt-alt;
+          @include iota-breakpoint(md) {
+            padding: 60px 50px;
+          }
+          @include iota-breakpoint(lg) {
+            padding: 48px 70px;
+          }
+        }
+        &-list-item {
+          clear: both;
+          display: block;
+          & + collapsible-list-item {
+            padding-top: 50px;
+          }
+        }
+        &-header {
+          padding: 0 0 18px 0;
+          background-color: transparent;
+          border-bottom: 1px solid $c-black;
+        }
+        &-body {
+          border: 0;
+          padding: 12px 0 0 0;
+          box-shadow: none !important;
+        }
+      }
+    }
+  }
+  &__item {
+    &-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: none;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+    }
+    &-title {
+      padding-right: 20px;
+      ::ng-deep {
+        .typography {
+          @include iota-type(
+            (
+              null: (
+                23px,
+                25px,
+              ),
+              md: (
+                30px,
+                37px,
+              ),
+              lg: (
+                27px,
+                30px,
+              ),
+            )
+          );
+        }
+      }
+    }
+    &-btn-wrapper {
+      width: 28px;
+      @include iota-breakpoint(md) {
+        width: 32px;
+      }
+    }
+    &-btn {
+      border: 0;
+      padding: 0;
+      width: 28px;
+      height: 28px;
+      display: block;
+      cursor: pointer;
+      position: relative;
+      border-radius: 100%;
+      transition: all 0.25s;
+      background-color: $c-black;
+      @include iota-breakpoint(md) {
+        width: 32px;
+        height: 32px;
+      }
+      &:before,
+      &:after {
+        content: "";
+        height: 3px;
+        width: 15px;
+        display: block;
+        position: absolute;
+        border-radius: 2px;
+        transition: all 0.25s;
+        background-color: $c-white;
+        @include iota-breakpoint(md) {
+          width: 20px;
+        }
+      }
+      &:before {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+      &:after {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      &--open {
+        transform: rotate(90deg);
+        &:after {
+          opacity: 0;
+        }
+      }
+    }
+    &-content {
+      ::ng-deep {
+        .o-container {
+          padding: 0;
+          max-width: 100% !important;
+        }
+        .wysiwyg__content * {
+          margin-bottom: 10px !important;
+          * {
+            margin-bottom: 0 !important;
+          }
+        }
+        img {
+          width: auto;
+          max-width: 100%;
+          border-radius: 10px;
+        }
+        .wysiwyg__content a {
+          color: $c-red-link !important;
+        }
+      }
+    }
+    &-body {
+      opacity: 0;
+      display: block;
+      pointer-events: none;
+      transition: opacity 0.25s;
+      &--active {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+  }
+  &--centered {
+    .accordion {
+      &__content {
+        @include iota-breakpoint(md) {
+          width: 80%;
+        }
+        @include iota-breakpoint(lg) {
+          width: 70%;
+        }
+        @include iota-breakpoint(xl) {
+          width: 60%;
+        }
+      }
+      &__main {
+        margin: 0;
+      }
+    }
+  }
+  &--fullwidth {
+    .accordion {
+      &__content {
+        @include iota-breakpoint(md) {
+          width: 100%;
+        }
+      }
+      &__main {
+        margin: 0;
+      }
+    }
+  }
+  &--black {
+    .accordion {
+      &__main {
+        ::ng-deep {
+          collapsible {
+            &-list {
+              background-color: $c-black;
+            }
+            &-header {
+              border-bottom-color: $c-white;
+            }
+          }
+        }
+      }
+      &__item {
+        &-title {
+          ::ng-deep {
+            .typography {
+              color: $c-white;
+            }
+          }
+        }
+        &-btn {
+          background-color: $c-white;
+          &:before,
+          &:after {
+            background-color: $c-black;
+          }
+        }
+        &-content {
+          ::ng-deep {
+            .wysiwyg__content * {
+              color: $c-white;
+            }
+          }
+        }
+      }
+    }
+  }
+  &--white {
+    background-color: $c-white-lgt;
+    .accordion {
+      &__main {
+        ::ng-deep {
+          collapsible {
+            &-list {
+              background-color: $c-white;
+            }
+          }
+        }
+      }
+      &__item {
+        &-btn {
+          &:before,
+          &:after {
+            background-color: $c-white;
+          }
+        }
+      }
+    }
+  }
+  &--intro {
+    &-right {
+      .accordion {
+        &__intro {
+          @include iota-breakpoint(lg) {
+            order: 2;
+          }
+        }
+        &__main {
+          margin-top: 70px;
+          @include iota-breakpoint(lg) {
+            order: 1;
+            margin-top: 0;
+            margin-left: 0;
+            margin-right: 44px;
+          }
+        }
+      }
+    }
+    &-left {
+      .accordion {
+        &__main {
+          margin-top: 70px;
+          @include iota-breakpoint(lg) {
+            margin-top: 0;
+            margin-left: 44px;
+          }
+        }
+      }
+    }
+    &-top {
+      .accordion {
+        &__content {
+          @include iota-breakpoint(lg) {
+            display: block;
+          }
+        }
+        &__intro {
+          text-align: center;
+          margin: 0 auto;
+          @include iota-breakpoint(lg) {
+            max-width: 490px;
+          }
+          &-img {
+            width: 504px;
+            max-width: 70%;
+            height: 186px;
+            margin: 0 auto;
+            @include iota-breakpoint(md) {
+              max-width: 100%;
+            }
+          }
+        }
+        &__main {
+          margin-top: 70px;
+          @include iota-breakpoint(md) {
+            margin-top: 60px;
+          }
+          @include iota-breakpoint(md) {
+            margin-top: 55px;
+          }
+        }
+      }
+    }
+  }
+}
+
+::ng-deep {
+  * > a {
+    color: $c-red-link;
+    border-radius: 7px;
+    display: inline-block;
+    text-decoration: none;
+    &:hover {
+      color: $c-red-drk;
+      font-weight: 500;
+    }
+  }
+}

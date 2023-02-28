@@ -1,0 +1,231 @@
+<ng-container *ngIf="!loading" [ngSwitch]="variant">
+  <h1
+    class="typography h1"
+    [attr.id]="idName || null"
+    *ngSwitchCase="'h1'"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></h1>
+  <h2
+    class="typography h2"
+    [attr.id]="idName || null"
+    *ngSwitchCase="'h2'"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></h2>
+  <h3
+    class="typography h3"
+    [attr.id]="idName || null"
+    *ngSwitchCase="'h3'"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></h3>
+  <h4
+    class="typography h4"
+    [attr.id]="idName || null"
+    *ngSwitchCase="'h4'"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></h4>
+  <h5
+    class="typography h5"
+    [attr.id]="idName || null"
+    *ngSwitchCase="'h5'"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></h5>
+  <h6
+    class="typography h6"
+    [attr.id]="idName || null"
+    *ngSwitchCase="'h6'"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></h6>
+  <p
+    class="typography p"
+    [attr.id]="idName || null"
+    *ngSwitchCase="'p'"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></p>
+  <p
+    *ngSwitchCase="'p-xs'"
+    class="p-xs typography p"
+    [attr.id]="idName || null"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></p>
+  <p
+    *ngSwitchCase="'p-sm'"
+    class="p-sm typography p"
+    [attr.id]="idName || null"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></p>
+  <p
+    *ngSwitchCase="'p-md'"
+    class="p-md typography p"
+    [attr.id]="idName || null"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></p>
+  <span
+    class="typography span"
+    [attr.id]="idName || null"
+    *ngSwitchCase="'span'"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></span>
+  <label
+    *ngSwitchCase="'form-text'"
+    [for]="for"
+    class="form__label typography"
+    [attr.id]="idName || null"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></label>
+  <span
+    *ngSwitchCase="'form-small'"
+    class="form__status typography"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></span>
+  <blockquote
+    class="typography blockquote"
+    [attr.id]="idName || null"
+    *ngSwitchCase="'blockquote'"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></blockquote>
+  <span
+    *ngSwitchCase="'numbers-1'"
+    class="numbers numbers-1 typography"
+    [attr.id]="idName || null"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></span>
+  <span
+    *ngSwitchCase="'numbers-2'"
+    class="numbers numbers-2 typography"
+    [attr.id]="idName || null"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></span>
+  <span
+    *ngSwitchCase="'numbers-3'"
+    class="numbers numbers-3 typography"
+    [attr.id]="idName || null"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></span>
+  <span
+    *ngSwitchCase="'numbers-4'"
+    class="numbers numbers-4 typography"
+    [attr.id]="idName || null"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></span>
+  <span
+    *ngSwitchCase="'numbers-5'"
+    class="numbers numbers-5 typography"
+    [attr.id]="idName || null"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></span>
+  <ng-container *ngSwitchCase="'a'">
+    <a
+      [attr.id]="idName || null"
+      *ngIf="route"
+      [routerLink]="!disabled && route ? [route] : null"
+      [class]="getLinkClasses()"
+      [tabindex]="disabled ? -1 : 0"
+      [attr.aria-disabled]="disabled || null"
+      [innerHTML]="text | sanitize"
+    ></a>
+  </ng-container>
+  <ng-container *ngSwitchCase="'a'">
+    <a
+      [attr.id]="idName || null"
+      *ngIf="href"
+      [href]="!disabled && href ? href : null"
+      [class]="getLinkClasses()"
+      [tabindex]="disabled ? -1 : 0"
+      [attr.aria-disabled]="disabled || null"
+      [innerHTML]="text | sanitize"
+    ></a>
+  </ng-container>
+  <ng-container *ngSwitchCase="'a-accent'">
+    <a
+      [attr.id]="idName || null"
+      *ngIf="route"
+      [routerLink]="!disabled && route ? [route] : null"
+      [class]="getLinkClasses()"
+      [tabindex]="disabled ? -1 : 0"
+      [attr.aria-disabled]="disabled || null"
+      [innerHTML]="text | sanitize"
+    ></a>
+  </ng-container>
+  <ng-container *ngSwitchCase="'a-accent'">
+    <a
+      [attr.id]="idName || null"
+      *ngIf="href"
+      [href]="!disabled && href ? href : null"
+      [class]="getLinkClasses()"
+      [tabindex]="disabled ? -1 : 0"
+      [attr.aria-disabled]="disabled || null"
+      [innerHTML]="text | sanitize"
+    ></a>
+  </ng-container>
+</ng-container>
+<ng-container *ngIf="loading" [ngSwitch]="variant">
+  <h1
+    class="typography h1"
+    *ngIf="variant === 'h1' && loading"
+  ><ng-container *ngTemplateOutlet="SKELETON"></ng-container></h1>
+  <h2
+    class="typography h2"
+    *ngIf="variant === 'h2' && loading"
+  ><ng-container *ngTemplateOutlet="SKELETON"></ng-container></h2>
+  <h3
+    class="typography h3"
+    *ngIf="variant === 'h3' && loading"
+  ><ng-container *ngTemplateOutlet="SKELETON"></ng-container></h3>
+  <h4
+    class="typography h4"
+    *ngIf="variant === 'h4' && loading"
+  ><ng-container *ngTemplateOutlet="SKELETON"></ng-container></h4>
+  <h5
+    class="typography h5"
+    *ngIf="variant === 'h5' && loading"
+  ><ng-container *ngTemplateOutlet="SKELETON"></ng-container></h5>
+  <h6
+    class="typography h6"
+    *ngIf="variant === 'h6' && loading"
+  ><ng-container *ngTemplateOutlet="SKELETON"></ng-container></h6>
+  <p
+    class="typography p"
+    *ngIf="variant === 'p' && loading"
+  ><ng-container *ngTemplateOutlet="SKELETON"></ng-container></p>
+  <p
+    class="p-xs typography p"
+    *ngIf="variant === 'p-xs' && loading"
+  ><ng-container *ngTemplateOutlet="SKELETON"></ng-container></p>
+  <p
+    class="p-sm typography p"
+    *ngIf="variant === 'p-sm' && loading"
+  ><ng-container *ngTemplateOutlet="SKELETON"></ng-container></p>
+  <p
+    *ngIf="variant === 'p-md' && loading"
+    class="p-md typography p"
+  ><ng-container *ngTemplateOutlet="SKELETON"></ng-container></p>
+  <span
+    class="typography span"
+    *ngIf="variant === 'span' && loading"
+  ><ng-container *ngTemplateOutlet="SKELETON"></ng-container></span>
+</ng-container>
+
+<ng-template #SKELETON>
+  <ng-container *ngFor="let item of [].constructor(loadingData.lines)">
+    <span [ngClass]="{ 'armk-skeleton-text': loading }"></span>
+  </ng-container>
+</ng-template>

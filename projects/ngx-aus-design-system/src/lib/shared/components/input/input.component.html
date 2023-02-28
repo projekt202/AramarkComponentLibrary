@@ -1,0 +1,81 @@
+<fieldset
+  class="input"
+  [ngClass]="{
+    'input--disabled': isDisabled,
+    'input--multiline': multiline
+  }"
+>
+  <label [for]="name" *ngIf="label">
+    <span class="input__label">
+      <div class="input__label-main">
+        <aus-typography variant="p-sm" [text]="label"></aus-typography>
+        <div class="input__label-required-mark">
+          <aus-typography
+            variant="p-sm"
+            text="*"
+            *ngIf="isRequired"
+          ></aus-typography>
+        </div>
+      </div>
+      <div *ngIf="subtitle" class="input__label-subtitle">
+        <aus-typography [text]="subtitle" variant="p-sm"></aus-typography>
+      </div>
+    </span>
+  </label>
+  <ng-container *ngTemplateOutlet="multiline ? textarea : input"></ng-container>
+  <div class="input__error" *ngIf="validationErrorMsg">
+    <span class="input__error-icon">
+      <svg
+        width="3"
+        height="7"
+        viewBox="0 0 3 7"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0.850098 5.85593C0.850098 5.77467 0.877181 5.69342 0.904264 5.61217C0.931347 5.53092 0.985514 5.47676 1.03968 5.42259C1.09385 5.36842 1.1751 5.31426 1.25635 5.28717C1.3376 5.26009 1.41885 5.23301 1.52718 5.23301C1.63551 5.23301 1.71676 5.26009 1.79801 5.28717C1.87926 5.31426 1.96051 5.36842 2.01468 5.42259C2.06885 5.47676 2.12301 5.53092 2.1501 5.61217C2.17718 5.69342 2.20426 5.77467 2.20426 5.85593C2.20426 5.93717 2.17718 6.01842 2.1501 6.09967C2.12301 6.18092 2.06885 6.23509 2.01468 6.28926C1.96051 6.34342 1.87926 6.39759 1.79801 6.42467C1.71676 6.45176 1.63551 6.47884 1.52718 6.47884C1.41885 6.47884 1.3376 6.45176 1.25635 6.42467C1.1751 6.39759 1.12093 6.34342 1.03968 6.28926C0.985514 6.23509 0.931347 6.18092 0.904264 6.09967C0.877181 6.01842 0.850098 5.96426 0.850098 5.85593ZM1.9876 4.61009H1.0126L0.877181 0.520508H2.12301L1.9876 4.61009Z"
+          fill="white"
+        />
+      </svg>
+    </span>
+    <aus-typography [text]="validationErrorMsg"></aus-typography>
+  </div>
+</fieldset>
+
+<ng-template #input>
+  <input
+    [id]="name"
+    [name]="name"
+    [type]="type"
+    [(ngModel)]="value"
+    [disabled]="!!isDisabled"
+    [pattern]="pattern || '.*'"
+    [required]="isRequired ?? false"
+    [maxLength]="maxLength ?? 10000"
+    [minLength]="minLength ?? 0"
+    [placeholder]="placeholder || ''"
+    (ngModelChange)="valueChange.emit(value)"
+    (keypress)="onKeypress($event)"
+    class="input__control"
+    #input="ngModel"
+    autocomplete="off"
+    [mask]="mask || null"
+  />
+</ng-template>
+
+<ng-template #textarea>
+  <textarea
+    [id]="name"
+    [name]="name"
+    [(ngModel)]="value"
+    [disabled]="!!isDisabled"
+    [required]="isRequired ?? false"
+    [maxLength]="maxLength ?? 10000"
+    [placeholder]="placeholder || ''"
+    (ngModelChange)="valueChange.emit(value)"
+    class="input__control input__control--textarea"
+    #input="ngModel"
+    autocomplete="off"
+  >
+  </textarea>
+</ng-template>

@@ -1,0 +1,21 @@
+<section [class]="getClasses()">
+  <aus-carousel
+    [controlsMargin]="5"
+    [config]="{
+      loop: true,
+      autoplay: {
+        delay: 10000,
+        disableOnInteraction: false
+      }
+    }"
+  >
+    <ng-template #slide *ngFor="let quote of quotes">
+      <aus-quote
+        [type]="type"
+        [author]="quote.author"
+        [quoteText]="quote.quoteText"
+      >
+      </aus-quote>
+    </ng-template>
+  </aus-carousel>
+</section>

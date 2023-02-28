@@ -1,0 +1,31 @@
+@import "styles";
+
+.two-column-wysiwyg {
+  padding: 16px 0;
+  @include iota-breakpoint(md) {
+    padding: 32px 0;
+  }
+  @include iota-breakpoint(lg) {
+    padding: 56px 0;
+  }
+  &__inner {
+    @include iota-breakpoint(md) {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+    }
+  }
+  &__col {
+    flex: 1;
+    & + & {
+      margin-top: 40px;
+      @include iota-breakpoint(md) {
+        margin-top: 0;
+        margin-left: 40px;
+      }
+      @include iota-breakpoint(lg) {
+        margin-left: 80px;
+      }
+    }
+  }
+}

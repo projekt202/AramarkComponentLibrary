@@ -1,0 +1,92 @@
+<section
+  class="locations-list"
+  [ngClass]="{
+    'locations-list--list': type === 'list',
+    'locations-list--cards': type === 'cards'
+  }"
+>
+  <div class="o-container">
+    <div class="o-grid">
+      <div class="o-grid__col u-8/12@lg u-6/12@xl">
+        <div class="locations-list__title">
+          <aus-typography variant="h3" tag="h1" [text]="title"></aus-typography>
+        </div>
+      </div>
+      <div class="o-grid__col">
+        <ul class="locations-list__list">
+          <li *ngFor="let item of data" class="locations-list__list-item">
+            <a
+              *ngIf="type === 'list'"
+              [href]="item.url"
+              class="locations-list__list-item-link"
+            >
+              <aus-typography
+                variant="h5"
+                tag="h4"
+                [text]="item.title"
+              ></aus-typography>
+              <ng-template [ngTemplateOutlet]="arrow"></ng-template>
+            </a>
+            <a
+              *ngIf="type === 'cards'"
+              [href]="item.url"
+              class="locations-list__list-item-card"
+            >
+              <aus-typography
+                variant="h5"
+                tag="h4"
+                [text]="item.title"
+              ></aus-typography>
+              <aus-typography
+                variant="p-sm"
+                *ngIf="item.phone"
+                [text]="item.phone"
+              ></aus-typography>
+              <aus-typography
+                variant="p-sm"
+                *ngIf="item.hours"
+                [text]="item.hours"
+              ></aus-typography>
+              <aus-typography
+                variant="p-sm"
+                *ngIf="item.service"
+                [text]="item.service"
+              ></aus-typography>
+              <div class="locations-list__list-item-arrow-link">
+                <ng-template [ngTemplateOutlet]="arrow"></ng-template>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #arrow>
+  <svg
+    viewBox="0 0 25 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="locations-list__list-item-arrow"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M14.2929 0.292893C14.6834 -0.0976311 15.3166 -0.0976311 15.7071 0.292893L24.7071 9.29289C25.0976 9.68342 25.0976 10.3166 24.7071 10.7071C24.3166 11.0976 23.6834 11.0976 23.2929 10.7071L14.2929 1.70711C13.9024 1.31658 13.9024 0.683417 14.2929 0.292893Z"
+      fill="#EB002A"
+    />
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M24.7071 9.29289C25.0976 9.68342 25.0976 10.3166 24.7071 10.7071L15.7071 19.7071C15.3166 20.0976 14.6834 20.0976 14.2929 19.7071C13.9024 19.3166 13.9024 18.6834 14.2929 18.2929L23.2929 9.29289C23.6834 8.90237 24.3166 8.90237 24.7071 9.29289Z"
+      fill="#EB002A"
+    />
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M0 10C0 9.44772 0.447715 9 1 9H24C24.5523 9 25 9.44772 25 10C25 10.5523 24.5523 11 24 11H1C0.447715 11 0 10.5523 0 10Z"
+      fill="#EB002A"
+    />
+  </svg>
+</ng-template>

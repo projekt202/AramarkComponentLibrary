@@ -1,0 +1,73 @@
+@import "styles";
+
+.cards-row {
+  padding: 80px 0 40px 0;
+  text-align: center;
+  overflow: hidden;
+  &__header {
+    margin-bottom: 40px;
+    ::ng-deep {
+      h3.typography {
+        margin-bottom: 8px;
+      }
+    }
+  }
+  &__main {
+    @media screen and (max-width: 1366px) {
+      .o-container {
+        padding-left: 0;
+        padding-right: 0;
+        max-width: 100%;
+      }
+      ::ng-deep {
+        .carousel__pagination {
+          padding-left: 16px;
+          padding-right: 16px;
+          margin-top: 25px !important;
+          @include iota-breakpoint(md) {
+            margin-top: 60px !important;
+          }
+        }
+        .swiper-slide {
+          height: auto !important;
+          aus-card {
+            height: 100%;
+            display: block;
+            box-sizing: border-box;
+          }
+        }
+      }
+    }
+  }
+  &__card {
+    height: 100%;
+    padding: 0 25px;
+    @include iota-breakpoint(md) {
+      padding: 0 80px;
+    }
+    @include iota-breakpoint(xl) {
+      padding: 0 0 40px 0;
+    }
+  }
+  &__footer {
+    margin: 40px 0;
+    @include iota-breakpoint(xl) {
+      margin-top: 0;
+    }
+  }
+  &--black {
+    background-color: $c-black;
+    .cards-row {
+      &__header {
+        ::ng-deep {
+          .typography {
+            color: $c-white;
+          }
+        }
+      }
+    }
+  }
+  &--white {
+    background-color: $c-white;
+  }
+}

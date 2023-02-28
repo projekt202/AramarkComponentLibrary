@@ -1,0 +1,26 @@
+.arrow-link {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  ::ng-deep {
+    aus-typography {
+      margin-right: 12px;
+      .typography {
+        line-height: 1;
+        white-space: nowrap;
+      }
+    }
+    svg {
+      transition: all 0.25s;
+    }
+  }
+  &:hover {
+    svg {
+      transform: translateX(3px);
+    }
+  }
+  &--underlined {
+    text-decoration: underline;
+  }
+}

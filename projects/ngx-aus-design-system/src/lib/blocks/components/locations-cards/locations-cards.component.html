@@ -1,0 +1,59 @@
+<section class="locations-cards">
+  <div class="o-container">
+    <div class="o-grid">
+      <div class="o-grid__col">
+        <div class="locations-cards__intro">
+          <aus-typography [text]="title" variant="h4"></aus-typography>
+          <aus-typography
+            variant="a"
+            [href]="allLocationsLink.url"
+            [text]="allLocationsLink.title"
+          ></aus-typography>
+        </div>
+        <div class="locations-cards__carousel">
+          <aus-carousel
+            [config]="{
+              autoHeight: false,
+              autoplay: {
+                delay: 5000,
+                disableOnInteraction: false
+              },
+              slidesPerView: 1,
+              spaceBetween: -32,
+              breakpoints: {
+                '768': {
+                  direction: 'vertical',
+                  slidesPerView: locations.length,
+                  spaceBetween: 0
+                },
+                '1024': {
+                  direction: 'horizontal',
+                  slidesPerView: locations.length,
+                  spaceBetween: 20
+                }
+              }
+            }"
+          >
+            <ng-template
+              #slide
+              *ngFor="let location of locations; let i = index"
+            >
+              <div class="locations-cards__slide">
+                <aus-location-card
+                  [map]="true"
+                  [city]="location.city"
+                  [name]="location.name"
+                  [address]="location.address"
+                  [zip]="location.zip"
+                  [phone]="location.phone"
+                  [url]="location.url"
+                  [coords]="location.coords"
+                ></aus-location-card>
+              </div>
+            </ng-template>
+          </aus-carousel>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

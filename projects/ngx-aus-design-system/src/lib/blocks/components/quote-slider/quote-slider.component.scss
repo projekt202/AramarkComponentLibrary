@@ -1,0 +1,18 @@
+@import "styles";
+
+.quote-slider {
+  padding-bottom: 47px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: $c-white-lgt;
+  --point-color: #{$c-black};
+  --arrow-hover-color: #{$c-gray-txt-drk};
+  &.type--dark {
+    background-color: $c-black;
+    --point-color: #{$c-white};
+    --arrow-hover-color: #{$c-gray-txt-lgt};
+  }
+  ::ng-deep .quote {
+    padding-bottom: 28px;
+  }
+}

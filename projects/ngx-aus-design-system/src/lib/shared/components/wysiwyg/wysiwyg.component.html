@@ -1,0 +1,16 @@
+<section
+  class="wysiwyg"
+  [ngClass]="{
+    'wysiwyg--fullwidth': fullwidth,
+    'wysiwyg--bg-white': bgColor === 'white',
+    'wysiwyg--bg-black': bgColor === 'black',
+    'wysiwyg--bg-gray': bgColor === 'gray',
+    'wysiwyg--bg-transparent': bgColor === 'transparent',
+    'wysiwyg--embedded': embedded,
+    'wysiwyg--3-cols': cols === '3-col',
+    'wysiwyg--4-cols': cols === '4-col',
+    'wysiwyg--is-content': isContent
+  }"
+>
+  <div class="wysiwyg__content" [innerHtml]="data | sanitize"></div>
+</section>

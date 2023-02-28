@@ -1,0 +1,153 @@
+@import "styles";
+
+@mixin button-base {
+  border: 0;
+  border-radius: 7px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-main;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+  padding: 10px 15px;
+  text-decoration: none;
+  transition: all 0.25s;
+  text-align: center;
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 9px;
+  }
+  &:focus-visible {
+    outline: none;
+  }
+  &--bg-white,
+  &.armk-btn-white {
+    background-color: $c-white;
+    color: $c-black;
+    &:hover {
+      background-color: $c-gray-lgt;
+    }
+    &:focus-visible {
+      box-shadow: 0 0 0 4px rgba($c-white, 0.4);
+    }
+  }
+  &--bg-black,
+  &.armk-btn-black {
+    background-color: $c-black;
+    color: $c-white;
+    &:hover {
+      background-color: $c-black-lgt;
+    }
+    &:focus-visible {
+      box-shadow: 0 0 0 4px rgba($c-black, 0.4);
+    }
+  }
+  &--bg-red,
+  &.armk-btn-red {
+    background-color: $c-red;
+    color: $c-white;
+    &:hover {
+      background-color: $c-red-drk;
+    }
+    &:focus-visible {
+      box-shadow: 0 0 0 4px rgba($c-red, 0.4);
+    }
+  }
+  &--bg-transparent,
+  &.armk-btn-transparent {
+    font-size: 14px;
+    color: $c-black;
+    &:hover {
+      color: $c-red;
+    }
+    &:focus-visible {
+      outline: $c-red solid 1px;
+      box-shadow: 0 0 0 5px rgba($c-red, 0.4);
+    }
+  }
+  &--bg-outline,
+  &.armk-btn-outline {
+    background-color: transparent;
+    box-shadow: 0 0 0 2px $c-black inset;
+    color: $c-black;
+    &:hover {
+      background-color: $c-white-lgt;
+    }
+    &:focus-visible {
+      box-shadow: 0 0 0 2px $c-red inset, 0 0 0 4px rgba($c-red, 0.4);
+    }
+    &.button--disabled {
+      color: rgba($c-black, 0.6);
+      border-color: rgba($c-black, 0.6);
+      background-color: rgba($c-white, 0.6);
+    }
+  }
+  &--fullwidth {
+    width: 100%;
+  }
+  &--disabled {
+    pointer-events: none;
+    background-color: $c-white-lgt;
+    color: $c-white-drk;
+    &.button--bg-transparent {
+      background-color: transparent;
+    }
+  }
+}
+
+.button {
+  @include button-base();
+}
+
+:host ::ng-deep .button {
+  &__icon {
+    span {
+      color: $c-white;
+    }
+  }
+  &--bg-white,
+  &--bg-transparent {
+    .button {
+      &__icon {
+        span {
+          color: $c-black;
+          transition: color 0.25s;
+        }
+      }
+    }
+  }
+  &--bg-transparent {
+    &:hover {
+      .button {
+        &__icon {
+          span {
+            color: $c-red;
+          }
+        }
+      }
+    }
+  }
+  &--bg-outline {
+    .button {
+      &__icon {
+        span {
+          color: $c-black;
+        }
+      }
+    }
+  }
+  &--disabled {
+    .button {
+      &__icon {
+        span {
+          color: $c-white-drk;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+<article
+  class="card"
+  [ngClass]="{
+    'card--white': variant === 'white',
+    'card--transparent': variant === 'transparent',
+    'card--gray': variant === 'gray',
+    'card--left-aligned':
+      variant === 'left-aligned-black' || variant === 'left-aligned-white',
+    'card--left-aligned-white': variant === 'left-aligned-white',
+    'card--left-aligned-black': variant === 'left-aligned-black'
+  }"
+>
+  <div class="card__icon" *ngIf="icon">
+    <aus-icon
+      [variant]="getIconVariant()"
+      [size]="getIconSize()"
+      [name]="icon"
+    ></aus-icon>
+  </div>
+  <div class="card__content">
+    <aus-typography variant="h5" tag="h4" [text]="title"></aus-typography>
+    <aus-typography variant="p-sm" [text]="text"></aus-typography>
+  </div>
+  <div class="card__btn" *ngIf="button">
+    <aus-button
+      [fullwidth]="true"
+      [target]="button.target || '_self'"
+      [variant]="button.variant || 'black'"
+      *ngIf="button.route"
+      [text]="button.text"
+      [route]="button.route"
+      [origin]="button.origin"
+    ></aus-button>
+    <aus-button
+      [fullwidth]="true"
+      [target]="button.target || '_self'"
+      [variant]="button.variant || 'black'"
+      *ngIf="button.href"
+      [text]="button.text"
+      [href]="button.href"
+      [origin]="button.origin"
+    ></aus-button>
+  </div>
+</article>

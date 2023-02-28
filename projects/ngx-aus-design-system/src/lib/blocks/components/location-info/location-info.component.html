@@ -1,0 +1,82 @@
+<section class="location-info">
+  <div class="o-container">
+    <div class="o-grid">
+      <div class="o-grid__col u-6/12@lg">
+        <div class="location-info__copy">
+          <aus-icon name="map" size="small" variant="black"></aus-icon>
+          <div class="location-info__copy-titles">
+            <aus-typography
+              [text]="heading"
+              variant="h2"
+              tag="h1"
+            ></aus-typography>
+            <aus-typography
+              [text]="subheading"
+              variant="h5"
+              tag="h3"
+              weight="400"
+            ></aus-typography>
+          </div>
+          <aus-typography
+            [text]="subtitle"
+            variant="h5"
+            tag="h4"
+            class="location-info__copy-subtitle"
+          ></aus-typography>
+          <aus-wysiwyg
+            [embedded]="true"
+            bgColor="transparent"
+            [data]="description"
+          ></aus-wysiwyg>
+          <div class="location-info__btns">
+            <aus-button
+              variant="red"
+              [href]="btnQuoteUrl"
+              text="Request a Quote"
+            ></aus-button>
+            <aus-button
+              variant="outline"
+              [href]="btnSupportUrl"
+              text="Contact Local Support"
+            ></aus-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="location-info__media"
+    [ngClass]="{
+      'location-info__media--grid': type === 'grid'
+    }"
+  >
+    <div class="location-info__media-inner">
+      <aus-image
+        *ngFor="let img of images"
+        variant="background"
+        altText="Location image"
+        [src]="img"
+        [roundedCorners]="{
+          bottomRight: 0,
+          topRight: 0,
+          topLeft: 0,
+          bottomLeft: 0
+        }"
+        [backgroundDimensions]="{
+          mobile: {
+            width: '100%',
+            height: '100%'
+          },
+          tablet: {
+            width: '100%',
+            height: '100%'
+          },
+          desktop: {
+            width: '100%',
+            height: '100%'
+          }
+        }"
+      ></aus-image>
+    </div>
+  </div>
+</section>

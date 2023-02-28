@@ -1,0 +1,50 @@
+<div
+  #wrapper
+  class="tabs"
+  [ngClass]="{
+    'tabs--initialized': didFinishLayout,
+    'tabs--overflown': isOverflown
+  }"
+>
+  <ul class="tabs__list" #list [attr.aria-hidden]="isOverflown" role="tablist">
+    <li
+      role="tab"
+      class="tabs__item"
+      *ngFor="let category of categories; let i = index"
+      [ngClass]="{
+        'tabs__item--active': i === activeIdx
+      }"
+      [attr.aria-selected]="i === activeIdx"
+    >
+      <button (click)="selectCategory(i)" [disabled]="isOverflown">
+        <aus-typography [text]="category"></aus-typography>
+      </button>
+    </li>
+  </ul>
+  <div class="tabs__dropdown" *ngIf="isOverflown">
+    <label [for]="name" class="tabs__dropdown-content">
+      <span #placeholder aria-hidden="true">{{ categories[activeIdx] }}</span>
+      <select
+        [id]="name"
+        [name]="name"
+        [attr.aria-label]="name"
+        [disabled]="!!disabled"
+        (change)="onDropdownSelect($event)"
+        #dropdown
+      >
+        <option *ngIf="dropdownPlaceholder" selected disabled value="">
+          {{ dropdownPlaceholder }}
+        </option>
+        <option
+          *ngFor="let category of categories; let i = index"
+          [selected]="i === activeIdx"
+          [value]="category"
+          #option
+        >
+          {{ category }}
+        </option>
+      </select>
+      <aus-icon name="arrow" [fontSize]="15"></aus-icon>
+    </label>
+  </div>
+</div>

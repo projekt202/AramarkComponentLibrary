@@ -1,0 +1,70 @@
+@import "styles";
+
+.related-post {
+  padding-top: 52px;
+  padding-bottom: 43px;
+  @include iota-breakpoint(lg) {
+    padding-bottom: 39px;
+  }
+  ::ng-deep {
+    @include iota-breakpoint(md) {
+      aus-article-card {
+        height: 100%;
+        display: block;
+        .article-card,
+        .article-card > a {
+          height: 100%;
+        }
+      }
+    }
+    .article-card {
+      height: 100%;
+      &__wrapper {
+        height: 100%;
+      }
+      &__title * {
+        font-size: 27px;
+        line-height: 32px;
+        letter-spacing: -0.01em;
+      }
+    }
+    .o-grid__col {
+      margin-bottom: 16px;
+      @include iota-breakpoint(lg) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  &__header {
+    margin-bottom: 32px;
+  }
+  &__carousel {
+    margin: 0 -8px;
+    @include iota-breakpoint(xl) {
+      margin: 0 -10px;
+    }
+    ::ng-deep {
+      .swiper-slide {
+        height: 100% !important;
+      }
+    }
+  }
+  &__slide {
+    height: 100%;
+    padding: 0 8px;
+    @include iota-breakpoint(xl) {
+      padding: 0 10px;
+    }
+  }
+  &--bg {
+    &-white {
+      background-color: $c-white;
+    }
+    &-black {
+      background-color: $c-black;
+    }
+    &-gray {
+      background-color: $c-white-lgt;
+    }
+  }
+}

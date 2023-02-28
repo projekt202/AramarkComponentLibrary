@@ -1,0 +1,45 @@
+<section [class]="getClasses()">
+  <div class="o-container">
+    <div class="o-grid o-grid--center">
+      <div class="o-grid__col u-8/12@xl u-4/6@sm">
+        <div *ngIf="author.image" class="author-image-wrapper">
+          <img
+            class="author-image"
+            [lazyLoad]="author.image"
+            [alt]="'Picture of ' + author.name"
+          />
+        </div>
+        <aus-typography
+          class="author-name"
+          [text]="author.name"
+          variant="h5"
+          weight="500"
+        >
+        </aus-typography>
+        <aus-typography
+          class="author-title"
+          *ngIf="author.title"
+          [text]="author.title"
+          variant="span"
+        >
+        </aus-typography>
+        <aus-typography
+          class="author-location"
+          *ngIf="author.location"
+          [text]="author.location"
+          variant="span"
+        >
+        </aus-typography>
+        <blockquote>
+          <aus-typography
+            class="quote-text"
+            [text]="quoteText"
+            variant="h4"
+            tag="p"
+          >
+          </aus-typography>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>

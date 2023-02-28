@@ -1,0 +1,35 @@
+@import "styles";
+
+.location-search {
+  width: 100%;
+  background-color: $c-white;
+  &__error {
+    padding: 32px 0;
+    text-align: center;
+    background-color: $c-white-lgt;
+    &-inner {
+      margin: 0 auto;
+      max-width: 550px;
+    }
+    &-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $c-blue-drk;
+      border-radius: 10px;
+      margin: 0 auto;
+      padding: 8px;
+      height: 40px;
+      width: 40px;
+      @include iota-breakpoint(md) {
+        padding: 10px;
+        height: 60px;
+        width: 60px;
+      }
+    }
+    &-title {
+      display: block;
+      margin: 32px 0 10px 0;
+    }
+  }
+}

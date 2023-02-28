@@ -1,0 +1,97 @@
+@import "styles";
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  &__arrow {
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    transition: all 0.25s;
+    border-radius: 15px;
+    border: 2px solid transparent;
+    span {
+      color: $c-black;
+      transition: color 0.25s;
+    }
+    &:hover {
+      span {
+        color: $c-red;
+      }
+    }
+    &:focus-visible {
+      border: 1px solid $c-red;
+      outline: rgba($c-red, 0.4) solid 4px;
+    }
+    &--prev {
+      transform: scaleX(-1);
+    }
+    &--disabled {
+      pointer-events: none;
+      span {
+        color: $c-gray;
+      }
+    }
+  }
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  &__item {
+    &-page {
+      font-family: $font-main;
+      font-size: 18px;
+      line-height: 20px;
+      font-weight: 700;
+      color: $c-black;
+      width: 30px;
+      height: 30px;
+      padding-top: 2px;
+      border-radius: 15px;
+      border: 2px solid transparent;
+      transition: all 0.25s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+      background: none;
+      outline: none;
+      &:hover {
+        border-color: $c-red;
+      }
+      &:focus-visible {
+        box-shadow: 0 0 0 4px rgba($c-red, 0.4);
+        border: 1px solid $c-red;
+      }
+      &--active {
+        color: $c-white;
+        background-color: $c-red;
+        border: 0;
+      }
+    }
+  }
+  &--disabled {
+    pointer-events: none;
+    .pagination {
+      &__arrow {
+        span {
+          color: $c-gray;
+        }
+      }
+      &__item {
+        &-page {
+          color: $c-gray;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,117 @@
+@import "styles";
+
+.input {
+  border: 0;
+  position: relative;
+  &__label {
+    margin-bottom: 5px;
+    display: block;
+    ::ng-deep {
+      .typography {
+        font-weight: 500;
+      }
+    }
+    &-main {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    &-required-mark {
+      ::ng-deep {
+        .typography {
+          color: $c-red;
+          margin-left: 3px;
+        }
+      }
+    }
+    &-subtitle {
+      ::ng-deep {
+        .typography {
+          color: $c-gray-drk;
+          font-size: 12px !important;
+          line-height: 20px !important;
+        }
+      }
+    }
+  }
+  &__control {
+    width: 100%;
+    color: $c-black;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 15px;
+    border-radius: 5px;
+    font-family: $font-main;
+    background-color: $c-white;
+    border: 1px solid $c-gray-med;
+    transition: all 0.25s;
+    &::placeholder {
+      font-weight: 300;
+      color: $c-white-drk;
+    }
+    &:focus {
+      outline: none;
+      border-color: $c-black;
+      box-shadow: 0 0 0 4px rgba($c-black, 0.4);
+    }
+    &.ng-dirty:invalid,
+    &.ng-dirty.ng-invalid,
+    &.ng-touched.ng-invalid,
+    &.ng-touched.invalid {
+      border-color: $c-red;
+      box-shadow: none;
+      &:focus {
+        box-shadow: 0 0 0 4px rgba($c-red, 0.4);
+      }
+      & + .input__error {
+        display: flex;
+      }
+    }
+    &--textarea {
+      resize: none;
+      height: 80px;
+    }
+  }
+  &__error {
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 6px 8px 0 8px;
+    pointer-events: none;
+    transition: all 0.25s;
+    &-icon {
+      width: 13px;
+      height: 13px;
+      min-width: 13px;
+      min-height: 13px;
+      display: flex;
+      border-radius: 100%;
+      align-items: center;
+      justify-content: center;
+      background-color: $c-red;
+      margin-right: 8px;
+    }
+    ::ng-deep {
+      .typography {
+        color: $c-red;
+        @include iota-type(
+          (
+            null: (
+              10px,
+              12px,
+            ),
+          )
+        );
+      }
+    }
+  }
+  &--disabled {
+    pointer-events: none;
+    .input {
+      &__control {
+        border-color: $c-white-lgt;
+        background-color: $c-white-lgt;
+      }
+    }
+  }
+}

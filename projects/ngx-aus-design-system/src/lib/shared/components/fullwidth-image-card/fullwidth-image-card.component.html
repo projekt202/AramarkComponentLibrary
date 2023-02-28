@@ -1,0 +1,46 @@
+<article class="fw-image-card">
+  <a *ngIf="cta" [href]="cta.config.url" class="fw-image-card__link-wrapper">
+    <ng-template [ngTemplateOutlet]="content"></ng-template>
+  </a>
+  <ng-container *ngIf="!cta">
+    <ng-template [ngTemplateOutlet]="content"></ng-template>
+  </ng-container>
+</article>
+
+<ng-template #content>
+  <div class="fw-image-card__img" [lazyLoad]="imgUrl" aria-hidden="true"></div>
+  <div class="fw-image-card__main">
+    <aus-typography
+      variant="h5"
+      [text]="title"
+      class="fw-image-card__title"
+    ></aus-typography>
+    <aus-typography
+      *ngIf="subtitle"
+      variant="p-md"
+      [text]="subtitle"
+      class="fw-image-card__subtitle"
+    ></aus-typography>
+    <aus-typography
+      *ngIf="text"
+      variant="p-sm"
+      [text]="text"
+      class="fw-image-card__text"
+    ></aus-typography>
+    <div *ngIf="cta" class="fw-image-card__cta">
+      <aus-typography
+        *ngIf="cta.variant === 'link'"
+        variant="a-accent"
+        [text]="cta.config.title"
+        [href]="cta.config.url"
+      ></aus-typography>
+      <aus-arrow-link
+        *ngIf="cta.variant === 'arrow-link'"
+        [underline]="cta.config.underline"
+        [title]="cta.config.title"
+        [url]="cta.config.url"
+        [target]="cta.config.target || '_self'"
+      ></aus-arrow-link>
+    </div>
+  </div>
+</ng-template>

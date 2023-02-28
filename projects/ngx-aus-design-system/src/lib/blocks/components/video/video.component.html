@@ -1,0 +1,110 @@
+<section
+  class="video"
+  [ngClass]="{
+    'video--top-white': topBackground === 'white',
+    'video--top-black': topBackground === 'black',
+    'video--top-gray': topBackground === 'gray',
+    'video--bottom-white': bottomBackground === 'white',
+    'video--bottom-black': bottomBackground === 'black',
+    'video--bottom-gray': bottomBackground === 'gray'
+  }"
+>
+  <div class="video__bg video__bg--top" aria-hidden="true">&nbsp;</div>
+  <div class="video__bg video__bg--bottom" aria-hidden="true">&nbsp;</div>
+  <div class="o-container video__main">
+    <div class="o-grid o-grid--center">
+      <div *ngIf="!!title" class="o-grid__col">
+        <div
+          class="video__title"
+          [ngClass]="{
+            'video__title--italics': italics
+          }"
+        >
+          <aus-typography [text]="title" variant="h4"></aus-typography>
+        </div>
+      </div>
+      <div
+        class="o-grid__col u-10/12@md u-8/12@xl"
+        [ngClass]="getAspectRatioClass()"
+      >
+        <div class="video__wrapper">
+          <button
+            *ngIf="
+              (autoplay && !loop) ||
+              (youtubeId && !autoplay) ||
+              brandFolderIframeId
+                ? false
+                : !didClickPlay
+            "
+            class="video__btn-play"
+            (click)="play()"
+          >
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M15.15 28.5L28.5 20L15.15 11.5V28.5ZM20 40C17.27 40 14.68 39.48 12.25 38.42C9.82 37.37 7.69 35.94 5.87 34.12C4.05 32.3 2.62 30.18 1.57 27.74C0.52 25.31 0 22.72 0 19.99C0 17.26 0.53 14.62 1.57 12.19C2.62 9.75998 4.05 7.63998 5.87 5.83998C7.69 4.03998 9.81 2.61998 12.25 1.55998C14.68 0.50998 17.27 -0.0200195 20 -0.0200195C22.73 -0.0200195 25.37 0.50998 27.8 1.54998C30.23 2.59998 32.35 4.02998 34.15 5.82998C35.95 7.62998 37.38 9.74998 38.43 12.18C39.48 14.61 40.01 17.21 40.01 19.98C40.01 22.75 39.49 25.3 38.43 27.73C37.38 30.16 35.95 32.29 34.15 34.11C32.35 35.93 30.23 37.36 27.8 38.41C25.37 39.46 22.77 39.99 20 39.99V40ZM20 37C24.73 37 28.75 35.34 32.05 32.03C35.35 28.71 37 24.7 37 20C37 15.3 35.35 11.25 32.05 7.94998C28.75 4.64998 24.73 2.99998 20 2.99998C15.27 2.99998 11.29 4.64998 7.98 7.94998C4.66 11.25 3 15.27 3 20C3 24.73 4.66 28.71 7.98 32.03C11.3 35.35 15.31 37 20 37Z"
+                fill="white"
+              />
+            </svg>
+            <aus-typography variant="p-md" text="Watch Video"></aus-typography>
+          </button>
+          <video
+            *ngIf="src"
+            class="video__media"
+            #video
+            [src]="src"
+            [muted]="muted"
+            [controls]="loop || !autoplay ? false : controls"
+            [autoplay]="autoplay"
+          ></video>
+          <youtube-player
+            *ngIf="youtubeId"
+            class="video__media"
+            [videoId]="getYoutubeId()"
+            (ready)="onReady($event)"
+            (stateChange)="onStateChange($event)"
+            [playerVars]="{
+              autoplay: autoplay ? 1 : 0,
+              controls: controls && !loop ? 1 : 0
+            }"
+            [ngStyle]="{
+              pointerEvents: (loop && didClickPlay) || !loop ? 'all' : 'none'
+            }"
+          ></youtube-player>
+          <iframe
+            *ngIf="brandFolderIframeId"
+            class="video__media"
+            [src]="sanitize(brandFolderIframeId)"
+            [title]="title"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div *ngIf="!!videoDescription" class="video__description">
+          <button
+            #tooltip="tippy"
+            trigger="manual"
+            maxWidth="340px"
+            [className]="getPopupClasses()"
+            placement="bottom"
+            (click)="tooltip.show()"
+            [tippy]="videoDescription"
+            class="video__description-btn"
+            trigger="mouseenter"
+          >
+            <aus-typography
+              variant="p-sm"
+              text="Video description"
+            ></aus-typography>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

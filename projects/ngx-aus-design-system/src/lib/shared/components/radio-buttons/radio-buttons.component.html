@@ -1,0 +1,14 @@
+<fieldset class="radio-buttons">
+  <div class="radio-buttons__inner">
+    <div class="radio-buttons__option" *ngFor="let option of options">
+      <input
+        type="text"
+        type="radio"
+        [id]="option"
+        (change)="onChange(option)"
+        [checked]="option === selection"
+      />
+      <label [for]="option">{{ option }}</label>
+    </div>
+  </div>
+</fieldset>

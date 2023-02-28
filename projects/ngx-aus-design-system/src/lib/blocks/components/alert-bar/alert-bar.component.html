@@ -1,0 +1,31 @@
+<div
+  class="alert"
+  [ngClass]="{
+    'is-active': isActive && didLoadData
+  }"
+>
+  <div class="o-container">
+    <div class="o-grid">
+      <div class="o-grid__col">
+        <div class="alert__inner">
+          <button
+            class="alert__close"
+            aria-label="Close cookies banner"
+            (click)="close()"
+          >
+            <span></span><span></span>
+          </button>
+          <aus-wysiwyg
+            [data]="text"
+            [fullwidth]="true"
+            bgColor="transparent"
+            [embedded]="true"
+          ></aus-wysiwyg>
+          <button class="alert__accept" (click)="accept()">
+            <aus-typography [text]="btn" variant="p-md"></aus-typography>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

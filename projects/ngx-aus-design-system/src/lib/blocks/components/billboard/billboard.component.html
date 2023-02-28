@@ -1,0 +1,49 @@
+<div class="o-container">
+  <div class="o-grid">
+    <div class="o-grid__col">
+      <section [class]="getClasses()">
+        <div
+          class="billboard--image"
+          [lazyLoad]="imgUrl"
+          aria-hidden="true"
+        ></div>
+        <div class="billboard--text">
+          <aus-icon
+            *ngIf="iconName"
+            class="icon"
+            [name]="iconName"
+            [variant]="iconVariant"
+          >
+          </aus-icon>
+          <aus-typography class="header" [text]="header" variant="h4">
+          </aus-typography>
+          <aus-typography
+            *ngIf="bodyText"
+            class="body-text"
+            [text]="bodyText"
+            variant="p"
+          >
+          </aus-typography>
+          <div class="billboard__btn" *ngIf="btn">
+            <aus-button
+              *ngIf="btn.href"
+              [text]="btn.text"
+              [variant]="btn.variant"
+              [href]="btn.href"
+              [target]="btn.target || '_self'"
+              [origin]="btn.origin"
+            ></aus-button>
+            <aus-button
+              *ngIf="btn.route"
+              [text]="btn.text"
+              [variant]="btn.variant"
+              [route]="btn.route"
+              [target]="btn.target || '_self'"
+              [origin]="btn.origin"
+            ></aus-button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

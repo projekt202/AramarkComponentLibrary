@@ -1,0 +1,408 @@
+@import "styles";
+
+.product-card {
+  &__preview {
+    padding: 15px;
+    height: 156px;
+    position: relative;
+    border-radius: 10px;
+    background-color: $c-white-lgt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    @include iota-breakpoint(lg) {
+      height: 200px;
+    }
+    @include iota-breakpoint(xl) {
+      height: 300px;
+      padding: 32px;
+    }
+  }
+  &__tag {
+    top: 0;
+    right: 0;
+    z-index: 1;
+    position: absolute;
+    display: inline-block;
+    background-color: $c-red;
+    padding: 4px 6px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    pointer-events: none;
+    @include iota-breakpoint(xl) {
+      padding: 8px 12px;
+    }
+    ::ng-deep {
+      span.typography {
+        color: $c-white;
+        font-weight: 500;
+        @include iota-type(
+          (
+            null: (
+              12px,
+              12px,
+            ),
+            md: (
+              14px,
+              14px,
+            ),
+          )
+        );
+      }
+    }
+  }
+  &__img {
+    max-height: 100%;
+    max-width: 100%;
+    transition: all 0.25s;
+    opacity: 0;
+    &.ng-lazyloaded {
+      opacity: 1;
+    }
+  }
+  &__copy {
+    padding-top: 12px;
+    text-align: center;
+    background-color: $c-white;
+    @include iota-breakpoint(lg) {
+      padding-top: 25px;
+    }
+    &-cta {
+      border: 0;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+      background: transparent;
+      ::ng-deep {
+        .typography {
+          margin-top: 5px;
+          font-size: 18px;
+          line-height: 25px;
+          color: $c-red;
+          font-weight: 500;
+          text-decoration: underline;
+          transition: all 0.25s;
+          @include iota-type(
+            (
+              null: (
+                16px,
+                21px,
+              ),
+              md: (
+                18px,
+                25px,
+              ),
+            )
+          );
+          &:hover {
+            color: $c-red-drk;
+          }
+        }
+      }
+    }
+  }
+  &__color {
+    &-selector {
+      margin: -3px;
+      margin-top: 7px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 1px;
+    }
+    &-option {
+      cursor: pointer;
+      width: 25px;
+      height: 25px;
+      border-radius: 100%;
+      padding: 0;
+      margin: 3px;
+      border: 3px solid $c-white;
+      box-sizing: border-box;
+      @include iota-breakpoint(lg) {
+        width: 35px;
+        height: 35px;
+        border-width: 4px;
+      }
+    }
+  }
+}
+
+@mixin product-modal-base {
+  width: 100%;
+  padding: 50px 16px 16px 16px;
+  position: relative;
+  border-radius: 10px;
+  background-color: $c-white;
+  @include iota-breakpoint(md) {
+    padding: 60px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  @include iota-breakpoint(lg) {
+    flex-wrap: nowrap;
+  }
+  &__btn-close {
+    top: 16px;
+    right: 16px;
+    z-index: 1;
+    border: 0;
+    padding: 0;
+    position: absolute;
+    cursor: pointer;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    @include iota-breakpoint(md) {
+      top: 25px;
+      right: 25px;
+    }
+    &-lines {
+      height: 18px;
+      width: 18px;
+      position: relative;
+      @include iota-breakpoint(md) {
+        margin-right: 10px;
+        height: 30px;
+        width: 30px;
+      }
+      span {
+        transition: all 0.25s;
+        height: 2px;
+        width: 18px;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color: $c-black;
+        @include iota-breakpoint(md) {
+          width: 30px;
+          height: 3px;
+        }
+        &:first-child {
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+        &:last-child {
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+      }
+    }
+  }
+  &__preview {
+    @include iota-breakpoint(md) {
+      width: 45%;
+    }
+  }
+  &__img-container {
+    padding: 25px;
+    border-radius: 10px;
+    background-color: $c-white-lgt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    @include iota-breakpoint(lg) {
+      padding: 50px;
+    }
+  }
+  &__img {
+    height: 0;
+    width: 100%;
+    padding-top: 100%;
+    opacity: 0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    &.ng-lazyloaded {
+      opacity: 1;
+    }
+  }
+  &__info {
+    padding-top: 20px;
+    @include iota-breakpoint(md) {
+      padding-left: 50px;
+    }
+    div {
+      & + div {
+        margin-top: 26px;
+      }
+    }
+    &-intro {
+      margin-bottom: 18px;
+      @include iota-breakpoint(lg) {
+        margin-bottom: 48px;
+      }
+    }
+    ::ng-deep {
+      h2 {
+        margin-bottom: 10px;
+        @include iota-type(
+          (
+            null: (
+              30px,
+              35px,
+            ),
+            lg: (
+              47px,
+              51px,
+            ),
+          )
+        );
+      }
+      .typography {
+        hyphens: auto;
+      }
+      .button {
+        margin-top: 36px;
+        @include iota-breakpoint(lg) {
+          margin-top: 0;
+        }
+      }
+    }
+    @include iota-breakpoint(md) {
+      width: 55%;
+    }
+  }
+  &__color {
+    &-name {
+      right: 10px;
+      bottom: 10px;
+      position: absolute;
+      white-space: nowrap;
+      @include iota-breakpoint(md) {
+        right: 15px;
+        bottom: 15px;
+      }
+      ::ng-deep {
+        .typography {
+          @include iota-type(
+            (
+              null: (
+                14px,
+                14px,
+              ),
+              md: (
+                16px,
+                16px,
+              ),
+              lg: (
+                18px,
+                18px,
+              ),
+            )
+          );
+        }
+      }
+    }
+    &-selector {
+      padding-top: 10px;
+      @include iota-breakpoint(lg) {
+        padding-top: 28px;
+      }
+    }
+    &-option {
+      margin: 4px auto;
+      border: 0;
+      height: 120px;
+      width: 95%;
+      display: block;
+      cursor: pointer;
+      border-radius: 10px;
+      background-color: $c-white-lgt;
+      border: 1px solid $c-white-lgt;
+      position: relative;
+      box-sizing: border-box;
+      @include iota-breakpoint(lg) {
+        height: 150px;
+      }
+      div {
+        top: 50%;
+        left: 50%;
+        width: 90%;
+        height: 90%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+      &--active {
+        border-color: $c-gray-txt-drk;
+      }
+    }
+  }
+  &__btn {
+    width: 100%;
+    display: block;
+    @include iota-breakpoint(lg) {
+      width: auto;
+      display: inline-block;
+    }
+    ::ng-deep {
+      a {
+        width: 100%;
+        @include iota-breakpoint(lg) {
+          width: auto;
+        }
+      }
+    }
+  }
+  &__legal {
+    display: block;
+    margin-top: 16px;
+    @include iota-breakpoint(md) {
+      margin-top: 18px;
+    }
+    @include iota-breakpoint(lg) {
+      margin-top: 36px;
+    }
+    ::ng-deep {
+      .typography {
+        font-style: italic;
+        @include iota-type(
+          (
+            null: (
+              12px,
+              16px,
+            ),
+            md: (
+              14px,
+              25px,
+            ),
+          )
+        );
+        a {
+          color: $c-red;
+          &:hover {
+            color: $c-red-drk;
+          }
+        }
+      }
+    }
+  }
+  &__cta-desktop {
+    display: none;
+    @include iota-breakpoint(lg) {
+      display: block;
+      margin-top: 36px !important;
+    }
+  }
+  &__cta-mobile {
+    width: 100%;
+    margin-top: 16px;
+    @include iota-breakpoint(md) {
+      margin-top: 35px;
+    }
+    @include iota-breakpoint(lg) {
+      display: none;
+    }
+  }
+}
+
+.product-modal {
+  @include product-modal-base();
+}

@@ -1,0 +1,636 @@
+@import "styles";
+
+.call-to-action-text {
+  overflow: hidden;
+  position: relative;
+  background-color: white;
+  color: black;
+  .body-text {
+    display: block;
+  }
+  .pre-header ::ng-deep > *,
+  .body-text ::ng-deep > * {
+    color: $c-gray-txt-lgt;
+  }
+  .header ::ng-deep > * {
+    color: $c-black;
+    @media screen and (max-width: 768px) {
+      color: $c-black !important;
+    }
+  }
+  .header.italics ::ng-deep > * {
+    font-style: italic;
+  }
+  &.type--dark {
+    background-color: black;
+    color: white;
+    .pre-header ::ng-deep > *,
+    .body-text ::ng-deep > * {
+      color: $c-gray-txt-drk;
+    }
+    .header ::ng-deep > *,
+    #ctatext-title ::ng-deep > * {
+      color: $c-white;
+      @media screen and (max-width: 768px) {
+        color: $c-white !important;
+      }
+    }
+  }
+  &__wrapper {
+    position: relative;
+    z-index: 1;
+  }
+  &__logo {
+    position: absolute;
+    z-index: 1;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    &-inner {
+      text-align: center;
+      @include iota-breakpoint(md) {
+        text-align: left;
+      }
+    }
+    ::ng-deep {
+      a,
+      aus-image {
+        width: 95px;
+        height: 24px;
+        display: inline-block;
+        @include iota-breakpoint(md) {
+          width: 138px;
+          height: 35px;
+        }
+      }
+    }
+  }
+  &__bg-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    max-height: 315px;
+    pointer-events: none;
+    @include iota-breakpoint(md) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      max-height: 100%;
+      margin-bottom: 0;
+      background-size: cover;
+      background-position: center top;
+    }
+    .lazy-bg-img {
+      object-position: center top;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40%;
+      pointer-events: none;
+      @include iota-breakpoint(md) {
+        display: none;
+      }
+    }
+  }
+  &.variant {
+    &--with-body-text {
+      padding: 130px 0 114.5px;
+      aus-typography {
+        display: block;
+        margin-bottom: 24px;
+      }
+      aus-button {
+        display: block;
+      }
+    }
+    &--without-body-text {
+      padding: 80px 0;
+      aus-icon {
+        display: inline-block;
+        margin-bottom: 16px;
+      }
+      aus-typography {
+        display: block;
+        margin-bottom: 15px;
+      }
+      aus-button {
+        display: block;
+        margin-top: 32px;
+      }
+    }
+    &--bg-img {
+      position: relative;
+      padding: 150px 0 60px 0;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      @include iota-breakpoint(md) {
+        padding: 65px 0;
+        background-size: cover;
+        background-position: center bottom;
+      }
+      @include iota-breakpoint(lg) {
+        padding: 140px 0;
+        background-size: 1366px auto;
+      }
+      .lazy-bg-img {
+        object-position: center bottom;
+      }
+      .call-to-action-text {
+        &__content {
+          @include iota-breakpoint(md) {
+            margin: 0 auto;
+            width: 70%;
+            max-width: 640px;
+          }
+          @include iota-breakpoint(lg) {
+            width: 60%;
+          }
+        }
+      }
+      .pre-header {
+        ::ng-deep > * {
+          font-weight: 700;
+          display: block;
+          padding-bottom: 24px;
+          @include iota-type(
+            (
+              null: (
+                16px,
+                23px,
+              ),
+              md: (
+                20px,
+                26px,
+              ),
+            )
+          );
+        }
+        &.italics {
+          ::ng-deep > * {
+            font-style: italic;
+          }
+        }
+      }
+      .body-text {
+        ::ng-deep > * {
+          margin: 24px 0;
+          @include iota-type(
+            (
+              null: (
+                18px,
+                25px,
+              ),
+              lg: (
+                20px,
+                27px,
+              ),
+            )
+          );
+        }
+      }
+      &.type--dark {
+        .call-to-action-text {
+          &__bg-img {
+            &:after {
+              background-image: linear-gradient(
+                to top,
+                $c-black 10%,
+                rgba($c-black, 0)
+              ) !important;
+              @include iota-breakpoint(md) {
+                height: 130px;
+                background-image: linear-gradient(
+                  to top,
+                  $c-black 30%,
+                  rgba($c-black, 0)
+                ) !important;
+              }
+            }
+          }
+        }
+        .pre-header ::ng-deep > * {
+          color: $c-white;
+          @media screen and (max-width: 768px) {
+            color: $c-white !important;
+          }
+        }
+        .body-text ::ng-deep > * {
+          color: $c-white;
+          @media screen and (max-width: 768px) {
+            color: $c-white !important;
+          }
+        }
+      }
+      &.type--light {
+        .call-to-action-text {
+          &__bg-img {
+            &:after {
+              background-image: linear-gradient(
+                to top,
+                $c-white 10%,
+                rgba($c-white, 0)
+              );
+              @include iota-breakpoint(md) {
+                background-image: linear-gradient(
+                  to top,
+                  $c-white 30%,
+                  rgba($c-white, 0)
+                );
+              }
+            }
+          }
+        }
+        .pre-header ::ng-deep > * {
+          color: $c-black;
+          @media screen and (max-width: 768px) {
+            color: $c-black !important;
+          }
+        }
+        .body-text ::ng-deep > * {
+          color: $c-black;
+          @media screen and (max-width: 768px) {
+            color: $c-black !important;
+          }
+        }
+      }
+      &.alignment {
+        &--left,
+        &--left-alt,
+        &--right-alt,
+        &--center-alt {
+          @include iota-breakpoint(md) {
+            padding: 120px 0;
+          }
+          @include iota-breakpoint(md) {
+            padding: 140px 0;
+          }
+          .call-to-action-text {
+            &__content {
+              @include iota-breakpoint(lg) {
+                margin: 0;
+                text-align: left;
+              }
+            }
+          }
+          .btns {
+            @include iota-breakpoint(lg) {
+              justify-content: flex-start;
+            }
+            ::ng-deep {
+              .button {
+                @include iota-breakpoint(lg) {
+                  padding-left: 50px;
+                  padding-right: 50px;
+                }
+                @include iota-breakpoint(xl) {
+                  padding-left: 70px;
+                  padding-right: 70px;
+                }
+              }
+            }
+          }
+          &.type--dark,
+          &.type--light {
+            position: relative;
+            &:after {
+              @include iota-breakpoint(lg) {
+                content: "";
+                top: 0;
+                left: 0;
+                width: 70%;
+                height: 100%;
+                position: absolute;
+              }
+            }
+          }
+          &.type--dark {
+            &:after {
+              @include iota-breakpoint(lg) {
+                background-image: linear-gradient(
+                  to right,
+                  rgba($c-black, 0.85),
+                  rgba($c-black, 0.5),
+                  transparent
+                );
+              }
+            }
+          }
+          &.type--light {
+            &:after {
+              @include iota-breakpoint(lg) {
+                background-image: linear-gradient(
+                  to right,
+                  rgba($c-white, 0.85),
+                  rgba($c-white, 0.5),
+                  transparent
+                );
+              }
+            }
+          }
+        }
+        &--left-alt,
+        &--right-alt,
+        &--center-alt {
+          position: relative;
+          padding: 80px 0;
+          @include iota-breakpoint(md) {
+            padding: 180px 0;
+          }
+          .call-to-action-text {
+            &__logo-inner {
+              text-align: left;
+            }
+            &__content {
+              text-align: center;
+              width: 100%;
+              max-width: 100%;
+              @include iota-breakpoint(lg) {
+                width: 60%;
+                max-width: 640px;
+                text-align: left;
+              }
+            }
+            &__bg-img {
+              background-size: cover;
+              height: 100%;
+              max-height: 100%;
+              &:after {
+                height: 100%;
+                background: rgba($c-white, 0.5);
+              }
+            }
+          }
+          &.type--light,
+          &.type--dark {
+            &::before {
+              @include iota-breakpoint(md) {
+                content: "";
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                position: absolute;
+                pointer-events: none;
+              }
+              @include iota-breakpoint(lg) {
+                display: none;
+              }
+            }
+          }
+          &.type--light {
+            .call-to-action-text__bg-img:after {
+              @media screen and (max-width: 768px) {
+                background: rgba($c-white, 0.5);
+              }
+            }
+            &::before {
+              background-image: linear-gradient(
+                to top,
+                rgba($c-white, 0.85),
+                rgba($c-white, 0.5),
+                transparent
+              );
+            }
+          }
+          &.type--dark {
+            .call-to-action-text__bg-img:after {
+              @media screen and (max-width: 768px) {
+                background: rgba($c-black, 0.5);
+                background-image: none !important;
+              }
+            }
+            &::before {
+              background-image: linear-gradient(
+                to top,
+                rgba($c-black, 0.85),
+                rgba($c-black, 0.5),
+                transparent
+              );
+            }
+          }
+          .o-container {
+            text-align: left;
+          }
+          .btns {
+            @include iota-breakpoint(lg) {
+              justify-content: flex-start;
+            }
+          }
+        }
+        &--right-alt {
+          .call-to-action-text {
+            &__content {
+              @include iota-breakpoint(lg) {
+                text-align: right;
+                margin: 0 0 0 auto;
+              }
+            }
+          }
+          .btns {
+            @include iota-breakpoint(lg) {
+              justify-content: flex-end;
+            }
+          }
+          &.variant--bg-img::after {
+            @include iota-breakpoint(lg) {
+              right: 0 !important;
+              left: auto !important;
+              transform: scaleX(-1);
+            }
+          }
+        }
+        &--center-alt {
+          .call-to-action-text {
+            &__content {
+              @include iota-breakpoint(lg) {
+                width: 100%;
+                max-width: 100%;
+                text-align: center;
+                margin: 0 auto;
+              }
+            }
+          }
+          .btns {
+            margin-top: 32px;
+            @include iota-breakpoint(lg) {
+              justify-content: center;
+            }
+          }
+          &.variant--bg-img {
+            &::after {
+              @include iota-breakpoint(lg) {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            &.type--dark::after {
+              background: linear-gradient(
+                180deg,
+                rgba($c-black, 0) 28.88%,
+                rgba($c-black, 0.5) 55.99%
+              );
+            }
+            &.type--light::after {
+              background: linear-gradient(
+                180deg,
+                rgba($c-white, 0) 28.88%,
+                rgba($c-white, 0.5) 55.99%
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+  &.parallax {
+    &.alignment--left,
+    &.alignment--center {
+      .call-to-action-text {
+        &__bg-img {
+          @include iota-breakpoint(md) {
+            height: 125% !important;
+          }
+          &:after {
+            @include iota-breakpoint(md) {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    &.alignment--left-alt,
+    &.alignment--right-alt,
+    &.alignment--center-alt {
+      .call-to-action-text {
+        &__bg-img {
+          @include iota-breakpoint(md) {
+            height: 125% !important;
+          }
+          &:after {
+            @media screen and (max-width: 768px) {
+              background: linear-gradient(
+                to top,
+                $c-white,
+                rgba($c-white, 0.5)
+              ) !important;
+            }
+            @include iota-breakpoint(md) {
+              height: 30%;
+              display: block;
+              background-color: transparent;
+            }
+          }
+        }
+      }
+      &.type--dark {
+        .call-to-action-text {
+          &__bg-img {
+            @include iota-breakpoint(md) {
+              height: 125% !important;
+            }
+            &:after {
+              @media screen and (max-width: 768px) {
+                background: linear-gradient(
+                  to top,
+                  $c-black,
+                  rgba($c-black, 0.5)
+                ) !important;
+              }
+              @include iota-breakpoint(md) {
+                background-image: linear-gradient(
+                  to top,
+                  $c-black 10%,
+                  rgba($c-black, 0)
+                );
+              }
+            }
+          }
+        }
+      }
+      &.type--light {
+        .call-to-action-text {
+          &__bg-img {
+            @include iota-breakpoint(md) {
+              height: 125% !important;
+            }
+            &:after {
+              @media screen and (max-width: 768px) {
+                background: linear-gradient(
+                  to top,
+                  $c-white,
+                  rgba($c-white, 0.5)
+                ) !important;
+              }
+              @include iota-breakpoint(md) {
+                background-image: linear-gradient(
+                  to top,
+                  $c-white 10%,
+                  rgba($c-white, 0)
+                );
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .o-container {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+  &__divider {
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $c-red;
+    height: 4px;
+    width: 192px;
+    max-width: 50%;
+  }
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 32px;
+  @include iota-breakpoint(md) {
+    flex-direction: row;
+  }
+  ::ng-deep {
+    * {
+      display: inline-flex;
+    }
+    aus-button,
+    .button {
+      width: 100%;
+      @include iota-breakpoint(md) {
+        width: auto;
+      }
+    }
+    & > * + * {
+      margin-top: 16px;
+      @include iota-breakpoint(md) {
+        margin-top: 0;
+        margin-left: 16px;
+      }
+    }
+  }
+}

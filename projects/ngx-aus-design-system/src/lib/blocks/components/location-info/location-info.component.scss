@@ -1,0 +1,99 @@
+@import "styles";
+
+.location-info {
+  position: relative;
+  padding: 25px 0;
+  @include iota-breakpoint(md) {
+    padding: 60px 0;
+  }
+  @include iota-breakpoint(lg) {
+    padding: 80px 0;
+  }
+  &__copy {
+    &-titles {
+      margin: 10px 0 30px 0;
+    }
+    &-subtitle {
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
+  &__btns {
+    margin-top: 32px;
+    ::ng-deep {
+      aus-button {
+        display: block;
+        @include iota-breakpoint(md) {
+          display: inline-block;
+        }
+        a {
+          width: 100%;
+          @include iota-breakpoint(md) {
+            width: auto;
+          }
+        }
+        & + aus-button {
+          margin-top: 12px;
+          @include iota-breakpoint(md) {
+            margin-top: 0;
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+  }
+  &__media {
+    display: none;
+    @include iota-breakpoint(lg) {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      padding-left: 130px;
+      transform: translateY(-50%);
+      width: 50vw;
+      height: calc(100% - 160px);
+    }
+    ::ng-deep {
+      aus-image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-inner {
+      @include iota-breakpoint(lg) {
+        height: 100%;
+        width: 100%;
+        border-top-left-radius: 23px;
+        border-bottom-left-radius: 23px;
+        overflow: hidden;
+      }
+    }
+    &--grid {
+      margin: -3px;
+      .location-info__media {
+        &-inner {
+          @include iota-breakpoint(lg) {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            flex-wrap: wrap;
+            ::ng-deep {
+              aus-image {
+                width: 100%;
+                height: 50%;
+                padding: 3px;
+                &:first-child,
+                &:nth-child(2) {
+                  width: 50%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

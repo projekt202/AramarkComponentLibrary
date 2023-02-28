@@ -1,0 +1,41 @@
+<section
+  class="image-card-columns"
+  [ngClass]="{
+    'image-card-columns--bg-white': bg === 'white',
+    'image-card-columns--bg-gray': bg === 'gray',
+    'image-card-columns--bg-black': bg === 'black'
+  }"
+>
+  <div class="o-container">
+    <div class="o-grid o-grid--center">
+      <div
+        class="o-grid__col"
+        [ngClass]="{
+          'u-10/12@lg u-8/12@xl': cards.length <= 2
+        }"
+      >
+        <div class="o-grid o-grid--center">
+          <div
+            *ngFor="let card of cards"
+            class="o-grid__col u-6/12@md"
+            [ngClass]="{
+              'u-4/12@lg': cards.length === 3
+            }"
+          >
+            <div class="image-card-columns__item">
+              <aus-support-card
+                [imgUrl]="card.imgUrl"
+                [icon]="card.icon"
+                [title]="card.title"
+                [pretitle]="card.pretitle"
+                [text]="card.text"
+                [btn]="card.btn"
+                [secondaryBtn]="card.secondaryBtn"
+              ></aus-support-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

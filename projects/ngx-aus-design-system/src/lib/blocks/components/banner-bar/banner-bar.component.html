@@ -1,0 +1,51 @@
+<div
+  class="banner-bar"
+  [ngClass]="{
+    'banner-bar--icon-top': iconOnTop,
+    'banner-bar--bg-white': background === 'white',
+    'banner-bar--bg-black': background === 'black',
+    'banner-bar--bg-gray': background === 'gray',
+    'banner-bar--no-card': noCard
+  }"
+>
+  <div class="o-container">
+    <div class="o-grid">
+      <div class="o-grid__col">
+        <div class="banner-bar__card">
+          <aus-icon
+            *ngIf="icon"
+            [name]="icon"
+            variant="black"
+            size="xs"
+            class="banner-bar__card-icon"
+          ></aus-icon>
+          <aus-wysiwyg
+            [fullwidth]="true"
+            [data]="content"
+            [bgColor]="
+              noCard && background === 'black' ? 'black' : 'transparent'
+            "
+            [embedded]="true"
+          ></aus-wysiwyg>
+          <aus-arrow-link
+            *ngIf="link"
+            [title]="link.title"
+            [url]="link.url"
+            [target]="link.target"
+            [underline]="link.underline"
+            class="banner-bar__card-link"
+          ></aus-arrow-link>
+          <aus-button
+            *ngIf="btn"
+            [href]="btn.url"
+            [text]="btn.title"
+            [target]="btn.target || '_self'"
+            [variant]="btn.variant || 'red'"
+            [origin]="btn.origin"
+            class="banner-bar__card-btn"
+          ></aus-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

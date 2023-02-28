@@ -1,0 +1,40 @@
+<section
+  class="billboard-carousel"
+  [ngClass]="{
+    'billboard-carousel--bg-white': variant === 'white',
+    'billboard-carousel--bg-black': variant === 'black',
+    'billboard-carousel--bg-gray': variant === 'gray'
+  }"
+>
+  <div class="o-container">
+    <div class="o-grid">
+      <div class="o-grid__col">
+        <div class="billboard-carousel__slider">
+          <aus-carousel
+            [config]="{
+              autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+              }
+            }"
+          >
+            <ng-template #slide *ngFor="let slide of slides; let i = index">
+              <div class="billboard-carousel__slide">
+                <aus-billboard
+                  [variant]="slide.variant"
+                  [type]="slide.type"
+                  [column]="slide.column"
+                  [imgUrl]="slide.imgUrl"
+                  [iconName]="slide.iconName"
+                  [header]="slide.header"
+                  [bodyText]="slide.bodyText"
+                  [btn]="slide.btn"
+                ></aus-billboard>
+              </div>
+            </ng-template>
+          </aus-carousel>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

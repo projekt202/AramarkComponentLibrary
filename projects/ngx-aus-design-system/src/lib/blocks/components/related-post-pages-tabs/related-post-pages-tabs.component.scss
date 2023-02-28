@@ -1,0 +1,70 @@
+@import "styles";
+
+.related-post-pages {
+  padding-bottom: 56px;
+  &--article {
+    margin-bottom: 36px;
+  }
+  &--tabbed {
+    padding-top: 56px;
+    padding-bottom: 32px;
+    display: block;
+  }
+  &--title {
+    margin-bottom: 32px;
+    display: block;
+  }
+  &--bg {
+    &-white {
+      background-color: $c-white;
+    }
+    &-black {
+      background-color: $c-black;
+    }
+    &-gray {
+      background-color: $c-white-lgt-alt-2;
+    }
+  }
+  &--article-card ::ng-deep .article-card {
+    &__main {
+      @include iota-breakpoint(md) {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+      }
+    }
+    &__title ::ng-deep .typography {
+      @include iota-type(
+        (
+          null: (
+            25px,
+            30px,
+          ),
+          sm: (
+            30px,
+            37px,
+          ),
+          md: (
+            30px,
+            37px,
+          ),
+          lg: (
+            40px,
+            45px,
+          ),
+        )
+      );
+    }
+    &__text {
+      @include iota-breakpoint(md) {
+        padding-bottom: 36px;
+      }
+    }
+    &__btn {
+      @include iota-breakpoint(md) {
+        margin-top: auto;
+      }
+    }
+  }
+}

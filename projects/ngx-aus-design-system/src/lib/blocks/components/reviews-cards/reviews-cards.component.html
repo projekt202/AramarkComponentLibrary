@@ -1,0 +1,46 @@
+<section class="reviews-cards">
+  <div class="o-container">
+    <div class="o-grid">
+      <div class="o-grid__col">
+        <div class="reviews-cards__intro">
+          <aus-typography [text]="title" variant="h5"></aus-typography>
+        </div>
+        <div class="reviews-cards__carousel">
+          <aus-carousel
+            [config]="{
+              autoHeight: false,
+              autoplay: {
+                delay: 5000,
+                disableOnInteraction: false
+              },
+              slidesPerView: 1,
+              spaceBetween: -32,
+              breakpoints: {
+                '768': {
+                  slidesPerView: 2,
+                  spaceBetween: -170
+                },
+                '1024': {
+                  slidesPerView: 3,
+                  spaceBetween: 20
+                }
+              }
+            }"
+          >
+            <ng-template #slide *ngFor="let review of reviews">
+              <div class="reviews-cards__slide">
+                <aus-customer-card
+                  [text]="review.text"
+                  [title]="review.title"
+                  [href]="review.href"
+                  [date]="review.date"
+                  [rating]="review.rating"
+                ></aus-customer-card>
+              </div>
+            </ng-template>
+          </aus-carousel>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

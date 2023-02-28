@@ -1,0 +1,102 @@
+<section
+  class="tabbed-content"
+  [ngClass]="{
+    'tabbed-content--bg-white': variant === 'white',
+    'tabbed-content--bg-black': variant === 'black',
+    'tabbed-content--bg-gray': variant === 'gray'
+  }"
+>
+  <div class="o-container">
+    <div class="o-grid">
+      <div class="o-grid__col">
+        <div class="tabbed-content__title">
+          <aus-typography [text]="title" variant="h2"></aus-typography>
+        </div>
+        <div class="tabbed-content__controls">
+          <aus-tabs
+            name="categories"
+            [categories]="categories"
+            (onSelection)="onSelectionHandler($event)"
+          ></aus-tabs>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tabbed-content__main" *ngIf="content.length" role="tabpanel">
+    <div class="o-container">
+      <div class="o-grid">
+        <div
+          class="o-grid__col"
+          [ngClass]="{
+            'u-6/12@md': layout === '50-50',
+            'u-4/12@md': layout === '2-3',
+            'u-8/12@md': layout === '3-2'
+          }"
+        >
+          <aus-wysiwyg
+            *ngIf="content[activeIdx][0].wysiwyg"
+            [data]="content[activeIdx][0].wysiwyg?.data || ''"
+            [fullwidth]="true"
+            bgColor="transparent"
+            [embedded]="true"
+          ></aus-wysiwyg>
+          <aus-image
+            *ngIf="content[activeIdx][0].image"
+            [src]="content[activeIdx][0].image?.src || ''"
+            [altText]="content[activeIdx][0].image?.altText || ''"
+          ></aus-image>
+          <div
+            *ngIf="content[activeIdx][0].products"
+            class="tabbed-content__products"
+          >
+            <aus-product-card-row
+              [products]="content[activeIdx][0].products || []"
+            ></aus-product-card-row>
+          </div>
+          <aus-fullwidth-image-card-columns
+            *ngIf="content[activeIdx][0].cards"
+            [cards]="content[activeIdx][0].cards || []"
+            [embedded]="true"
+            bg="transparent"
+          ></aus-fullwidth-image-card-columns>
+        </div>
+        <div
+          *ngIf="layout !== 'fullwidth'"
+          class="o-grid__col"
+          [ngClass]="{
+            'u-6/12@md': layout === '50-50',
+            'u-8/12@md': layout === '2-3',
+            'u-4/12@md': layout === '3-2'
+          }"
+        >
+          <aus-wysiwyg
+            *ngIf="content[activeIdx][1].wysiwyg"
+            [data]="content[activeIdx][1].wysiwyg?.data || ''"
+            [fullwidth]="true"
+            bgColor="transparent"
+            [embedded]="true"
+          ></aus-wysiwyg>
+          <aus-image
+            *ngIf="content[activeIdx][1].image"
+            [src]="content[activeIdx][1].image?.src || ''"
+            [altText]="content[activeIdx][1].image?.altText || ''"
+          ></aus-image>
+          <div
+            *ngIf="content[activeIdx][1].products"
+            class="tabbed-content__products"
+          >
+            <aus-product-card-row
+              [products]="content[activeIdx][1].products || []"
+            ></aus-product-card-row>
+          </div>
+          <aus-fullwidth-image-card-columns
+            *ngIf="content[activeIdx][1].cards"
+            [cards]="content[activeIdx][1].cards || []"
+            [embedded]="true"
+            bg="transparent"
+          ></aus-fullwidth-image-card-columns>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,78 @@
+@import "styles";
+
+.card {
+  height: 100%;
+  text-align: center;
+  border-radius: 15px;
+  padding: 24px 16px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  &__icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  &__content {
+    ::ng-deep {
+      h4 {
+        margin-bottom: 16px;
+      }
+    }
+  }
+  &__btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    margin-top: 16px;
+    ::ng-deep {
+      .button {
+        box-sizing: border-box;
+      }
+    }
+  }
+  &--white {
+    background-color: $c-white;
+  }
+  &--transparent {
+    background-color: transparent;
+    border: 1px solid $c-gray-lgt;
+  }
+  &--gray {
+    background-color: $c-white-lgt;
+  }
+  &--left-aligned {
+    border: 0;
+    padding: 0;
+    @include iota-breakpoint(md) {
+      text-align: left;
+    }
+    .card {
+      &__icon {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        @include iota-breakpoint(md) {
+          margin-left: 0;
+        }
+      }
+    }
+    &-black {
+      ::ng-deep {
+        p.typography {
+          color: $c-gray-txt-lgt;
+        }
+      }
+    }
+    &-white {
+      ::ng-deep {
+        .typography {
+          color: $c-white;
+        }
+      }
+    }
+  }
+}

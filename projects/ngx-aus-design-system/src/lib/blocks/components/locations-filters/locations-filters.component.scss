@@ -1,0 +1,145 @@
+@import "styles";
+
+.locations-filters {
+  padding: 30px 0;
+  background-color: $c-white;
+  @include iota-breakpoint(md) {
+    padding: 50px 0;
+  }
+  @include iota-breakpoint(lg) {
+    padding: 35px 0;
+  }
+  &__intro {
+    text-align: center;
+    margin-bottom: 12px;
+    @include iota-breakpoint(lg) {
+      text-align: left;
+      margin-bottom: 16px;
+    }
+  }
+  &__main {
+    @include iota-breakpoint(lg) {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+  &__address {
+    @include iota-breakpoint(md) {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex: 1;
+    }
+  }
+  &__local {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    @include iota-breakpoint(md) {
+      width: 50%;
+    }
+    @include iota-breakpoint(lg) {
+      width: 70%;
+    }
+    ::ng-deep {
+      aus-typography {
+        display: block;
+        margin: 0 8px;
+        transform: translateY(2px);
+        @include iota-breakpoint(xl) {
+          margin: 0 25px;
+        }
+      }
+      aus-input {
+        display: block;
+        &:first-child {
+          width: 20%;
+          min-width: 80px;
+          @include iota-breakpoint(md) {
+            width: auto;
+          }
+        }
+        &:last-child {
+          flex: 1;
+          @include iota-breakpoint(md) {
+            flex: auto;
+          }
+        }
+      }
+    }
+  }
+  &__state {
+    margin-top: 12px;
+    @include iota-breakpoint(md) {
+      margin-top: 0;
+      margin-left: 8px;
+      flex: 1;
+    }
+    @include iota-breakpoint(lg) {
+      margin-left: 16px;
+    }
+    ::ng-deep {
+      .button {
+        width: 50%;
+      }
+    }
+  }
+  &__cta {
+    margin-top: 12px;
+    text-align: center;
+    @include iota-breakpoint(md) {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: center;
+    }
+    @include iota-breakpoint(lg) {
+      margin-top: 0;
+      margin-left: 16px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    ::ng-deep {
+      aus-button {
+        width: 100%;
+        display: block;
+        margin-bottom: 12px;
+        @include iota-breakpoint(md) {
+          width: 290px;
+          margin: 0 auto 12px auto;
+        }
+        @include iota-breakpoint(lg) {
+          width: 100px;
+          margin: 0 26px 0 0;
+        }
+        a {
+          display: block;
+        }
+      }
+    }
+  }
+  &__cleanroom-btn {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    ::ng-deep {
+      .typography {
+        text-decoration: underline;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 25px;
+        color: $c-red;
+        &:before {
+          transform: translate(-50%, -50%);
+        }
+        &:hover {
+          color: $c-red-drk;
+        }
+      }
+    }
+  }
+}

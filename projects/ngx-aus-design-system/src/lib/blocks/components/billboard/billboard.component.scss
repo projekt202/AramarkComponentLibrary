@@ -1,0 +1,126 @@
+@import "styles";
+
+.billboard {
+  overflow: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  --header-color: #{$c-black};
+  --body-text-color: #{$c-gray-txt-lgt};
+  @include iota-breakpoint(md) {
+    display: flex;
+    flex-direction: row;
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  @include iota-breakpoint(lg) {
+    margin-top: 56px;
+    margin-bottom: 56px;
+  }
+  &.type--dark {
+    --header-color: #{$c-white};
+    --body-text-color: #{$c-gray-txt-drk};
+    .billboard--text {
+      background-color: $c-black;
+    }
+  }
+  &.variant {
+    &--right-image {
+      flex-direction: row-reverse;
+    }
+  }
+  &.column {
+    &--c50-50 {
+      .billboard {
+        &--image,
+        &--text {
+          @include iota-breakpoint(md) {
+            width: 50%;
+          }
+        }
+      }
+    }
+    &--c3-2 {
+      .billboard {
+        &--image,
+        &--text {
+          @include iota-breakpoint(md) {
+            width: 50%;
+          }
+        }
+        &--image {
+          @include iota-breakpoint(lg) {
+            width: 66.66%;
+          }
+        }
+        &--text {
+          @include iota-breakpoint(lg) {
+            width: 33.33%;
+          }
+        }
+      }
+    }
+  }
+  &--image {
+    opacity: 0;
+    width: 100%;
+    height: 250px;
+    transition: all 0.25s;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    @include iota-breakpoint(md) {
+      height: auto;
+    }
+    &.ng-lazyloaded {
+      opacity: 1;
+    }
+  }
+  &--text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $c-white;
+    padding: 24px 36px 32px 24px;
+    @include iota-breakpoint(md) {
+      padding: 41.5px 60px 41.5px 40px;
+    }
+    @include iota-breakpoint(lg) {
+      padding: 88px 40px;
+    }
+    .icon {
+      margin-bottom: 16px;
+    }
+    .header {
+      margin-bottom: 16px;
+      & ::ng-deep > * {
+        color: var(--header-color);
+        @include iota-type(
+          (
+            null: (
+              23px,
+              30px,
+            ),
+            sm: (
+              30px,
+              37px,
+            ),
+            md: (
+              40px,
+              45px,
+            ),
+          )
+        );
+      }
+    }
+    .body-text {
+      margin-bottom: 16px;
+      & ::ng-deep > * {
+        color: var(--body-text-color);
+        font-size: 18px;
+        line-height: 25px;
+      }
+    }
+  }
+}

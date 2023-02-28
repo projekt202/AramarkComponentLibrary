@@ -1,0 +1,100 @@
+@import "styles";
+
+.three-card-row {
+  overflow: hidden;
+  padding: 16px 0;
+  @include iota-breakpoint(md) {
+    padding: 32px 0;
+  }
+  @include iota-breakpoint(lg) {
+    padding: 56px 0;
+  }
+  &__title {
+    text-align: center;
+    margin-bottom: 18px;
+    @include iota-breakpoint(md) {
+      margin-bottom: 40px;
+    }
+    ::ng-deep {
+      .typography {
+        @include iota-type(
+          (
+            null: (
+              21px,
+              27px,
+            ),
+            md: (
+              40px,
+              45px,
+            ),
+          )
+        );
+      }
+    }
+  }
+  &__carousel {
+    .o-container {
+      @media screen and (max-width: 1024px) {
+        padding-left: 0;
+        padding-right: 0;
+        max-width: 100%;
+      }
+    }
+    ::ng-deep {
+      .swiper {
+        @include iota-breakpoint(lg) {
+          margin: 0 -10px;
+        }
+        &-wrapper {
+          display: flex;
+          align-items: stretch;
+        }
+        &-slide {
+          height: auto;
+        }
+      }
+      aus-statement-card {
+        height: 100%;
+        display: block;
+        overflow: hidden;
+        border-radius: 10px;
+        .statement-card {
+          height: 100%;
+        }
+      }
+    }
+  }
+  &__card {
+    height: 100%;
+    padding: 0 25px;
+    @include iota-breakpoint(md) {
+      padding: 0 160px;
+    }
+    @include iota-breakpoint(lg) {
+      padding: 0 10px;
+    }
+  }
+  &--black {
+    background-color: $c-black;
+    .three-card-row {
+      &__title {
+        ::ng-deep {
+          .typography {
+            color: $c-white;
+          }
+        }
+      }
+    }
+  }
+  &--gray {
+    background-color: $c-white-lgt;
+  }
+  &--white {
+    background-color: $c-white;
+    ::ng-deep {
+      .statement-card {
+        background-color: $c-white-lgt-alt;
+      }
+    }
+  }
+}

@@ -1,0 +1,135 @@
+<div class="locations-filters">
+  <div class="o-container">
+    <div class="o-grid">
+      <div class="o-grid__col">
+        <div class="locations-filters__intro">
+          <aus-typography [text]="title" variant="h5" tag="h1"></aus-typography>
+        </div>
+        <div class="locations-filters__main">
+          <div class="locations-filters__address">
+            <div class="locations-filters__local">
+              <aus-input
+                name="zip"
+                placeholder="Zip/Postal Code"
+                [(value)]="zip"
+                pattern="\d*"
+                [maxLength]="5"
+                (keypress)="onSubmit($event)"
+                (valueChange)="onChange($event, 'zip')"
+              ></aus-input>
+              <aus-typography
+                text="Or"
+                variant="p-sm"
+                weight="500"
+              ></aus-typography>
+              <aus-input
+                name="city"
+                placeholder="City (Optional)"
+                [(value)]="city"
+                (keypress)="onSubmit($event)"
+                (valueChange)="onChange($event, 'city')"
+              ></aus-input>
+            </div>
+            <div class="locations-filters__state">
+              <aus-dropdown
+                name="state"
+                placeholder="--- State ---"
+                (change)="onChange($event, 'state')"
+                [items]="[
+                  'Alabama',
+                  'Alaska',
+                  'Arizona',
+                  'Arkansas',
+                  'California',
+                  'Colorado',
+                  'Connecticut',
+                  'Delaware',
+                  'Florida',
+                  'Georgia',
+                  'Hawaii',
+                  'Idaho',
+                  'Illinois',
+                  'Indiana',
+                  'Iowa',
+                  'Kansas',
+                  'Kentucky',
+                  'Louisiana',
+                  'Maine',
+                  'Maryland',
+                  'Massachusetts',
+                  'Michigan',
+                  'Minnesota',
+                  'Mississippi',
+                  'Missouri',
+                  'Montana',
+                  'Nebraska',
+                  'Nevada',
+                  'New Hampshire',
+                  'New Jersey',
+                  'New Mexico',
+                  'New York',
+                  'North Carolina',
+                  'North Dakota',
+                  'Ohio',
+                  'Oklahoma',
+                  'Oregon',
+                  'Pennsylvania',
+                  'Rhode Island',
+                  'South Carolina',
+                  'South Dakota',
+                  'Tennessee',
+                  'Texas',
+                  'Utah',
+                  'Vermont',
+                  'Virginia',
+                  'Washington',
+                  'West Virginia',
+                  'Wisconsin',
+                  'Wyoming'
+                ]"
+              ></aus-dropdown>
+            </div>
+          </div>
+          <div class="locations-filters__cta">
+            <aus-button
+              *ngIf="map"
+              variant="black"
+              text="Find"
+              [useButton]="true"
+              (click)="onFindClick()"
+              [fullwidth]="true"
+            ></aus-button>
+            <aus-button
+              *ngIf="!map"
+              variant="black"
+              text="Find"
+              [href]="href"
+              [fullwidth]="true"
+            ></aus-button>
+
+            <button
+              *ngIf="map"
+              class="locations-filters__cleanroom-btn"
+              (click)="onCleanroomClick()"
+            >
+              <aus-typography
+                (click)="onCleanroomClick()"
+                text="Show me Cleanroom facilities"
+              ></aus-typography>
+            </button>
+
+            <a
+              *ngIf="!map"
+              class="locations-filters__cleanroom-btn"
+              href="/find-a-location/?cleanroom=true"
+            >
+              <aus-typography
+                text="Show me Cleanroom facilities"
+              ></aus-typography>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

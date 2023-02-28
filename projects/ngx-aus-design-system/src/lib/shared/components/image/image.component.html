@@ -1,0 +1,38 @@
+<figure
+  class="image"
+  [ngClass]="{
+    'image--bg-black': bgVariant === 'black',
+    'image--bg-white': bgVariant === 'white',
+    'image--bg-gray': bgVariant === 'gray',
+    'image--fullwidth': fullwidth
+  }"
+>
+  <img
+    *ngIf="variant === 'image'"
+    [alt]="altText"
+    [lazyLoad]="src"
+    class="image__img"
+    [ngStyle]="styles"
+    [ngClass]="{ 'armk-skeleton': loading }"
+  />
+  <div
+    *ngIf="variant === 'background'"
+    class="image__bg"
+    [attr.aria-label]="altText"
+    role="img"
+    [lazyLoad]="src"
+    [ngStyle]="styles"
+    [ngClass]="{ 'armk-skeleton': loading }"
+  ></div>
+  <figcaption *ngIf="caption && fullwidth" class="image__caption">
+    <aus-typography
+      class="image__caption-text"
+      [text]="caption.text"
+    ></aus-typography>
+    <aus-typography
+      *ngIf="caption.subtitle"
+      class="image__caption-subtitle"
+      [text]="caption.subtitle"
+    ></aus-typography>
+  </figcaption>
+</figure>

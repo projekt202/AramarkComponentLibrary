@@ -1,0 +1,122 @@
+<section
+  class="cards-row"
+  [ngClass]="{
+    'cards-row--black': variant === 'black',
+    'cards-row--white': variant === 'white'
+  }"
+>
+  <header class="cards-row__header">
+    <div class="o-container">
+      <div class="o-grid">
+        <div class="o-grid__col">
+          <aus-typography variant="h3" [text]="title"></aus-typography>
+          <aus-typography variant="span" [text]="text"></aus-typography>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="cards-row__main">
+    <div class="o-container">
+      <div *ngIf="getIsUnderThreshold()">
+        <div class="o-grid o-grid--center">
+          <div class="o-grid__col">
+            <aus-carousel
+              [config]="{
+                autoHeight: false,
+                autoplay: {
+                  delay: 5000,
+                  disableOnInteraction: false
+                },
+                centerInsufficientSlides: true,
+                slidesPerView: 1,
+                spaceBetween: -35,
+                breakpoints: {
+                  '768': {
+                    slidesPerView: 2,
+                    spaceBetween: -145
+                  },
+                  '1024': {
+                    slidesPerView: 3,
+                    spaceBetween: -145
+                  }
+                }
+              }"
+            >
+              <ng-template #slide *ngFor="let card of data">
+                <div class="cards-row__card">
+                  <aus-card
+                    [icon]="card.icon"
+                    [title]="card.title"
+                    [text]="card.text"
+                    [button]="
+                      card.button
+                        ? {
+                            text: card.button.text,
+                            href: card.button.href,
+                            target: card.button.target,
+                            variant: card.button.variant
+                          }
+                        : undefined
+                    "
+                    [variant]="card.variant"
+                  ></aus-card>
+                </div>
+              </ng-template>
+            </aus-carousel>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!getIsUnderThreshold()">
+        <div class="o-grid o-grid--center">
+          <div
+            *ngFor="let card of data"
+            class="o-grid__col u-6/12@md u-4/12@lg u-3/12@xl"
+          >
+            <div class="cards-row__card">
+              <aus-card
+                [icon]="card.icon"
+                [title]="card.title"
+                [text]="card.text"
+                [button]="
+                  card.button
+                    ? {
+                        text: card.button.text,
+                        href: card.button.href,
+                        target: card.button.target,
+                        variant: card.button.variant
+                      }
+                    : undefined
+                "
+                [variant]="card.variant"
+              ></aus-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer *ngIf="button" class="cards-row__footer">
+    <div class="o-container">
+      <div class="o-grid">
+        <div class="o-grid__col">
+          <aus-button
+            *ngIf="button.href"
+            [href]="button.href"
+            [text]="button.text"
+            [target]="button.target || '_self'"
+            [variant]="button.variant"
+            [origin]="button.origin"
+          ></aus-button>
+          <aus-button
+            *ngIf="button.route"
+            [route]="button.route"
+            [text]="button.text"
+            [target]="button.target || '_self'"
+            [variant]="button.variant"
+            [origin]="button.origin"
+          ></aus-button>
+        </div>
+      </div>
+    </div>
+  </footer>
+</section>

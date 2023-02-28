@@ -1,0 +1,105 @@
+@import "styles";
+
+@mixin icon-base {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  font-size: 25px;
+  overflow: hidden;
+  &--bg-white,
+  &.armk-bg-white {
+    color: $c-blue-drk;
+    background-color: $c-white;
+  }
+  &--bg-black,
+  &.armk-bg-black {
+    color: $c-white;
+    background-color: $c-blue-drk;
+  }
+  &--bg-black-full,
+  &.armk-bg-black-full {
+    color: $c-white;
+    background-color: $c-black;
+  }
+  &--large,
+  &.armk-icon-size-lg {
+    @include iota-breakpoint(md) {
+      width: 60px;
+      height: 60px;
+      font-size: 35px;
+    }
+  }
+  &--round {
+    border-radius: 100%;
+  }
+  &--xs,
+  &.armk-icon-size-xs {
+    width: 33px;
+    height: 33px;
+    font-size: 17px;
+  }
+  &--bg-transparent,
+  &.armk-bg-transparent {
+    width: fit-content;
+    height: fit-content;
+    color: $c-blue-drk;
+    border-radius: 0;
+    display: inline-flex;
+    vertical-align: top;
+    margin: 0;
+    background-color: transparent;
+  }
+  &--wide {
+    ::ng-deep {
+      span {
+        font-size: 25px;
+      }
+    }
+    &.icon {
+      &--xs {
+        ::ng-deep {
+          span {
+            font-size: 13px;
+          }
+        }
+      }
+      &--small {
+        ::ng-deep {
+          span {
+            font-size: 17px;
+          }
+        }
+      }
+    }
+  }
+  &--wider {
+    ::ng-deep {
+      span {
+        font-size: 15px;
+      }
+    }
+    &.icon {
+      &--xs {
+        ::ng-deep {
+          span {
+            font-size: 8px;
+          }
+        }
+      }
+      &--small {
+        ::ng-deep {
+          span {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.icon {
+  @include icon-base();
+}

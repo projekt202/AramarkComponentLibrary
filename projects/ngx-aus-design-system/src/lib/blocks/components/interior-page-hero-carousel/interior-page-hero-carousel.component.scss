@@ -1,0 +1,64 @@
+@import "styles";
+
+.interior-page-hero-carousel {
+  padding: 16px 0;
+  overflow: hidden;
+  &__title {
+    text-align: center;
+    padding-bottom: 16px;
+    @include iota-type(
+      (
+        null: (
+          23px,
+          30px,
+        ),
+        lg: (
+          40px,
+          45px,
+        ),
+      )
+    );
+    @include iota-breakpoint(lg) {
+      text-align: left;
+      padding-bottom: 24px;
+    }
+  }
+  @include iota-breakpoint(md) {
+    padding: 16px 0 32px 0;
+  }
+  @include iota-breakpoint(lg) {
+    padding: 56px 0;
+  }
+  .o-container {
+    @media screen and (max-width: 1024px) {
+      padding-left: 0;
+      padding-right: 0;
+      max-width: 100%;
+    }
+  }
+  ::ng-deep {
+    .carousel__pagination {
+      padding: 5px 15px 0 15px;
+      @include iota-breakpoint(md) {
+        padding: 5px 0 0 0;
+      }
+      @include iota-breakpoint(lg) {
+        padding: 55px 0 0 0;
+      }
+    }
+  }
+  &--black {
+    .interior-page-hero-carousel {
+      &__title {
+        ::ng-deep {
+          .typography {
+            color: $c-white;
+          }
+        }
+      }
+    }
+    ::ng-deep {
+      background-color: $c-black;
+    }
+  }
+}

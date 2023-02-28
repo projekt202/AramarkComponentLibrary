@@ -1,0 +1,19 @@
+<div
+  class="divider"
+  [ngClass]="{
+    'divider--align-left': alignment === 'left',
+    'divider--align-center': alignment === 'center',
+    'divider--align-right': alignment === 'right'
+  }"
+>
+  <hr
+    class="divider__rule"
+    [ngStyle]="{
+      backgroundColor: color || 'auto',
+      width: width ? width + 'px' : 362,
+      height: thickness ? thickness + 'px' : 4,
+      marginTop: margin?.top ? margin?.top + 'px' : 0,
+      marginBottom: margin?.bottom ? margin?.bottom + 'px' : 0
+    }"
+  />
+</div>

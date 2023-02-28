@@ -1,0 +1,61 @@
+<section class="two-column-wysiwyg">
+  <div class="o-container">
+    <div class="o-grid">
+      <div class="o-grid__col">
+        <div class="two-column-wysiwyg__inner">
+          <div class="two-column-wysiwyg__col">
+            <ng-container
+              *ngTemplateOutlet="column; context: { col: left }"
+            ></ng-container>
+          </div>
+          <div class="two-column-wysiwyg__col">
+            <ng-container
+              *ngTemplateOutlet="column; context: { col: right }"
+            ></ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #column let-col="col">
+  <div class="two-column-wysiwyg__content">
+    <ng-container [ngSwitch]="col.type">
+      <aus-image
+        *ngSwitchCase="'image'"
+        [fullwidth]="true"
+        [src]="col.config.image.src"
+        [altText]="col.config.image.alt || ''"
+      ></aus-image>
+
+      <aus-wysiwyg
+        *ngSwitchCase="'wysiwyg'"
+        [embedded]="true"
+        [fullwidth]="true"
+        bgColor="transparent"
+        [data]="col.config.wysiwyg.data"
+      ></aus-wysiwyg>
+
+      <aus-support-card
+        *ngSwitchCase="'card'"
+        [imgUrl]="col.config.card.imgUrl"
+        [icon]="col.config.card.icon"
+        [title]="col.config.card.title"
+        [pretitle]="col.config.card.pretitle"
+        [text]="col.config.card.text"
+        [btn]="col.config.card.btn"
+        [secondaryBtn]="col.config.card.secondaryBtn"
+      ></aus-support-card>
+
+      <aus-fullwidth-image-card
+        *ngSwitchCase="'card-fwimg'"
+        [imgUrl]="col.config.fwimagecard.imgUrl"
+        [title]="col.config.fwimagecard.title"
+        [subtitle]="col.config.fwimagecard.subtitle"
+        [text]="col.config.fwimagecard.text"
+        [cta]="col.config.fwimagecard.cta"
+      ></aus-fullwidth-image-card>
+    </ng-container>
+  </div>
+</ng-template>

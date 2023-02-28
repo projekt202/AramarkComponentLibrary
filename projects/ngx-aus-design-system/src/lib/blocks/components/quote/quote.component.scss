@@ -1,0 +1,134 @@
+@import "styles";
+
+.quote {
+  background-color: $c-white-lgt;
+  color: $c-black;
+  padding-top: 52.5px;
+  padding-bottom: 50.5px;
+  &.type--dark {
+    background-color: $c-black;
+    color: $c-white;
+    .author-name ::ng-deep > * {
+      color: $c-white;
+    }
+    .author-title ::ng-deep > * {
+      color: $c-white;
+    }
+    .author-location ::ng-deep > * {
+      color: $c-white;
+    }
+    .quote-text ::ng-deep > * {
+      color: #eee;
+    }
+  }
+  &.type--light {
+    .author-location ::ng-deep > * {
+      color: $c-gray-txt-lgt;
+    }
+  }
+  .o-container {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    .author-image-wrapper {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px auto;
+    }
+    .author-image {
+      opacity: 0;
+      width: 80px;
+      height: 80px;
+      border-radius: 40px;
+      object-fit: cover;
+      transition: all 0.25s;
+      @include iota-breakpoint(sm) {
+        margin-bottom: 26px;
+      }
+      &.ng-lazyloaded {
+        opacity: 1;
+      }
+    }
+    .author-name,
+    .author-title,
+    .author-location {
+      display: block;
+    }
+    .author-name ::ng-deep > * {
+      @include iota-type(
+        (
+          null: (
+            23px,
+            30px,
+          ),
+          sm: (
+            25px,
+            31px,
+          ),
+          lg: (
+            27px,
+            32.4px,
+          ),
+        )
+      );
+    }
+    .author-title ::ng-deep > * {
+      font-size: 18px;
+      line-height: 27px;
+      @include iota-type(
+        (
+          null: (
+            16px,
+            23px,
+          ),
+          sm: (
+            18px,
+            27px,
+          ),
+        )
+      );
+    }
+    .author-location ::ng-deep > * {
+      font-size: 18px;
+      line-height: 25px;
+      @include iota-type(
+        (
+          null: (
+            16px,
+            23px,
+          ),
+          sm: (
+            18px,
+            25px,
+          ),
+        )
+      );
+    }
+    .quote-text {
+      display: block;
+      & ::ng-deep > * {
+        margin-top: 32px;
+        font-weight: 600;
+        @include iota-breakpoint(xl) {
+          margin-top: 29px;
+        }
+        @include iota-type(
+          (
+            null: (
+              19px,
+              23px,
+            ),
+            sm: (
+              23px,
+              29px,
+            ),
+            lg: (
+              35px,
+              41px,
+            ),
+          )
+        );
+      }
+    }
+  }
+}

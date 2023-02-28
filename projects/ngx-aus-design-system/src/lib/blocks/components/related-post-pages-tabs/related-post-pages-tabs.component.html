@@ -1,0 +1,72 @@
+<section
+  aria-label="List of articles and blog posts"
+  class="related-post-pages"
+  [ngClass]="{
+    'related-post-pages--bg-white': background === 'white',
+    'related-post-pages--bg-black': background === 'black',
+    'related-post-pages--bg-gray': background === 'gray'
+  }"
+>
+  <aus-tabs
+    class="related-post-pages--tabbed"
+    [categories]="getCategories()"
+    [valueIdx]="getCurrentTabIdx()"
+    (onSelection)="changeTag($event)"
+  ></aus-tabs>
+  <div *ngFor="let tab of tabs" class="o-container">
+    <ng-container *ngIf="currentTab === tab.value">
+      <aus-typography
+        class="related-post-pages--title"
+        variant="h5"
+        tag="h2"
+        [text]="getTitle()"
+      ></aus-typography>
+      <ng-container *ngIf="isLoaded()">
+        <div
+          *ngFor="let node of getNodes()"
+          class="related-post-pages--article"
+        >
+          <aus-article-card
+            class="related-post-pages--article-card"
+            tagTitle="h3"
+            [variant]="node.variant"
+            [publishDate]="node.publishDate"
+            [url]="node.url"
+            [img]="node.img"
+            [title]="node.title"
+            [text]="node.text"
+            [btn]="node.btn"
+          ></aus-article-card>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!isLoaded()">
+        <div
+          *ngFor="let nodes of [].constructor(numPerPage)"
+          class="related-post-pages--article"
+        >
+          <aus-article-card
+            class="related-post-pages--article-card"
+            tagTitle="h3"
+            [variant]="'img-right'"
+            [publishDate]="''"
+            [url]="''"
+            [img]="{ imageUrl: '', alt: '' }"
+            [title]="''"
+            [text]="''"
+            [loading]="true"
+          ></aus-article-card>
+        </div>
+      </ng-container>
+    </ng-container>
+    <aus-pagination
+      *ngIf="getTotalCount(tab.value) > 1"
+      [ngStyle]="getStylePagination(tab.value)"
+      [totalCount]="getTotalCount(tab.value)"
+      [pageSize]="rulerLength"
+      [rulerLength]="rulerLength"
+      [disabled]="getDisablePagination(tab.value)"
+      [enGoToLastPage]="getEnGoToLastPage(tab.value)"
+      (page)="changePageTo($event)"
+    ></aus-pagination>
+  </div>
+</section>

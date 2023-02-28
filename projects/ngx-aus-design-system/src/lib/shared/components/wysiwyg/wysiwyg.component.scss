@@ -1,0 +1,471 @@
+@import "styles";
+@import "../typography/typography.component.scss";
+@import "../divider/divider.component.scss";
+@import "../button/button.component.scss";
+@import "../../../shared/components/icon/icon.component.scss";
+
+@mixin armk-link {
+  &.armk-link-red {
+    color: $c-red-link;
+    &:hover {
+      color: $c-red-drk;
+    }
+  }
+  &.armk-link-arrow {
+    position: relative;
+    padding-right: 30px;
+    &:after {
+      content: "";
+      top: 50%;
+      right: 0;
+      width: 24px;
+      height: 19px;
+      position: absolute;
+      transform: translateY(-50%);
+      background-image: url("https://i.postimg.cc/5t9LZxzw/arrow-link.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      transition: all 0.25s;
+    }
+    &:hover {
+      &:after {
+        transform: translate(3px, -50%);
+      }
+    }
+  }
+}
+@mixin armk-icon {
+  .armk-icon {
+    @include icon-base();
+    color: $c-blue-drk;
+    .armk-icon-hide {
+      display: none;
+    }
+    &.iconalign {
+      &right {
+        display: flex;
+        margin-right: 0;
+        margin-left: auto;
+        text-align: center;
+      }
+      &center {
+        display: flex;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+      }
+      &left {
+        display: flex;
+        margin-right: auto;
+        margin-left: 0;
+        text-align: center;
+      }
+    }
+  }
+}
+@mixin global-wysiwig {
+  * {
+    margin-bottom: 30px;
+  }
+  * > *,
+  * > *:first-child,
+  *:last-child {
+    margin-bottom: 0;
+  }
+  *:not(p):not(li):not(pre):not(dd) > a {
+    color: $c-red-link;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    text-decoration: inherit;
+    &:hover {
+      color: $c-red-drk;
+    }
+  }
+  p a {
+    @include iota-type(
+      (
+        null: (
+          16px,
+          21px,
+        ),
+        md: (
+          18px,
+          25px,
+        ),
+        lg: (
+          20px,
+          27px,
+        ),
+      )
+    );
+  }
+  a.armk-btn {
+    &-red,
+    &-black,
+    &-white,
+    &-transparent,
+    &-outline {
+      @include button-base();
+      margin: 0 12px 0 0;
+    }
+  }
+  a {
+    @include armk-link();
+  }
+  @include armk-icon();
+  hr {
+    @include divider-base();
+    margin: 0 auto 30px auto;
+  }
+  img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  .fullwidth img {
+    border-radius: 0px;
+  }
+  li > ul,
+  li > ol {
+    padding-left: 25px;
+  }
+  ol {
+    counter-reset: item;
+    list-style-type: none;
+    & > li {
+      counter-increment: item;
+      &::before {
+        content: counters(item, ".") ". ";
+      }
+    }
+  }
+  li {
+    &[style*="text-align: right;"] {
+      direction: rtl;
+      & > ul,
+      & > ol {
+        padding-left: 0;
+        padding-right: 25px;
+        li > ul,
+        li > ol {
+          padding-left: 0;
+          padding-right: 25px;
+        }
+      }
+    }
+  }
+  pre {
+    font-family: $font-main !important;
+  }
+  .align {
+    &left {
+      text-align: left;
+      display: block;
+      margin-right: 0;
+      & > * {
+        &:last-child:not([class*="icon"]),
+        &:only-child:not([class*="icon"]) {
+          margin-left: 0 !important;
+          margin-right: auto !important;
+        }
+      }
+    }
+    &center {
+      text-align: center;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+      & > * {
+        &:last-child:not([class*="icon"]),
+        &:only-child:not([class*="icon"]) {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+    }
+    &right {
+      text-align: right;
+      display: block;
+      margin-right: 0;
+      margin-left: auto;
+      & > * {
+        &:last-child:not([class*="icon"]),
+        &:only-child:not([class*="icon"]) {
+          margin-left: auto !important;
+          margin-right: 0 !important;
+        }
+      }
+    }
+  }
+  img.align {
+    &left {
+      float: left;
+      margin: auto;
+      margin-right: 24px;
+    }
+    &right {
+      float: right;
+      margin: auto;
+      margin-left: 24px;
+    }
+    &none {
+      margin: auto;
+      margin-right: 24px;
+    }
+  }
+  .armk {
+    &-color {
+      &-red {
+        color: $c-red-link !important;
+      }
+      &-white {
+        color: $c-white !important;
+      }
+      &-black {
+        color: $c-black !important;
+      }
+    }
+  }
+  .wp {
+    &-caption {
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      &.align {
+        &none,
+        &left {
+          text-align: left;
+          display: block;
+          margin-right: auto;
+          margin-left: 0;
+        }
+        &left {
+          float: left;
+        }
+        &center {
+          text-align: center;
+          display: block;
+          margin-right: auto;
+          margin-left: auto;
+        }
+        &right {
+          text-align: right;
+          display: block;
+          margin-right: 0;
+          margin-left: auto;
+          float: right;
+        }
+      }
+      img[src] {
+        margin-bottom: 24px;
+      }
+      &-dd,
+      &-text {
+        font-weight: 500;
+        max-width: 575px;
+        margin-left: auto;
+        margin-right: auto;
+        @include iota-type(
+          (
+            null: (
+              14px,
+              19px,
+            ),
+          )
+        );
+      }
+    }
+  }
+  blockquote {
+    text-align: left;
+    padding-left: 28px;
+    border-left: 4px solid $c-red-link;
+    p {
+      color: $c-gray-txt-lgt;
+      @include iota-type(
+        (
+          null: (
+            16px,
+            23px,
+          ),
+          md: (
+            18px,
+            27px,
+          ),
+        )
+      );
+      &::before {
+        content: '"';
+      }
+      &::after {
+        content: '"';
+      }
+    }
+  }
+}
+.wysiwyg {
+  padding: 16px 0;
+  @include iota-breakpoint(md) {
+    padding: 32px 0;
+  }
+  @include iota-breakpoint(lg) {
+    padding: 56px 0;
+  }
+  .o-container {
+    @include iota-breakpoint(lg) {
+      max-width: 1366px;
+    }
+  }
+  &__content {
+    ::ng-deep {
+      $width-limit: 800px;
+      > *:not(.fullwidth) {
+        display: block;
+        max-width: $width-limit;
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: 16px;
+        padding-left: 16px;
+        @include iota-breakpoint(xl) {
+          padding-right: 20px;
+          padding-left: 20px;
+        }
+      }
+      @include typography-base();
+      @include global-wysiwig();
+    }
+  }
+  &--fullwidth {
+    ::ng-deep {
+      .wysiwyg {
+        &__content {
+          > *:not(.fullwidth) {
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+  &--bg {
+    &-white {
+      background-color: $c-white;
+    }
+    &-gray {
+      background-color: $c-white-lgt;
+    }
+    &-black {
+      background-color: $c-black;
+      ::ng-deep {
+        *:not([class*="armk"]):not([class*="icon-"]):not(a.armk-link-red) {
+          color: $c-white !important;
+        }
+        .armk-btn {
+          &-outline,
+          &-transparent {
+            color: $c-white !important;
+          }
+          &-transparent {
+            &:hover {
+              color: $c-red !important;
+            }
+          }
+          &-outline {
+            box-shadow: 0 0 0 2px $c-white inset !important;
+            &:hover {
+              color: $c-black !important;
+            }
+          }
+        }
+        .armk-link {
+          &-black {
+            color: $c-white !important;
+          }
+          &-arrow {
+            color: $c-white !important;
+            &:after {
+              filter: brightness(0) invert(1);
+            }
+          }
+        }
+      }
+    }
+    &-transparent {
+      background-color: transparent;
+    }
+  }
+  &--embedded {
+    padding: 0;
+    ::ng-deep {
+      .wysiwyg {
+        &__content {
+          > *:not([class*="armk-btn"]):not(blockquote) {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+          }
+        }
+      }
+    }
+  }
+  &--3-cols,
+  &--4-cols {
+    max-width: 100%;
+    @include iota-breakpoint(md) {
+      margin: 0 auto;
+      max-width: 720px;
+    }
+    @include iota-breakpoint(lg) {
+      max-width: 928px;
+    }
+    @include iota-breakpoint(xl) {
+      max-width: 1254px;
+    }
+    .wysiwyg__content {
+      ::ng-deep {
+        & > * {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+  &--3-cols {
+    .wysiwyg__content {
+      ::ng-deep {
+        & > ul {
+          list-style: none;
+          columns: 2;
+          @include iota-breakpoint(lg) {
+            columns: 3;
+          }
+        }
+      }
+    }
+  }
+  &--4-cols {
+    .wysiwyg__content {
+      ::ng-deep {
+        & > ul {
+          list-style: none;
+          columns: 2;
+          @include iota-breakpoint(lg) {
+            columns: 3;
+          }
+          @include iota-breakpoint(xl) {
+            columns: 4;
+          }
+        }
+      }
+    }
+  }
+  &--is-content {
+    padding-top: 40px;
+    padding-bottom: 120px;
+  }
+  ::ng-deep {
+    .wysiwyg__content {
+      *.armk-margin-bottom-0 {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+}

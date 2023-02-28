@@ -1,0 +1,58 @@
+@import "styles";
+
+.fw-image-card {
+  height: 100%;
+  border-radius: 10px;
+  background-color: $c-white;
+  &__link-wrapper {
+    height: 100%;
+    border-radius: 10px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+  &__img {
+    width: 100%;
+    padding-bottom: 75%;
+    pointer-events: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    @include iota-breakpoint(md) {
+      padding-bottom: 0;
+      height: 200px;
+    }
+    @include iota-breakpoint(lg) {
+      height: 253px;
+    }
+  }
+  &__main {
+    flex: 1;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+  &__text {
+    display: block;
+    margin-top: 5px;
+  }
+  &__cta {
+    margin-top: auto;
+    padding-top: 24px;
+  }
+  &:hover {
+    ::ng-deep {
+      aus-arrow-link {
+        .arrow-link svg {
+          transform: translateX(3px);
+        }
+      }
+    }
+  }
+}

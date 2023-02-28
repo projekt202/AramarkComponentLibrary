@@ -1,0 +1,42 @@
+@import "styles";
+
+.fw-image-card-columns {
+  margin-bottom: -16px;
+  padding: 16px 0;
+  @include iota-breakpoint(md) {
+    padding: 32px 0;
+  }
+  @include iota-breakpoint(lg) {
+    padding: 56px 0;
+  }
+  @include iota-breakpoint(xl) {
+    margin-bottom: -20px;
+  }
+  ::ng-deep {
+    aus-fullwidth-image-card {
+      height: 100%;
+      display: block;
+      padding-bottom: 16px;
+      @include iota-breakpoint(xl) {
+        padding-bottom: 20px;
+      }
+      .fw-image-card {
+        height: 100%;
+      }
+    }
+  }
+  &--bg {
+    &-white {
+      background-color: $c-white;
+    }
+    &-black {
+      background-color: $c-black;
+    }
+    &-gray {
+      background-color: $c-white-lgt-alt-2;
+    }
+  }
+  &--embedded {
+    padding: 0;
+  }
+}

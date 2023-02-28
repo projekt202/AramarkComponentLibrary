@@ -1,0 +1,53 @@
+<fieldset
+  class="dropdown"
+  [ngClass]="{
+    'dropdown--disabled': isDisabled
+  }"
+>
+  <label [for]="name" *ngIf="label">
+    <span class="dropdown__label">
+      <aus-typography variant="p-sm" [text]="label"></aus-typography>
+      <div class="dropdown__label-required-mark">
+        <aus-typography
+          variant="p-sm"
+          text="*"
+          *ngIf="isRequired"
+        ></aus-typography>
+      </div>
+    </span>
+  </label>
+  <ng-container *ngIf="label" [ngTemplateOutlet]="dropdown"></ng-container>
+  <label *ngIf="!label" [for]="name">
+    <ng-container [ngTemplateOutlet]="dropdown"></ng-container>
+  </label>
+</fieldset>
+
+<ng-template #dropdown>
+  <div class="dropdown__main">
+    <div class="dropdown__arrow">
+      <aus-icon name="arrow" color="black" [fontSize]="15"></aus-icon>
+    </div>
+    <div
+      class="dropdown__control"
+      [ngClass]="{
+        'no-value': !selected
+      }"
+    >
+      <ng-select
+        [labelForId]="name"
+        [clearable]="true"
+        [(ngModel)]="
+          !didInteract && hasInitialIdx() ? items[getInitialIdx()] : selected
+        "
+        [disabled]="!!isDisabled"
+        [placeholder]="placeholder"
+        (change)="onChange($event)"
+        (ngModelChange)="selectedChange.emit(selected)"
+      >
+        <ng-option *ngFor="let item of items" [value]="item">
+          <aus-typography [text]="item" variant="p-sm"></aus-typography>
+        </ng-option>
+      </ng-select>
+    </div>
+  </div>
+</ng-template>

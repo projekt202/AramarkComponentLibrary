@@ -1,0 +1,46 @@
+<section
+  class="interior-page-hero-carousel"
+  [ngClass]="{
+    'interior-page-hero-carousel--black': variant === 'black'
+  }"
+>
+  <div class="o-container">
+    <div class="o-grid">
+      <div class="o-grid__col">
+        <div class="interior-page-hero-carousel__title">
+          <aus-typography
+            variant="h4"
+            tag="h1"
+            [text]="title || 'Newsroom'"
+          ></aus-typography>
+        </div>
+        <div class="interior-page-hero-carousel__slider">
+          <aus-carousel
+            [disableOnFirstCycle]="true"
+            [controlsMargin]="0"
+            [config]="{
+              autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+              }
+            }"
+          >
+            <ng-template #slide *ngFor="let slide of slides">
+              <div class="interior-page-hero-carousel__slide">
+                <aus-interior-page-hero
+                  [type]="slide.type"
+                  [button]="slide.btn"
+                  [imgUrl]="slide.imgUrl"
+                  [header]="slide.header"
+                  [variant]="slide.variant"
+                  [date]="(slide.date | date) || slide.date"
+                  [endDate]="slide.endDate"
+                ></aus-interior-page-hero>
+              </div>
+            </ng-template>
+          </aus-carousel>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

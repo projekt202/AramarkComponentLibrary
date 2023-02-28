@@ -1,0 +1,156 @@
+<article class="product-card">
+  <div class="product-card__preview">
+    <ng-container [ngTemplateOutlet]="tag"></ng-container>
+    <img
+      [lazyLoad]="options[selectedIdx].imgUrl"
+      alt="Product preview"
+      class="product-card__img"
+    />
+  </div>
+  <div class="product-card__copy">
+    <aus-typography weight="500" [text]="name"></aus-typography>
+    <button (click)="toggleModal(true, $event)" class="product-card__copy-cta">
+      <aus-typography [idName]="name" text="See details"></aus-typography>
+    </button>
+    <div class="product-card__color-selector" *ngIf="options.length > 1">
+      <button
+        *ngFor="let option of options; let i = index"
+        class="product-card__color-option"
+        [attr.aria-label]="'View product color option: ' + option.colorName"
+        [ngStyle]="{
+          backgroundColor: getOptionColor(option.color),
+          boxShadow:
+            selectedIdx === i
+              ? '0 0 0 1px ' + getOptionColor(option.color)
+              : 'none'
+        }"
+        (click)="updateColor(i)"
+        (mouseenter)="updateColor(i)"
+        (mouseleave)="resetColor()"
+        [attr.aria-current]="selectedIdx === i"
+      ></button>
+    </div>
+  </div>
+</article>
+
+<ac-portal [name]="'product-modal-' + id">
+  <ngx-smart-modal
+    (onOpenFinished)="onOpenFinishedHandler()"
+    (onAnyCloseEventFinished)="onCloseFinishedHandler()"
+    [identifier]="'product-' + id"
+    [ariaLabel]="'Product details of ' + name"
+  >
+    <div class="product-modal">
+      <button
+        (click)="toggleModal(false)"
+        class="product-modal__btn-close"
+        aria-label="Close product details"
+      >
+        <div class="product-modal__btn-close-lines">
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+      <div class="product-modal__preview">
+        <div class="product-modal__img-container">
+          <ng-container [ngTemplateOutlet]="tag"></ng-container>
+          <div
+            aria-label="Product preview"
+            class="product-modal__img"
+            [lazyLoad]="options[selectedIdx].imgUrl"
+          ></div>
+          <aus-typography
+            class="product-modal__color-name"
+            [text]="options[selectedIdx].colorName"
+          ></aus-typography>
+        </div>
+        <div class="product-modal__color-selector" *ngIf="options.length > 1">
+          <aus-carousel
+            #carousel
+            [controls]="false"
+            [config]="{
+              slidesPerView: 3,
+              autoplay: {
+                delay: 3000,
+                disableOnInteraction: true
+              }
+            }"
+          >
+            <ng-template #slide *ngFor="let option of options; let i = index">
+              <button
+                class="product-modal__color-option"
+                (click)="updateColor(i, true)"
+                (mouseenter)="updateColor(i)"
+                (mouseleave)="resetColor()"
+                [ngClass]="{
+                  'product-modal__color-option--active': i === selectedIdx
+                }"
+                [attr.aria-current]="i === selectedIdx"
+              >
+                <div
+                  [lazyLoad]="option.imgUrl"
+                  [attr.aria-label]="
+                    'View product color option: ' + option.colorName
+                  "
+                  class="product-modal__color-img"
+                ></div>
+              </button>
+            </ng-template>
+          </aus-carousel>
+        </div>
+      </div>
+      <div class="product-modal__info">
+        <div class="product-modal__info-intro">
+          <aus-typography [text]="name" variant="h2"></aus-typography>
+          <aus-typography
+            [text]="id"
+            variant="p-md"
+            weight="500"
+          ></aus-typography>
+        </div>
+        <div>
+          <aus-typography text="Sizes" weight="500"></aus-typography>
+          <aus-typography
+            variant="p-md"
+            [text]="details.sizes"
+          ></aus-typography>
+        </div>
+        <div>
+          <aus-typography text="Description" weight="500"></aus-typography>
+          <aus-wysiwyg
+            [embedded]="true"
+            bgColor="transparent"
+            [data]="details.description"
+          ></aus-wysiwyg>
+        </div>
+        <div class="product-modal__cta-desktop">
+          <ng-template [ngTemplateOutlet]="modalCta"></ng-template>
+        </div>
+      </div>
+      <div class="product-modal__cta-mobile">
+        <ng-template [ngTemplateOutlet]="modalCta"></ng-template>
+      </div>
+    </div>
+  </ngx-smart-modal>
+</ac-portal>
+
+<ng-template #modalCta>
+  <aus-button
+    variant="red"
+    target="_self"
+    text="Request a Quote"
+    href="/request-a-quote"
+    class="product-modal__btn"
+    (click)="onRequestQuote()"
+  ></aus-button>
+  <aus-typography class="product-modal__legal" [text]="legal"></aus-typography>
+</ng-template>
+
+<ng-template #tag>
+  <div class="product-card__tag" *ngIf="options[selectedIdx].tag">
+    <aus-typography
+      variant="span"
+      [text]="options[selectedIdx].tag || ''"
+    ></aus-typography>
+  </div>
+</ng-template>

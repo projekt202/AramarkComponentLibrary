@@ -1,0 +1,51 @@
+<div class="carousel">
+  <div class="carousel__slider">
+    <swiper
+      #swiper
+      [slidesPerView]="slidesPerView"
+      (slideChange)="onSlideChange($event, true)"
+      (reachBeginning)="onReachBeginning()"
+      (reachEnd)="onReachEnd()"
+      [config]="getConfig() || {}"
+      [a11y]="getA11y()"
+    >
+      <ng-template swiperSlide *ngFor="let slide of slides; let i = index">
+        <ng-template [ngTemplateOutlet]="slide"></ng-template>
+      </ng-template>
+    </swiper>
+  </div>
+  <ol
+    *ngIf="controls && slides && slides.length > 1 && pagination.length > 1"
+    class="carousel__pagination"
+    [ngStyle]="{
+      marginTop: (controlsMargin ?? 25) + 'px'
+    }"
+  >
+    <li
+      class="carousel__pagination-item"
+      *ngFor="let page of pagination; let i = index"
+    >
+      <button
+        (click)="slideTo(i)"
+        class="carousel__pagination-line"
+        [ngClass]="{
+          'carousel__pagination-line--active': getCurrentIdx() === i
+        }"
+        [attr.aria-label]="'Go to slide ' + (i + 1)"
+        [attr.aria-current]="getCurrentIdx() === i"
+      ></button>
+    </li>
+    <li class="carousel__pagination-item carousel__pagination-item--btn">
+      <button class="carousel__btn" (click)="toggleAuto()">
+        <div *ngIf="isAuto" class="pause">
+          <span>Stop carousel</span>
+          <aus-icon name="pause" color="white" [fontSize]="10"></aus-icon>
+        </div>
+        <div *ngIf="!isAuto" class="play">
+          <span>Start carousel</span>
+          <aus-icon name="play" color="white" [fontSize]="10"></aus-icon>
+        </div>
+      </button>
+    </li>
+  </ol>
+</div>

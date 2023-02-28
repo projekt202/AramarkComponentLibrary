@@ -1,0 +1,30 @@
+@import "styles";
+
+@mixin divider-base {
+  margin: 0;
+  border: 0;
+  height: 4px;
+  width: 362px;
+  max-width: 100%;
+  display: block;
+  background-color: $c-red;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  &__rule {
+    @include divider-base();
+  }
+  &--align {
+    &-left {
+      justify-content: flex-start;
+    }
+    &-center {
+      justify-content: center;
+    }
+    &-right {
+      justify-content: flex-end;
+    }
+  }
+}

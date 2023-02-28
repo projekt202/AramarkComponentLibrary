@@ -1,0 +1,118 @@
+@import "styles";
+
+.tabbed-content {
+  padding: 32px 0;
+  @include iota-breakpoint(lg) {
+    padding: 56px 0;
+  }
+  &__title {
+    text-align: center;
+    margin-bottom: 16px;
+    @include iota-breakpoint(md) {
+      margin-bottom: 32px;
+    }
+    ::ng-deep {
+      .typography {
+        @include iota-type(
+          (
+            null: (
+              21px,
+              27px,
+            ),
+            md: (
+              35px,
+              45px,
+            ),
+            lg: (
+              47px,
+              55px,
+            ),
+          )
+        );
+      }
+    }
+  }
+  &__controls {
+    margin-bottom: 24px;
+    @include iota-breakpoint(md) {
+      margin-bottom: 50px;
+    }
+    @include iota-breakpoint(lg) {
+      margin-bottom: 54px;
+    }
+    ::ng-deep {
+      .tabs__dropdown-content {
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          select {
+            min-width: 100%;
+          }
+        }
+      }
+    }
+  }
+  &__main {
+    .o-grid__col + .o-grid__col {
+      margin-top: 15px;
+      @include iota-breakpoint(md) {
+        margin-top: 0;
+      }
+    }
+    ::ng-deep {
+      .wysiwyg * {
+        margin-bottom: 0 !important;
+        & + *:not(li) {
+          margin-top: 15px !important;
+        }
+        .armk-btn {
+          @media screen and (max-width: 768px) {
+            width: 100%;
+          }
+        }
+      }
+      aus-image {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+  &__products {
+    ::ng-deep {
+      .product-card__copy {
+        background-color: transparent;
+      }
+    }
+  }
+  &--bg {
+    &-white {
+      background-color: $c-white;
+    }
+    &-gray {
+      background-color: $c-white-lgt-alt-2;
+    }
+    &-black {
+      background-color: $c-black;
+      .tabbed-content {
+        &__title,
+        &__main {
+          ::ng-deep {
+            .wysiwyg *:not(.a-accent):not(.product-card__copy-cta .typography),
+            .typography:not(.a-accent):not(.product-card__copy-cta
+                .typography) {
+              color: $c-white;
+            }
+            .product-modal {
+              .wysiwyg
+                *:not(.a-accent):not(.product-card__copy-cta .typography),
+              .typography:not(.a-accent):not(.product-card__copy-cta
+                  .typography) {
+                color: $c-black;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

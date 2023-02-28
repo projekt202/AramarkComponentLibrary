@@ -1,0 +1,50 @@
+@import "styles";
+
+.breadcrumbs {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding-top: 60px;
+  &__item {
+    &-link {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      text-decoration: underline;
+      color: $c-black;
+      &:hover {
+        ::ng-deep {
+          *:not(.breadcrumbs__item-divider) .typography {
+            font-weight: 500 !important;
+          }
+        }
+      }
+    }
+  }
+  &--arrow {
+    .breadcrumbs {
+      &__item-link {
+        text-decoration: none;
+        aus-typography ::ng-deep > * {
+          color: $c-gray-txt-lgt;
+        }
+        &:hover {
+          .breadcrumbs__icon ::ng-deep > *,
+          aus-typography ::ng-deep > * {
+            color: $c-black;
+          }
+        }
+      }
+      &__icon {
+        margin-top: -4px;
+        margin-right: 16px;
+        transform: rotate(180deg);
+        ::ng-deep > * {
+          color: $c-gray-txt-lgt;
+        }
+      }
+    }
+  }
+}

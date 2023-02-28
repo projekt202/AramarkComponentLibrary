@@ -1,0 +1,42 @@
+<article class="support-card">
+  <div
+    class="support-card__img"
+    *ngIf="imgUrl"
+    aria-hidden="true"
+    [lazyLoad]="imgUrl"
+  ></div>
+  <div *ngIf="icon" class="support-card__icon">
+    <aus-icon
+      [name]="icon.name"
+      [size]="icon.size || 'large'"
+      [variant]="icon.variant || 'black'"
+    ></aus-icon>
+  </div>
+  <aus-typography
+    *ngIf="pretitle"
+    [text]="pretitle"
+    class="support-card__pretitle"
+  ></aus-typography>
+  <aus-typography *ngIf="title" variant="h5" [text]="title"></aus-typography>
+  <aus-typography *ngIf="text" [text]="text"></aus-typography>
+  <div class="support-card__btn">
+    <aus-button
+      *ngIf="btn"
+      [text]="btn.title"
+      [href]="btn.url"
+      [target]="btn.target || '_blank'"
+      [variant]="btn.variant || 'red'"
+      [fullwidth]="true"
+      [origin]="btn.origin"
+    ></aus-button>
+    <aus-button
+      *ngIf="secondaryBtn && secondaryBtn.title"
+      [text]="secondaryBtn.title"
+      [href]="secondaryBtn.url"
+      [target]="secondaryBtn.target || '_blank'"
+      [variant]="secondaryBtn.variant || 'red'"
+      [fullwidth]="true"
+      [origin]="secondaryBtn.origin"
+    ></aus-button>
+  </div>
+</article>

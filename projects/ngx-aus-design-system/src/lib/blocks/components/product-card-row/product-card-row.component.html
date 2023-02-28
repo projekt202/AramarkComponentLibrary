@@ -1,0 +1,72 @@
+<section
+  class="product-card-row"
+  [ngClass]="{
+    'product-card-row--desktop-wrap': desktopWrap,
+    'product-card-row--standalone': standalone
+  }"
+>
+  <div *ngIf="!noCarousel" class="o-container">
+    <div class="o-grid">
+      <div class="o-grid__col">
+        <aus-carousel [config]="getCarouselConfig()">
+          <ng-template #slide *ngFor="let chunk of chunks; let i = index">
+            <div class="product-card-row__group">
+              <div
+                class="product-card-row__item"
+                [style]="'--chunkSizeDesktop: ' + chunkSizeDesktop"
+                *ngFor="let product of chunk"
+              >
+                <ng-container
+                  [ngTemplateOutlet]="productcard"
+                  [ngTemplateOutletContext]="{
+                    product: product
+                  }"
+                ></ng-container>
+              </div>
+            </div>
+          </ng-template>
+        </aus-carousel>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="noCarousel" class="o-container">
+    <div class="o-grid o-grid--center">
+      <div
+        *ngFor="let product of products"
+        class="o-grid__col u-6/12 u-4/12@md u-3/12@lg"
+      >
+        <div class="product-card-row__col-item">
+          <ng-container
+            [ngTemplateOutlet]="productcard"
+            [ngTemplateOutletContext]="{
+              product: product
+            }"
+          ></ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #productcard let-product="product">
+  <aus-product-card
+    [id]="product.id"
+    [name]="product.name"
+    [legal]="product.legal"
+    [details]="product.details"
+    [options]="product.options"
+    [forModalPreviewURL]="forModalPreviewURL"
+    [noQueryParamsUpdate]="noQueryParamsUpdate"
+    [forWizard]="forWizard"
+  ></aus-product-card>
+</ng-template>
+
+<ng-container *ngIf="!forWizard">
+  <ng-container *ngFor="let chunk of chunks">
+    <ng-container *ngFor="let product of chunk">
+      <ac-portal-outlet
+        [name]="'product-modal-' + product.id"
+      ></ac-portal-outlet>
+    </ng-container>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,65 @@
+<section
+  class="three-card-row"
+  [ngClass]="{
+    'three-card-row--black': variant === 'black',
+    'three-card-row--gray': variant === 'gray',
+    'three-card-row--white': variant === 'white'
+  }"
+>
+  <div class="three-card-row__title">
+    <div class="o-container">
+      <div class="o-grid">
+        <div class="o-grid__col">
+          <aus-typography [text]="title" variant="h4" tag="h2"></aus-typography>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="three-card-row__carousel">
+    <div class="o-container">
+      <div class="o-grid">
+        <div class="o-grid__col">
+          <aus-carousel
+            [config]="{
+              autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+              },
+              centerInsufficientSlides: true,
+              slidesPerView: 1,
+              spaceBetween: -35,
+              breakpoints: {
+                '768': {
+                  slidesPerView: 1,
+                  spaceBetween: -300
+                },
+                '1024': {
+                  slidesPerView: 3,
+                  spaceBetween: 0
+                }
+              }
+            }"
+          >
+            <ng-template #slide *ngFor="let card of cards; let i = index">
+              <div class="three-card-row__card">
+                <aus-statement-card
+                  [icon]="card.icon"
+                  [title]="card.title"
+                  [text]="card.text"
+                  [anim]="
+                    animated
+                      ? {
+                          index: i,
+                          name: 'zoom-in'
+                        }
+                      : undefined
+                  "
+                ></aus-statement-card>
+              </div>
+            </ng-template>
+          </aus-carousel>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

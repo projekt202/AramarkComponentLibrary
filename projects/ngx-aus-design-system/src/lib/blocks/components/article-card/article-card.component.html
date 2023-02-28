@@ -1,0 +1,66 @@
+<article
+  class="article-card"
+  [ngClass]="{
+    'article-card--img-left': variant === 'img-left',
+    'article-card--img-right': variant === 'img-right',
+    'article-card--img-top': variant === 'img-top'
+  }"
+>
+  <a
+    [href]="url"
+    [target]="btn?.target || '_blank'"
+    class="article-card__wrapper"
+    [attr.aria-label]="'Go to article: ' + title"
+  >
+    <aus-image
+      class="article-card__img"
+      [variant]="'image'"
+      [roundedCorners]="imageRoundedCorners"
+      [src]="img.imageUrl"
+      [altText]="img.alt"
+      [loading]="loading"
+    ></aus-image>
+    <div class="article-card__main">
+      <div class="article-card__date">
+        <aus-icon class="icon" name="calendar" size="small"> </aus-icon>
+        <aus-typography
+          weight="500"
+          variant="span"
+          [text]="(publishDate | date) || publishDate"
+          [loading]="loading"
+        >
+        </aus-typography>
+        <aus-typography
+          *ngIf="endDate"
+          weight="500"
+          variant="span"
+          [text]="'- ' + (endDate | date) || endDate"
+          [loading]="loading"
+        >
+        </aus-typography>
+      </div>
+      <div class="article-card__title">
+        <aus-typography
+          [variant]="tagTitle"
+          [text]="title"
+          [loading]="loading"
+          [loadingData]="{
+            lines: 2
+          }"
+        ></aus-typography>
+      </div>
+      <div class="article-card__text">
+        <aus-typography [text]="text" [loading]="loading"></aus-typography>
+      </div>
+      <div *ngIf="btn" class="article-card__btn">
+        <aus-button
+          [href]="btn.url"
+          [text]="btn.title"
+          [variant]="btn.variant || 'red'"
+          [target]="btn.target || '_blank'"
+          [origin]="btn.origin"
+        ></aus-button>
+      </div>
+    </div>
+  </a>
+</article>

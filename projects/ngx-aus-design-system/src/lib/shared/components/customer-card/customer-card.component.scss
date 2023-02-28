@@ -1,0 +1,199 @@
+@import "styles";
+
+.customer-card {
+  &__wrapper {
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.25s;
+  }
+  &__img {
+    opacity: 0;
+    height: 154px;
+    transition: all 0.25s;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    @include iota-breakpoint(lg) {
+      height: 232px;
+    }
+    &.ng-lazyloaded {
+      opacity: 1;
+    }
+  }
+  &__content {
+    padding: 16px 16px 30px 16px;
+    background-color: $c-white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    @include iota-breakpoint(md) {
+      padding: 20px 20px 40px 20px;
+    }
+    ::ng-deep {
+      h5 {
+        @include iota-type(
+          (
+            md: (
+              23px,
+              27px,
+            ),
+            lg: (
+              27px,
+              30px,
+            ),
+          )
+        );
+      }
+      .p-md {
+        margin: 12px 0 20px 0;
+        @include iota-type(
+          (
+            md: (
+              16px,
+              25px,
+            ),
+            lg: (
+              16px,
+              23px,
+            ),
+          )
+        );
+      }
+    }
+  }
+  &__author {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    ::ng-deep {
+      [class^="icon"] {
+        color: $c-gray-txt-lgt;
+      }
+      span:not([class^="icon"]) {
+        display: inline-block;
+        color: $c-gray-txt-lgt;
+        margin-left: 10px;
+        font-weight: 500;
+        transform: translateY(2px);
+        @include iota-type(
+          (
+            md: (
+              16px,
+              25px,
+            ),
+            lg: (
+              18px,
+              25px,
+            ),
+          )
+        );
+      }
+    }
+  }
+  &__rating {
+    margin-top: 20px;
+    ::ng-deep {
+      .icon {
+        color: $c-red;
+        margin-right: 8px;
+      }
+      .typography {
+        margin: 5px 0 0 0;
+        color: $c-gray-txt-lgt;
+        @include iota-type(
+          (
+            md: (
+              18px,
+              25px,
+            ),
+          )
+        );
+        &::first-letter {
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+  &--centered {
+    text-align: center;
+    .customer-card {
+      &__author {
+        justify-content: center;
+        flex-direction: column;
+        @include iota-breakpoint(lg) {
+          flex-direction: row;
+        }
+        ::ng-deep {
+          span:not([class^="icon"]) {
+            margin-top: 8px;
+            @include iota-breakpoint(lg) {
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  &--center-left {
+    text-align: center;
+    @include iota-breakpoint(lg) {
+      text-align: left;
+    }
+    .customer-card {
+      &__author {
+        flex-direction: column;
+        ::ng-deep {
+          span:not([class^="icon"]) {
+            margin-left: 0;
+            margin-top: 8px;
+            @include iota-breakpoint(lg) {
+              margin-left: 8px;
+              margin-top: 0;
+            }
+          }
+        }
+        @include iota-breakpoint(lg) {
+          flex-direction: row;
+        }
+      }
+    }
+  }
+  &--left-center {
+    text-align: left;
+    @include iota-breakpoint(lg) {
+      text-align: center;
+    }
+    .customer-card {
+      &__author {
+        @include iota-breakpoint(lg) {
+          justify-content: center;
+        }
+      }
+    }
+  }
+  &--no-img {
+    .customer-card {
+      &__content {
+        padding-top: 30px;
+        border-radius: 10px;
+        @include iota-breakpoint(md) {
+          padding-top: 40px;
+        }
+      }
+    }
+  }
+  &--no-img {
+    .customer-card {
+      &__content {
+        padding-top: 30px;
+        border-radius: 10px;
+        @include iota-breakpoint(md) {
+          padding-top: 40px;
+        }
+      }
+    }
+  }
+}

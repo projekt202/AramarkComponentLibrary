@@ -1,0 +1,55 @@
+<article class="location-card">
+  <div class="location-card__map" *ngIf="map && coords">
+    <img
+      alt="Map showing location's address"
+      [src]="
+        'https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyBWaX8u3DnZGSFBO1DoKMP3cRHzgQXYWpk&center=' +
+        coords.lat +
+        ', ' +
+        coords.lng +
+        '&markers=icon:https://i.postimg.cc/Vv6CqBgJ/map-pin.png%7C' +
+        coords.lat +
+        ', ' +
+        coords.lng +
+        '&zoom=16&format=png&maptype=roadmap&style=feature:administrative%7Cgamma:1.00%7Cvisibility:simplified&style=feature:administrative.country%7Celement:geometry.fill%7Ccolor:0xeb002a&style=feature:administrative.country%7Celement:labels.text%7Ccolor:0xeb002a&style=feature:administrative.country%7Celement:labels.text.fill%7Ccolor:0xeb002a&style=feature:administrative.locality%7Celement:labels%7Ccolor:0xba5858&style=feature:administrative.locality%7Celement:labels.icon%7Ccolor:0xeb002a&style=feature:administrative.locality%7Celement:labels.text.fill%7Ccolor:0xeb002a&style=feature:administrative.neighborhood%7Celement:labels%7Ccolor:0xe57878&style=feature:administrative.neighborhood%7Celement:labels.text.fill%7Ccolor:0x000000&style=feature:administrative.province%7Celement:labels.text.fill%7Ccolor:0x000000&style=feature:landscape%7Celement:geometry%7Chue:0xff0000%7Csaturation:-100%7Clightness:65%7Cvisibility:simplified&style=feature:poi%7Celement:geometry%7Csaturation:-100%7Clightness:80%7Cvisibility:simplified&style=feature:poi%7Celement:labels%7Cvisibility:off&style=feature:poi.attraction%7Celement:labels%7Chue:0xff0000%7Cvisibility:on&style=feature:poi.park%7Celement:labels%7Chue:0xff0000%7Cvisibility:on&style=feature:road%7Cvisibility:on&style=feature:road.arterial%7Celement:geometry%7Ccolor:0xdddddd%7Cvisibility:simplified&style=feature:road.arterial%7Celement:labels%7Cvisibility:off&style=feature:road.highway%7Celement:geometry%7Ccolor:0xdddddd%7Cvisibility:simplified&style=feature:road.highway%7Celement:labels%7Cvisibility:off&style=feature:road.highway%7Celement:labels.text%7Cvisibility:off&style=feature:road.highway%7Celement:labels.text.fill%7Chue:0xff0000%7Cvisibility:off&style=feature:road.highway.controlled_access%7Celement:labels%7Cvisibility:off&style=feature:road.local%7Celement:geometry%7Ccolor:0xeeeeee%7Cvisibility:simplified&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0xba5858%7Csaturation:-100&style=feature:transit.station%7Cvisibility:off&style=feature:transit.station%7Celement:labels.icon%7Chue:0xff0036&style=feature:transit.station%7Celement:labels.text.fill%7Ccolor:0xba5858%7Cvisibility:simplified&style=feature:water%7Celement:geometry%7Ccolor:0xdddddd%7Cvisibility:simplified&style=feature:water%7Celement:labels.text.fill%7Ccolor:0xba5858&size=480x360'
+      "
+    />
+  </div>
+  <div class="location-card__info">
+    <aus-typography variant="h5" [text]="city"></aus-typography>
+    <aus-typography variant="p-sm" [text]="name"></aus-typography>
+    <div class="location-card__details">
+      <div class="location-card__details-item">
+        <div class="location-card__details-item-icon">
+          <aus-icon name="location" size="small"></aus-icon>
+        </div>
+        <div class="location-card__details-item-text">
+          <a
+            [href]="
+              'https://www.google.com/maps?q=' +
+              getEncodedAddress(address + ' ' + city + ' ' + zip)
+            "
+          >
+            <aus-typography [text]="address"></aus-typography>
+            <aus-typography [text]="city + ' ' + zip"></aus-typography>
+          </a>
+        </div>
+      </div>
+      <div class="location-card__details-item">
+        <div class="location-card__details-item-icon">
+          <aus-icon name="landline-phone" size="small"></aus-icon>
+        </div>
+        <div class="location-card__details-item-text">
+          <a [href]="'tel:' + phone">
+            <aus-typography [text]="phone"></aus-typography>
+          </a>
+        </div>
+      </div>
+    </div>
+    <aus-typography
+      variant="a"
+      [href]="url"
+      text="See location details"
+    ></aus-typography>
+  </div>
+</article>

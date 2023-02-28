@@ -1,0 +1,62 @@
+@import "styles";
+
+.product-card-row {
+  &__group {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: -8px -5px;
+    @include iota-breakpoint(md) {
+      margin: -20px -10px;
+    }
+    @include iota-breakpoint(lg) {
+      margin: 0 -10px;
+      flex-wrap: nowrap;
+    }
+  }
+  &__item {
+    width: calc(50% - 10px);
+    padding: 8px 5px;
+    @include iota-breakpoint(md) {
+      width: calc(50% - 20px);
+      padding: 20px 10px;
+    }
+    @include iota-breakpoint(lg) {
+      padding: 0 10px;
+      width: calc((100% / var(--chunkSizeDesktop)) - 20px);
+    }
+  }
+  &__col-item {
+    margin-bottom: 16px;
+    @include iota-breakpoint(md) {
+      margin-bottom: 40px;
+    }
+  }
+  &--desktop-wrap {
+    @include iota-breakpoint(lg) {
+      margin-bottom: -40px;
+    }
+    .product-card-row {
+      &__group {
+        @include iota-breakpoint(lg) {
+          flex-wrap: wrap;
+        }
+      }
+      &__item {
+        @include iota-breakpoint(lg) {
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+  &--standalone {
+    padding: 16px 0;
+    @include iota-breakpoint(md) {
+      padding: 32px 0;
+    }
+    @include iota-breakpoint(lg) {
+      padding: 56px 0;
+    }
+  }
+}

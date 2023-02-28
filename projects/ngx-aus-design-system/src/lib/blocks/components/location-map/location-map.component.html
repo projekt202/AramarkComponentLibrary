@@ -1,0 +1,517 @@
+<section
+  class="location-map"
+  [ngClass]="{
+    'location-map--multiple': variant === 'multiple',
+    'location-map--single': variant === 'single',
+    'location-map--is-sidebar-open': isInitiallyOpen || isOpen === true
+  }"
+>
+  <aside
+    class="location-map__sidebar"
+    *ngIf="variant === 'multiple' && locations.length"
+  >
+    <div class="location-map__sidebar-content">
+      <ul class="location-map__list">
+        <li
+          *ngFor="let item of locations; let i = index"
+          class="location-map__item"
+          #locationItem
+          [ngClass]="{
+            'location-map__item--active': i === activeIdx
+          }"
+        >
+          <button (click)="openInfo(i)">
+            <aus-typography
+              *ngIf="item.name"
+              [text]="item.name"
+            ></aus-typography>
+            <aus-typography
+              variant="p-sm"
+              [text]="item.city + ' - ' + item.phone"
+            ></aus-typography>
+            <aus-typography [text]="item.hours" variant="p-sm"></aus-typography>
+            <aus-typography
+              variant="p-sm"
+              *ngIf="item.services"
+              [text]="item.services"
+            ></aus-typography>
+          </button>
+          <aus-typography
+            variant="a"
+            *ngIf="item.url"
+            [href]="item.url"
+            [text]="'View ' + item.city"
+            class="location-map__item-link"
+          ></aus-typography>
+        </li>
+      </ul>
+    </div>
+  </aside>
+  <main class="location-map__main">
+    <div class="location-map__map">
+      <!--
+        For some reason custom map styles do not work unless
+        explicitly defined right here as part of the tag
+      -->
+      <google-map
+        #map
+        [zoom]="geolocation.lat && geolocation.lng ? 12 : 5"
+        width="100%"
+        height="100%"
+        (mapClick)="onClickMap()"
+        (mapInitialized)="onMapInit()"
+        [center]="{
+          lat:
+            locations[activeIdx]?.coords?.lat ||
+            geolocation.lat ||
+            defaultGeo.lat,
+          lng:
+            locations[activeIdx]?.coords?.lng ||
+            geolocation.lng ||
+            defaultGeo.lng
+        }"
+        [options]="{
+          disableDefaultUI: true,
+          clickableIcons: false,
+          styles: [
+            {
+              featureType: 'administrative',
+              elementType: 'all',
+              stylers: [
+                {
+                  visibility: 'simplified'
+                },
+                {
+                  gamma: '1.00'
+                }
+              ]
+            },
+            {
+              featureType: 'administrative.country',
+              elementType: 'geometry.fill',
+              stylers: [
+                {
+                  color: '#eb002a'
+                }
+              ]
+            },
+            {
+              featureType: 'administrative.country',
+              elementType: 'labels.text',
+              stylers: [
+                {
+                  color: '#eb002a'
+                }
+              ]
+            },
+            {
+              featureType: 'administrative.country',
+              elementType: 'labels.text.fill',
+              stylers: [
+                {
+                  color: '#eb002a'
+                }
+              ]
+            },
+            {
+              featureType: 'administrative.province',
+              elementType: 'labels.text.fill',
+              stylers: [
+                {
+                  color: '#000000'
+                }
+              ]
+            },
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels',
+              stylers: [
+                {
+                  color: '#ba5858'
+                }
+              ]
+            },
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [
+                {
+                  color: '#eb002a'
+                }
+              ]
+            },
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.icon',
+              stylers: [
+                {
+                  color: '#eb002a'
+                }
+              ]
+            },
+            {
+              featureType: 'administrative.neighborhood',
+              elementType: 'labels',
+              stylers: [
+                {
+                  color: '#e57878'
+                }
+              ]
+            },
+            {
+              featureType: 'administrative.neighborhood',
+              elementType: 'labels.text.fill',
+              stylers: [
+                {
+                  color: '#000000'
+                }
+              ]
+            },
+            {
+              featureType: 'landscape',
+              elementType: 'geometry',
+              stylers: [
+                {
+                  visibility: 'simplified'
+                },
+                {
+                  lightness: '65'
+                },
+                {
+                  saturation: '-100'
+                },
+                {
+                  hue: '#ff0000'
+                }
+              ]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'geometry',
+              stylers: [
+                {
+                  visibility: 'simplified'
+                },
+                {
+                  saturation: '-100'
+                },
+                {
+                  lightness: '80'
+                }
+              ]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels',
+              stylers: [
+                {
+                  visibility: 'off'
+                }
+              ]
+            },
+            {
+              featureType: 'poi.attraction',
+              elementType: 'labels',
+              stylers: [
+                {
+                  visibility: 'on'
+                },
+                {
+                  hue: '#ff0000'
+                }
+              ]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels',
+              stylers: [
+                {
+                  visibility: 'on'
+                },
+                {
+                  hue: '#ff0000'
+                }
+              ]
+            },
+            {
+              featureType: 'road',
+              elementType: 'all',
+              stylers: [
+                {
+                  visibility: 'on'
+                }
+              ]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [
+                {
+                  visibility: 'simplified'
+                },
+                {
+                  color: '#dddddd'
+                }
+              ]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels',
+              stylers: [
+                {
+                  visibility: 'off'
+                }
+              ]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text',
+              stylers: [
+                {
+                  visibility: 'off'
+                }
+              ]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [
+                {
+                  hue: '#ff0000'
+                },
+                {
+                  visibility: 'off'
+                }
+              ]
+            },
+            {
+              featureType: 'road.highway.controlled_access',
+              elementType: 'labels',
+              stylers: [
+                {
+                  visibility: 'off'
+                }
+              ]
+            },
+            {
+              featureType: 'road.arterial',
+              elementType: 'geometry',
+              stylers: [
+                {
+                  visibility: 'simplified'
+                },
+                {
+                  color: '#dddddd'
+                }
+              ]
+            },
+            {
+              featureType: 'road.arterial',
+              elementType: 'labels',
+              stylers: [
+                {
+                  visibility: 'off'
+                }
+              ]
+            },
+            {
+              featureType: 'road.local',
+              elementType: 'geometry',
+              stylers: [
+                {
+                  visibility: 'simplified'
+                },
+                {
+                  color: '#eeeeee'
+                }
+              ]
+            },
+            {
+              featureType: 'road.local',
+              elementType: 'labels.text.fill',
+              stylers: [
+                {
+                  color: '#ba5858'
+                },
+                {
+                  saturation: '-100'
+                }
+              ]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'all',
+              stylers: [
+                {
+                  visibility: 'off'
+                }
+              ]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [
+                {
+                  color: '#ba5858'
+                },
+                {
+                  visibility: 'simplified'
+                }
+              ]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.icon',
+              stylers: [
+                {
+                  hue: '#ff0036'
+                }
+              ]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [
+                {
+                  visibility: 'simplified'
+                },
+                {
+                  color: '#dddddd'
+                }
+              ]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [
+                {
+                  color: '#ba5858'
+                }
+              ]
+            }
+          ]
+        }"
+      >
+        <map-marker
+          #marker
+          *ngFor="let location of locations; let i = index"
+          [position]="location.coords"
+          icon="https://i.postimg.cc/Vv6CqBgJ/map-pin.png"
+          (mapClick)="openInfo(i)"
+        ></map-marker>
+        <map-info-window
+          *ngFor="let location of locations"
+          [position]="location.coords"
+        >
+          <div target="_blank" class="location-map__popup">
+            <div
+              *ngIf="location.img"
+              class="location-map__popup-img"
+              [lazyLoad]="location.img"
+              role="img"
+              aria-label="Location image"
+            ></div>
+            <div class="location-map__popup-details">
+              <a [href]="location.url">
+                <aus-typography
+                  variant="p-md"
+                  [text]="location.name || 'Aramark'"
+                ></aus-typography>
+              </a>
+              <aus-typography
+                variant="p-sm"
+                [text]="location.city"
+              ></aus-typography>
+              <a [href]="'tel:' + location.phone">
+                <aus-typography
+                  [text]="location.phone"
+                  variant="p-sm"
+                ></aus-typography>
+              </a>
+              <aus-typography
+                [text]="location.hours"
+                variant="p-sm"
+              ></aus-typography>
+            </div>
+          </div>
+        </map-info-window>
+      </google-map>
+    </div>
+    <div class="o-container" *ngIf="variant === 'single'">
+      <div class="o-grid">
+        <div class="o-grid__col">
+          <div class="location-map__card">
+            <div class="location-map__card-item">
+              <div class="location-map__card-item-icon">
+                <aus-icon name="location"></aus-icon>
+              </div>
+              <div class="location-map__card-item-main">
+                <aus-typography
+                  variant="h6"
+                  [text]="locations[0].address"
+                ></aus-typography>
+                <aus-typography
+                  variant="h6"
+                  [text]="
+                    locations[0].city +
+                    ', ' +
+                    (locations[0].state ? locations[0].state + ' ' : '') +
+                    locations[0].zip
+                  "
+                ></aus-typography>
+                <aus-typography
+                  variant="a"
+                  text="Get Directions"
+                  [href]="
+                    'https://www.google.com/maps/search/?api=1&query=' +
+                    locations[0].coords.lat +
+                    '%2C' +
+                    locations[0].coords.lng
+                  "
+                  class="location-map__card-item-directions"
+                ></aus-typography>
+              </div>
+            </div>
+            <div class="location-map__card-item">
+              <div class="location-map__card-item-icon">
+                <aus-icon name="landline-phone"></aus-icon>
+              </div>
+              <div class="location-map__card-item-main">
+                <a
+                  [href]="'tel:' + locations[0].phone"
+                  class="location-map__card-item-phone"
+                >
+                  <aus-typography
+                    variant="h6"
+                    [text]="locations[0].phone"
+                  ></aus-typography>
+                </a>
+              </div>
+            </div>
+            <div class="location-map__card-item">
+              <div class="location-map__card-item-icon">
+                <aus-icon name="time"></aus-icon>
+              </div>
+              <div class="location-map__card-item-main">
+                <aus-typography
+                  variant="h6"
+                  [text]="locations[0].hours"
+                ></aus-typography>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="location-map__cta" *ngIf="button">
+      <aus-button
+        [fullwidth]="true"
+        href="/request-a-quote"
+        text="Request a Quote"
+        variant="red"
+        target="_self"
+        [origin]="button.origin"
+      ></aus-button>
+    </div>
+  </main>
+</section>

@@ -1,0 +1,217 @@
+<section
+  class="fw-hero"
+  [ngClass]="{
+    'fw-hero--blur': variant === 'blur',
+    'fw-hero--gradient': variant === 'blur' && card.gradient !== false,
+    'fw-hero--transparency': variant === 'transparency',
+    'fw-hero--right': card.position === 'right',
+    'fw-hero--no-banner': !banner
+  }"
+>
+  <main class="fw-hero__main">
+    <img
+      [src]="imgUrl"
+      [lazyLoad]="imgUrl"
+      fetchpriority="high"
+      alt="Decorative image"
+      aria-hidden="true"
+      class="lazy-bg-img"
+    />
+    <div
+      *ngIf="variant === 'blur' && card.gradient !== false"
+      class="fw-hero__blur"
+      aria-hidden="true"
+    >
+      <img
+        [src]="imgUrl"
+        [lazyLoad]="imgUrl"
+        fetchpriority="high"
+        alt="Decorative image"
+        aria-hidden="true"
+        class="lazy-bg-img"
+      />
+    </div>
+    <div class="fw-hero__container o-container">
+      <div class="fw-hero__internal">
+        <div
+          class="fw-hero__card"
+          [ngClass]="{
+            'fw-hero__card--white': card.variant === 'white',
+            'fw-hero__card--black': card.variant === 'black',
+            'fw-hero__card--transparent': card.variant === 'transparent'
+          }"
+        >
+          <div class="fw-hero__card-content">
+            <div
+              class="fw-hero__card-icon"
+              *ngIf="card.icon"
+              [attr.data-aos]="animated ? 'fade-up' : null"
+              [attr.data-aos-delay]="animated ? 500 : null"
+            >
+              <aus-icon
+                [name]="card.icon.name"
+                [variant]="card.icon.variant || 'white'"
+              ></aus-icon>
+            </div>
+            <aus-typography
+              variant="h2"
+              tag="h1"
+              [text]="card.title"
+              [ngClass]="{
+                'u-color-black': textColor === 'black',
+                'u-color-white': textColor === 'white'
+              }"
+              id="fwhero-title"
+              class="text-animated"
+              [attr.data-aos]="animated ? 'fade-in' : null"
+              [attr.data-aos-delay]="animated ? 250 : null"
+            ></aus-typography>
+            <aus-typography
+              *ngIf="
+                card.text && (variant === 'blur' || variant === 'transparency')
+              "
+              variant="p"
+              [text]="card.text"
+              [ngClass]="{
+                'u-color-black': textColor === 'black',
+                'u-color-white': textColor === 'white'
+              }"
+              [attr.data-aos]="animated ? 'fade-up' : null"
+              [attr.data-aos-delay]="animated ? 500 : null"
+              class="fw-hero__card-text"
+            ></aus-typography>
+            <div
+              class="fw-hero__card-btns"
+              *ngIf="card.button || card.buttonSecondary"
+              [attr.data-aos]="animated ? 'fade-up' : null"
+              [attr.data-aos-delay]="animated ? 700 : null"
+            >
+              <div
+                class="fw-hero__card-btn"
+                *ngIf="card.button && card.button.href"
+              >
+                <aus-button
+                  [href]="card.button.href"
+                  [text]="card.button.text"
+                  [variant]="getCardBtnVariant()"
+                  [origin]="card.button.origin"
+                ></aus-button>
+              </div>
+              <div
+                class="fw-hero__card-btn"
+                *ngIf="card.buttonSecondary && card.buttonSecondary.href"
+                [ngClass]="{
+                  'u-hidden@md': card.onlyMobileSecondaryBtn
+                }"
+              >
+                <aus-button
+                  [href]="card.buttonSecondary.href"
+                  [text]="card.buttonSecondary.text"
+                  [variant]="card.buttonSecondary.variant || 'white'"
+                  [origin]="card.buttonSecondary.origin"
+                ></aus-button>
+              </div>
+            </div>
+          </div>
+          <div class="fw-hero__card-bg-mobile" aria-hidden="true">
+            <img
+              [src]="imgUrl"
+              [lazyLoad]="imgUrl"
+              fetchpriority="high"
+              alt="Decorative image"
+              aria-hidden="true"
+              class="lazy-bg-img"
+            />
+          </div>
+        </div>
+        <div class="fw-hero__bg-mobile">
+          <img
+            [src]="imgUrl"
+            [lazyLoad]="imgUrl"
+            fetchpriority="high"
+            alt="Decorative image"
+            aria-hidden="true"
+            class="lazy-bg-img"
+          />
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer
+    class="fw-hero__banner"
+    [ngClass]="{
+      'fw-hero__banner--white': banner.variant === 'white',
+      'fw-hero__banner--black': banner.variant === 'black',
+      'fw-hero__banner--white-mobile': card.variant === 'black',
+      'fw-hero__banner--black-mobile': card.variant === 'white',
+      'fw-hero__banner--centered': banner.centered
+    }"
+    *ngIf="banner"
+  >
+    <div class="o-container">
+      <div
+        [ngClass]="{
+          'o-grid o-grid--middle': !banner.centered,
+          'fw-hero__banner-centered': banner.centered
+        }"
+      >
+        <div
+          [ngClass]="{
+            'o-grid__col': !banner.centered || banner.primaryBtnOnlyMobile,
+            'u-6/12@md': !banner.centered,
+            'u-12/12@md': banner.primaryBtnOnlyMobile
+          }"
+        >
+          <div class="fw-hero__banner-text">
+            <aus-typography
+              *ngIf="banner.text"
+              [text]="banner.text"
+              [ngClass]="{
+                'u-color-black': textColor === 'black',
+                'u-color-white': textColor === 'white'
+              }"
+            ></aus-typography>
+          </div>
+        </div>
+        <div
+          [ngClass]="{
+            'o-grid__col u-6/12@md': !banner.centered,
+            'u-hidden@md': banner.primaryBtnOnlyMobile
+          }"
+        >
+          <div class="fw-hero__banner-cta" *ngIf="banner.button">
+            <div
+              class="fw-hero__banner-btn"
+              [ngClass]="{
+                'u-hidden@md': banner.primaryBtnOnlyMobile
+              }"
+            >
+              <aus-button
+                [href]="banner.button.href"
+                [variant]="banner.button.variant || getBannerBtnVariant()"
+                [text]="banner.button.text"
+                [origin]="banner.button.origin"
+              ></aus-button>
+            </div>
+            <div
+              class="fw-hero__banner-btn"
+              *ngIf="banner.buttonSecondary"
+              [ngClass]="{
+                'u-hidden@md': banner.onlyMobileSecondaryBtn
+              }"
+            >
+              <aus-button
+                [href]="banner.buttonSecondary.href"
+                [variant]="
+                  banner.buttonSecondary.variant || getBannerBtnVariant()
+                "
+                [text]="banner.buttonSecondary.text"
+                [origin]="banner.buttonSecondary.origin"
+              ></aus-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</section>

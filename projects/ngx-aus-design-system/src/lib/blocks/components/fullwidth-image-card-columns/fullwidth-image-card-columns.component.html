@@ -1,0 +1,23 @@
+<section
+  class="fw-image-card-columns"
+  [ngClass]="{
+    'fw-image-card-columns--bg-white': bg === 'white',
+    'fw-image-card-columns--bg-black': bg === 'black',
+    'fw-image-card-columns--bg-gray': bg === 'gray',
+    'fw-image-card-columns--embedded': embedded
+  }"
+>
+  <div class="o-container">
+    <div class="o-grid o-grid--center">
+      <div *ngFor="let card of cards" class="o-grid__col u-6/12@sm u-4/12@lg">
+        <aus-fullwidth-image-card
+          [imgUrl]="card.imgUrl"
+          [title]="card.title"
+          [subtitle]="card.subtitle"
+          [text]="card.text"
+          [cta]="card.cta"
+        ></aus-fullwidth-image-card>
+      </div>
+    </div>
+  </div>
+</section>

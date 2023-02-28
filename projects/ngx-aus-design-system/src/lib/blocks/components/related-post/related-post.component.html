@@ -1,0 +1,57 @@
+<section
+  class="related-post"
+  [ngClass]="{
+    'related-post--bg-white': background === 'white',
+    'related-post--bg-black': background === 'black',
+    'related-post--bg-gray': background === 'gray'
+  }"
+>
+  <header class="related-post__header" *ngIf="title">
+    <div class="o-container">
+      <div class="o-grid">
+        <div class="o-grid__col">
+          <aus-typography variant="h3" tag="h2" [text]="title"></aus-typography>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="o-container">
+    <div class="o-grid o-grid--center">
+      <div class="o-grid__col">
+        <div class="related-post__carousel">
+          <aus-carousel
+            [config]="{
+              slidesPerView: 1,
+              autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+              },
+              breakpoints: {
+                '768': {
+                  slidesPerView: 2
+                },
+                '1024': {
+                  slidesPerView: 3
+                }
+              }
+            }"
+          >
+            <ng-template #slide *ngFor="let article of articles">
+              <div class="related-post__slide">
+                <aus-article-card
+                  [variant]="article.variant"
+                  [publishDate]="article.publishDate"
+                  [url]="article.url"
+                  tagTitle="h3"
+                  [img]="article.img"
+                  [title]="article.title"
+                  [text]="article.text"
+                ></aus-article-card>
+              </div>
+            </ng-template>
+          </aus-carousel>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

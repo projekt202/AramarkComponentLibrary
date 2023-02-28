@@ -1,0 +1,48 @@
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from "@angular/core";
+
+@Component({
+  selector: "aus-dropdown",
+  templateUrl: "./dropdown.component.html",
+  styleUrls: ["./dropdown.component.scss"],
+})
+export class DropdownComponent {
+  @Input() name: string = "";
+  @Input() label?: string = "";
+  @Input() placeholder: string = "";
+  @Input() items: string[] = [];
+  @Input() isDisabled?: boolean;
+  @Input() isRequired?: boolean;
+  @Input() initialIdx?: number;
+
+  @Output() selectedChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output() change: EventEmitter<string> = new EventEmitter<string>();
+
+  selected: string = "";
+  didInteract: boolean = false;
+
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  hasInitialIdx() {
+    return typeof this.initialIdx === "number";
+  }
+
+  getInitialIdx() {
+    return this.initialIdx || 0;
+  }
+
+  onChange(val: string) {
+    this.didInteract = true;
+    this.selected = val || "";
+    this.change.emit(val);
+  }
+
+  setSelected(val: string) {
+    this.selected = val;
+  }
+}

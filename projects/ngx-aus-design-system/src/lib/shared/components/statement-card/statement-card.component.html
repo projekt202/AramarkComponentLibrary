@@ -1,0 +1,13 @@
+<article class="statement-card">
+  <div class="statement-card__icon" *ngIf="icon">
+    <aus-icon
+      [name]="icon"
+      [fontSize]="35"
+      variant="transparent"
+      [attr.data-aos]="anim?.name || null"
+      [attr.data-aos-delay]="(anim?.index || 0) * 300 || null"
+    ></aus-icon>
+  </div>
+  <aus-typography variant="h5" tag="h2" [text]="title"></aus-typography>
+  <aus-typography variant="p-sm" [text]="text"></aus-typography>
+</article>

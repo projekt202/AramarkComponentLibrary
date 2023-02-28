@@ -1,0 +1,25 @@
+<section
+  class="two-column-billboards"
+  [ngClass]="{
+    'two-column-billboards--bg-white': bgColor === 'white',
+    'two-column-billboards--bg-black': bgColor === 'black',
+    'two-column-billboards--bg-gray': bgColor === 'gray'
+  }"
+>
+  <div class="o-container">
+    <div class="o-grid">
+      <div *ngFor="let billboard of billboards" class="o-grid__col u-6/12@lg">
+        <aus-billboard
+          [variant]="billboard.variant"
+          [type]="billboard.type"
+          [column]="billboard.column"
+          [imgUrl]="billboard.imgUrl"
+          [iconName]="billboard.iconName"
+          [header]="billboard.header"
+          [bodyText]="billboard.bodyText"
+          [btn]="billboard.btn"
+        ></aus-billboard>
+      </div>
+    </div>
+  </div>
+</section>

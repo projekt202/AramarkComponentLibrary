@@ -1,0 +1,50 @@
+<a
+  *ngIf="route"
+  [class]="getClasses()"
+  [routerLink]="route"
+  [target]="target"
+  [attr.aria-disabled]="disabled || null"
+  [tabindex]="disabled ? -1 : 0"
+>
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</a>
+<a
+  *ngIf="href && !isAnchorLink"
+  [class]="getClasses()"
+  [href]="href"
+  [target]="target"
+  [attr.aria-disabled]="disabled || null"
+  [tabindex]="disabled ? -1 : 0"
+>
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</a>
+<button
+  *ngIf="href && isAnchorLink"
+  SmoothScroll
+  [scrollTo]="href.split('#')[1]"
+  easing="easeInOutCubic"
+  [duration]="500"
+  [class]="getClasses()"
+  (click)="anchorPreview()"
+  [attr.data-armk-anchor]="href"
+  [attr.aria-disabled]="disabled || null"
+  [tabindex]="disabled ? -1 : 0"
+>
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</button>
+<button
+  *ngIf="useButton"
+  [attr.type]="btnType || null"
+  [class]="getClasses()"
+  [attr.aria-disabled]="disabled || null"
+  [tabindex]="disabled ? -1 : 0"
+>
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</button>
+
+<ng-template #content>
+  <span *ngIf="icon" class="button__icon">
+    <aus-icon [name]="icon" size="small" variant="transparent"></aus-icon>
+  </span>
+  {{ getText() }}
+</ng-template>

@@ -1,0 +1,55 @@
+<section
+  class="location-service-areas"
+  [ngClass]="{
+    'location-service-areas--bg-white': background === 'white',
+    'location-service-areas--bg-black': background === 'black'
+  }"
+>
+  <div class="o-container">
+    <div class="o-grid o-grid--center">
+      <div
+        class="o-grid__col"
+        [ngClass]="{
+          'u-11/12@lg u-8/12@xl': variant === 'carousel'
+        }"
+      >
+        <div class="location-service-areas__title">
+          <aus-typography [text]="title" variant="h4"></aus-typography>
+        </div>
+        <aus-carousel
+          *ngIf="variant === 'carousel'"
+          [config]="{
+            autoplay: {
+              delay: 5000,
+              disableOnInteraction: false
+            }
+          }"
+        >
+          <ng-template #slide *ngFor="let location of getChunks()">
+            <ul class="location-service-areas__list">
+              <li
+                *ngFor="let area of location"
+                class="location-service-areas__list-item"
+              >
+                <aus-typography [text]="area" weight="500"></aus-typography>
+              </li>
+            </ul>
+          </ng-template>
+        </aus-carousel>
+        <div *ngIf="variant === 'list'" class="location-service-areas__columns">
+          <ul
+            *ngFor="let location of getChunks()"
+            class="location-service-areas__column"
+          >
+            <li
+              *ngFor="let area of location"
+              class="location-service-areas__column-item"
+            >
+              <aus-typography [text]="area" weight="500"></aus-typography>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

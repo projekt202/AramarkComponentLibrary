@@ -1,0 +1,53 @@
+<section
+  [class]="getClasses()"
+  [ngClass]="{ 'custom-background': backgroundColor }"
+  style="--iph-background-color: {{ backgroundColor }}"
+>
+  <div class="interiorpagehero--text">
+    <div class="container-text">
+      <div class="date" *ngIf="date">
+        <aus-icon
+          *ngIf="iconName"
+          class="icon"
+          [name]="iconName"
+          [variant]="iconVariant"
+          size="small"
+        >
+        </aus-icon>
+        <aus-typography
+          class="date-text"
+          weight="500"
+          [text]="date"
+          variant="span"
+        >
+        </aus-typography>
+        <aus-typography
+          *ngIf="endDate"
+          class="date-text"
+          weight="500"
+          [text]="'- ' + endDate"
+          variant="span"
+          [ngStyle]="{
+            marginLeft: '7px'
+          }"
+        >
+        </aus-typography>
+      </div>
+      <aus-typography class="header" [text]="header" variant="h4">
+      </aus-typography>
+      <aus-button
+        *ngIf="button && button.text"
+        class="button"
+        [href]="button.href"
+        [target]="button.target"
+        [text]="button.text"
+        [variant]="button.variant || buttonColor"
+        [origin]="button.origin"
+      >
+      </aus-button>
+    </div>
+  </div>
+  <div class="interiorpagehero--image">
+    <div aria-hidden="true" [lazyLoad]="imgUrl"></div>
+  </div>
+</section>

@@ -1,0 +1,415 @@
+@import "styles";
+
+@mixin typography-base {
+  h1,
+  .h1,
+  h2,
+  .h2 {
+    color: $c-black;
+    letter-spacing: -0.02em;
+    font-family: $font-main;
+    @include iota-type(
+      (
+        null: (
+          30px,
+          35px,
+        ),
+        md: (
+          45px,
+          50px,
+        ),
+        lg: (
+          51px,
+          55px,
+        ),
+      )
+    );
+  }
+
+  h1,
+  .h1 {
+    font-weight: 700;
+  }
+
+  h2,
+  .h2 {
+    font-weight: 500;
+  }
+
+  h3,
+  .h3 {
+    color: $c-black;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    font-family: $font-main;
+    @include iota-type(
+      (
+        null: (
+          25px,
+          30px,
+        ),
+        md: (
+          35px,
+          45px,
+        ),
+        lg: (
+          47px,
+          55px,
+        ),
+      )
+    );
+  }
+
+  h4,
+  .h4 {
+    color: $c-black;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    font-family: $font-main;
+    @include iota-type(
+      (
+        null: (
+          25px,
+          30px,
+        ),
+        sm: (
+          30px,
+          37px,
+        ),
+        md: (
+          30px,
+          37px,
+        ),
+        lg: (
+          40px,
+          45px,
+        ),
+      )
+    );
+  }
+
+  h5,
+  .h5 {
+    color: $c-black;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    font-family: $font-main;
+    @include iota-type(
+      (
+        null: (
+          21px,
+          27px,
+        ),
+        md: (
+          25px,
+          35px,
+        ),
+        lg: (
+          27px,
+          32px,
+        ),
+      )
+    );
+  }
+
+  h6,
+  .h6 {
+    color: $c-black;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    font-family: $font-main;
+    @include iota-type(
+      (
+        null: (
+          18px,
+          18px,
+        ),
+        md: (
+          22px,
+          22px,
+        ),
+        lg: (
+          24px,
+          28px,
+        ),
+      )
+    );
+  }
+
+  p,
+  .p,
+  li,
+  .li,
+  pre,
+  .pre,
+  dd,
+  .dd {
+    color: $c-black;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    font-family: $font-main;
+    @include iota-type(
+      (
+        null: (
+          16px,
+          21px,
+        ),
+        md: (
+          18px,
+          25px,
+        ),
+        lg: (
+          20px,
+          27px,
+        ),
+      )
+    );
+    &.p-xs {
+      @include iota-type(
+        (
+          null: (
+            14px,
+            23px,
+          ),
+        )
+      );
+    }
+    &.p-sm {
+      @include iota-type(
+        (
+          null: (
+            16px,
+            21px,
+          ),
+          md: (
+            16px,
+            23px,
+          ),
+        )
+      );
+    }
+    &.p-md {
+      @include iota-type(
+        (
+          null: (
+            16px,
+            23px,
+          ),
+          md: (
+            18px,
+            27px,
+          ),
+        )
+      );
+    }
+  }
+
+  pre,
+  .pre {
+    font-family: monospace;
+  }
+
+  a,
+  .a {
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: 400;
+    color: $c-black;
+    font-family: $font-main;
+    text-decoration: underline;
+    letter-spacing: -0.02em;
+    transition: color 0.25s;
+    display: inline-block;
+    position: relative;
+    outline: none;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 7px;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 0 3px rgba($c-red, 0.4);
+      border: 1px solid $c-red;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: all 0.25s;
+    }
+    &:hover {
+      font-weight: 500;
+    }
+    &:focus-visible {
+      outline: none;
+      box-shadow: none;
+      &:before {
+        opacity: 1;
+      }
+    }
+    &.a-accent {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 25px;
+      color: $c-red;
+      &:before {
+        transform: translate(-50%, -50%);
+      }
+      &:hover {
+        color: $c-red-drk;
+      }
+    }
+    &.a-disabled {
+      color: $c-gray;
+      pointer-events: none;
+    }
+  }
+
+  span.typography,
+  .span.typography {
+    color: $c-black;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    font-family: $font-main;
+    @include iota-type(
+      (
+        null: (
+          16px,
+          23px,
+        ),
+        md: (
+          18px,
+          25px,
+        ),
+        lg: (
+          18px,
+          27px,
+        ),
+      )
+    );
+  }
+
+  blockquote,
+  .blockquote {
+    color: $c-black;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-family: $font-main;
+    @include iota-type(
+      (
+        null: (
+          19px,
+          23px,
+        ),
+        md: (
+          35px,
+          41px,
+        ),
+      )
+    );
+  }
+}
+
+@include typography-base();
+
+.form {
+  &__label {
+    color: $c-black;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    font-family: $font-main;
+  }
+  &__status {
+    color: $c-red;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    font-family: $font-main;
+  }
+}
+
+.numbers {
+  color: $c-black;
+  font-family: $font-main;
+  &-1 {
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    @include iota-type(
+      (
+        null: (
+          50px,
+          50px,
+        ),
+        md: (
+          85px,
+          85px,
+        ),
+      )
+    );
+  }
+  &-2 {
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    @include iota-type(
+      (
+        null: (
+          34px,
+          34px,
+        ),
+        md: (
+          50px,
+          50px,
+        ),
+      )
+    );
+  }
+  &-3 {
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    @include iota-type(
+      (
+        null: (
+          20px,
+          34px,
+        ),
+        md: (
+          24px,
+          34px,
+        ),
+      )
+    );
+  }
+  &-4 {
+    font-weight: 700;
+    letter-spacing: 0;
+    @include iota-type(
+      (
+        null: (
+          20px,
+          34px,
+        ),
+        md: (
+          24px,
+          34px,
+        ),
+      )
+    );
+  }
+  &-5 {
+    font-weight: 400;
+    letter-spacing: 0;
+    @include iota-type(
+      (
+        null: (
+          12px,
+          20px,
+        ),
+        md: (
+          16px,
+          26px,
+        ),
+      )
+    );
+  }
+}

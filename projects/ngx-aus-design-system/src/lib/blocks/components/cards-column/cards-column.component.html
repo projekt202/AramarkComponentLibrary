@@ -1,0 +1,57 @@
+<section
+  class="cards-column"
+  [ngClass]="{
+    'cards-column--black': variant === 'black',
+    'cards-column--white': variant === 'white'
+  }"
+>
+  <main class="cards-column__main">
+    <div class="o-container">
+      <div class="o-grid o-grid--center">
+        <div class="o-grid__col u-10/12@xl">
+          <div class="o-grid o-grid--center o-grid--50">
+            <div
+              class="o-grid__col"
+              *ngFor="let card of data"
+              [ngClass]="{
+                'u-6/12@lg': layout === '2',
+                'u-4/12@lg': layout === '3'
+              }"
+            >
+              <div class="cards-column__item">
+                <aus-card
+                  [icon]="card.icon"
+                  [title]="card.title"
+                  [text]="card.text"
+                  [variant]="getCardsVariant()"
+                ></aus-card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="cards-column__footer" *ngIf="button">
+    <div class="o-container">
+      <div class="o-grid">
+        <div class="o-grid__col">
+          <aus-button
+            *ngIf="button.route"
+            variant="red"
+            [text]="button.text"
+            [route]="button.route"
+            [origin]="button.origin"
+          ></aus-button>
+          <aus-button
+            *ngIf="button.href"
+            variant="red"
+            [text]="button.text"
+            [href]="button.href"
+            [origin]="button.origin"
+          ></aus-button>
+        </div>
+      </div>
+    </div>
+  </footer>
+</section>

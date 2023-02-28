@@ -1,0 +1,37 @@
+<fieldset class="checkbox">
+  <div class="checkbox__control-wrapper">
+    <input
+      [id]="name"
+      type="checkbox"
+      [checked]="isChecked"
+      [disabled]="isDisabled"
+      class="checkbox__control"
+      (change)="onChange($event)"
+      (ngModelChange)="isCheckedChange.emit(isChecked)"
+    />
+    <div class="checkbox__control-tick" aria-hidden="true">
+      <svg
+        width="16"
+        height="11"
+        viewBox="0 0 16 11"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.5191 0.402865C13.8028 0.134718 14.1746 0 14.5468 0C14.919 0 15.2908 0.134718 15.5745 0.402865C16.1418 0.939158 16.1418 1.80927 15.5745 2.34557L6.84541 10.5962C6.56414 10.8667 6.19115 11 5.81774 11C5.44433 11 5.07618 10.8667 4.79007 10.5962L0.425541 6.4709C-0.141847 5.93461 -0.141847 5.06449 0.425541 4.5282C0.992929 3.99191 1.9135 3.99191 2.48088 4.5282L5.81774 7.68129L13.5191 0.402865Z"
+          fill="white"
+        />
+      </svg>
+    </div>
+  </div>
+  <label [for]="name" class="checkbox__label">
+    <a *ngIf="labelUrl" [href]="labelUrl">
+      <aus-typography variant="p-sm" [text]="label"></aus-typography>
+    </a>
+    <aus-typography
+      *ngIf="!labelUrl"
+      variant="p-sm"
+      [text]="label"
+    ></aus-typography>
+  </label>
+</fieldset>

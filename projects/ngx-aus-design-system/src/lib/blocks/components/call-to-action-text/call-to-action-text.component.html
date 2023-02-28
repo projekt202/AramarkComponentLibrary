@@ -1,0 +1,151 @@
+<section [class]="getClasses()">
+  <div
+    class="call-to-action-text__bg-img"
+    *ngIf="variant === 'bg-img' && parallax"
+    aria-hidden="true"
+    ngxParallaxScroll
+    [parallaxSpeed]="0.5"
+    [parallaxThrottleTime]="1"
+    [parallaxSmoothness]="0.01"
+    [parallaxDirection]="'reverse'"
+    [parallaxTimingFunction]="'linear'"
+  >
+    <img
+      aria-hidden="true"
+      [lazyLoad]="getBgUrl()"
+      [src]="getBgUrl()"
+      fetchpriority="high"
+      alt="Decorative image"
+      class="lazy-bg-img"
+    />
+  </div>
+  <div
+    class="call-to-action-text__bg-img"
+    *ngIf="variant === 'bg-img' && !parallax"
+    aria-hidden="true"
+  >
+    <img
+      aria-hidden="true"
+      [lazyLoad]="getBgUrl()"
+      [src]="getBgUrl()"
+      fetchpriority="high"
+      alt="Decorative image"
+      class="lazy-bg-img"
+    />
+  </div>
+  <div *ngIf="logo" class="call-to-action-text__logo">
+    <div class="o-container">
+      <div class="o-grid">
+        <div class="o-grid__col">
+          <div class="call-to-action-text__logo-inner">
+            <a [href]="logo.url">
+              <aus-image
+                altText="Aramark logo"
+                [src]="
+                  type === 'dark'
+                    ? 'https://i.postimg.cc/QN11T1Zf/logo-white.png'
+                    : 'https://i.postimg.cc/j20f1dP6/logo-black.png'
+                "
+              ></aus-image>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="o-container call-to-action-text__wrapper">
+    <div
+      class="o-grid"
+      [ngClass]="{
+        'o-grid--center': alignment === 'center'
+      }"
+    >
+      <div
+        class="o-grid__col"
+        [ngClass]="{
+          'u-4/6@sm': variant !== 'bg-img'
+        }"
+      >
+        <div class="call-to-action-text__content">
+          <aus-icon
+            *ngIf="iconName && variant !== 'with-body-text'"
+            class="icon"
+            [name]="iconName"
+            [variant]="iconVariant"
+            size="small"
+            [attr.data-aos]="animated ? 'fade-up' : null"
+            [attr.data-aos-delay]="animated ? 500 : null"
+          >
+          </aus-icon>
+          <aus-typography
+            *ngIf="preHeader"
+            class="pre-header"
+            [text]="preHeader"
+            variant="span"
+            weight="400"
+            [ngClass]="{
+              italics: preHeaderItalic,
+              'u-color-black': textColor === 'black',
+              'u-color-white': textColor === 'white'
+            }"
+            [ngStyle]="{
+              display: 'block'
+            }"
+            [attr.data-aos]="animated ? 'fade-up' : null"
+            [attr.data-aos-delay]="animated ? 500 : null"
+          >
+          </aus-typography>
+          <aus-typography
+            class="header text-animated"
+            [text]="header"
+            [variant]="getHeaderVariant()"
+            [tag]="bodyText || header.length < 50 ? 'h1' : 'p'"
+            [ngClass]="{
+              italics: headerItalic,
+              'u-color-black': textColor === 'black',
+              'u-color-white': textColor === 'white'
+            }"
+            id="ctatext-title"
+            [attr.data-aos]="animated ? 'fade-in' : null"
+            [attr.data-aos-delay]="animated ? 250 : null"
+          >
+          </aus-typography>
+          <aus-typography
+            *ngIf="bodyText && variant !== 'without-body-text'"
+            class="body-text"
+            [text]="bodyText"
+            variant="p"
+            [ngClass]="{
+              'u-color-black': textColor === 'black',
+              'u-color-white': textColor === 'white'
+            }"
+            [attr.data-aos]="animated ? 'fade-up' : null"
+            [attr.data-aos-delay]="animated ? 500 : null"
+          >
+          </aus-typography>
+          <div
+            *ngIf="getButtons().length"
+            class="btns"
+            [attr.data-aos]="animated ? 'fade-up' : null"
+            [attr.data-aos-delay]="animated ? 700 : null"
+          >
+            <aus-button
+              *ngFor="let button of buttons"
+              [href]="button.href"
+              [target]="button.target"
+              [text]="button.text"
+              [variant]="button.variant"
+              [origin]="button.origin"
+            >
+            </aus-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="divider"
+    class="call-to-action-text__divider"
+    aria-hidden="true"
+  ></div>
+</section>

@@ -1,0 +1,197 @@
+<section
+  class="customer-support-form"
+  inViewport
+  (inViewportAction)="onIntersection($event)"
+>
+  <div class="o-container">
+    <div class="o-grid o-grid--center">
+      <div class="o-grid__col u-9/12@xl">
+        <form class="customer-support-form__form">
+          <div class="customer-support-form__field">
+            <aus-input
+              label="First Name"
+              name="firstName"
+              [isRequired]="true"
+              [(value)]="firstName"
+              validationErrorMsg="This field is required."
+              (valueChange)="onInputChange($event, 'firstName')"
+            ></aus-input>
+          </div>
+          <div class="customer-support-form__field">
+            <aus-input
+              label="Last Name"
+              name="lastName"
+              [isRequired]="true"
+              [(value)]="lastName"
+              validationErrorMsg="This field is required."
+              (valueChange)="onInputChange($event, 'lastName')"
+            ></aus-input>
+          </div>
+          <div class="customer-support-form__field">
+            <aus-input
+              label="Business Name"
+              name="businessName"
+              [isRequired]="true"
+              [(value)]="businessName"
+              validationErrorMsg="This field is required."
+              (valueChange)="onInputChange($event, 'businessName')"
+            ></aus-input>
+          </div>
+          <div class="customer-support-form__field">
+            <aus-input
+              label="Street Address"
+              name="streetAddress"
+              [isRequired]="true"
+              [(value)]="streetAddress"
+              validationErrorMsg="This field is required."
+              (valueChange)="onInputChange($event, 'streetAddress')"
+            ></aus-input>
+          </div>
+          <div class="customer-support-form__field">
+            <div class="o-grid">
+              <div class="o-grid__col u-4/12@md">
+                <aus-input
+                  label="City"
+                  name="city"
+                  [isRequired]="true"
+                  [(value)]="city"
+                  validationErrorMsg="This field is required."
+                  (valueChange)="onInputChange($event, 'city')"
+                ></aus-input>
+              </div>
+              <div class="o-grid__col u-8/12@md">
+                <aus-dropdown
+                  name="state"
+                  label="State"
+                  [isRequired]="true"
+                  placeholder="Select"
+                  (change)="onDropdownChange($event)"
+                  [items]="[
+                    'Alabama',
+                    'Alaska',
+                    'Arizona',
+                    'Arkansas',
+                    'California',
+                    'Colorado',
+                    'Connecticut',
+                    'Delaware',
+                    'Florida',
+                    'Georgia',
+                    'Hawaii',
+                    'Idaho',
+                    'Illinois',
+                    'Indiana',
+                    'Iowa',
+                    'Kansas',
+                    'Kentucky',
+                    'Louisiana',
+                    'Maine',
+                    'Maryland',
+                    'Massachusetts',
+                    'Michigan',
+                    'Minnesota',
+                    'Mississippi',
+                    'Missouri',
+                    'Montana',
+                    'Nebraska',
+                    'Nevada',
+                    'New Hampshire',
+                    'New Jersey',
+                    'New Mexico',
+                    'New York',
+                    'North Carolina',
+                    'North Dakota',
+                    'Ohio',
+                    'Oklahoma',
+                    'Oregon',
+                    'Pennsylvania',
+                    'Rhode Island',
+                    'South Carolina',
+                    'South Dakota',
+                    'Tennessee',
+                    'Texas',
+                    'Utah',
+                    'Vermont',
+                    'Virginia',
+                    'Washington',
+                    'West Virginia',
+                    'Wisconsin',
+                    'Wyoming'
+                  ]"
+                ></aus-dropdown>
+              </div>
+            </div>
+          </div>
+          <div class="customer-support-form__field">
+            <div class="o-grid">
+              <div class="o-grid__col u-4/12@md">
+                <aus-input
+                  name="zipCode"
+                  label="Zip Code"
+                  pattern="\d*"
+                  [maxLength]="5"
+                  [minLength]="5"
+                  [isRequired]="true"
+                  [(value)]="zipCode"
+                  (valueChange)="onInputChange($event, 'zipCode')"
+                  validationErrorMsg="This field is required. Make sure this is a valid zip code."
+                ></aus-input>
+              </div>
+              <div class="o-grid__col u-8/12@md">
+                <aus-input
+                  name="workPhone"
+                  label="Work Phone"
+                  [isRequired]="true"
+                  [(value)]="workPhone"
+                  [maxLength]="14"
+                  (valueChange)="onInputChange($event, 'workPhone')"
+                  validationErrorMsg="This field is required. Make sure this is a valid phone number."
+                  mask="(000) 000-0000"
+                ></aus-input>
+              </div>
+            </div>
+          </div>
+          <div class="customer-support-form__field">
+            <aus-input
+              name="email"
+              type="email"
+              label="Email"
+              [isRequired]="true"
+              [(value)]="workEmail"
+              (valueChange)="onInputChange($event, 'workEmail')"
+              validationErrorMsg="This field is required. Make sure this is a valid email address."
+              pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+            ></aus-input>
+          </div>
+          <div class="customer-support-form__field">
+            <aus-input
+              label="Customer ID"
+              name="customerId"
+              [(value)]="customerId"
+              (valueChange)="onInputChange($event, 'customerId')"
+            ></aus-input>
+          </div>
+          <div class="customer-support-form__field">
+            <aus-input
+              label="Comments"
+              name="comments"
+              [(value)]="comments"
+              [multiline]="true"
+              (valueChange)="onInputChange($event, 'comments')"
+            ></aus-input>
+          </div>
+          <div class="customer-support-form__field">
+            <aus-button
+              variant="red"
+              [fullwidth]="true"
+              [useButton]="true"
+              (click)="onSubmit()"
+              [disabled]="!getIsValid()"
+              text="Submit Support Request"
+            ></aus-button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

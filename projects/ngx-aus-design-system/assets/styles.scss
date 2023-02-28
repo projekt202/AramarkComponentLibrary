@@ -1,0 +1,186 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./libs/swiper/swiper.min";
+@import "./libs/swiper/navigation.min";
+@import "./libs/swiper/pagination.min";
+@import "./libs/swiper/a11y.min";
+
+@import "./libs/tippy/tippy";
+@import "./libs/tippy/light";
+@import "./libs/tippy/scale";
+
+@import "./libs/ngx-smart-modal/ngx-smart-modal";
+
+@import "./libs/aos/aos";
+
+@import "./styles/main";
+
+@import "./iconfont";
+
+$font-main: "Gotham", "Montserrat", sans-serif;
+
+.nsm {
+  &-dialog-btn-close {
+    display: none;
+  }
+  &-dialog {
+    min-height: 0;
+    max-width: 100%;
+  }
+  &-content {
+    height: 100%;
+    width: 100%;
+    max-width: 1264px;
+    margin: auto;
+    padding: 32px 16px;
+    box-shadow: none;
+    background-color: transparent;
+  }
+}
+
+::selection {
+  color: $c-black;
+  background-color: $c-red;
+}
+
+*:not([class*="nsm-"]):focus-visible {
+  outline: 2px solid $c-red;
+  box-shadow: 0 0 0 6px rgba($c-red, 0.4);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+ul,
+ol {
+  list-style-position: inside;
+}
+
+sup,
+sub {
+  line-height: 0;
+}
+
+.popup {
+  &--black {
+    .tippy-box {
+      color: $c-white;
+      background-color: $c-black;
+      &:before {
+        background-color: $c-black;
+      }
+    }
+  }
+}
+
+.tippy-box {
+  padding: 16px;
+  color: $c-black;
+  text-align: center;
+  border-radius: 8px;
+  font-family: $font-main;
+  background-color: $c-white;
+  font-size: 16px;
+  line-height: 23px;
+  letter-spacing: -0.02em;
+  box-shadow: 0px 2px 9px rgba(50, 52, 58, 0.1);
+  &:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background-color: $c-white;
+  }
+  &[data-placement="bottom"] {
+    &:before {
+      top: 1px;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+  &[data-placement="top"] {
+    &:before {
+      bottom: 1px;
+      left: 50%;
+      transform: translate(-50%, 50%) rotate(45deg);
+    }
+  }
+}
+
+.u-color {
+  &-black {
+    color: $c-black !important;
+    ::ng-deep {
+      .typography {
+        color: $c-black !important;
+      }
+    }
+  }
+  &-white {
+    color: $c-white !important;
+    ::ng-deep {
+      .typography {
+        color: $c-white !important;
+      }
+    }
+  }
+}
+
+body {
+  .armk-skeleton[class] {
+    opacity: 0.7;
+    animation: skeleton-loading 1s linear infinite alternate;
+    div#{&} {
+      height: 100%;
+    }
+  }
+  .armk-skeleton-text[class] {
+    width: 100%;
+    height: 0.9em;
+    margin-bottom: 0.25rem;
+    border-radius: 0.125rem;
+    display: inline-block;
+    @extend .armk-skeleton;
+  }
+  .armk-skeleton-text[class]:last-child {
+    width: 80%;
+    margin-bottom: 0;
+  }
+  @keyframes skeleton-loading {
+    0% {
+      background-color: hsl(200, 20%, 70%);
+    }
+    100% {
+      background-color: hsl(200, 20%, 95%);
+    }
+  }
+}
+
+.lazy-bg-img {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  position: absolute;
+  pointer-events: none;
+  transition: all 0.25s;
+  object-position: center;
+  &.ng-lazyloaded {
+    opacity: 1;
+  }
+}
+
+.text-animated {
+  ::ng-deep {
+    .typography {
+      perspective: 400px;
+    }
+    * {
+      font-kerning: none;
+      transform-origin: 50% 100%;
+    }
+  }
+}

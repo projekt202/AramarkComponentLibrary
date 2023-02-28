@@ -1,0 +1,194 @@
+@import "styles";
+
+.video {
+  padding: 40px 0;
+  position: relative;
+  &__bg {
+    left: 0;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    &--top {
+      top: 0;
+      height: 55%;
+    }
+    &--bottom {
+      bottom: 0;
+      height: 45%;
+    }
+  }
+  &__main {
+    z-index: 1;
+    position: relative;
+  }
+  &__title {
+    text-align: center;
+    margin-bottom: 25px;
+    ::ng-deep {
+      .typography {
+        font-weight: 700;
+      }
+    }
+    &--italics {
+      ::ng-deep {
+        .typography {
+          font-style: italic;
+        }
+      }
+    }
+  }
+  &__16-9 > &__wrapper {
+    padding-top: 56.25%;
+  }
+  &__4-3 > &__wrapper {
+    padding-top: 75%;
+  }
+  &__1-1 > &__wrapper {
+    padding-top: 100%;
+  }
+  &__9-16 {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 500px;
+    > .video__wrapper {
+      padding-top: 177.77%;
+    }
+  }
+  &__21-9 > &__wrapper {
+    padding-top: 42.86%;
+  }
+  &__wrapper {
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 15px;
+    background-color: $c-gray-drk-alt;
+  }
+  &__media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    ::ng-deep {
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  &__btn-play {
+    top: 50%;
+    left: 50%;
+    border: 0;
+    z-index: 1;
+    cursor: pointer;
+    background: none;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    ::ng-deep {
+      svg path,
+      .typography {
+        transition: all 0.25s;
+      }
+      .typography {
+        color: $c-white;
+        margin-left: 8px;
+        line-height: 1;
+      }
+    }
+    &:hover {
+      ::ng-deep {
+        .typography {
+          color: $c-red;
+        }
+        svg path {
+          fill: $c-red;
+        }
+      }
+    }
+  }
+  &__description {
+    margin-top: 25px;
+    text-align: center;
+    &-btn {
+      border: 0;
+      cursor: pointer;
+      background: none;
+    }
+    ::ng-deep {
+      .typography {
+        display: inline-block;
+        text-decoration: underline;
+      }
+    }
+  }
+  &--top {
+    &-white {
+      .video__bg--top {
+        background-color: $c-white;
+      }
+    }
+    &-black {
+      .video__bg--top {
+        background-color: $c-black;
+      }
+      ::ng-deep {
+        .video {
+          &__title {
+            .typography {
+              color: $c-white;
+            }
+          }
+        }
+      }
+    }
+    &-gray {
+      .video__bg--top {
+        background-color: $c-white-lgt-alt;
+      }
+    }
+  }
+  &--bottom {
+    &-white {
+      .video__bg--bottom {
+        background-color: $c-white;
+      }
+      ::ng-deep {
+        .video {
+          &__description {
+            .typography {
+              color: $c-black;
+            }
+          }
+        }
+      }
+    }
+    &-black {
+      .video__bg--bottom {
+        background-color: $c-black;
+      }
+      ::ng-deep {
+        .video {
+          &__description {
+            .typography {
+              color: $c-white;
+            }
+          }
+        }
+      }
+    }
+    &-gray {
+      .video__bg--bottom {
+        background-color: $c-white-lgt-alt;
+      }
+    }
+  }
+}
