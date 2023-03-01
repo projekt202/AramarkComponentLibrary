@@ -1,6 +1,6 @@
 {
-  "name": "aus-design-system",
-  "version": "0.0.0",
+  "name": "@projekt202/aus-design-system",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "npm run storybook",
