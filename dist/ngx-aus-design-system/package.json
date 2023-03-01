@@ -1,6 +1,9 @@
 {
-  "name": "ngx-aus-design-system",
-  "version": "1.0.1",
+  "name": "@projekt202/ngx-aus-design-system",
+  "version": "0.0.0",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "peerDependencies": {
     "@angular-devkit/build-angular": "^14.0.5",
     "@angular/animations": "^14.0.0",
@@ -62,11 +65,11 @@
     "@babel/core": "^7.18.9",
     "babel-loader": "^8.2.5"
   },
-  "module": "fesm2015/ngx-aus-design-system.mjs",
-  "es2020": "fesm2020/ngx-aus-design-system.mjs",
-  "esm2020": "esm2020/ngx-aus-design-system.mjs",
-  "fesm2020": "fesm2020/ngx-aus-design-system.mjs",
-  "fesm2015": "fesm2015/ngx-aus-design-system.mjs",
+  "module": "fesm2015/projekt202-ngx-aus-design-system.mjs",
+  "es2020": "fesm2020/projekt202-ngx-aus-design-system.mjs",
+  "esm2020": "esm2020/projekt202-ngx-aus-design-system.mjs",
+  "fesm2020": "fesm2020/projekt202-ngx-aus-design-system.mjs",
+  "fesm2015": "fesm2015/projekt202-ngx-aus-design-system.mjs",
   "typings": "index.d.ts",
   "exports": {
     "./package.json": {
@@ -74,11 +77,11 @@
     },
     ".": {
       "types": "./index.d.ts",
-      "esm2020": "./esm2020/ngx-aus-design-system.mjs",
-      "es2020": "./fesm2020/ngx-aus-design-system.mjs",
-      "es2015": "./fesm2015/ngx-aus-design-system.mjs",
-      "node": "./fesm2015/ngx-aus-design-system.mjs",
-      "default": "./fesm2020/ngx-aus-design-system.mjs"
+      "esm2020": "./esm2020/projekt202-ngx-aus-design-system.mjs",
+      "es2020": "./fesm2020/projekt202-ngx-aus-design-system.mjs",
+      "es2015": "./fesm2015/projekt202-ngx-aus-design-system.mjs",
+      "node": "./fesm2015/projekt202-ngx-aus-design-system.mjs",
+      "default": "./fesm2020/projekt202-ngx-aus-design-system.mjs"
     }
   },
   "sideEffects": false,
