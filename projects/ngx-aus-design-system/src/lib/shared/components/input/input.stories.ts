@@ -62,3 +62,15 @@ Disabled.args = {
   isDisabled: true,
   label: 'Last Name',
 };
+
+export const Password = Template.bind({});
+Password.args = {
+  name: "password",
+  maxLength: 100,
+  isDisabled: false,
+  type: "password",
+  label: "Password",
+  isRequired: true,
+  visibilityToggle: true,
+  validationErrorMsg: "This field is required",
+};

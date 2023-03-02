@@ -34,6 +34,26 @@
       }
     }
   }
+  &__control-wrapper {
+    position: relative;
+  }
+  &__visibility-toggle {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    &--visible {
+      svg path {
+        fill: $c-red;
+      }
+    }
+  }
   &__control {
     width: 100%;
     color: $c-black;
@@ -70,6 +90,24 @@
     &--textarea {
       resize: none;
       height: 80px;
+    }
+  }
+  &__custom-status {
+    padding: 6px 8px 0 8px;
+    &:empty {
+      display: none;
+    }
+    ::ng-deep {
+      .typography {
+        @include iota-type(
+          (
+            null: (
+              10px,
+              12px,
+            ),
+          )
+        );
+      }
     }
   }
   &__error {
