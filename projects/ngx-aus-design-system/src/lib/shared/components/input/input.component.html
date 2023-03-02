@@ -27,6 +27,8 @@
       *ngTemplateOutlet="multiline ? textarea : input"
     ></ng-container>
     <button
+      type="button"
+      [attr.aria-label]="isValueVisible ? 'Hide content' : 'Show content'"
       *ngIf="visibilityToggle"
       (click)="toggleVisibility()"
       class="input__visibility-toggle"
