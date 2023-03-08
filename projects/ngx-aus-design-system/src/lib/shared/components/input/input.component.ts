@@ -1,10 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { InputKeypressEvt } from "./input.model";
 
 @Component({
@@ -12,7 +6,7 @@ import { InputKeypressEvt } from "./input.model";
   templateUrl: "./input.component.html",
   styleUrls: ["./input.component.scss"],
 })
-export class InputComponent implements AfterViewInit {
+export class InputComponent implements OnInit {
   @Input() pattern?: string;
   @Input() name: string = "";
   @Input() value: string = "";
@@ -59,7 +53,7 @@ export class InputComponent implements AfterViewInit {
 
   constructor() {}
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.isValueVisible = this.type !== "password";
   }
 }
