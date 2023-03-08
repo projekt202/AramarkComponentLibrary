@@ -1,7 +1,7 @@
-import { AfterViewInit, EventEmitter } from "@angular/core";
+import { EventEmitter, OnInit } from "@angular/core";
 import { InputKeypressEvt } from "./input.model";
 import * as i0 from "@angular/core";
-export declare class InputComponent implements AfterViewInit {
+export declare class InputComponent implements OnInit {
     pattern?: string;
     name: string;
     value: string;
@@ -24,7 +24,7 @@ export declare class InputComponent implements AfterViewInit {
     onKeypress(e: KeyboardEvent): void;
     toggleVisibility(): void;
     constructor();
-    ngAfterViewInit(): void;
+    ngOnInit(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<InputComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<InputComponent, "aus-input", never, { "pattern": "pattern"; "name": "name"; "value": "value"; "label": "label"; "subtitle": "subtitle"; "minLength": "minLength"; "maxLength": "maxLength"; "multiline": "multiline"; "placeholder": "placeholder"; "isDisabled": "isDisabled"; "isRequired": "isRequired"; "validationErrorMsg": "validationErrorMsg"; "type": "type"; "mask": "mask"; "visibilityToggle": "visibilityToggle"; }, { "valueChange": "valueChange"; "keypress": "keypress"; }, never, ["[statusMsg]"], false>;
 }
