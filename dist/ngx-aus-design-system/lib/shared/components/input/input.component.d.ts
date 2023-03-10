@@ -1,0 +1,30 @@
+import { EventEmitter, OnInit } from "@angular/core";
+import { InputKeypressEvt } from "./input.model";
+import * as i0 from "@angular/core";
+export declare class InputComponent implements OnInit {
+    pattern?: string;
+    name: string;
+    value: string;
+    label?: string;
+    subtitle?: string;
+    minLength?: number;
+    maxLength?: number;
+    multiline?: boolean;
+    placeholder?: string;
+    isDisabled?: boolean;
+    isRequired?: boolean;
+    validationErrorMsg?: string;
+    type: "text" | "number" | "email" | "tel" | "search" | "password";
+    mask?: string;
+    visibilityToggle?: boolean;
+    valueChange: EventEmitter<string>;
+    keypress: EventEmitter<InputKeypressEvt>;
+    isValueVisible: boolean;
+    setValue(val: string): void;
+    onKeypress(e: KeyboardEvent): void;
+    toggleVisibility(): void;
+    constructor();
+    ngOnInit(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<InputComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<InputComponent, "aus-input", never, { "pattern": "pattern"; "name": "name"; "value": "value"; "label": "label"; "subtitle": "subtitle"; "minLength": "minLength"; "maxLength": "maxLength"; "multiline": "multiline"; "placeholder": "placeholder"; "isDisabled": "isDisabled"; "isRequired": "isRequired"; "validationErrorMsg": "validationErrorMsg"; "type": "type"; "mask": "mask"; "visibilityToggle": "visibilityToggle"; }, { "valueChange": "valueChange"; "keypress": "keypress"; }, never, ["[statusMsg]"], false>;
+}
