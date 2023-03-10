@@ -5,7 +5,7 @@
     "registry": "https://npm.pkg.github.com/",
     "@projekt202:registry": "https://npm.pkg.github.com/"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@angular-devkit/build-angular": "^14.0.5",
     "@angular/animations": "^14.0.0",
     "@angular/cdk": "^14.2.5",
