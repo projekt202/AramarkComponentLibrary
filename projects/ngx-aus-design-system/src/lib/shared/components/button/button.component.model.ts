@@ -1,11 +1,11 @@
 export type ButtonComponentVariants =
-  | 'white'
-  | 'black'
-  | 'red'
-  | 'transparent'
-  | 'outline';
+  | "white"
+  | "black"
+  | "red"
+  | "transparent"
+  | "outline";
 
-export type ButtonComponentTarget = '_blank' | '_parent' | '_self' | '_top';
+export type ButtonComponentTarget = "_blank" | "_parent" | "_self" | "_top";
 
 export type ButtonConfig = {
   variant?: ButtonComponentVariants;
@@ -14,3 +14,5 @@ export type ButtonConfig = {
   target?: ButtonComponentTarget;
   origin?: string;
 };
+
+export type ButtonSizes = "small" | "medium" | "large";

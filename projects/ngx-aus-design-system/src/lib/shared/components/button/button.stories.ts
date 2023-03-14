@@ -43,6 +43,28 @@ Red.args = {
   target: '_self',
 };
 
+export const Small = Template.bind({});
+Small.args = {
+  text: 'Get in touch with a team member',
+  variant: 'red',
+  route: '/test',
+  target: '_self',
+  size: 'small',
+};
+
+export const Medium = Template.bind({});
+Medium.args = {
+  text: 'Get in touch with a team member',
+  variant: 'red',
+  route: '/test',
+  target: '_self',
+  size: 'medium',
+  icon: {
+    name: 'package',
+    position: 'right',
+  },
+};
+
 export const ExternalLink = Template.bind({});
 ExternalLink.args = {
   text: 'Get in touch with a team member',
@@ -66,7 +88,10 @@ Icon.args = {
   variant: 'black',
   href: 'https://www.google.com',
   target: '_blank',
-  icon: 'quote',
+  icon: {
+    name: 'quote',
+    position: 'left',
+  },
 };
 
 export const IconDisabled = Template.bind({});
@@ -75,7 +100,10 @@ IconDisabled.args = {
   variant: 'black',
   href: 'https://www.google.com',
   target: '_blank',
-  icon: 'pickup',
+  icon: {
+    name: 'pickup',
+    position: 'left'
+  },
   disabled: true,
 };
 
@@ -85,7 +113,10 @@ Transparent.args = {
   variant: 'transparent',
   href: 'https://www.google.com',
   target: '_blank',
-  icon: 'pickup',
+  icon: {
+    name: 'pickup',
+    position: 'left'
+  },
 };
 
 export const TransparentDisabled = Template.bind({});
@@ -94,7 +125,10 @@ TransparentDisabled.args = {
   variant: 'transparent',
   href: 'https://www.google.com',
   target: '_blank',
-  icon: 'pickup',
+  icon: {
+    name: 'pickup',
+    position: 'left'
+  },
   disabled: true,
 };
 
@@ -113,7 +147,10 @@ OutlineWithIcon.args = {
   variant: 'outline',
   href: 'https://www.google.com',
   target: '_blank',
-  icon: 'pickup',
+  icon: {
+    name: 'pickup',
+    position: 'left'
+  },
   disabled: false,
 };
 

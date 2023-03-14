@@ -6,6 +6,7 @@ import { IconComponentNames } from "../icon/icon.model";
 import {
   ButtonComponentTarget,
   ButtonComponentVariants,
+  ButtonSizes,
 } from "./button.component.model";
 
 @Component({
@@ -20,11 +21,15 @@ export class ButtonComponent implements OnInit {
   @Input() text: string = "";
   @Input() variant: ButtonComponentVariants = "red";
   @Input() disabled: boolean = false;
-  @Input() icon?: IconComponentNames;
+  @Input() icon?: {
+    name: IconComponentNames;
+    position: "left" | "right";
+  };
   @Input() fullwidth?: boolean;
   @Input() btnType?: "button" | "submit";
   @Input() useButton?: boolean;
   @Input() origin?: string;
+  @Input() size?: ButtonSizes = "large";
 
   isAnchorLink: boolean = false;
 
@@ -78,6 +83,9 @@ export class ButtonComponent implements OnInit {
     }
     if (this.disabled) {
       classes.push("button--disabled");
+    }
+    if (this.size) {
+      classes.push(`button--size-${this.size}`);
     }
     return classes.join(" ");
   }

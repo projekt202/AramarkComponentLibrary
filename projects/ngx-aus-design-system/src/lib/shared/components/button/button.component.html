@@ -43,8 +43,15 @@
 </button>
 
 <ng-template #content>
-  <span *ngIf="icon" class="button__icon">
-    <aus-icon [name]="icon" size="small" variant="transparent"></aus-icon>
+  <span
+    *ngIf="icon"
+    class="button__icon"
+    [ngClass]="{
+      'button__icon--left': icon.position === 'left',
+      'button__icon--right': icon.position === 'right'
+    }"
+  >
+    <aus-icon [name]="icon.name" size="small" variant="transparent"></aus-icon>
   </span>
   {{ getText() }}
 </ng-template>
