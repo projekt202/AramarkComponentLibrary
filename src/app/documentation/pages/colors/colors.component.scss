@@ -1,0 +1,9 @@
+@import "styles";
+
+.colors {
+  &__preview {
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+  }
+}

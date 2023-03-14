@@ -19,7 +19,8 @@ export type TypographyComponentVariants =
   | 'numbers-2'
   | 'numbers-3'
   | 'numbers-4'
-  | 'numbers-5';
+  | 'numbers-5'
+  | 'code';
 
 export type TypographyComponentWeights = '400' | '500' | '700';
 
