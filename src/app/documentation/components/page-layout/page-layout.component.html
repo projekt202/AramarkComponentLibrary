@@ -8,7 +8,10 @@
   </div>
   <div class="page__main">
     <div class="page__intro">
-      <aus-typography variant="h1" [text]="title"></aus-typography>
+      <aus-typography
+        [text]="title"
+        [presetClassNames]="['text-preset-1--bold']"
+      ></aus-typography>
       <aus-wysiwyg
         *ngIf="description"
         [data]="description"
