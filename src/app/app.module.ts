@@ -6,9 +6,10 @@ import { PageLayoutComponent } from "./documentation/components/page-layout/page
 import { ColorsComponent } from "./documentation/pages/colors/colors.component";
 import { PageSectionComponent } from './documentation/components/page-section/page-section.component';
 import { AccessibilityPreviewComponent } from './documentation/components/accessibility-preview/accessibility-preview.component';
+import { TypographyComponent } from './documentation/pages/typography/typography.component';
 
 @NgModule({
-  declarations: [AppComponent, PageLayoutComponent, ColorsComponent, PageSectionComponent, AccessibilityPreviewComponent],
+  declarations: [AppComponent, PageLayoutComponent, ColorsComponent, PageSectionComponent, AccessibilityPreviewComponent, TypographyComponent],
   bootstrap: [AppComponent],
   imports: [BrowserModule, NgxAusDesignSystemModule],
 })

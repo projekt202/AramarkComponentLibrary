@@ -1,6 +1,10 @@
 <div class="section">
   <div class="section__intro">
-    <aus-typography variant="h4" [text]="title"></aus-typography>
+    <aus-typography
+      variant="h2"
+      [text]="title"
+      presetVariant="heading-2"
+    ></aus-typography>
     <aus-wysiwyg
       *ngIf="description"
       [data]="description"

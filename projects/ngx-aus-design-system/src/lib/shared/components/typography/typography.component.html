@@ -1,48 +1,104 @@
 <ng-container *ngIf="!loading" [ngSwitch]="variant">
   <h1
-    class="typography h1"
+    [class]="'typography h1 ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     *ngSwitchCase="'h1'"
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
   ></h1>
   <h2
-    class="typography h2"
+    [class]="'typography h2 ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     *ngSwitchCase="'h2'"
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
   ></h2>
   <h3
-    class="typography h3"
+    [class]="'typography h3 ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     *ngSwitchCase="'h3'"
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
   ></h3>
   <h4
-    class="typography h4"
+    [class]="'typography h4 ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     *ngSwitchCase="'h4'"
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
   ></h4>
   <h5
-    class="typography h5"
+    [class]="'typography h5 ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     *ngSwitchCase="'h5'"
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
   ></h5>
   <h6
-    class="typography h6"
+    [class]="'typography h6 ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     *ngSwitchCase="'h6'"
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
   ></h6>
   <p
-    class="typography p"
+    [class]="'typography p ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     *ngSwitchCase="'p'"
     [ngStyle]="getCustomStyle()"
@@ -50,27 +106,59 @@
   ></p>
   <p
     *ngSwitchCase="'p-xs'"
-    class="p-xs typography p"
+    [class]="'p-xs typography p ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
   ></p>
   <p
     *ngSwitchCase="'p-sm'"
-    class="p-sm typography p"
+    [class]="'p-sm typography p ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
   ></p>
   <p
     *ngSwitchCase="'p-md'"
-    class="p-md typography p"
+    [class]="'p-md typography p ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
   ></p>
   <span
-    class="typography span"
+    [class]="'typography span ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     *ngSwitchCase="'span'"
     [ngStyle]="getCustomStyle()"
@@ -79,19 +167,43 @@
   <label
     *ngSwitchCase="'form-text'"
     [for]="for"
-    class="form__label typography"
+    [class]="'form__label typography ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
   ></label>
   <span
     *ngSwitchCase="'form-small'"
-    class="form__status typography"
+    [class]="'form__status typography ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
   ></span>
   <blockquote
-    class="typography blockquote"
+    [class]="'typography blockquote ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     *ngSwitchCase="'blockquote'"
     [ngStyle]="getCustomStyle()"
@@ -99,42 +211,90 @@
   ></blockquote>
   <span
     *ngSwitchCase="'numbers-1'"
-    class="numbers numbers-1 typography"
+    [class]="'numbers numbers-1 typography ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
   ></span>
   <span
     *ngSwitchCase="'numbers-2'"
-    class="numbers numbers-2 typography"
+    [class]="'numbers numbers-2 typography ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
   ></span>
   <span
     *ngSwitchCase="'numbers-3'"
-    class="numbers numbers-3 typography"
+    [class]="'numbers numbers-3 typography ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
   ></span>
   <span
     *ngSwitchCase="'numbers-4'"
-    class="numbers numbers-4 typography"
+    [class]="'numbers numbers-4 typography ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
   ></span>
   <span
     *ngSwitchCase="'numbers-5'"
-    class="numbers numbers-5 typography"
+    [class]="'numbers numbers-5 typography ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
   ></span>
   <code
     *ngSwitchCase="'code'"
-    class="code typography"
+    [class]="'code typography ' + (presetClassNames | array2string)"
+    [ngClass]="{
+      'preset-variant--heading-1': presetVariant === 'heading-1',
+      'preset-variant--heading-2': presetVariant === 'heading-2',
+      'preset-variant--heading-3': presetVariant === 'heading-3',
+      'preset-variant--heading-4': presetVariant === 'heading-4',
+      'preset-variant--heading-5': presetVariant === 'heading-5',
+      'preset-variant--heading-6': presetVariant === 'heading-6'
+    }"
     [attr.id]="idName || null"
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
@@ -144,7 +304,15 @@
       [attr.id]="idName || null"
       *ngIf="route"
       [routerLink]="!disabled && route ? [route] : null"
-      [class]="getLinkClasses()"
+      [class]="getLinkClasses() + ' ' + (presetClassNames | array2string)"
+      [ngClass]="{
+        'preset-variant--heading-1': presetVariant === 'heading-1',
+        'preset-variant--heading-2': presetVariant === 'heading-2',
+        'preset-variant--heading-3': presetVariant === 'heading-3',
+        'preset-variant--heading-4': presetVariant === 'heading-4',
+        'preset-variant--heading-5': presetVariant === 'heading-5',
+        'preset-variant--heading-6': presetVariant === 'heading-6'
+      }"
       [tabindex]="disabled ? -1 : 0"
       [attr.aria-disabled]="disabled || null"
       [innerHTML]="text | sanitize"
@@ -155,7 +323,15 @@
       [attr.id]="idName || null"
       *ngIf="href"
       [href]="!disabled && href ? href : null"
-      [class]="getLinkClasses()"
+      [class]="getLinkClasses() + ' ' + (presetClassNames | array2string)"
+      [ngClass]="{
+        'preset-variant--heading-1': presetVariant === 'heading-1',
+        'preset-variant--heading-2': presetVariant === 'heading-2',
+        'preset-variant--heading-3': presetVariant === 'heading-3',
+        'preset-variant--heading-4': presetVariant === 'heading-4',
+        'preset-variant--heading-5': presetVariant === 'heading-5',
+        'preset-variant--heading-6': presetVariant === 'heading-6'
+      }"
       [tabindex]="disabled ? -1 : 0"
       [attr.aria-disabled]="disabled || null"
       [innerHTML]="text | sanitize"
@@ -166,7 +342,15 @@
       [attr.id]="idName || null"
       *ngIf="route"
       [routerLink]="!disabled && route ? [route] : null"
-      [class]="getLinkClasses()"
+      [class]="getLinkClasses() + ' ' + (presetClassNames | array2string)"
+      [ngClass]="{
+        'preset-variant--heading-1': presetVariant === 'heading-1',
+        'preset-variant--heading-2': presetVariant === 'heading-2',
+        'preset-variant--heading-3': presetVariant === 'heading-3',
+        'preset-variant--heading-4': presetVariant === 'heading-4',
+        'preset-variant--heading-5': presetVariant === 'heading-5',
+        'preset-variant--heading-6': presetVariant === 'heading-6'
+      }"
       [tabindex]="disabled ? -1 : 0"
       [attr.aria-disabled]="disabled || null"
       [innerHTML]="text | sanitize"
@@ -177,7 +361,15 @@
       [attr.id]="idName || null"
       *ngIf="href"
       [href]="!disabled && href ? href : null"
-      [class]="getLinkClasses()"
+      [class]="getLinkClasses() + ' ' + (presetClassNames | array2string)"
+      [ngClass]="{
+        'preset-variant--heading-1': presetVariant === 'heading-1',
+        'preset-variant--heading-2': presetVariant === 'heading-2',
+        'preset-variant--heading-3': presetVariant === 'heading-3',
+        'preset-variant--heading-4': presetVariant === 'heading-4',
+        'preset-variant--heading-5': presetVariant === 'heading-5',
+        'preset-variant--heading-6': presetVariant === 'heading-6'
+      }"
       [tabindex]="disabled ? -1 : 0"
       [attr.aria-disabled]="disabled || null"
       [innerHTML]="text | sanitize"

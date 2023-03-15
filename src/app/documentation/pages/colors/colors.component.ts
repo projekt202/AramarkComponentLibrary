@@ -6,9 +6,6 @@ import { Component, Input } from "@angular/core";
   styleUrls: ["./colors.component.scss"],
 })
 export class ColorsComponent {
-  @Input() title: string = "";
-  @Input() description?: string;
-
   items = [
     {
       name: "Primary",

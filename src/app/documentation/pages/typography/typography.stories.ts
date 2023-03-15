@@ -1,18 +1,17 @@
+import { Array2StringPipe } from "./../../../../../projects/ngx-aus-design-system/src/lib/shared/pipes/array2string/array2string.pipe";
 import { Story, Meta, moduleMetadata } from "@storybook/angular";
 import { CommonModule } from "@angular/common";
 
-import { Array2StringPipe } from "./../../../../../projects/ngx-aus-design-system/src/lib/shared/pipes/array2string/array2string.pipe";
 import { TypographyComponent } from "projects/ngx-aus-design-system/src/lib/shared/components/typography/typography.component";
-import { AccessibilityPreviewComponent } from "./../../components/accessibility-preview/accessibility-preview.component";
 import { WysiwygComponent } from "projects/ngx-aus-design-system/src/lib/shared/components/wysiwyg/wysiwyg.component";
 import { SanitizePipe } from "projects/ngx-aus-design-system/src/lib/shared/pipes/sanitize/sanitize.pipe";
-import { PageSectionComponent } from "./../../components/page-section/page-section.component";
-import { PageLayoutComponent } from "./../../components/page-layout/page-layout.component";
-import { ColorsComponent } from "./colors.component";
+import { PageSectionComponent } from "../../components/page-section/page-section.component";
+import { PageLayoutComponent } from "../../components/page-layout/page-layout.component";
+import { TypographyComponent as TC } from "./typography.component";
 
 export default {
-  title: "Style Guide/Colors",
-  component: ColorsComponent,
+  title: "Style Guide/Typography",
+  component: TC,
   decorators: [
     moduleMetadata({
       declarations: [
@@ -21,7 +20,6 @@ export default {
         TypographyComponent,
         SanitizePipe,
         WysiwygComponent,
-        AccessibilityPreviewComponent,
         Array2StringPipe,
       ],
       imports: [CommonModule],
@@ -29,9 +27,16 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<ColorsComponent> = (args: ColorsComponent) => ({
+const Template: Story<TC> = (args: TC) => ({
   props: args,
 });
 
-export const Palettes = Template.bind({});
-Palettes.args = {};
+export const Presets = Template.bind({});
+Presets.args = {
+  story: "presets",
+};
+
+export const Headings = Template.bind({});
+Headings.args = {
+  story: "headings",
+};

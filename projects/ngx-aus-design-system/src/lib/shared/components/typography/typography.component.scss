@@ -1,5 +1,6 @@
 @import "styles";
 
+// Legacy
 @mixin typography-base {
   h1,
   .h1,
@@ -428,5 +429,125 @@
         ),
       )
     );
+  }
+}
+
+// Presets
+$breakpoints: false, xs, sm, md, lg;
+$breakpointsMap: (
+  xs: sm,
+  sm: md,
+  md: lg,
+  lg: xl,
+);
+
+@mixin breakpoint-preset-factory(
+  $id,
+  $fontSize,
+  $lineHeight,
+  $letterSpacing,
+  $breakpoint
+) {
+  $breakpointPrefix: "";
+  @if $breakpoint != false {
+    $breakpointPrefix: "--" + #{map-get($breakpointsMap, $breakpoint)};
+  }
+  .text-preset-#{$id}#{$breakpointPrefix},
+  .text-preset-#{$id}--medium#{$breakpointPrefix},
+  .text-preset-#{$id}--bold#{$breakpointPrefix},
+  .text-preset-#{$id}--underline#{$breakpointPrefix} {
+    font-family: $font-main;
+    letter-spacing: #{$letterSpacing}px;
+    @include iota-type(
+      (
+        null: (
+          #{$fontSize}px,
+          #{$lineHeight}px,
+        ),
+      )
+    );
+    @if $id == 6 {
+      text-transform: uppercase;
+    }
+  }
+  .text-preset-#{$id}--underline#{$breakpointPrefix} {
+    text-decoration: underline;
+    font-weight: 500;
+  }
+  .text-preset-#{$id}#{$breakpointPrefix} {
+    font-weight: 400;
+  }
+  .text-preset-#{$id}--medium#{$breakpointPrefix} {
+    font-weight: 500;
+  }
+  .text-preset-#{$id}--bold#{$breakpointPrefix} {
+    font-weight: 700;
+  }
+}
+
+@mixin text-preset-factory(
+  $id,
+  $fontSize,
+  $lineHeight,
+  $letterSpacing,
+  $breakpoint
+) {
+  @if $breakpoint == false {
+    @include breakpoint-preset-factory(
+      $id,
+      $fontSize,
+      $lineHeight,
+      $letterSpacing,
+      false
+    );
+  } @else {
+    @include iota-breakpoint(map-get($breakpointsMap, $breakpoint)) {
+      @include breakpoint-preset-factory(
+        $id,
+        $fontSize,
+        $lineHeight,
+        $letterSpacing,
+        $breakpoint
+      );
+    }
+  }
+}
+
+@each $breakpoint in $breakpoints {
+  @include text-preset-factory(1, 52, 64, -0.16, $breakpoint);
+  @include text-preset-factory(2, 40, 52, -0.16, $breakpoint);
+  @include text-preset-factory(3, 32, 48, -0.16, $breakpoint);
+  @include text-preset-factory(4, 28, 40, 0, $breakpoint);
+  @include text-preset-factory(5, 20, 32, 0, $breakpoint);
+  @include text-preset-factory(6, 16, 24, 0.8, $breakpoint);
+  @include text-preset-factory(7, 16, 24, 0.16, $breakpoint);
+  @include text-preset-factory(8, 14, 20, 0.16, $breakpoint);
+  @include text-preset-factory(9, 12, 20, 0.16, $breakpoint);
+}
+
+.preset-variant {
+  &--heading-1 {
+    @extend .text-preset-3--bold;
+    @extend .text-preset-2--bold--sm;
+    @extend .text-preset-1--bold--md;
+  }
+  &--heading-2 {
+    @extend .text-preset-3--medium;
+    @extend .text-preset-2--medium--md;
+  }
+  &--heading-3 {
+    @extend .text-preset-4--medium;
+    @extend .text-preset-3--medium--md;
+  }
+  &--heading-4 {
+    @extend .text-preset-5--medium;
+    @extend .text-preset-4--medium--md;
+  }
+  &--heading-5 {
+    @extend .text-preset-7--bold;
+    @extend .text-preset-5--bold--md;
+  }
+  &--heading-6 {
+    @extend .text-preset-6--bold;
   }
 }

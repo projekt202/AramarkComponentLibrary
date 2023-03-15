@@ -11,6 +11,7 @@ export interface PageLayoutIntro {
   styleUrls: ["./page-layout.component.scss"],
 })
 export class PageLayoutComponent {
+  @Input() subtitle: string = "";
   @Input() title: string = "";
   @Input() description?: string;
 }

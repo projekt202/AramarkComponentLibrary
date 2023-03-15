@@ -5,6 +5,8 @@ import {
   TypographyComponentTags,
   TypographyComponentVariants,
   TypographyComponentWeights,
+  TypographyPresets,
+  TypographyPresetVariants,
 } from "./typography.component.model";
 import { BrowserService } from "../../services/browser/browser.service";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
@@ -21,6 +23,8 @@ export class TypographyComponent implements AfterViewInit {
   @Input() weight?: TypographyComponentWeights;
   @Input() tag?: TypographyComponentTags;
   @Input() variant?: TypographyComponentVariants = "p";
+  @Input() presetClassNames?: TypographyPresets[];
+  @Input() presetVariant?: TypographyPresetVariants;
   @Input() disabled?: boolean;
   @Input() route?: string;
   @Input() href?: string;
