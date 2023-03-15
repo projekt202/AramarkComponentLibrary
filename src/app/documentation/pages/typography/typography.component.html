@@ -7,58 +7,88 @@
       : '<p>Starting with our typography, our goal is to create the smallest number of elements to help design the greatest variety of interfaces. We have a core set of 9 typographic presets that can be used across the Aramark experience.</p><p>We have added “modifiers” to these presets for different weights.</p><p>Using this method, we should be able to apply these presets to any typographical element (H1s, H2s, links, labels, and buttons are a few examples) without needing to re-define typographic style outside of our core typography scale. For more on this method, see <a href=https://danmall.com/posts/typography-in-design-systems/>Typography in Design Systems</a>.</p><p>Our base text size is 16px / 1 rem. Our font is Gotham.</p>'
   "
 >
-  <app-page-section *ngFor="let item of items" [title]="item.name">
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Size (px/rem)</th>
-          <th>Line height (px/rem)</th>
-          <th>Weight</th>
-          <th>Letter spacing (px)</th>
-          <th>Token</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let preset of item.presets">
-          <td>
-            <aus-typography
-              [text]="preset.name"
-              [presetClassNames]="[getCastedName(preset.name)]"
-            ></aus-typography>
-          </td>
-          <td>
-            <aus-typography
-              [text]="preset.size"
-              variant="p-xs"
-            ></aus-typography>
-          </td>
-          <td>
-            <aus-typography
-              [text]="preset.lineHeight"
-              variant="p-xs"
-            ></aus-typography>
-          </td>
-          <td>
-            <aus-typography
-              [text]="preset.weight"
-              variant="p-xs"
-            ></aus-typography>
-          </td>
-          <td>
-            <aus-typography
-              [text]="preset.letterSpacing"
-              variant="p-xs"
-            ></aus-typography>
-          </td>
-          <td>
-            <aus-typography
-              [text]="preset.token"
-              variant="code"
-            ></aus-typography>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </app-page-section>
+  <ng-container *ngIf="story === 'presets'">
+    <app-page-section *ngFor="let item of itemsPresets" [title]="item.name">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Size (px/rem)</th>
+            <th>Line height (px/rem)</th>
+            <th>Weight</th>
+            <th>Letter spacing (px)</th>
+            <th>Token</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let preset of item.presets">
+            <td>
+              <aus-typography
+                [text]="preset.name"
+                [presetClassNames]="[getCastedName(preset.name)]"
+              ></aus-typography>
+            </td>
+            <td>
+              <aus-typography
+                [text]="preset.size"
+                variant="p-xs"
+              ></aus-typography>
+            </td>
+            <td>
+              <aus-typography
+                [text]="preset.lineHeight"
+                variant="p-xs"
+              ></aus-typography>
+            </td>
+            <td>
+              <aus-typography
+                [text]="preset.weight"
+                variant="p-xs"
+              ></aus-typography>
+            </td>
+            <td>
+              <aus-typography
+                [text]="preset.letterSpacing"
+                variant="p-xs"
+              ></aus-typography>
+            </td>
+            <td>
+              <aus-typography
+                [text]="preset.token"
+                variant="code"
+              ></aus-typography>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </app-page-section>
+  </ng-container>
+  <ng-container *ngIf="story === 'headings'">
+    <app-page-section *ngFor="let item of itemsHeadings" [title]="item.name">
+      <table *ngIf="story === 'headings'">
+        <thead>
+          <tr>
+            <th>Heading Level</th>
+            <th>Assigned Text Preset / Token</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let preset of item.presets">
+            <td>
+              <aus-typography
+                [text]="preset.name"
+                [presetClassNames]="[getCastedName(preset.className)]"
+              ></aus-typography>
+            </td>
+            <td>
+              <aus-typography
+                variant="code"
+                [text]="preset.token"
+              ></aus-typography>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </app-page-section>
+  </ng-container>
 </app-page-layout>

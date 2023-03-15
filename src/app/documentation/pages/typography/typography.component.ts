@@ -9,7 +9,7 @@ import { Component, Input } from "@angular/core";
 export class TypographyComponent {
   @Input() story: "presets" | "headings" = "presets";
 
-  items = [
+  itemsPresets = [
     {
       name: "Core Text Presets",
       presets: [
@@ -267,6 +267,114 @@ export class TypographyComponent {
           weight: "Medium",
           letterSpacing: "0.16",
           token: "$text-preset-9--underline",
+        },
+      ],
+    },
+  ];
+
+  itemsHeadings = [
+    {
+      name: "Desktop Headings",
+      presets: [
+        {
+          name: "H1 Heading",
+          token: "$text-preset-1--bold",
+          className: "text-preset-1--bold",
+        },
+        {
+          name: "H2 Heading",
+          token: "$text-preset-2--medium",
+          className: "text-preset-2--medium",
+        },
+        {
+          name: "H3 Heading",
+          token: "$text-preset-3--medium",
+          className: "text-preset-3--medium",
+        },
+        {
+          name: "H4 Heading",
+          token: "$text-preset-4--medium",
+          className: "text-preset-4--medium",
+        },
+        {
+          name: "H5 Heading",
+          token: "$text-preset-5--bold",
+          className: "text-preset-5--bold",
+        },
+        {
+          name: "H6 Heading",
+          token: "$text-preset-6--bold",
+          className: "text-preset-6--bold",
+        },
+      ],
+    },
+    {
+      name: "Tablet Headings",
+      presets: [
+        {
+          name: "H1 Heading",
+          token: "$text-preset-2--bold",
+          className: "text-preset-2--bold",
+        },
+        {
+          name: "H2 Heading",
+          token: "$text-preset-3--medium",
+          className: "text-preset-3--medium",
+        },
+        {
+          name: "H3 Heading",
+          token: "$text-preset-4--medium",
+          className: "text-preset-4--medium",
+        },
+        {
+          name: "H4 Heading",
+          token: "$text-preset-5--medium",
+          className: "text-preset-5--medium",
+        },
+        {
+          name: "H5 Heading",
+          token: "$text-preset-7--bold",
+          className: "text-preset-7--bold",
+        },
+        {
+          name: "H6 Heading",
+          token: "$text-preset-6--bold",
+          className: "text-preset-6--bold",
+        },
+      ],
+    },
+    {
+      name: "Mobile Headings",
+      presets: [
+        {
+          name: "H1 Heading",
+          token: "$text-preset-3--bold",
+          className: "text-preset-3--bold",
+        },
+        {
+          name: "H2 Heading",
+          token: "$text-preset-3--medium",
+          className: "text-preset-3--medium",
+        },
+        {
+          name: "H3 Heading",
+          token: "$text-preset-4--medium",
+          className: "text-preset-4--medium",
+        },
+        {
+          name: "H4 Heading",
+          token: "$text-preset-5--medium",
+          className: "text-preset-5--medium",
+        },
+        {
+          name: "H5 Heading",
+          token: "$text-preset-7--bold",
+          className: "text-preset-7--bold",
+        },
+        {
+          name: "H6 Heading",
+          token: "$text-preset-6--bold",
+          className: "text-preset-6--bold",
         },
       ],
     },
