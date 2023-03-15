@@ -22,7 +22,10 @@
       <tbody>
         <tr *ngFor="let preset of item.presets">
           <td>
-            <aus-typography [text]="preset.name"></aus-typography>
+            <aus-typography
+              [text]="preset.name"
+              [presetClassNames]="[getCastedName(preset.name)]"
+            ></aus-typography>
           </td>
           <td>
             <aus-typography

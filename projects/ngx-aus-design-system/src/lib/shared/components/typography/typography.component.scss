@@ -454,7 +454,8 @@ $breakpointsMap: (
   }
   .text-preset-#{$id}#{$breakpointPrefix},
   .text-preset-#{$id}--medium#{$breakpointPrefix},
-  .text-preset-#{$id}--bold#{$breakpointPrefix} {
+  .text-preset-#{$id}--bold#{$breakpointPrefix},
+  .text-preset-#{$id}--underline#{$breakpointPrefix} {
     font-family: $font-main;
     letter-spacing: #{$letterSpacing}px;
     @include iota-type(
@@ -468,9 +469,10 @@ $breakpointsMap: (
     @if $id == 6 {
       text-transform: uppercase;
     }
-    &.underline {
-      text-decoration: underline;
-    }
+  }
+  .text-preset-#{$id}--underline#{$breakpointPrefix} {
+    text-decoration: underline;
+    font-weight: 500;
   }
   .text-preset-#{$id}#{$breakpointPrefix} {
     font-weight: 400;
