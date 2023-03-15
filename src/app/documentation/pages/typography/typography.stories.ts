@@ -32,4 +32,11 @@ const Template: Story<TC> = (args: TC) => ({
 });
 
 export const Presets = Template.bind({});
-Presets.args = {};
+Presets.args = {
+  story: "presets",
+};
+
+export const Headings = Template.bind({});
+Headings.args = {
+  story: "headings",
+};

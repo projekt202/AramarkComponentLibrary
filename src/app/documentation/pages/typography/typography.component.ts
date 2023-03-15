@@ -1,5 +1,5 @@
 import { TypographyPresets } from "./../../../../../projects/ngx-aus-design-system/src/lib/shared/components/typography/typography.component.model";
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
   selector: "app-typography",
@@ -7,6 +7,8 @@ import { Component } from "@angular/core";
   styleUrls: ["./typography.component.scss"],
 })
 export class TypographyComponent {
+  @Input() story: "presets" | "headings" = "presets";
+
   items = [
     {
       name: "Core Text Presets",

@@ -1,6 +1,7 @@
 import { Story, Meta, moduleMetadata } from "@storybook/angular";
 import { CommonModule } from "@angular/common";
 
+import { Array2StringPipe } from "./../../../../../projects/ngx-aus-design-system/src/lib/shared/pipes/array2string/array2string.pipe";
 import { TypographyComponent } from "projects/ngx-aus-design-system/src/lib/shared/components/typography/typography.component";
 import { AccessibilityPreviewComponent } from "./../../components/accessibility-preview/accessibility-preview.component";
 import { WysiwygComponent } from "projects/ngx-aus-design-system/src/lib/shared/components/wysiwyg/wysiwyg.component";
@@ -21,6 +22,7 @@ export default {
         SanitizePipe,
         WysiwygComponent,
         AccessibilityPreviewComponent,
+        Array2StringPipe,
       ],
       imports: [CommonModule],
     }),
