@@ -179,3 +179,11 @@ export type TypographyPresets =
   | 'text-preset-8--bold--lg'
   | 'text-preset-9--bold--lg'
   | 'underline';
+
+export type TypographyPresetVariants =
+  | 'heading-1'
+  | 'heading-2'
+  | 'heading-3'
+  | 'heading-4'
+  | 'heading-5'
+  | 'heading-6';

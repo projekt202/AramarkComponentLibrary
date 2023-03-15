@@ -522,3 +522,30 @@ $breakpointsMap: (
   @include text-preset-factory(8, 14, 20, 0.16, $breakpoint);
   @include text-preset-factory(9, 12, 20, 0.16, $breakpoint);
 }
+
+.preset-variant {
+  &--heading-1 {
+    @extend .text-preset-3--bold;
+    @extend .text-preset-2--bold--sm;
+    @extend .text-preset-1--bold--md;
+  }
+  &--heading-2 {
+    @extend .text-preset-3--medium;
+    @extend .text-preset-2--medium--md;
+  }
+  &--heading-3 {
+    @extend .text-preset-4--medium;
+    @extend .text-preset-3--medium--md;
+  }
+  &--heading-4 {
+    @extend .text-preset-5--medium;
+    @extend .text-preset-4--medium--md;
+  }
+  &--heading-5 {
+    @extend .text-preset-7--bold;
+    @extend .text-preset-5--bold--md;
+  }
+  &--heading-6 {
+    @extend .text-preset-6--bold;
+  }
+}
