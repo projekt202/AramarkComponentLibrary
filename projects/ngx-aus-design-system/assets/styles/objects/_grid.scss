@@ -74,3 +74,19 @@ $iota-objs-grid-align-top-name: "top";
 $iota-objs-grid-namespace: "grid";
 
 @import "node_modules/iotacss/objects/grid";
+
+$spacing: (
+  01: 2px,
+  02: 4px,
+  03: 8px,
+  04: 12px,
+  05: 16px,
+  06: 24px,
+  07: 32px,
+  08: 40px,
+  09: 48px,
+  10: 64px,
+  11: 80px,
+  12: 96px,
+  13: 160px,
+);
