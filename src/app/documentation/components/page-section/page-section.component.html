@@ -1,0 +1,12 @@
+<div class="section">
+  <div class="section__intro">
+    <aus-typography variant="h4" [text]="title"></aus-typography>
+    <aus-wysiwyg
+      *ngIf="description"
+      [data]="description"
+      [fullwidth]="true"
+      [embedded]="true"
+    ></aus-wysiwyg>
+  </div>
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,24 @@
+@import "styles";
+
+.section {
+  margin-bottom: 50px;
+  &__intro {
+    margin-bottom: 30px;
+    max-width: 800px;
+    aus-wysiwyg {
+      display: block;
+      margin-top: 30px;
+    }
+  }
+  ::ng-deep table {
+    width: 100%;
+    th,
+    td {
+      padding: 16px;
+      font-size: 14px;
+      line-height: 20px;
+      font-family: $font-main;
+      border: 1px solid map-get($colors, neutral, 02);
+    }
+  }
+}

@@ -132,6 +132,13 @@
     [ngStyle]="getCustomStyle()"
     [innerHTML]="text | sanitize"
   ></span>
+  <code
+    *ngSwitchCase="'code'"
+    class="code typography"
+    [attr.id]="idName || null"
+    [ngStyle]="getCustomStyle()"
+    [innerHTML]="text | sanitize"
+  ></code>
   <ng-container *ngSwitchCase="'a'">
     <a
       [attr.id]="idName || null"

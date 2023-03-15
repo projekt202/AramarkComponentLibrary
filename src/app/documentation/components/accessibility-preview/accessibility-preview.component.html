@@ -1,0 +1,60 @@
+<div
+  class="preview"
+  [style]="{
+    backgroundColor: color,
+    border: color === '#FFFFFF' ? '1px solid #BBBBBC' : ''
+  }"
+>
+  <div class="preview__mode preview__mode--light">
+    <div class="preview__item">
+      <aus-typography
+        class="preview__item-letter"
+        text="A"
+        variant="p-md"
+      ></aus-typography>
+      <span [ngClass]="{ pass: data.light[0] }">
+        <aus-typography
+          [text]="data.light[0] ? 'PASS' : 'FAIL'"
+        ></aus-typography>
+      </span>
+    </div>
+    <div class="preview__item">
+      <aus-typography
+        class="preview__item-letter"
+        text="A"
+        variant="p-xs"
+      ></aus-typography>
+      <span [ngClass]="{ pass: data.light[1] }">
+        <aus-typography
+          [text]="data.light[1] ? 'PASS' : 'FAIL'"
+        ></aus-typography>
+      </span>
+    </div>
+  </div>
+  <div class="preview__mode preview__mode--dark">
+    <div class="preview__item">
+      <aus-typography
+        class="preview__item-letter"
+        text="A"
+        variant="p-md"
+      ></aus-typography>
+      <span [ngClass]="{ pass: data.dark[0] }">
+        <aus-typography
+          [text]="data.dark[0] ? 'PASS' : 'FAIL'"
+        ></aus-typography>
+      </span>
+    </div>
+    <div class="preview__item">
+      <aus-typography
+        class="preview__item-letter"
+        text="A"
+        variant="p-xs"
+      ></aus-typography>
+      <span [ngClass]="{ pass: data.dark[1] }">
+        <aus-typography
+          [text]="data.dark[1] ? 'PASS' : 'FAIL'"
+        ></aus-typography>
+      </span>
+    </div>
+  </div>
+</div>

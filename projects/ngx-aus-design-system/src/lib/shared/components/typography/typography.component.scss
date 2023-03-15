@@ -204,6 +204,23 @@
     }
   }
 
+  .code {
+    padding: 4px 8px;
+    border-radius: 3px;
+    color: $c-black;
+    font-family: $font-main;
+    display: inline-block;
+    background-color: map-get($colors, neutral, 02);
+    @include iota-type(
+      (
+        null: (
+          14px,
+          14px,
+        ),
+      )
+    );
+  }
+
   pre,
   .pre {
     font-family: monospace;

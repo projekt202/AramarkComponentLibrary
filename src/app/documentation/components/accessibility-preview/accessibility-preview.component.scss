@@ -1,0 +1,66 @@
+@import "styles";
+
+.preview {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8px;
+  &__mode {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    span {
+      text-align: center;
+      display: inline-block;
+      padding: 0 4px;
+      border-radius: 10px;
+      background-color: map-get($colors, neutral, white);
+      transform: translateY(-5px);
+      ::ng-deep {
+        .typography {
+          font-size: 8px;
+          line-height: 12px;
+          color: map-get($colors, primary, brand);
+        }
+      }
+      &.pass {
+        background-color: map-get($colors, neutral, black);
+        ::ng-deep {
+          .typography {
+            color: map-get($colors, neutral, white);
+          }
+        }
+      }
+    }
+    &--light {
+      .preview__item-letter {
+        ::ng-deep {
+          .typography {
+            line-height: 1;
+            color: map-get($colors, neutral, black);
+          }
+        }
+      }
+    }
+    &--dark {
+      .preview__item-letter {
+        ::ng-deep {
+          .typography {
+            line-height: 1;
+            color: map-get($colors, neutral, white);
+          }
+        }
+      }
+    }
+  }
+  &__item {
+    text-align: center;
+    & + & {
+      margin-left: 4px;
+    }
+  }
+}

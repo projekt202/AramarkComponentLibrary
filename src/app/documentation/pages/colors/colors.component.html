@@ -1,0 +1,50 @@
+<app-page-layout title="Colors">
+  <app-page-section *ngFor="let item of items" [title]="item.name">
+    <table>
+      <thead>
+        <tr>
+          <th>Example</th>
+          <th>Basic Accessibility</th>
+          <th>Value</th>
+          <th>Token</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let color of item.palette">
+          <td>
+            <div
+              class="colors__preview"
+              [style]="{
+                backgroundColor: color.val,
+                border: color.val === '#FFFFFF' ? '1px solid #BBBBBC' : ''
+              }"
+            >
+              &nbsp;
+            </div>
+          </td>
+          <td>
+            <app-accessibility-preview
+              *ngIf="color.a11y"
+              [color]="color.val"
+              [data]="color.a11y"
+            ></app-accessibility-preview>
+            <aus-typography
+              *ngIf="!color.a11y"
+              text="N/A"
+              variant="p-xs"
+            ></aus-typography>
+          </td>
+          <td>
+            <aus-typography variant="p-xs" [text]="color.val"></aus-typography>
+          </td>
+          <td>
+            <aus-typography
+              variant="code"
+              [text]="color.token"
+            ></aus-typography>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </app-page-section>
+</app-page-layout>
