@@ -6,11 +6,12 @@ import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { ImageComponent } from "../../../shared/components/image/image.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
 import { WysiwygComponent } from "../../../shared/components/wysiwyg/wysiwyg.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { LocationInfoComponent } from "./location-info.component";
 
 export default {
-  title: "Location Info",
+  title: "Components/Blocks/Location Info",
   component: LocationInfoComponent,
   decorators: [
     moduleMetadata({
@@ -18,6 +19,7 @@ export default {
         LocationInfoComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         IconComponent,
         ButtonComponent,
         ImageComponent,

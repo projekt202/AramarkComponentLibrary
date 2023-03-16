@@ -10,6 +10,7 @@ import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
 import { ImageComponent } from "../../../shared/components/image/image.component";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 
 export default {
   decorators: [
@@ -18,6 +19,7 @@ export default {
         IconComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         ButtonComponent,
         ImageComponent,
       ],
@@ -30,7 +32,7 @@ export default {
     }),
   ],
   component: CallToActionTextComponent,
-  title: "Call to action - text",
+  title: "Components/Blocks/Call to action - text",
 } as Meta;
 
 const Template: Story<CallToActionTextComponent> = (

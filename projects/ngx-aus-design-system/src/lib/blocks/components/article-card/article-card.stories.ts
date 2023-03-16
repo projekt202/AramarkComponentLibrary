@@ -11,11 +11,12 @@ import { ButtonComponent } from "../../../shared/components/button/button.compon
 import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { ImageComponent } from "../../../shared/components/image/image.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { ArticleCardComponent } from "./article-card.component";
 
 export default {
-  title: "Article Card",
+  title: "Components/Blocks/Article Card",
   component: ArticleCardComponent,
   decorators: [
     moduleMetadata({
@@ -24,6 +25,7 @@ export default {
         IconComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         ButtonComponent,
         ImageComponent,
       ],

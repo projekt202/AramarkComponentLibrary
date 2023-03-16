@@ -5,12 +5,13 @@ import { CarouselComponent } from "../../../shared/components/carousel/carousel.
 import { CustomerCardComponent } from "../../../shared/components/customer-card/customer-card.component";
 import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { TimeAgoPipe } from "../../../shared/pipes/time-ago/time-ago.pipe";
 import { ReviewsCardsComponent } from "./reviews-cards.component";
 
 export default {
-  title: "Reviews Cards",
+  title: "Components/Blocks/Reviews Cards",
   component: ReviewsCardsComponent,
   decorators: [
     moduleMetadata({
@@ -19,6 +20,7 @@ export default {
         IconComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         CarouselComponent,
         TimeAgoPipe,
       ],

@@ -10,19 +10,21 @@ import { DropdownComponent } from "../../../shared/components/dropdown/dropdown.
 import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { InputComponent } from "../../../shared/components/input/input.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { LocationMapComponent } from "../location-map/location-map.component";
 import { LocationsFiltersComponent } from "../locations-filters/locations-filters.component";
 import { LocationSearchComponent } from "./location-search.component";
 
 export default {
-  title: "Location Search",
+  title: "Components/Blocks/Location Search",
   component: LocationSearchComponent,
   decorators: [
     moduleMetadata({
       declarations: [
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         InputComponent,
         DropdownComponent,
         ButtonComponent,

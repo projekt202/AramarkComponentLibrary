@@ -7,6 +7,7 @@ import { TypographyComponent } from "../../../shared/components/typography/typog
 import { BillboardComponent } from "./billboard.component";
 import { ButtonComponent } from "../../../shared/components/button/button.component";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 
 export default {
   decorators: [
@@ -15,13 +16,14 @@ export default {
         IconComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         ButtonComponent,
       ],
       imports: [CommonModule, LazyLoadImageModule],
     }),
   ],
   component: BillboardComponent,
-  title: "Billboard",
+  title: "Components/Blocks/Billboard",
 } as Meta;
 
 const Template: Story<BillboardComponent> = (args: BillboardComponent) => ({

@@ -9,6 +9,7 @@ import { TypographyComponent } from "../../../shared/components/typography/typog
 import { WysiwygComponent } from "../../../shared/components/wysiwyg/wysiwyg.component";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { AccordionComponent } from "./accordion.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 
 export default {
   decorators: [
@@ -18,6 +19,7 @@ export default {
         TypographyComponent,
         WysiwygComponent,
         SanitizePipe,
+        Array2StringPipe,
       ],
       imports: [
         CommonModule,
@@ -28,7 +30,7 @@ export default {
     }),
   ],
   component: AccordionComponent,
-  title: "Accordion",
+  title: "Components/Blocks/Accordion",
 } as Meta;
 
 const Template: Story<AccordionComponent> = (args: AccordionComponent) => {

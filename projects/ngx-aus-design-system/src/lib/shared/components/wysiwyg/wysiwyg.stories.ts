@@ -1,11 +1,11 @@
-import { RouterTestingModule } from '@angular/router/testing';
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import { SanitizePipe } from '../../pipes/sanitize/sanitize.pipe';
+import { RouterTestingModule } from "@angular/router/testing";
+import { Story, Meta, moduleMetadata } from "@storybook/angular";
+import { SanitizePipe } from "../../pipes/sanitize/sanitize.pipe";
 
-import { WysiwygComponent } from './wysiwyg.component';
+import { WysiwygComponent } from "./wysiwyg.component";
 
 export default {
-  title: 'WYSIWYG',
+  title: "Components/Shared/WYSIWYG",
   component: WysiwygComponent,
   decorators: [
     moduleMetadata({
@@ -36,11 +36,11 @@ Fullwidth.args = {
 export const Black = Template.bind({});
 Black.args = {
   data,
-  bgColor: 'black',
+  bgColor: "black",
 };
 
 export const Gray = Template.bind({});
 Gray.args = {
   data,
-  bgColor: 'gray',
+  bgColor: "gray",
 };

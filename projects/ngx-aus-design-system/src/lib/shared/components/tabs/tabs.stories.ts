@@ -3,16 +3,17 @@ import {
   Meta,
   moduleMetadata,
   componentWrapperDecorator,
-} from '@storybook/angular';
-import { GtmIdPipe } from '../../pipes/gtm/gtm-id.pipe';
-import { SanitizePipe } from '../../pipes/sanitize/sanitize.pipe';
-import { IconComponent } from '../icon/icon.component';
-import { TypographyComponent } from '../typography/typography.component';
+} from "@storybook/angular";
+import { Array2StringPipe } from "../../pipes/array2string/array2string.pipe";
+import { GtmIdPipe } from "../../pipes/gtm/gtm-id.pipe";
+import { SanitizePipe } from "../../pipes/sanitize/sanitize.pipe";
+import { IconComponent } from "../icon/icon.component";
+import { TypographyComponent } from "../typography/typography.component";
 
-import { TabsComponent } from './tabs.component';
+import { TabsComponent } from "./tabs.component";
 
 export default {
-  title: 'Tabs',
+  title: "Components/Shared/Tabs",
   component: TabsComponent,
   decorators: [
     moduleMetadata({
@@ -20,6 +21,7 @@ export default {
         TabsComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         IconComponent,
         GtmIdPipe,
       ],
@@ -42,13 +44,13 @@ const Template: Story<TabsComponent> = (args: TabsComponent) => ({
 export const Default = Template.bind({});
 Default.args = {
   categories: [
-    'Uniforms',
-    'Floor Mats',
-    'Restroom',
-    'First Aid',
-    'Towels',
-    'Mops',
-    'Linens',
-    'Cleaning Chemicals',
+    "Uniforms",
+    "Floor Mats",
+    "Restroom",
+    "First Aid",
+    "Towels",
+    "Mops",
+    "Linens",
+    "Cleaning Chemicals",
   ],
 };

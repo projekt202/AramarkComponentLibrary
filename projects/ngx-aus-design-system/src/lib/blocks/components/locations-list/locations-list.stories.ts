@@ -2,11 +2,12 @@ import { Story, Meta, moduleMetadata } from "@storybook/angular";
 
 import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { LocationsListComponent } from "./locations-list.component";
 
 export default {
-  title: "Locations List",
+  title: "Components/Blocks/Locations List",
   component: LocationsListComponent,
   decorators: [
     moduleMetadata({
@@ -14,6 +15,7 @@ export default {
         LocationsListComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         IconComponent,
       ],
     }),

@@ -11,6 +11,7 @@ import { GoogleTagManagerModule } from "angular-google-tag-manager";
 import { LazyLoadImageModule } from "ng-lazyload-image";
 import { NgxSmartModalModule } from "ngx-smart-modal";
 import { SwiperModule } from "swiper/angular";
+import { Array2StringPipe } from "../../pipes/array2string/array2string.pipe";
 import { GtmIdPipe } from "../../pipes/gtm/gtm-id.pipe";
 import { SanitizePipe } from "../../pipes/sanitize/sanitize.pipe";
 import { ButtonComponent } from "../button/button.component";
@@ -21,7 +22,7 @@ import { WysiwygComponent } from "../wysiwyg/wysiwyg.component";
 import { ProductCardComponent } from "./product-card.component";
 
 export default {
-  title: "Product Card",
+  title: "Components/Shared/Product Card",
   component: ProductCardComponent,
   decorators: [
     moduleMetadata({
@@ -29,6 +30,7 @@ export default {
         ProductCardComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         ButtonComponent,
         GtmIdPipe,
         CarouselComponent,

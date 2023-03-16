@@ -5,6 +5,7 @@ import { CarouselComponent } from "../../../shared/components/carousel/carousel.
 import { IconComponent } from "../../../shared/components/icon/icon.component";
 
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { QuoteComponent } from "../quote/quote.component";
 import { QuoteSliderComponent } from "./quote-slider.component";
@@ -15,6 +16,7 @@ export default {
       declarations: [
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         QuoteComponent,
         CarouselComponent,
         IconComponent,
@@ -23,7 +25,7 @@ export default {
     }),
   ],
   component: QuoteSliderComponent,
-  title: "Quote slider",
+  title: "Components/Blocks/Quote slider",
 } as Meta;
 
 const Template: Story<QuoteSliderComponent> = (args: QuoteSliderComponent) => ({
