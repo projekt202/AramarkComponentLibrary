@@ -218,6 +218,15 @@
     pointer-events: none;
     background-color: color(neutral, 01);
     color: color(neutral, 06);
+    .button__icon,
+    .button__label {
+      ::ng-deep {
+        .icon span,
+        .typography {
+          color: color(neutral, 06);
+        }
+      }
+    }
     &.button--bg-transparent {
       background-color: transparent;
     }
