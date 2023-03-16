@@ -5,11 +5,12 @@ import { ButtonComponent } from "../../../shared/components/button/button.compon
 import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
 import { WysiwygComponent } from "../../../shared/components/wysiwyg/wysiwyg.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { BannerBarComponent } from "./banner-bar.component";
 
 export default {
-  title: "Banner Bar",
+  title: "Components/Blocks/Banner Bar",
   decorators: [
     moduleMetadata({
       declarations: [
@@ -17,6 +18,7 @@ export default {
         IconComponent,
         WysiwygComponent,
         SanitizePipe,
+        Array2StringPipe,
         ArrowLinkComponent,
         ButtonComponent,
       ],

@@ -6,11 +6,12 @@ import { CarouselComponent } from "../../../shared/components/carousel/carousel.
 import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { ImageComponent } from "../../../shared/components/image/image.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { LocationServiceAreasComponent } from "./location-service-areas.component";
 
 export default {
-  title: "Location Service Areas",
+  title: "Components/Blocks/Location Service Areas",
   component: LocationServiceAreasComponent,
   decorators: [
     moduleMetadata({
@@ -18,6 +19,7 @@ export default {
         LocationServiceAreasComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         IconComponent,
         ButtonComponent,
         ImageComponent,

@@ -7,12 +7,13 @@ import { ButtonComponent } from "../../../shared/components/button/button.compon
 import { CarouselComponent } from "../../../shared/components/carousel/carousel.component";
 import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { BillboardComponent } from "../billboard/billboard.component";
 import { BillboardCarouselComponent } from "./billboard-carousel.component";
 
 export default {
-  title: "Billboard Carousel",
+  title: "Components/Blocks/Billboard Carousel",
   decorators: [
     moduleMetadata({
       declarations: [
@@ -20,6 +21,7 @@ export default {
         ButtonComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         IconComponent,
         CarouselComponent,
       ],

@@ -6,11 +6,12 @@ import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { ImageComponent } from "../../../shared/components/image/image.component";
 import { SupportCardComponent } from "../../../shared/components/support-card/support-card.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { ImageCardColumnsComponent } from "./image-card-columns.component";
 
 export default {
-  title: "Image Card Columns",
+  title: "Components/Blocks/Image Card Columns",
   component: ImageCardColumnsComponent,
   decorators: [
     moduleMetadata({
@@ -19,6 +20,7 @@ export default {
         IconComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         ImageComponent,
         ButtonComponent,
       ],

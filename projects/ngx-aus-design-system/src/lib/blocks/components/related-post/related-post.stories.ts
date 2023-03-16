@@ -1,18 +1,19 @@
 import { Story, Meta, moduleMetadata } from "@storybook/angular";
-
+import { LazyLoadImageModule } from "ng-lazyload-image";
+import { HttpClientModule } from "@angular/common/http";
 import { CommonModule } from "@angular/common";
+import { SwiperModule } from "swiper/angular";
+
 import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
 import { RelatedPostComponent } from "./related-post.component";
-import { HttpClientModule } from "@angular/common/http";
-import { LazyLoadImageModule } from "ng-lazyload-image";
 import { GraphQLModule } from "../../../graphql.module";
-import { SwiperModule } from "swiper/angular";
 import { ButtonComponent } from "../../../shared/components/button/button.component";
 import { CarouselComponent } from "../../../shared/components/carousel/carousel.component";
 import { ImageComponent } from "../../../shared/components/image/image.component";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { ArticleCardComponent } from "../article-card/article-card.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 
 export default {
   decorators: [
@@ -23,6 +24,7 @@ export default {
         IconComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         ButtonComponent,
         ImageComponent,
         CarouselComponent,
@@ -37,7 +39,7 @@ export default {
     }),
   ],
   component: RelatedPostComponent,
-  title: "Related Post",
+  title: "Components/Blocks/Related Posts",
 } as Meta;
 
 const Template: Story<RelatedPostComponent> = (args: RelatedPostComponent) => ({

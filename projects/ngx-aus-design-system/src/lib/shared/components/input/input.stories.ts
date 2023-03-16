@@ -1,22 +1,28 @@
-import { FormsModule } from '@angular/forms';
+import { Array2StringPipe } from "./../../pipes/array2string/array2string.pipe";
+import { FormsModule } from "@angular/forms";
 import {
   Story,
   Meta,
   moduleMetadata,
   componentWrapperDecorator,
-} from '@storybook/angular';
-import { NgxMaskModule } from 'ngx-mask';
-import { SanitizePipe } from '../../pipes/sanitize/sanitize.pipe';
-import { TypographyComponent } from '../typography/typography.component';
+} from "@storybook/angular";
+import { NgxMaskModule } from "ngx-mask";
+import { SanitizePipe } from "../../pipes/sanitize/sanitize.pipe";
+import { TypographyComponent } from "../typography/typography.component";
 
-import { InputComponent } from './input.component';
+import { InputComponent } from "./input.component";
 
 export default {
-  title: 'Input',
+  title: "Components/Shared/Input",
   component: InputComponent,
   decorators: [
     moduleMetadata({
-      declarations: [InputComponent, TypographyComponent, SanitizePipe],
+      declarations: [
+        InputComponent,
+        TypographyComponent,
+        SanitizePipe,
+        Array2StringPipe,
+      ],
       imports: [FormsModule, NgxMaskModule.forRoot()],
     }),
     componentWrapperDecorator(
@@ -36,31 +42,31 @@ const Template: Story<InputComponent> = (args: InputComponent) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-  name: 'default',
+  name: "default",
   maxLength: 100,
   isRequired: true,
   isDisabled: false,
-  label: 'Last Name',
-  validationErrorMsg: 'Error message lorem ipsum dolor sit amet.',
+  label: "Last Name",
+  validationErrorMsg: "Error message lorem ipsum dolor sit amet.",
 };
 
 export const WithSubtitle = Template.bind({});
 WithSubtitle.args = {
-  name: 'default',
+  name: "default",
   maxLength: 100,
   isRequired: true,
   isDisabled: false,
-  label: 'Last Name',
-  subtitle: '(XXXXX)',
-  validationErrorMsg: 'Error message lorem ipsum dolor sit amet.',
+  label: "Last Name",
+  subtitle: "(XXXXX)",
+  validationErrorMsg: "Error message lorem ipsum dolor sit amet.",
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  name: 'disabled',
+  name: "disabled",
   maxLength: 100,
   isDisabled: true,
-  label: 'Last Name',
+  label: "Last Name",
 };
 
 export const Password = Template.bind({});

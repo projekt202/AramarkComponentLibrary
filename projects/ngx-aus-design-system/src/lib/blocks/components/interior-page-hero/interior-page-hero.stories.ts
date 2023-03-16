@@ -7,6 +7,7 @@ import { TypographyComponent } from "../../../shared/components/typography/typog
 import { InteriorPageHeroComponent } from "./interior-page-hero.component";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { ButtonComponent } from "../../../shared/components/button/button.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 
 export default {
   decorators: [
@@ -15,13 +16,14 @@ export default {
         IconComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         ButtonComponent,
       ],
       imports: [CommonModule, LazyLoadImageModule],
     }),
   ],
   component: InteriorPageHeroComponent,
-  title: "Interior Page Hero",
+  title: "Components/Blocks/Interior Page Hero",
 } as Meta;
 
 const Template: Story<InteriorPageHeroComponent> = (

@@ -1,3 +1,4 @@
+import { Array2StringPipe } from "./../../../shared/pipes/array2string/array2string.pipe";
 import { Story, Meta, moduleMetadata } from "@storybook/angular";
 import {
   TippyModule,
@@ -13,7 +14,7 @@ import { VideoComponent } from "./video.component";
 export default {
   decorators: [
     moduleMetadata({
-      declarations: [TypographyComponent, SanitizePipe],
+      declarations: [TypographyComponent, SanitizePipe, Array2StringPipe],
       imports: [
         YouTubePlayerModule,
         TippyModule.forRoot({
@@ -27,7 +28,7 @@ export default {
     }),
   ],
   component: VideoComponent,
-  title: "Video",
+  title: "Components/Blocks/Video",
 } as Meta;
 
 const Template: Story<VideoComponent> = (args: VideoComponent) => ({

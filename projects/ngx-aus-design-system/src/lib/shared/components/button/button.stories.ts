@@ -8,7 +8,7 @@ import { IconComponent } from "../icon/icon.component";
 import { ButtonComponent } from "./button.component";
 
 export default {
-  title: "Button",
+  title: "Components/Shared/Button",
   component: ButtonComponent,
   decorators: [
     moduleMetadata({

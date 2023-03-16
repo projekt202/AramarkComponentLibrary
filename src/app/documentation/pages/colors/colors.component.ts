@@ -12,6 +12,7 @@ export class ColorsComponent {
       palette: [
         {
           val: "#EB002A",
+          class: "bg-primary-brand",
           token: "$primary-brand",
           a11y: {
             light: [true, true],
@@ -20,6 +21,7 @@ export class ColorsComponent {
         },
         {
           val: "#BB0B2B",
+          class: "bg-primary-medium",
           token: "$primary-medium",
           a11y: {
             light: [true, false],
@@ -28,6 +30,7 @@ export class ColorsComponent {
         },
         {
           val: "#9F0622",
+          class: "bg-primary-dark",
           token: "$primary-dark",
           a11y: {
             light: [false, false],
@@ -41,6 +44,7 @@ export class ColorsComponent {
       palette: [
         {
           val: "#9BCBEB",
+          class: "bg-accent-01",
           token: "$accent-01",
           a11y: {
             light: [true, true],
@@ -49,6 +53,7 @@ export class ColorsComponent {
         },
         {
           val: "#41B6E6",
+          class: "bg-accent-02",
           token: "$accent-02",
           a11y: {
             light: [true, true],
@@ -57,6 +62,7 @@ export class ColorsComponent {
         },
         {
           val: "#01426A",
+          class: "bg-accent-03",
           token: "$accent-03",
           a11y: {
             light: [false, false],
@@ -65,6 +71,7 @@ export class ColorsComponent {
         },
         {
           val: "#FFC72C",
+          class: "bg-accent-04",
           token: "$accent-04",
           a11y: {
             light: [true, true],
@@ -73,6 +80,7 @@ export class ColorsComponent {
         },
         {
           val: "#007D8A",
+          class: "bg-accent-05",
           token: "$accent-05",
           a11y: {
             light: [true, false],
@@ -86,6 +94,7 @@ export class ColorsComponent {
       palette: [
         {
           val: "#FFFFFF",
+          class: "bg-neutral-white",
           token: "$neutral-white",
           a11y: {
             light: [true, true],
@@ -94,6 +103,7 @@ export class ColorsComponent {
         },
         {
           val: "#000000",
+          class: "bg-neutral-black",
           token: "$neutral-black",
           a11y: {
             light: [false, false],
@@ -102,6 +112,7 @@ export class ColorsComponent {
         },
         {
           val: "#FAFAFA",
+          class: "bg-neutral-01",
           token: "$neutral-01",
           a11y: {
             light: [true, true],
@@ -110,6 +121,7 @@ export class ColorsComponent {
         },
         {
           val: "#EBEBEB",
+          class: "bg-neutral-02",
           token: "$neutral-02",
           a11y: {
             light: [true, true],
@@ -118,6 +130,7 @@ export class ColorsComponent {
         },
         {
           val: "#BBBBBC",
+          class: "bg-neutral-03",
           token: "$neutral-03",
           a11y: {
             light: [true, true],
@@ -126,6 +139,7 @@ export class ColorsComponent {
         },
         {
           val: "#99999B",
+          class: "bg-neutral-04",
           token: "$neutral-04",
           a11y: {
             light: [true, true],
@@ -134,6 +148,7 @@ export class ColorsComponent {
         },
         {
           val: "#868484",
+          class: "bg-neutral-05",
           token: "$neutral-05",
           a11y: {
             light: [true, true],
@@ -142,6 +157,7 @@ export class ColorsComponent {
         },
         {
           val: "#5C5C5C",
+          class: "bg-neutral-06",
           token: "$neutral-06",
           a11y: {
             light: [true, false],
@@ -150,6 +166,7 @@ export class ColorsComponent {
         },
         {
           val: "#464646",
+          class: "bg-neutral-07",
           token: "$neutral-07",
           a11y: {
             light: [false, false],
@@ -158,6 +175,7 @@ export class ColorsComponent {
         },
         {
           val: "#222222",
+          class: "bg-neutral-08",
           token: "$neutral-08",
           a11y: {
             light: [false, false],
@@ -171,6 +189,7 @@ export class ColorsComponent {
       palette: [
         {
           val: "#13A3B1",
+          class: "bg-support-focus",
           token: "$support-focus",
           a11y: {
             light: [true, true],
@@ -179,6 +198,7 @@ export class ColorsComponent {
         },
         {
           val: "#EB002A",
+          class: "bg-support-error",
           token: "$support-error",
           a11y: {
             light: [true, true],
@@ -187,6 +207,7 @@ export class ColorsComponent {
         },
         {
           val: "#128816",
+          class: "bg-support-success",
           token: "$support-success",
           a11y: {
             light: [true, true],
@@ -195,6 +216,7 @@ export class ColorsComponent {
         },
         {
           val: "#13A3B1",
+          class: "bg-support-info",
           token: "$support-info",
           a11y: {
             light: [true, true],
@@ -203,6 +225,7 @@ export class ColorsComponent {
         },
         {
           val: "#E86E10",
+          class: "bg-support-warning",
           token: "$support-warning",
           a11y: {
             light: [true, true],
@@ -211,9 +234,20 @@ export class ColorsComponent {
         },
         {
           val: "rgba(0, 40, 65, 0.5)",
+          class: "bg-support-overlay",
           token: "$support-overlay",
         },
       ],
     },
   ];
+
+  toRgb(hex: string) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result
+      ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(
+          result[3],
+          16
+        )})`
+      : "";
+  }
 }

@@ -5,11 +5,12 @@ import { LazyLoadImageModule } from "ng-lazyload-image";
 import { ButtonComponent } from "../../../shared/components/button/button.component";
 import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { LocationMapComponent } from "./location-map.component";
 
 export default {
-  title: "Location Map",
+  title: "Components/Blocks/Location Map",
   component: LocationMapComponent,
   decorators: [
     moduleMetadata({
@@ -18,6 +19,7 @@ export default {
         IconComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         ButtonComponent,
       ],
       imports: [GoogleMapsModule, LazyLoadImageModule],

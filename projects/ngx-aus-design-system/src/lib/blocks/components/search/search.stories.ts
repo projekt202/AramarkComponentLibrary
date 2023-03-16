@@ -23,9 +23,10 @@ import { ProductCardComponent } from "../../../shared/components/product-card/pr
 import { TabsComponent } from "../../../shared/components/tabs/tabs.component";
 import { WysiwygComponent } from "../../../shared/components/wysiwyg/wysiwyg.component";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 
 export default {
-  title: "Search",
+  title: "Components/Blocks/Search",
   component: SearchComponent,
   decorators: [
     moduleMetadata({
@@ -42,6 +43,7 @@ export default {
         PaginationComponent,
         WysiwygComponent,
         SanitizePipe,
+        Array2StringPipe,
       ],
       imports: [
         NgxSmartModalModule.forRoot(),

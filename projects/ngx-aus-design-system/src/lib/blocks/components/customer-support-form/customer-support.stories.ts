@@ -11,17 +11,19 @@ import { DropdownComponent } from "../../../shared/components/dropdown/dropdown.
 import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { InputComponent } from "../../../shared/components/input/input.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { CustomerSupportFormComponent } from "./customer-support-form.component";
 
 export default {
-  title: "Customer Support Form",
+  title: "Components/Blocks/Customer Support Form",
   component: CustomerSupportFormComponent,
   decorators: [
     moduleMetadata({
       declarations: [
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         InputComponent,
         IconComponent,
         ButtonComponent,
