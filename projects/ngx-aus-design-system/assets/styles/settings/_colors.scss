@@ -72,3 +72,23 @@ $colors: (
     overlay: rgba(0, 40, 65, 0.5),
   ),
 );
+
+@mixin color-classes-factory($palette, $color) {
+  $colorId: $color;
+  @if type-of($colorId) == number and $colorId < 10 {
+    $colorId: "0" + $color;
+  }
+  .color-#{$palette}-#{$colorId} {
+    color: map-get($colors, $palette, $color);
+  }
+  .bg-#{$palette}-#{$colorId} {
+    background-color: map-get($colors, $palette, $color);
+  }
+}
+
+@each $namespace, $palette in $colors {
+  @each $color in $palette {
+    $i: index($palette, $color);
+    @include color-classes-factory($namespace, nth(map-keys($palette), $i));
+  }
+}
