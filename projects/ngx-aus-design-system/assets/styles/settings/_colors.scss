@@ -72,3 +72,7 @@ $colors: (
     overlay: rgba(0, 40, 65, 0.5),
   ),
 );
+
+@function color($palette, $color) {
+  @return map-get($colors, $palette, $color);
+}
