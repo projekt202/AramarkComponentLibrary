@@ -963,7 +963,103 @@
  * 'u-1of2'.
  *
  * Type: String
- */ @font-face {
+ */ .color-primary-brand {
+  color: #eb002a;
+} .bg-primary-brand {
+  background-color: #eb002a;
+} .color-primary-medium {
+  color: #bb0b2b;
+} .bg-primary-medium {
+  background-color: #bb0b2b;
+} .color-primary-dark {
+  color: #9f0622;
+} .bg-primary-dark {
+  background-color: #9f0622;
+} .color-accent-01 {
+  color: #9bcbeb;
+} .bg-accent-01 {
+  background-color: #9bcbeb;
+} .color-accent-02 {
+  color: #41b6e6;
+} .bg-accent-02 {
+  background-color: #41b6e6;
+} .color-accent-03 {
+  color: #01426a;
+} .bg-accent-03 {
+  background-color: #01426a;
+} .color-accent-04 {
+  color: #ffc72c;
+} .bg-accent-04 {
+  background-color: #ffc72c;
+} .color-accent-05 {
+  color: #007d8a;
+} .bg-accent-05 {
+  background-color: #007d8a;
+} .color-neutral-white {
+  color: #ffffff;
+} .bg-neutral-white {
+  background-color: #ffffff;
+} .color-neutral-black {
+  color: #000000;
+} .bg-neutral-black {
+  background-color: #000000;
+} .color-neutral-01 {
+  color: #fafafa;
+} .bg-neutral-01 {
+  background-color: #fafafa;
+} .color-neutral-02 {
+  color: #ebebeb;
+} .bg-neutral-02 {
+  background-color: #ebebeb;
+} .color-neutral-03 {
+  color: #bbbbbc;
+} .bg-neutral-03 {
+  background-color: #bbbbbc;
+} .color-neutral-04 {
+  color: #99999b;
+} .bg-neutral-04 {
+  background-color: #99999b;
+} .color-neutral-05 {
+  color: #868484;
+} .bg-neutral-05 {
+  background-color: #868484;
+} .color-neutral-06 {
+  color: #5c5c5c;
+} .bg-neutral-06 {
+  background-color: #5c5c5c;
+} .color-neutral-07 {
+  color: #464646;
+} .bg-neutral-07 {
+  background-color: #464646;
+} .color-neutral-08 {
+  color: #222222;
+} .bg-neutral-08 {
+  background-color: #222222;
+} .color-support-focus {
+  color: #13a3b1;
+} .bg-support-focus {
+  background-color: #13a3b1;
+} .color-support-error {
+  color: #eb002a;
+} .bg-support-error {
+  background-color: #eb002a;
+} .color-support-success {
+  color: #128816;
+} .bg-support-success {
+  background-color: #128816;
+} .color-support-info {
+  color: #13a3b1;
+} .bg-support-info {
+  background-color: #13a3b1;
+} .color-support-warning {
+  color: #e86e10;
+} .bg-support-warning {
+  background-color: #e86e10;
+} .color-support-overlay {
+  color: rgba(0, 40, 65, 0.5);
+} .bg-support-overlay {
+  background-color: rgba(0, 40, 65, 0.5);
+} @font-face {
   font-family: "Gotham";
   font-weight: 700;
   font-style: normal;
