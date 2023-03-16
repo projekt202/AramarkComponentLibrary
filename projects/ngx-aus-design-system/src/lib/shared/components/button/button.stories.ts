@@ -156,6 +156,10 @@ PrimaryBrand.args = {
   variant: "primary-brand",
   route: "/test",
   size: "large",
+  icon: {
+    name: "package",
+    position: "left",
+  },
 };
 
 export const PrimaryNeutral = Template.bind({});
@@ -172,6 +176,10 @@ Secondary.args = {
   variant: "secondary",
   route: "/test",
   size: "medium",
+  icon: {
+    name: "uniform",
+    position: "right",
+  },
 };
 
 export const Tertiary = Template.bind({});

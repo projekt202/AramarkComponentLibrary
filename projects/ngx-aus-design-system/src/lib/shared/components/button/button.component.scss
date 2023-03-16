@@ -89,8 +89,10 @@
   &--primary-brand {
     background-color: color(primary, brand);
     border-radius: to-rem(8);
+    .button__icon,
     .button__label {
       ::ng-deep {
+        .icon span,
         .typography {
           color: color(neutral, white);
         }
@@ -111,8 +113,10 @@
   &--primary-neutral {
     background-color: color(neutral, black);
     border-radius: to-rem(8);
+    .button__icon,
     .button__label {
       ::ng-deep {
+        .icon span,
         .typography {
           color: color(neutral, white);
         }
@@ -135,6 +139,15 @@
     border: 2px solid color(neutral, black);
     background-color: color(neutral, white);
     border-radius: to-rem(8);
+    .button__icon,
+    .button__label {
+      ::ng-deep {
+        .icon span,
+        .typography {
+          color: color(neutral, black);
+        }
+      }
+    }
     &:hover {
       background-color: color(neutral, 02);
     }
@@ -150,10 +163,21 @@
   &--tertiary {
     background-color: transparent;
     border-radius: to-rem(8);
+    .button__icon,
+    .button__label {
+      ::ng-deep {
+        .icon span,
+        .typography {
+          color: color(neutral, black);
+        }
+      }
+    }
     &:hover {
       background-color: color(neutral, 01);
+      .button__icon,
       .button__label {
         ::ng-deep {
+          .icon span,
           .typography {
             color: color(primary, brand);
           }
@@ -162,8 +186,10 @@
     }
     &:focus {
       background-color: color(neutral, 01);
+      .button__icon,
       .button__label {
         ::ng-deep {
+          .icon span,
           .typography {
             color: color(primary, dark);
           }
@@ -174,8 +200,10 @@
       background-color: color(neutral, 01);
       box-shadow: none;
       outline: 2px solid color(support, focus);
+      .button__icon,
       .button__label {
         ::ng-deep {
+          .icon span,
           .typography {
             color: color(neutral, black);
           }
@@ -204,6 +232,11 @@
         padding: spacing(03) spacing(04);
       }
       .button__icon {
+        ::ng-deep {
+          .icon {
+            font-size: 15px;
+          }
+        }
         &--left {
           margin-right: 7px;
         }
@@ -220,6 +253,11 @@
         padding: spacing(04) spacing(05);
       }
       .button__icon {
+        ::ng-deep {
+          .icon {
+            font-size: 20px;
+          }
+        }
         &--left {
           margin-right: 9px;
         }
@@ -236,6 +274,11 @@
         padding: spacing(04) spacing(05);
       }
       .button__icon {
+        ::ng-deep {
+          .icon {
+            font-size: 25px;
+          }
+        }
         &--left {
           margin-right: 12px;
         }
