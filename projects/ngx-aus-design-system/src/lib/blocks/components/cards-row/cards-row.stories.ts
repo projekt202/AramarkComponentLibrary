@@ -18,7 +18,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { CardsRowComponent } from "./cards-row.component";
 
 export default {
-  title: "CardsRow",
+  title: "Components/Blocks/CardsRow",
   component: CardsRowComponent,
   decorators: [
     moduleMetadata({

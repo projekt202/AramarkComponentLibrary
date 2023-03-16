@@ -1,9 +1,9 @@
-import { Story, Meta } from '@storybook/angular';
+import { Story, Meta } from "@storybook/angular";
 
-import { PaginationComponent } from './pagination.component';
+import { PaginationComponent } from "./pagination.component";
 
 export default {
-  title: 'Pagination',
+  title: "Components/Shared/Pagination",
   component: PaginationComponent,
 } as Meta;
 

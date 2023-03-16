@@ -16,7 +16,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { CustomerSupportFormComponent } from "./customer-support-form.component";
 
 export default {
-  title: "Customer Support Form",
+  title: "Components/Blocks/Customer Support Form",
   component: CustomerSupportFormComponent,
   decorators: [
     moduleMetadata({

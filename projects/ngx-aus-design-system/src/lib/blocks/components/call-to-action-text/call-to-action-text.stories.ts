@@ -32,7 +32,7 @@ export default {
     }),
   ],
   component: CallToActionTextComponent,
-  title: "Call to action - text",
+  title: "Components/Blocks/Call to action - text",
 } as Meta;
 
 const Template: Story<CallToActionTextComponent> = (

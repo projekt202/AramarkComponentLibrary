@@ -17,7 +17,7 @@ import { LocationsFiltersComponent } from "../locations-filters/locations-filter
 import { LocationSearchComponent } from "./location-search.component";
 
 export default {
-  title: "Location Search",
+  title: "Components/Blocks/Location Search",
   component: LocationSearchComponent,
   decorators: [
     moduleMetadata({

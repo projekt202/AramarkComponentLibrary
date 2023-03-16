@@ -30,7 +30,7 @@ export default {
     }),
   ],
   component: AccordionComponent,
-  title: "Accordion",
+  title: "Components/Blocks/Accordion",
 } as Meta;
 
 const Template: Story<AccordionComponent> = (args: AccordionComponent) => {

@@ -1,11 +1,12 @@
 import { Story, Meta, moduleMetadata } from "@storybook/angular";
-
+import { HttpClientModule } from "@angular/common/http";
+import { LazyLoadImageModule } from "ng-lazyload-image";
 import { CommonModule } from "@angular/common";
+
+import { RelatedPostComponent } from "./../related-post/related-post.component";
 import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
 import { RelatedPostPagesTabsComponent } from "./related-post-pages-tabs.component";
-import { HttpClientModule } from "@angular/common/http";
-import { LazyLoadImageModule } from "ng-lazyload-image";
 import { GraphQLModule } from "../../../graphql.module";
 import { ButtonComponent } from "../../../shared/components/button/button.component";
 import { ImageComponent } from "../../../shared/components/image/image.component";
@@ -30,6 +31,7 @@ export default {
         PaginationComponent,
         TabsComponent,
         GtmIdPipe,
+        RelatedPostComponent,
       ],
       imports: [
         CommonModule,
@@ -40,7 +42,7 @@ export default {
     }),
   ],
   component: RelatedPostPagesTabsComponent,
-  title: "Related Post",
+  title: "Components/Blocks/Related Posts Pages Tabs",
 } as Meta;
 
 const Template: Story<RelatedPostPagesTabsComponent> = (

@@ -12,7 +12,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { BreadcrumbsComponent } from "./breadcrumbs.component";
 
 export default {
-  title: "Breadcrumbs",
+  title: "Components/Blocks/Breadcrumbs",
   component: BreadcrumbsComponent,
   decorators: [
     moduleMetadata({

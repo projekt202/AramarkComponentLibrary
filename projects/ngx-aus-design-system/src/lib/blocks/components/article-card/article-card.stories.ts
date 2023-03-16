@@ -16,7 +16,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { ArticleCardComponent } from "./article-card.component";
 
 export default {
-  title: "Article Card",
+  title: "Components/Blocks/Article Card",
   component: ArticleCardComponent,
   decorators: [
     moduleMetadata({

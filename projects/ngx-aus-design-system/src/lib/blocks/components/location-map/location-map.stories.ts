@@ -10,7 +10,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { LocationMapComponent } from "./location-map.component";
 
 export default {
-  title: "Location Map",
+  title: "Components/Blocks/Location Map",
   component: LocationMapComponent,
   decorators: [
     moduleMetadata({

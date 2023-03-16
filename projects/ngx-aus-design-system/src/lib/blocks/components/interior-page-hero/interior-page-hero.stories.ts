@@ -23,7 +23,7 @@ export default {
     }),
   ],
   component: InteriorPageHeroComponent,
-  title: "Interior Page Hero",
+  title: "Components/Blocks/Interior Page Hero",
 } as Meta;
 
 const Template: Story<InteriorPageHeroComponent> = (

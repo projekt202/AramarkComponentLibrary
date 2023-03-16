@@ -1,19 +1,19 @@
-import { FormsModule } from '@angular/forms';
-import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from "@angular/forms";
+import { NgSelectModule } from "@ng-select/ng-select";
 import {
   Story,
   Meta,
   moduleMetadata,
   componentWrapperDecorator,
-} from '@storybook/angular';
-import { Array2StringPipe } from '../../pipes/array2string/array2string.pipe';
-import { SanitizePipe } from '../../pipes/sanitize/sanitize.pipe';
-import { IconComponent } from '../icon/icon.component';
-import { TypographyComponent } from '../typography/typography.component';
-import { DropdownComponent } from './dropdown.component';
+} from "@storybook/angular";
+import { Array2StringPipe } from "../../pipes/array2string/array2string.pipe";
+import { SanitizePipe } from "../../pipes/sanitize/sanitize.pipe";
+import { IconComponent } from "../icon/icon.component";
+import { TypographyComponent } from "../typography/typography.component";
+import { DropdownComponent } from "./dropdown.component";
 
 export default {
-  title: 'Dropdown',
+  title: "Components/Shared/Dropdown",
   component: DropdownComponent,
   decorators: [
     moduleMetadata({
@@ -43,20 +43,20 @@ const Template: Story<DropdownComponent> = (args: DropdownComponent) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-  name: 'state',
-  label: 'State',
+  name: "state",
+  label: "State",
   isRequired: true,
   isDisabled: false,
-  placeholder: 'Select',
-  items: ['State 1', 'State 2', 'State 3', 'State 4'],
+  placeholder: "Select",
+  items: ["State 1", "State 2", "State 3", "State 4"],
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  name: 'state',
-  label: 'State',
+  name: "state",
+  label: "State",
   isRequired: false,
   isDisabled: true,
-  placeholder: 'Select',
-  items: ['State 1', 'State 2', 'State 3', 'State 4'],
+  placeholder: "Select",
+  items: ["State 1", "State 2", "State 3", "State 4"],
 };

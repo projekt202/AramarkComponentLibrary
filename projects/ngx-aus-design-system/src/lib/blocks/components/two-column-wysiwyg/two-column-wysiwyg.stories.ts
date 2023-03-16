@@ -18,7 +18,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { TwoColumnWysiwygComponent } from "./two-column-wysiwyg.component";
 
 export default {
-  title: "Two-Column WYSIWYG",
+  title: "Components/Blocks/Two-Column WYSIWYG",
   component: TwoColumnWysiwygComponent,
   decorators: [
     moduleMetadata({

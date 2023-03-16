@@ -11,7 +11,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { LocationsCardsComponent } from "./locations-cards.component";
 
 export default {
-  title: "Locations Cards",
+  title: "Components/Blocks/Locations Cards",
   component: LocationsCardsComponent,
   decorators: [
     moduleMetadata({

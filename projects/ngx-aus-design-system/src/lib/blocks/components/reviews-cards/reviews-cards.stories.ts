@@ -11,7 +11,7 @@ import { TimeAgoPipe } from "../../../shared/pipes/time-ago/time-ago.pipe";
 import { ReviewsCardsComponent } from "./reviews-cards.component";
 
 export default {
-  title: "Reviews Cards",
+  title: "Components/Blocks/Reviews Cards",
   component: ReviewsCardsComponent,
   decorators: [
     moduleMetadata({

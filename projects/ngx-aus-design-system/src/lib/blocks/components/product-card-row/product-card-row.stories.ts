@@ -19,7 +19,7 @@ import { ProductCardRowComponent } from "./product-card-row.component";
 import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 
 export default {
-  title: "Product Card Row",
+  title: "Components/Blocks/Product Card Row",
   component: ProductCardRowComponent,
   decorators: [
     moduleMetadata({

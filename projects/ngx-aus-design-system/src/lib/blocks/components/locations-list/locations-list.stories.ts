@@ -7,7 +7,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { LocationsListComponent } from "./locations-list.component";
 
 export default {
-  title: "Locations List",
+  title: "Components/Blocks/Locations List",
   component: LocationsListComponent,
   decorators: [
     moduleMetadata({

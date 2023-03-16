@@ -24,7 +24,7 @@ import { TabbedContentComponent } from "./tabbed-content.component";
 import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 
 export default {
-  title: "Tabbed Content",
+  title: "Components/Blocks/Tabbed Content",
   component: TabbedContentComponent,
   decorators: [
     moduleMetadata({

@@ -10,7 +10,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { BannerBarComponent } from "./banner-bar.component";
 
 export default {
-  title: "Banner Bar",
+  title: "Components/Blocks/Banner Bar",
   decorators: [
     moduleMetadata({
       declarations: [

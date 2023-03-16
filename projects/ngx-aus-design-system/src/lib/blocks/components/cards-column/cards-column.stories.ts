@@ -11,7 +11,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { CardsColumnComponent } from "./cards-column.component";
 
 export default {
-  title: "CardsColumn",
+  title: "Components/Blocks/CardsColumn",
   component: CardsColumnComponent,
   decorators: [
     moduleMetadata({

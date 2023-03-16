@@ -1,4 +1,4 @@
-import { Array2StringPipe } from './../../../shared/pipes/array2string/array2string.pipe';
+import { Array2StringPipe } from "./../../../shared/pipes/array2string/array2string.pipe";
 import { Story, Meta, moduleMetadata } from "@storybook/angular";
 import { LazyLoadImageModule } from "ng-lazyload-image";
 
@@ -14,7 +14,7 @@ export default {
     }),
   ],
   component: QuoteComponent,
-  title: "Quote",
+  title: "Components/Blocks/Quote",
 } as Meta;
 
 const Template: Story<QuoteComponent> = (args: QuoteComponent) => ({

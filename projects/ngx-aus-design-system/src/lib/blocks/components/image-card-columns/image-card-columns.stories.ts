@@ -11,7 +11,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { ImageCardColumnsComponent } from "./image-card-columns.component";
 
 export default {
-  title: "Image Card Columns",
+  title: "Components/Blocks/Image Card Columns",
   component: ImageCardColumnsComponent,
   decorators: [
     moduleMetadata({

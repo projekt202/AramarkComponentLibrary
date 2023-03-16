@@ -11,7 +11,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { LocationInfoComponent } from "./location-info.component";
 
 export default {
-  title: "Location Info",
+  title: "Components/Blocks/Location Info",
   component: LocationInfoComponent,
   decorators: [
     moduleMetadata({

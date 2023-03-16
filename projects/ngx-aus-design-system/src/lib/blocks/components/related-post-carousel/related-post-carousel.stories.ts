@@ -1,6 +1,10 @@
 import { Story, Meta, moduleMetadata } from "@storybook/angular";
-
 import { CommonModule } from "@angular/common";
+import { SwiperModule } from "swiper/angular";
+
+import { InteriorPageHeroComponent } from "./../interior-page-hero/interior-page-hero.component";
+import { CarouselComponent } from "./../../../shared/components/carousel/carousel.component";
+import { InteriorPageHeroCarouselComponent } from "./../interior-page-hero-carousel/interior-page-hero-carousel.component";
 import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
 import { RelatedPostCarouselComponent } from "./related-post-carousel.component";
@@ -20,22 +24,25 @@ export default {
         ArticleCardComponent,
         TypographyComponent,
         IconComponent,
-        TypographyComponent,
         SanitizePipe,
         Array2StringPipe,
         ButtonComponent,
         ImageComponent,
+        InteriorPageHeroComponent,
+        InteriorPageHeroCarouselComponent,
+        CarouselComponent,
       ],
       imports: [
         CommonModule,
         GraphQLModule,
         HttpClientModule,
         LazyLoadImageModule,
+        SwiperModule,
       ],
     }),
   ],
   component: RelatedPostCarouselComponent,
-  title: "Related Post",
+  title: "Components/Blocks/Related Posts Carousel",
 } as Meta;
 
 const Template: Story<RelatedPostCarouselComponent> = (

@@ -11,7 +11,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { ThreeCardRowComponent } from "./three-card-row.component";
 
 export default {
-  title: "Three Card Row",
+  title: "Components/Blocks/Three Card Row",
   component: ThreeCardRowComponent,
   decorators: [
     moduleMetadata({

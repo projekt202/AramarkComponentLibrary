@@ -32,7 +32,7 @@ export default {
     }),
   ],
   component: TwoColumnBillboardsComponent,
-  title: "Two-Column Billboards",
+  title: "Components/Blocks/Two-Column Billboards",
 } as Meta;
 
 const Template: Story<TwoColumnBillboardsComponent> = (

@@ -23,7 +23,7 @@ export default {
     }),
   ],
   component: BillboardComponent,
-  title: "Billboard",
+  title: "Components/Blocks/Billboard",
 } as Meta;
 
 const Template: Story<BillboardComponent> = (args: BillboardComponent) => ({

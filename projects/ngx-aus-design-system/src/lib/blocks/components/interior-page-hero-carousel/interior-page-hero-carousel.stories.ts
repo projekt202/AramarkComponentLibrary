@@ -30,7 +30,7 @@ export default {
     }),
   ],
   component: InteriorPageHeroCarouselComponent,
-  title: "Interior Page Hero Carousel",
+  title: "Components/Blocks/Interior Page Hero Carousel",
 } as Meta;
 
 const Template: Story<InteriorPageHeroCarouselComponent> = (

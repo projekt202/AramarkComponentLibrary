@@ -12,7 +12,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { LocationsFiltersComponent } from "./locations-filters.component";
 
 export default {
-  title: "Locations Filters",
+  title: "Components/Blocks/Locations Filters",
   component: LocationsFiltersComponent,
   decorators: [
     moduleMetadata({

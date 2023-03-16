@@ -25,7 +25,7 @@ export default {
     }),
   ],
   component: QuoteSliderComponent,
-  title: "Quote slider",
+  title: "Components/Blocks/Quote slider",
 } as Meta;
 
 const Template: Story<QuoteSliderComponent> = (args: QuoteSliderComponent) => ({

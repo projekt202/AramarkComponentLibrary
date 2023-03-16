@@ -22,7 +22,7 @@ import { WysiwygComponent } from "../wysiwyg/wysiwyg.component";
 import { ProductCardComponent } from "./product-card.component";
 
 export default {
-  title: "Product Card",
+  title: "Components/Shared/Product Card",
   component: ProductCardComponent,
   decorators: [
     moduleMetadata({

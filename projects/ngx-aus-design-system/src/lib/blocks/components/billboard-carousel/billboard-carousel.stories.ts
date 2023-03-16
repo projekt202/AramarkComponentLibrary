@@ -13,7 +13,7 @@ import { BillboardComponent } from "../billboard/billboard.component";
 import { BillboardCarouselComponent } from "./billboard-carousel.component";
 
 export default {
-  title: "Billboard Carousel",
+  title: "Components/Blocks/Billboard Carousel",
   decorators: [
     moduleMetadata({
       declarations: [

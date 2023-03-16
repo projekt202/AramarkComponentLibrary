@@ -11,7 +11,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { LocationServiceAreasComponent } from "./location-service-areas.component";
 
 export default {
-  title: "Location Service Areas",
+  title: "Components/Blocks/Location Service Areas",
   component: LocationServiceAreasComponent,
   decorators: [
     moduleMetadata({

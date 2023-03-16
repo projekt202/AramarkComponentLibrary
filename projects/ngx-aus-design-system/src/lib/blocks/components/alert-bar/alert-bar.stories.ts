@@ -11,7 +11,7 @@ import { AlertBarComponent } from "./alert-bar.component";
 import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 
 export default {
-  title: "Alert Bar",
+  title: "Components/Blocks/Alert Bar",
   decorators: [
     moduleMetadata({
       declarations: [

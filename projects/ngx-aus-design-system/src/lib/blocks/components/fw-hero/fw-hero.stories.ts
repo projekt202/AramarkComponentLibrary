@@ -10,7 +10,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { FwHeroComponent } from "./fw-hero.component";
 
 export default {
-  title: "FwHero",
+  title: "Components/Blocks/Fullwidth Hero",
   component: FwHeroComponent,
   decorators: [
     moduleMetadata({

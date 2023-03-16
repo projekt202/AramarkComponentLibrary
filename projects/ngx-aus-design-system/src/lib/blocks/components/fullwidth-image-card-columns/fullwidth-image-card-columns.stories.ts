@@ -10,7 +10,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 
 export default {
-  title: "Fullwidth Image Card Columns",
+  title: "Components/Blocks/Fullwidth Image Card Columns",
   component: FullwidthImageCardColumnsComponent,
   decorators: [
     moduleMetadata({
