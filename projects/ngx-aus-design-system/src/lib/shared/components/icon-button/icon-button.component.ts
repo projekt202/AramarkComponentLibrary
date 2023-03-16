@@ -10,7 +10,7 @@ import { IconButtonSizes } from "./icon-button.model";
 })
 export class IconButtonComponent {
   @Input() icon: IconComponentNames = "uniform";
-  @Input() size: IconButtonSizes = "large";
+  @Input() size?: IconButtonSizes = "large";
   @Input() ariaLabel: string = "";
   @Input() disabled?: boolean = false;
   @Output() click: EventEmitter<void> = new EventEmitter<void>();

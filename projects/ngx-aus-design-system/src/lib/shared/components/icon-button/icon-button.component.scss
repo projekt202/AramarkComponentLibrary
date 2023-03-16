@@ -43,14 +43,35 @@
     &-small {
       width: 28px;
       height: 28px;
+      .btn__icon {
+        ::ng-deep {
+          .icon {
+            font-size: 15px;
+          }
+        }
+      }
     }
     &-medium {
       width: 32px;
       height: 32px;
+      .btn__icon {
+        ::ng-deep {
+          .icon {
+            font-size: 18px;
+          }
+        }
+      }
     }
     &-large {
       width: 36px;
       height: 36px;
+      .btn__icon {
+        ::ng-deep {
+          .icon {
+            font-size: 20px;
+          }
+        }
+      }
     }
   }
 }
