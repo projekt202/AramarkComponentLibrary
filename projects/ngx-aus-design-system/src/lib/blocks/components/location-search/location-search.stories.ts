@@ -10,6 +10,7 @@ import { DropdownComponent } from "../../../shared/components/dropdown/dropdown.
 import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { InputComponent } from "../../../shared/components/input/input.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { LocationMapComponent } from "../location-map/location-map.component";
 import { LocationsFiltersComponent } from "../locations-filters/locations-filters.component";
@@ -23,6 +24,7 @@ export default {
       declarations: [
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         InputComponent,
         DropdownComponent,
         ButtonComponent,

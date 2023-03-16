@@ -1,3 +1,4 @@
+import { Array2StringPipe } from './../../pipes/array2string/array2string.pipe';
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import { SanitizePipe } from '../../pipes/sanitize/sanitize.pipe';
 import { TypographyComponent } from '../typography/typography.component';
@@ -8,7 +9,7 @@ export default {
   component: CheckboxComponent,
   decorators: [
     moduleMetadata({
-      declarations: [CheckboxComponent, TypographyComponent, SanitizePipe],
+      declarations: [CheckboxComponent, TypographyComponent, SanitizePipe, Array2StringPipe],
     }),
   ],
 } as Meta;

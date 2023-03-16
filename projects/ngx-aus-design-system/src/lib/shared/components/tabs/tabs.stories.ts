@@ -4,6 +4,7 @@ import {
   moduleMetadata,
   componentWrapperDecorator,
 } from '@storybook/angular';
+import { Array2StringPipe } from '../../pipes/array2string/array2string.pipe';
 import { GtmIdPipe } from '../../pipes/gtm/gtm-id.pipe';
 import { SanitizePipe } from '../../pipes/sanitize/sanitize.pipe';
 import { IconComponent } from '../icon/icon.component';
@@ -20,6 +21,7 @@ export default {
         TabsComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         IconComponent,
         GtmIdPipe,
       ],

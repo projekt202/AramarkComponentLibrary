@@ -5,6 +5,7 @@ import {
   moduleMetadata,
   componentWrapperDecorator,
 } from '@storybook/angular';
+import { Array2StringPipe } from '../../pipes/array2string/array2string.pipe';
 import { SanitizePipe } from '../../pipes/sanitize/sanitize.pipe';
 import { ButtonComponent } from '../button/button.component';
 import { IconComponent } from '../icon/icon.component';
@@ -21,6 +22,7 @@ export default {
         IconComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         ButtonComponent,
       ],
       imports: [RouterTestingModule],

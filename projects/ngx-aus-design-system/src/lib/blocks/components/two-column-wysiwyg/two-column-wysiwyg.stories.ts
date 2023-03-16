@@ -13,6 +13,7 @@ import { ImageComponent } from "../../../shared/components/image/image.component
 import { SupportCardComponent } from "../../../shared/components/support-card/support-card.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
 import { WysiwygComponent } from "../../../shared/components/wysiwyg/wysiwyg.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { TwoColumnWysiwygComponent } from "./two-column-wysiwyg.component";
 
@@ -28,6 +29,7 @@ export default {
         SupportCardComponent,
         FullwidthImageCardComponent,
         SanitizePipe,
+        Array2StringPipe,
         ButtonComponent,
         IconComponent,
         ArrowLinkComponent,

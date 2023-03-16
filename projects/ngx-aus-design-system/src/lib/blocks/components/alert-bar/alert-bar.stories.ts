@@ -8,6 +8,7 @@ import { TypographyComponent } from "../../../shared/components/typography/typog
 import { WysiwygComponent } from "../../../shared/components/wysiwyg/wysiwyg.component";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { AlertBarComponent } from "./alert-bar.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 
 export default {
   title: "Alert Bar",
@@ -18,6 +19,7 @@ export default {
         ArrowLinkComponent,
         WysiwygComponent,
         SanitizePipe,
+        Array2StringPipe,
       ],
       imports: [GraphQLModule, HttpClientModule, CookieModule.withOptions()],
     }),

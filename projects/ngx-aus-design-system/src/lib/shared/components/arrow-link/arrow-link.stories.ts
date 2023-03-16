@@ -1,3 +1,4 @@
+import { Array2StringPipe } from './../../pipes/array2string/array2string.pipe';
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import { SanitizePipe } from '../../pipes/sanitize/sanitize.pipe';
 import { TypographyComponent } from '../typography/typography.component';
@@ -9,7 +10,7 @@ export default {
   component: ArrowLinkComponent,
   decorators: [
     moduleMetadata({
-      declarations: [TypographyComponent, SanitizePipe],
+      declarations: [TypographyComponent, SanitizePipe, Array2StringPipe],
     }),
   ],
 } as Meta;

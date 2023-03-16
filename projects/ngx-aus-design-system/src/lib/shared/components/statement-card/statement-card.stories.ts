@@ -4,6 +4,7 @@ import {
   moduleMetadata,
   componentWrapperDecorator,
 } from '@storybook/angular';
+import { Array2StringPipe } from '../../pipes/array2string/array2string.pipe';
 import { SanitizePipe } from '../../pipes/sanitize/sanitize.pipe';
 import { IconComponent } from '../icon/icon.component';
 import { TypographyComponent } from '../typography/typography.component';
@@ -19,6 +20,7 @@ export default {
         StatementCardComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         IconComponent,
       ],
     }),

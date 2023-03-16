@@ -6,6 +6,7 @@ import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { IconComponentNames } from "../../../shared/components/icon/icon.model";
 import { StatementCardComponent } from "../../../shared/components/statement-card/statement-card.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { ThreeCardRowComponent } from "./three-card-row.component";
 
@@ -19,6 +20,7 @@ export default {
         IconComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         CarouselComponent,
       ],
       imports: [SwiperModule],

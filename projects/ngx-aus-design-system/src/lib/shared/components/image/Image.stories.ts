@@ -1,3 +1,4 @@
+import { Array2StringPipe } from './../../pipes/array2string/array2string.pipe';
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { SanitizePipe } from '../../pipes/sanitize/sanitize.pipe';
@@ -10,7 +11,7 @@ export default {
   component: ImageComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ImageComponent, TypographyComponent, SanitizePipe],
+      declarations: [ImageComponent, TypographyComponent, SanitizePipe, Array2StringPipe],
       imports: [LazyLoadImageModule],
     }),
   ],

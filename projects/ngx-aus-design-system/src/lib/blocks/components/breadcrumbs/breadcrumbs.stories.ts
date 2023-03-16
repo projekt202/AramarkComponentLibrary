@@ -7,6 +7,7 @@ import {
 
 import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { BreadcrumbsComponent } from "./breadcrumbs.component";
 
@@ -19,6 +20,7 @@ export default {
         BreadcrumbsComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         IconComponent,
       ],
     }),

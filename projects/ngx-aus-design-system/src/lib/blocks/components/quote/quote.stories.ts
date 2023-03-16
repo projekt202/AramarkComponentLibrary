@@ -1,3 +1,4 @@
+import { Array2StringPipe } from './../../../shared/pipes/array2string/array2string.pipe';
 import { Story, Meta, moduleMetadata } from "@storybook/angular";
 import { LazyLoadImageModule } from "ng-lazyload-image";
 
@@ -8,7 +9,7 @@ import { QuoteComponent } from "./quote.component";
 export default {
   decorators: [
     moduleMetadata({
-      declarations: [TypographyComponent, SanitizePipe],
+      declarations: [TypographyComponent, SanitizePipe, Array2StringPipe],
       imports: [LazyLoadImageModule],
     }),
   ],

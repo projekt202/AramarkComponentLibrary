@@ -14,6 +14,7 @@ import { TabsComponent } from "../../../shared/components/tabs/tabs.component";
 import { GtmIdPipe } from "../../../shared/pipes/gtm/gtm-id.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { ArticleCardComponent } from "../article-card/article-card.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 
 export default {
   decorators: [
@@ -23,6 +24,7 @@ export default {
         TypographyComponent,
         IconComponent,
         SanitizePipe,
+        Array2StringPipe,
         ButtonComponent,
         ImageComponent,
         PaginationComponent,

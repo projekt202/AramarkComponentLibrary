@@ -5,6 +5,7 @@ import {
   componentWrapperDecorator,
 } from '@storybook/angular';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { Array2StringPipe } from '../../pipes/array2string/array2string.pipe';
 import { SanitizePipe } from '../../pipes/sanitize/sanitize.pipe';
 import { ArrowLinkComponent } from '../arrow-link/arrow-link.component';
 
@@ -16,7 +17,7 @@ export default {
   component: FullwidthImageCardComponent,
   decorators: [
     moduleMetadata({
-      declarations: [TypographyComponent, SanitizePipe, ArrowLinkComponent],
+      declarations: [TypographyComponent, SanitizePipe, Array2StringPipe, ArrowLinkComponent],
       imports: [LazyLoadImageModule],
     }),
     componentWrapperDecorator(

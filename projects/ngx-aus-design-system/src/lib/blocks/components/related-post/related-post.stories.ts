@@ -13,6 +13,7 @@ import { CarouselComponent } from "../../../shared/components/carousel/carousel.
 import { ImageComponent } from "../../../shared/components/image/image.component";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { ArticleCardComponent } from "../article-card/article-card.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 
 export default {
   decorators: [
@@ -23,6 +24,7 @@ export default {
         IconComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         ButtonComponent,
         ImageComponent,
         CarouselComponent,

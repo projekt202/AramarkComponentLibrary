@@ -15,6 +15,7 @@ import { LazyLoadImageModule } from "ng-lazyload-image";
 import { ButtonComponent } from "../../../shared/components/button/button.component";
 import { ButtonComponentVariants } from "../../../shared/components/button/button.component.model";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 
 export default {
   decorators: [
@@ -23,6 +24,7 @@ export default {
         IconComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         ButtonComponent,
         BillboardComponent,
       ],

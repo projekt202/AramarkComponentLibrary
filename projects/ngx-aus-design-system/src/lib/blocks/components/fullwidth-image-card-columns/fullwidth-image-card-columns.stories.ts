@@ -7,6 +7,7 @@ import { FullwidthImageCardCta } from "../../../shared/components/fullwidth-imag
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
 import { FullwidthImageCardColumnsComponent } from "./fullwidth-image-card-columns.component";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 
 export default {
   title: "Fullwidth Image Card Columns",
@@ -17,6 +18,7 @@ export default {
         FullwidthImageCardComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         ArrowLinkComponent,
       ],
       imports: [LazyLoadImageModule],

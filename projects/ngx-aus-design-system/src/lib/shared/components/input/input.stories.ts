@@ -1,3 +1,4 @@
+import { Array2StringPipe } from './../../pipes/array2string/array2string.pipe';
 import { FormsModule } from '@angular/forms';
 import {
   Story,
@@ -16,7 +17,7 @@ export default {
   component: InputComponent,
   decorators: [
     moduleMetadata({
-      declarations: [InputComponent, TypographyComponent, SanitizePipe],
+      declarations: [InputComponent, TypographyComponent, SanitizePipe, Array2StringPipe],
       imports: [FormsModule, NgxMaskModule.forRoot()],
     }),
     componentWrapperDecorator(

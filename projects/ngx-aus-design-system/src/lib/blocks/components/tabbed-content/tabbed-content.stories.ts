@@ -21,6 +21,7 @@ import { WysiwygComponent } from "../../../shared/components/wysiwyg/wysiwyg.com
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { ProductCardRowComponent } from "../product-card-row/product-card-row.component";
 import { TabbedContentComponent } from "./tabbed-content.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 
 export default {
   title: "Tabbed Content",
@@ -37,6 +38,7 @@ export default {
         ImageComponent,
         IconComponent,
         SanitizePipe,
+        Array2StringPipe,
         CarouselComponent,
       ],
       imports: [

@@ -16,6 +16,7 @@ import { WysiwygComponent } from "../../../shared/components/wysiwyg/wysiwyg.com
 import { GtmIdPipe } from "../../../shared/pipes/gtm/gtm-id.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { ProductCardRowComponent } from "./product-card-row.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 
 export default {
   title: "Product Card Row",
@@ -26,6 +27,7 @@ export default {
         ProductCardComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         ButtonComponent,
         CarouselComponent,
         IconComponent,

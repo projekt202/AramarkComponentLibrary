@@ -5,6 +5,7 @@ import {
   componentWrapperDecorator,
 } from '@storybook/angular';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { Array2StringPipe } from '../../pipes/array2string/array2string.pipe';
 import { SanitizePipe } from '../../pipes/sanitize/sanitize.pipe';
 import { ButtonComponent } from '../button/button.component';
 import { IconComponent } from '../icon/icon.component';
@@ -21,6 +22,7 @@ export default {
         SupportCardComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         ButtonComponent,
         IconComponent,
       ],

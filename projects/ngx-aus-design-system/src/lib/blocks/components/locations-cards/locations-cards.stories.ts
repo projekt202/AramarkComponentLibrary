@@ -6,6 +6,7 @@ import { CarouselComponent } from "../../../shared/components/carousel/carousel.
 import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { LocationCardComponent } from "../../../shared/components/location-card/location-card.component";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { LocationsCardsComponent } from "./locations-cards.component";
 
@@ -19,6 +20,7 @@ export default {
         IconComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         LocationCardComponent,
         CarouselComponent,
       ],

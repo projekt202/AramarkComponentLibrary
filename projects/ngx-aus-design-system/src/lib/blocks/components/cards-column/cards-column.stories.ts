@@ -6,6 +6,7 @@ import { CardComponent } from "../../../shared/components/card/card.component";
 import { IconComponent } from "../../../shared/components/icon/icon.component";
 import { IconComponentNames } from "../../../shared/components/icon/icon.model";
 import { TypographyComponent } from "../../../shared/components/typography/typography.component";
+import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { CardsColumnComponent } from "./cards-column.component";
 
@@ -19,6 +20,7 @@ export default {
         IconComponent,
         TypographyComponent,
         SanitizePipe,
+        Array2StringPipe,
         ButtonComponent,
         CardComponent,
       ],
