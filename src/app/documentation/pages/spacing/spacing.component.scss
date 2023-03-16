@@ -1,0 +1,26 @@
+@import "styles";
+
+.spacing {
+  &__preview-block {
+    background-color: map-get($colors, accent, 05);
+  }
+  &__preview-grid {
+    margin-top: map-get($spacing, 05);
+    padding-top: map-get($spacing, 05);
+    padding-bottom: map-get($spacing, 05);
+    background-color: map-get($colors, neutral, 02);
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    &-col {
+      flex: 1;
+      height: 300px;
+      position: relative;
+      span {
+        height: 100%;
+        display: block;
+        background-color: map-get($colors, accent, 01);
+      }
+    }
+  }
+}

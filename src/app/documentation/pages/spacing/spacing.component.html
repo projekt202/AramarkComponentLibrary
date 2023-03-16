@@ -1,0 +1,104 @@
+<app-page-layout
+  [subtitle]="story === 'blocks' ? 'Spacing' : 'Screens & Breakpoints'"
+  [title]="
+    story === 'blocks' ? 'Spacing Documentation - WIP' : 'Our Breakpoints'
+  "
+  [description]="
+    story === 'blocks'
+      ? '<p>The Aramark experience uses <a href=https://www.iotacss.com/docs/>iotaCSS</a> as a CSS framework, and it handles modular scaling. The base value the scale starts at should be 16px. The token for the base value is <code>$iota-tools-ms-base</code></p>'
+      : ''
+  "
+>
+  <ng-container *ngIf="story === 'blocks'">
+    <app-page-section *ngFor="let item of itemsBlocks" [title]="item.name">
+      <table>
+        <thead>
+          <tr>
+            <th>Example</th>
+            <th>rem</th>
+            <th>px</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let block of item.blocks; let i = index">
+            <td>
+              <div
+                class="spacing__preview-block"
+                [ngStyle]="{
+                  height: block.px + 'px',
+                  width: block.px + 'px',
+                  paddingLeft:
+                    i === 0 ? 0 : [2, 3, 4].includes(i) ? '2px' : '4px'
+                }"
+              >
+                <aus-typography
+                  *ngIf="![0, 1].includes(i)"
+                  [presetClassNames]="
+                    [2, 3, 4].includes(i)
+                      ? ['text-preset-10']
+                      : ['text-preset-9']
+                  "
+                  [text]="block.px"
+                  color="white"
+                ></aus-typography>
+              </div>
+            </td>
+            <td>
+              <aus-typography
+                [presetClassNames]="['text-preset-8']"
+                [text]="block.rem"
+              ></aus-typography>
+            </td>
+            <td>
+              <aus-typography
+                [presetClassNames]="['text-preset-8']"
+                [text]="block.px"
+              ></aus-typography>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </app-page-section>
+  </ng-container>
+  <ng-container *ngIf="story === 'grid'">
+    <app-page-section *ngFor="let item of itemsGrid" [title]="item.name">
+      <aus-typography
+        [presetClassNames]="['text-preset-4']"
+        [text]="item.threshold"
+      ></aus-typography>
+      <aus-typography
+        [presetClassNames]="['text-preset-5--medium']"
+        [text]="
+          item.specs.cols +
+          ' columns / ' +
+          item.specs.gutters +
+          'px gutters / ' +
+          item.specs.margins +
+          'px margins'
+        "
+      ></aus-typography>
+      <aus-typography
+        [presetClassNames]="['text-preset-7']"
+        [text]="item.notes"
+      ></aus-typography>
+      <div
+        class="spacing__preview-grid"
+        [ngStyle]="{
+          paddingLeft: item.specs.gutters / 2 + 'px',
+          paddingRight: item.specs.gutters / 2 + 'px'
+        }"
+      >
+        <div
+          class="spacing__preview-grid-col"
+          *ngFor="let col of [].constructor(item.specs.cols)"
+          [ngStyle]="{
+            paddingLeft: item.specs.gutters / 2 + 'px',
+            paddingRight: item.specs.gutters / 2 + 'px'
+          }"
+        >
+          <span></span>
+        </div>
+      </div>
+    </app-page-section>
+  </ng-container>
+</app-page-layout>

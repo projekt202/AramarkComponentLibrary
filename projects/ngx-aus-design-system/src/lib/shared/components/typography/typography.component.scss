@@ -205,6 +205,7 @@
     }
   }
 
+  code,
   .code {
     padding: 4px 8px;
     border-radius: 3px;
@@ -523,6 +524,7 @@ $breakpointsMap: (
   @include text-preset-factory(7, 16, 24, 0.16, $breakpoint);
   @include text-preset-factory(8, 14, 20, 0.16, $breakpoint);
   @include text-preset-factory(9, 12, 20, 0.16, $breakpoint);
+  @include text-preset-factory(10, 8, 12, 0, $breakpoint);
 }
 
 .preset-variant {
