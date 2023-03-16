@@ -13,9 +13,8 @@
         <tr *ngFor="let color of item.palette">
           <td>
             <div
-              class="colors__preview"
+              [class]="'colors__preview ' + color.class"
               [style]="{
-                backgroundColor: color.val,
                 border: color.val === '#FFFFFF' ? '1px solid #BBBBBC' : ''
               }"
             >
