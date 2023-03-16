@@ -28,40 +28,40 @@ const Template: Story<ButtonComponent> = (args: ButtonComponent) => ({
   props: args,
 });
 
-export const White = Template.bind({});
-White.args = {
+export const LegacyWhite = Template.bind({});
+LegacyWhite.args = {
   text: "Get in touch with a team member",
   variant: "white",
   route: "/test",
   target: "_self",
 };
 
-export const Black = Template.bind({});
-Black.args = {
+export const LegacyBlack = Template.bind({});
+LegacyBlack.args = {
   text: "Get in touch with a team member",
   variant: "black",
   route: "/test",
   target: "_self",
 };
 
-export const Red = Template.bind({});
-Red.args = {
+export const LegacyRed = Template.bind({});
+LegacyRed.args = {
   text: "Get in touch with a team member",
   variant: "red",
   route: "/test",
   target: "_self",
 };
 
-export const ExternalLink = Template.bind({});
-ExternalLink.args = {
+export const LegacyExternalLink = Template.bind({});
+LegacyExternalLink.args = {
   text: "Get in touch with a team member",
   variant: "red",
   href: "https://www.google.com",
   target: "_blank",
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
+export const LegacyDisabled = Template.bind({});
+LegacyDisabled.args = {
   disabled: true,
   text: "Get in touch with a team member",
   variant: "black",
@@ -69,8 +69,8 @@ Disabled.args = {
   target: "_blank",
 };
 
-export const Icon = Template.bind({});
-Icon.args = {
+export const LegacyIcon = Template.bind({});
+LegacyIcon.args = {
   text: "Get in touch with a team member",
   variant: "black",
   href: "https://www.google.com",
@@ -81,8 +81,8 @@ Icon.args = {
   },
 };
 
-export const IconDisabled = Template.bind({});
-IconDisabled.args = {
+export const LegacyIconDisabled = Template.bind({});
+LegacyIconDisabled.args = {
   text: "Get in touch with a team member",
   variant: "black",
   href: "https://www.google.com",
@@ -94,8 +94,8 @@ IconDisabled.args = {
   disabled: true,
 };
 
-export const Transparent = Template.bind({});
-Transparent.args = {
+export const LegacyTransparent = Template.bind({});
+LegacyTransparent.args = {
   text: "Get in touch with a team member",
   variant: "transparent",
   href: "https://www.google.com",
@@ -106,8 +106,8 @@ Transparent.args = {
   },
 };
 
-export const TransparentDisabled = Template.bind({});
-TransparentDisabled.args = {
+export const LegacyTransparentDisabled = Template.bind({});
+LegacyTransparentDisabled.args = {
   text: "Get in touch with a team member",
   variant: "transparent",
   href: "https://www.google.com",
@@ -119,8 +119,8 @@ TransparentDisabled.args = {
   disabled: true,
 };
 
-export const Outline = Template.bind({});
-Outline.args = {
+export const LegacyOutline = Template.bind({});
+LegacyOutline.args = {
   text: "Get in touch with a team member",
   variant: "outline",
   href: "https://www.google.com",
@@ -128,8 +128,8 @@ Outline.args = {
   disabled: false,
 };
 
-export const OutlineWithIcon = Template.bind({});
-OutlineWithIcon.args = {
+export const LegacyOutlineWithIcon = Template.bind({});
+LegacyOutlineWithIcon.args = {
   text: "Get in touch with a team member",
   variant: "outline",
   href: "https://www.google.com",
@@ -141,8 +141,8 @@ OutlineWithIcon.args = {
   disabled: false,
 };
 
-export const OutlineDisabled = Template.bind({});
-OutlineDisabled.args = {
+export const LegacyOutlineDisabled = Template.bind({});
+LegacyOutlineDisabled.args = {
   text: "Get in touch with a team member",
   variant: "outline",
   href: "https://www.google.com",
