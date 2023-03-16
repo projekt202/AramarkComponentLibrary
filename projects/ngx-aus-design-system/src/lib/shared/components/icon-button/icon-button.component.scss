@@ -1,0 +1,56 @@
+@import "styles";
+
+.btn {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 100%;
+  background-color: transparent;
+  position: relative;
+  transition: all 0.25s;
+  cursor: pointer;
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    ::ng-deep {
+      .icon {
+        color: color(neutral, black);
+      }
+    }
+  }
+  &:hover {
+    background-color: color(neutral, 02);
+  }
+  &:focus {
+    background-color: color(neutral, 03);
+  }
+  &:focus-visible {
+    background-color: transparent;
+    box-shadow: none;
+    outline: 2px solid color(support, focus);
+  }
+  &--disabled {
+    pointer-events: none;
+    ::ng-deep {
+      .icon {
+        color: color(neutral, 06);
+      }
+    }
+  }
+  &--size {
+    &-small {
+      width: 28px;
+      height: 28px;
+    }
+    &-medium {
+      width: 32px;
+      height: 32px;
+    }
+    &-large {
+      width: 36px;
+      height: 36px;
+    }
+  }
+}
