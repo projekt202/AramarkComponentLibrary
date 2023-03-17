@@ -26,134 +26,134 @@ const Template: Story<TypographyComponent> = (args: TypographyComponent) => ({
   props: args,
 });
 
-export const Heading1 = Template.bind({});
-Heading1.args = {
+export const LegacyHeading1 = Template.bind({});
+LegacyHeading1.args = {
   variant: "h1",
   text: "Heading 1",
 };
 
-export const Heading1Custom = Template.bind({});
-Heading1Custom.args = {
+export const LegacyHeading1Custom = Template.bind({});
+LegacyHeading1Custom.args = {
   variant: "h1",
   weight: "400",
   color: "#00FF00",
   text: "Heading 1",
 };
 
-export const Heading2 = Template.bind({});
-Heading2.args = {
+export const LegacyHeading2 = Template.bind({});
+LegacyHeading2.args = {
   variant: "h2",
   text: "Heading 2",
 };
 
-export const Heading3 = Template.bind({});
-Heading3.args = {
+export const LegacyHeading3 = Template.bind({});
+LegacyHeading3.args = {
   variant: "h3",
   text: "Heading 3",
 };
 
-export const Heading4 = Template.bind({});
-Heading4.args = {
+export const LegacyHeading4 = Template.bind({});
+LegacyHeading4.args = {
   variant: "h4",
   text: "Heading 4",
 };
 
-export const Heading5 = Template.bind({});
-Heading5.args = {
+export const LegacyHeading5 = Template.bind({});
+LegacyHeading5.args = {
   variant: "h5",
   text: "Heading 5",
 };
 
-export const Heading6 = Template.bind({});
-Heading6.args = {
+export const LegacyHeading6 = Template.bind({});
+LegacyHeading6.args = {
   variant: "h6",
   text: "Heading 6",
 };
 
-export const Paragraph = Template.bind({});
-Paragraph.args = {
+export const LegacyParagraph = Template.bind({});
+LegacyParagraph.args = {
   variant: "p",
   text: "Paragraph",
 };
 
-export const Span = Template.bind({});
-Span.args = {
+export const LegacySpan = Template.bind({});
+LegacySpan.args = {
   variant: "span",
   text: "Span",
 };
 
-export const Blockquote = Template.bind({});
-Blockquote.args = {
+export const LegacyBlockquote = Template.bind({});
+LegacyBlockquote.args = {
   variant: "blockquote",
   text: "Blockquote",
 };
 
-export const FormText = Template.bind({});
-FormText.args = {
+export const LegacyFormText = Template.bind({});
+LegacyFormText.args = {
   variant: "form-text",
   text: "Form text",
   for: "test-id",
 };
 
-export const FormSmall = Template.bind({});
-FormSmall.args = {
+export const LegacyFormSmall = Template.bind({});
+LegacyFormSmall.args = {
   variant: "form-small",
   text: "Form small",
 };
 
-export const Numbers1 = Template.bind({});
-Numbers1.args = {
+export const LegacyNumbers1 = Template.bind({});
+LegacyNumbers1.args = {
   variant: "numbers-1",
   text: "999",
 };
 
-export const Numbers2 = Template.bind({});
-Numbers2.args = {
+export const LegacyNumbers2 = Template.bind({});
+LegacyNumbers2.args = {
   variant: "numbers-2",
   text: "999",
 };
 
-export const Numbers3 = Template.bind({});
-Numbers3.args = {
+export const LegacyNumbers3 = Template.bind({});
+LegacyNumbers3.args = {
   variant: "numbers-3",
   text: "999",
 };
 
-export const Numbers4 = Template.bind({});
-Numbers4.args = {
+export const LegacyNumbers4 = Template.bind({});
+LegacyNumbers4.args = {
   variant: "numbers-4",
   text: "999",
 };
 
-export const Numbers5 = Template.bind({});
-Numbers5.args = {
+export const LegacyNumbers5 = Template.bind({});
+LegacyNumbers5.args = {
   variant: "numbers-5",
   text: "999",
 };
 
-export const Link = Template.bind({});
-Link.args = {
+export const LegacyLink = Template.bind({});
+LegacyLink.args = {
   variant: "a",
   text: "View more",
   route: "/test",
 };
 
-export const LinkAccent = Template.bind({});
-LinkAccent.args = {
+export const LegacyLinkAccent = Template.bind({});
+LegacyLinkAccent.args = {
   variant: "a-accent",
   text: "See details",
   route: "/test",
 };
 
-export const LinkExternal = Template.bind({});
-LinkExternal.args = {
+export const LegacyLinkExternal = Template.bind({});
+LegacyLinkExternal.args = {
   variant: "a",
   text: "External link",
   href: "https://www.google.com",
 };
 
-export const LinkDisabled = Template.bind({});
-LinkDisabled.args = {
+export const LegacyLinkDisabled = Template.bind({});
+LegacyLinkDisabled.args = {
   variant: "a-accent",
   text: "Disabled link",
   route: "/test",
