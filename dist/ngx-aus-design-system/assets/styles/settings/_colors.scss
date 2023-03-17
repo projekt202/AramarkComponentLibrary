@@ -1,3 +1,4 @@
+// Legacy colors
 $c-white: #ffffff;
 $c-white-lgt: #f5f5f5;
 $c-white-lgt-alt: #fafafa;
@@ -35,3 +36,59 @@ $c-success: #2f9a33;
 $c-success-lgt: #e0f0e0;
 $c-warning: #fbc02d;
 $c-warning-lgt: #fff0c4;
+
+// New standardized palettes
+$colors: (
+  primary: (
+    brand: #eb002a,
+    medium: #bb0b2b,
+    dark: #9f0622,
+  ),
+  accent: (
+    01: #9bcbeb,
+    02: #41b6e6,
+    03: #01426a,
+    04: #ffc72c,
+    05: #007d8a,
+  ),
+  neutral: (
+    white: #ffffff,
+    black: #000000,
+    01: #fafafa,
+    02: #ebebeb,
+    03: #bbbbbc,
+    04: #99999b,
+    05: #868484,
+    06: #5c5c5c,
+    07: #464646,
+    08: #222222,
+  ),
+  support: (
+    focus: #13a3b1,
+    error: #eb002a,
+    success: #128816,
+    info: #13a3b1,
+    warning: #e86e10,
+    overlay: rgba(0, 40, 65, 0.5),
+  ),
+);
+
+@mixin color-classes-factory($palette, $color) {
+  $colorId: $color;
+  @if type-of($colorId) == number and $colorId < 10 {
+    $colorId: "0" + $color;
+  }
+  .color-#{$palette}-#{$colorId} {
+    color: map-get($colors, $palette, $color);
+  }
+  .bg-#{$palette}-#{$colorId} {
+    background-color: map-get($colors, $palette, $color);
+  }
+}
+
+@each $namespace, $palette in $colors {
+  @each $color in $palette {
+    $i: index($palette, $color);
+    @include color-classes-factory($namespace, nth(map-keys($palette), $i));
+  }
+}
