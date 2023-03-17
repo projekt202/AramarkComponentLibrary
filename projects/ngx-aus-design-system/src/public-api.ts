@@ -51,6 +51,8 @@ export * from "./lib/shared/components/wysiwyg/wysiwyg.component";
 
 // "Block" components
 export * from "./lib/blocks/components/accordion/accordion.module";
+export * from "./lib/blocks/components/alert/alert.module";
+export * from "./lib/blocks/components/alerts/alerts.module";
 export * from "./lib/blocks/components/alert-bar/alert-bar.module";
 export * from "./lib/blocks/components/article-card/article-card.module";
 export * from "./lib/blocks/components/banner-bar/banner-bar.module";
@@ -90,6 +92,8 @@ export * from "./lib/blocks/components/video/video.module";
 
 export * from "./lib/blocks/components/accordion/accordion.component";
 export * from "./lib/blocks/components/alert-bar/alert-bar.component";
+export * from "./lib/blocks/components/alert/alert.component";
+export * from "./lib/blocks/components/alerts/alerts.component";
 export * from "./lib/blocks/components/article-card/article-card.component";
 export * from "./lib/blocks/components/banner-bar/banner-bar.component";
 export * from "./lib/blocks/components/billboard/billboard.component";

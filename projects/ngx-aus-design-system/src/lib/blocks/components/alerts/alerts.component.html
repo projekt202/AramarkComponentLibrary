@@ -1,0 +1,11 @@
+<div class="alerts">
+  <ng-container *ngFor="let alert of alerts ">
+    <aus-alert
+      class="alert"
+      [alertType]="alert['alertType']"
+      [title]="alert['title']"
+      [msg]="alert['msg']"
+      [timeToHide]="alert['timeToHide']"
+    ></aus-alert>
+  </ng-container>
+</div>
