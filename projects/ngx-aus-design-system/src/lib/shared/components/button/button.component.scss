@@ -86,23 +86,166 @@
       background-color: rgba($c-white, 0.6);
     }
   }
+  &--primary-brand {
+    background-color: color(primary, brand);
+    border-radius: to-rem(8);
+    .button__icon,
+    .button__label {
+      ::ng-deep {
+        .icon span,
+        .typography {
+          color: color(neutral, white);
+        }
+      }
+    }
+    &:hover {
+      background-color: color(primary, medium);
+    }
+    &:focus {
+      background-color: color(primary, dark);
+    }
+    &:focus-visible {
+      background-color: color(primary, brand);
+      box-shadow: none;
+      outline: 2px solid color(support, focus);
+    }
+  }
+  &--primary-neutral {
+    background-color: color(neutral, black);
+    border-radius: to-rem(8);
+    .button__icon,
+    .button__label {
+      ::ng-deep {
+        .icon span,
+        .typography {
+          color: color(neutral, white);
+        }
+      }
+    }
+    &:hover {
+      background-color: color(neutral, 07);
+    }
+    &:focus {
+      background-color: color(neutral, 08);
+    }
+    &:focus-visible {
+      background-color: color(neutral, black);
+      box-shadow: none;
+      outline: 2px solid color(support, focus);
+    }
+  }
+  &--secondary {
+    box-sizing: border-box;
+    border: 2px solid color(neutral, black);
+    background-color: color(neutral, white);
+    border-radius: to-rem(8);
+    .button__icon,
+    .button__label {
+      ::ng-deep {
+        .icon span,
+        .typography {
+          color: color(neutral, black);
+        }
+      }
+    }
+    &:hover {
+      background-color: color(neutral, 02);
+    }
+    &:focus {
+      background-color: color(neutral, 03);
+    }
+    &:focus-visible {
+      background-color: color(neutral, white);
+      box-shadow: none;
+      outline: 2px solid color(support, focus);
+    }
+  }
+  &--tertiary {
+    background-color: transparent;
+    border-radius: to-rem(8);
+    .button__icon,
+    .button__label {
+      ::ng-deep {
+        .icon span,
+        .typography {
+          color: color(neutral, black);
+        }
+      }
+    }
+    &:hover {
+      background-color: color(neutral, 01);
+      .button__icon,
+      .button__label {
+        ::ng-deep {
+          .icon span,
+          .typography {
+            color: color(primary, brand);
+          }
+        }
+      }
+    }
+    &:focus {
+      background-color: color(neutral, 01);
+      .button__icon,
+      .button__label {
+        ::ng-deep {
+          .icon span,
+          .typography {
+            color: color(primary, dark);
+          }
+        }
+      }
+    }
+    &:focus-visible {
+      background-color: color(neutral, 01);
+      box-shadow: none;
+      outline: 2px solid color(support, focus);
+      .button__icon,
+      .button__label {
+        ::ng-deep {
+          .icon span,
+          .typography {
+            color: color(neutral, black);
+          }
+        }
+      }
+    }
+  }
   &--fullwidth {
     width: 100%;
   }
   &--disabled {
     pointer-events: none;
-    background-color: $c-white-lgt;
-    color: $c-white-drk;
+    background-color: color(neutral, 01);
+    color: color(neutral, 06);
+    .button__icon,
+    .button__label {
+      ::ng-deep {
+        .icon span,
+        .typography {
+          color: color(neutral, 06);
+        }
+      }
+    }
     &.button--bg-transparent {
       background-color: transparent;
+    }
+    &.button--secondary {
+      border-color: color(neutral, 03);
     }
   }
   &--size {
     &-small {
-      font-size: 12px;
-      line-height: 20px;
-      padding: 8px 12px;
+      padding: spacing(04);
+      @include iota-breakpoint(md) {
+        padding: spacing(03) spacing(04);
+      }
       .button__icon {
+        ::ng-deep {
+          .icon {
+            font-size: 15px;
+          }
+        }
         &--left {
           margin-right: 7px;
         }
@@ -114,8 +257,16 @@
     &-medium {
       font-size: 14px;
       line-height: 20px;
-      padding: 12px 16px;
+      padding: 14px spacing(05);
+      @include iota-breakpoint(md) {
+        padding: spacing(04) spacing(05);
+      }
       .button__icon {
+        ::ng-deep {
+          .icon {
+            font-size: 20px;
+          }
+        }
         &--left {
           margin-right: 9px;
         }
@@ -127,8 +278,16 @@
     &-large {
       font-size: 16px;
       line-height: 24px;
-      padding: 12px 16px;
+      padding: spacing(05);
+      @include iota-breakpoint(md) {
+        padding: spacing(04) spacing(05);
+      }
       .button__icon {
+        ::ng-deep {
+          .icon {
+            font-size: 25px;
+          }
+        }
         &--left {
           margin-right: 12px;
         }

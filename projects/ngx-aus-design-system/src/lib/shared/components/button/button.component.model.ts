@@ -3,7 +3,11 @@ export type ButtonComponentVariants =
   | "black"
   | "red"
   | "transparent"
-  | "outline";
+  | "outline"
+  | "primary-brand"
+  | "primary-neutral"
+  | "secondary"
+  | "tertiary";
 
 export type ButtonComponentTarget = "_blank" | "_parent" | "_self" | "_top";
 

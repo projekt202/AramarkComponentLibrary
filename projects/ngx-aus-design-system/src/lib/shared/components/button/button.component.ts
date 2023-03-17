@@ -1,3 +1,4 @@
+import { TypographyPresets } from "./../typography/typography.component.model";
 import { Component, Input, OnInit } from "@angular/core";
 import { decode } from "html-entities";
 import { originData } from "../../variables/origin-data/origin-data";
@@ -66,17 +67,29 @@ export class ButtonComponent implements OnInit {
     if (this.variant === "white") {
       classes.push("button--bg-white");
     }
+    if (this.variant === "tertiary") {
+      classes.push("button--tertiary");
+    }
     if (this.variant === "black") {
       classes.push("button--bg-black");
     }
+    if (this.variant === "primary-neutral") {
+      classes.push("button--primary-neutral");
+    }
     if (this.variant === "red") {
       classes.push("button--bg-red");
+    }
+    if (this.variant === "primary-brand") {
+      classes.push("button--primary-brand");
     }
     if (this.variant === "transparent") {
       classes.push("button--bg-transparent");
     }
     if (this.variant === "outline") {
       classes.push("button--bg-outline");
+    }
+    if (this.variant === "secondary") {
+      classes.push("button--secondary");
     }
     if (this.fullwidth) {
       classes.push("button--fullwidth");
@@ -88,5 +101,14 @@ export class ButtonComponent implements OnInit {
       classes.push(`button--size-${this.size}`);
     }
     return classes.join(" ");
+  }
+
+  getTextClasses(): TypographyPresets[] {
+    const classesMap = {
+      small: ["text-preset-9--medium"],
+      medium: ["text-preset-8--medium"],
+      large: ["text-preset-7--medium"],
+    };
+    return classesMap[this.size || "large"] as TypographyPresets[];
   }
 }

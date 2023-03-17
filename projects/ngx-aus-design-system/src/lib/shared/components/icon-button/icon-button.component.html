@@ -1,0 +1,14 @@
+<button
+  class="btn"
+  (click)="click.emit()"
+  [ngClass]="{
+    'btn--size-small': size === 'small',
+    'btn--size-medium': size === 'medium',
+    'btn--size-large': size === 'large',
+    'btn--disabled': disabled
+  }"
+  [attr.aria-label]="ariaLabel"
+  [tabIndex]="disabled ? -1 : 0"
+>
+  <aus-icon aria-hidden="true" class="btn__icon" [name]="icon"></aus-icon>
+</button>

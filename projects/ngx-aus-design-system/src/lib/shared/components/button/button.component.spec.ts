@@ -2,7 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgxSmoothScrollModule } from '@boatzako/ngx-smooth-scroll';
 
 import { ButtonComponent } from './button.component';
-import { ButtonComponentVariants } from './button.component.model';
+import { TypographyPresets } from './../typography/typography.component.model';
+import { ButtonComponentVariants, ButtonSizes } from './button.component.model';
 
 describe('ButtonComponent', () => {
   let component: ButtonComponent;
@@ -60,5 +61,60 @@ describe('ButtonComponent', () => {
     const classes =
       fixture.debugElement.nativeElement.querySelector('.button').classList;
     expect(classes).toContain('button--fullwidth');
+  });
+
+  it('should return the correct legacy button background classes', () => {
+    ['white', 'black', 'red', 'transparent', 'outline'].forEach(className => {
+      component.variant = className as ButtonComponentVariants;
+      const classes = component.getClasses();
+      expect(classes).toEqual(['button', `button--bg-${className}`]);
+    });
+  });
+
+  it('should return the correct button size classes', () => {
+    ['small', 'medium', 'large'].forEach(className => {
+      component.size = className as ButtonSizes;
+      const classes = component.getClasses();
+      expect(classes).toEqual(['button', `button--size-${className}`]);
+    });
+  });
+
+  it('should return the correct button variant classes', () => {
+    ['primary-brand', 'primary-neutral', 'secondary', 'tertiary'].forEach(className => {
+      component.variant = className as ButtonComponentVariants;
+      const classes = component.getClasses();
+      expect(classes).toEqual(['button', `button--${className}`]);
+    });
+  });
+
+  it('should return the correct button modifier classes', () => {
+    ['fullwidth', 'disabled'].forEach(className => {
+      component.variant = 'primary-brand';
+      component.fullwidth = true;
+      component.disabled = true;
+      const classes = component.getClasses();
+      expect(classes).toEqual(['button', 'button--primary-brand', `button--${className}`]);
+    });
+  });
+
+  it('should return the correct typography classes', () => {
+    [
+      {
+        size: 'small',
+        class: 'text-preset-9--medium',
+      },
+      {
+        size: 'medium',
+        class: 'text-preset-8--medium',
+      },
+      {
+        size: 'large',
+        class: 'text-preset-7--medium',
+      },
+    ].forEach(config => {
+      component.size = config.size as ButtonSizes;
+      const classes = component.getTextClasses();
+      expect(classes).toEqual([config.class as TypographyPresets]);
+    });
   });
 });

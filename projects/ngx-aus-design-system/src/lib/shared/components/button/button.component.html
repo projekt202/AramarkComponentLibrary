@@ -53,5 +53,21 @@
   >
     <aus-icon [name]="icon.name" size="small" variant="transparent"></aus-icon>
   </span>
-  {{ getText() }}
+  <!-- New naming conventions -->
+  <aus-typography
+    *ngIf="
+      variant === 'primary-brand' ||
+        variant === 'primary-neutral' ||
+        variant === 'secondary' ||
+        variant === 'tertiary';
+      else plainText
+    "
+    class="button__label"
+    [text]="getText()"
+    [presetClassNames]="getTextClasses()"
+  ></aus-typography>
+  <!-- Legacy -->
+  <ng-template #plainText>
+    {{ getText() }}
+  </ng-template>
 </ng-template>
