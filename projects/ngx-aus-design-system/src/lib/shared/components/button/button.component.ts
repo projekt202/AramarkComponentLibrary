@@ -104,15 +104,11 @@ export class ButtonComponent implements OnInit {
   }
 
   getTextClasses(): TypographyPresets[] {
-    switch (this.size) {
-      case "small":
-        return ["text-preset-9--medium"];
-      case "medium":
-        return ["text-preset-8--medium"];
-      case "large":
-        return ["text-preset-7--medium"];
-      default:
-        return [];
-    }
+    const classesMap = {
+      small: ["text-preset-9--medium"],
+      medium: ["text-preset-8--medium"],
+      large: ["text-preset-7--medium"],
+    };
+    return classesMap[this.size || "large"] as TypographyPresets[];
   }
 }
