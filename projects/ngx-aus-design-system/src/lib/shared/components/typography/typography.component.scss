@@ -327,6 +327,139 @@
       )
     );
   }
+
+  // New 'Link' component
+  .link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: underline;
+    &__label {
+      transition: all 0.25s;
+      text-decoration: underline;
+      color: map-get($colors, primary, brand);
+      transform: translateY(2px);
+      &.left {
+        order: 0;
+      }
+      &.right {
+        order: 1;
+      }
+    }
+    &__icon {
+      display: inline-flex;
+      align-items: flex-start;
+      justify-content: center;
+      ::ng-deep svg path {
+        transition: all 0.25s;
+      }
+      &.left {
+        order: 0;
+      }
+      &.right {
+        order: 1;
+      }
+    }
+    &:before {
+      display: none;
+    }
+    &:visited {
+      .link {
+        &__label {
+          color: map-get($colors, primary, medium);
+        }
+        &__icon ::ng-deep svg path {
+          fill: map-get($colors, primary, medium);
+        }
+      }
+    }
+    &:hover {
+      .link {
+        &__label {
+          color: map-get($colors, neutral, black);
+        }
+        &__icon ::ng-deep svg path {
+          fill: map-get($colors, neutral, black);
+        }
+      }
+    }
+    &:focus {
+      border: 0;
+      box-shadow: none;
+    }
+    &:focus-visible {
+      border: 0;
+      box-shadow: none;
+      border-radius: 8px;
+      outline-offset: 2px;
+      outline: 2px solid map-get($colors, support, focus);
+      .link {
+        &__label {
+          color: map-get($colors, neutral, black);
+        }
+        &__icon ::ng-deep svg path {
+          fill: map-get($colors, neutral, black);
+        }
+      }
+    }
+    &--standalone {
+      text-decoration: none;
+      .link {
+        &__label {
+          text-decoration: none;
+        }
+      }
+    }
+    &--size {
+      &-small {
+        .link {
+          &__icon {
+            &.left {
+              margin-right: 6px;
+            }
+            &.right {
+              margin-left: 6px;
+            }
+          }
+        }
+      }
+      &-medium {
+        .link {
+          &__icon {
+            &.left {
+              margin-right: 7px;
+            }
+            &.right {
+              margin-left: 7px;
+            }
+          }
+        }
+      }
+      &-large {
+        .link {
+          &__icon {
+            &.left {
+              margin-right: 8px;
+            }
+            &.right {
+              margin-left: 8px;
+            }
+          }
+        }
+      }
+    }
+    &--disabled {
+      pointer-events: none;
+      .link {
+        &__label {
+          color: map-get($colors, neutral, 06);
+        }
+        &__icon ::ng-deep svg path {
+          fill: map-get($colors, neutral, 06);
+        }
+      }
+    }
+  }
 }
 
 @include typography-base();

@@ -1,3 +1,4 @@
+import { IconComponentNames } from "./../icon/icon.model";
 import { AfterViewInit, Component, ElementRef, Input } from "@angular/core";
 
 import {
@@ -32,6 +33,13 @@ export class TypographyComponent implements AfterViewInit {
   @Input() loading?: boolean = false;
   @Input() loadingData: LoadingData = {
     lines: 1,
+  };
+  @Input() linkStandalone?: boolean = false;
+  @Input() linkSize?: "small" | "medium" | "large" = "large";
+  @Input() linkIcon?: {
+    name?: IconComponentNames;
+    template?: string;
+    position: "left" | "right";
   };
   textSanitized: SafeHtml = "";
 
