@@ -24,7 +24,7 @@ export class AlertComponent {
           this.title = "Something went wrong.";
           break;
         case "error":
-          if (!this.title === undefined) this.title = "Success!";
+          this.title = "Success!";
           break;
       }
     }
