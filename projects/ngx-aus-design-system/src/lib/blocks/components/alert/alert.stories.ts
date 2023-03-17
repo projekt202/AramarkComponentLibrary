@@ -5,14 +5,12 @@ import { TypographyComponent } from "../../../shared/components/typography/typog
 import { AlertComponent } from "./alert.component";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
-import { WysiwygComponent } from "NgxAusDesignSystem";
 
 export default {
   decorators: [
     moduleMetadata({
       declarations: [
         TypographyComponent,
-        WysiwygComponent,
         SanitizePipe,
         Array2StringPipe,
       ],
