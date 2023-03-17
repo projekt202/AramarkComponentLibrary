@@ -385,6 +385,7 @@
       [innerHTML]="text | sanitize"
     ></a>
   </ng-container>
+  <!-- Link component -->
   <ng-container *ngSwitchCase="'link'">
     <a
       *ngIf="route"
@@ -410,9 +411,8 @@
           left: linkIcon?.position === 'right',
           right: linkIcon?.position === 'left'
         }"
-      >
-        {{ text }}
-      </span>
+        [innerHTML]="text | sanitize"
+      ></span>
       <i
         aria-hidden="true"
         *ngIf="linkIcon && linkIcon.name"
@@ -427,7 +427,7 @@
       <i
         aria-hidden="true"
         *ngIf="linkIcon && linkIcon.template"
-        class="link__icon"
+        class="link__icon link__icon--template"
         [ngClass]="{
           left: linkIcon.position === 'left',
           right: linkIcon.position === 'right'

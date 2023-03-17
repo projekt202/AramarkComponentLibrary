@@ -1,3 +1,4 @@
+import { IconComponent } from "./../icon/icon.component";
 import { Array2StringPipe } from "./../../pipes/array2string/array2string.pipe";
 import { RouterTestingModule } from "@angular/router/testing";
 import { Story, Meta, moduleMetadata } from "@storybook/angular";
@@ -10,7 +11,12 @@ export default {
   component: TypographyComponent,
   decorators: [
     moduleMetadata({
-      declarations: [TypographyComponent, SanitizePipe, Array2StringPipe],
+      declarations: [
+        TypographyComponent,
+        SanitizePipe,
+        Array2StringPipe,
+        IconComponent,
+      ],
       imports: [RouterTestingModule],
     }),
   ],
@@ -154,8 +160,8 @@ LinkDisabled.args = {
   disabled: true,
 };
 
-export const StandaloneLink = Template.bind({});
-StandaloneLink.args = {
+export const StandaloneLinkWithTemplateIcon = Template.bind({});
+StandaloneLinkWithTemplateIcon.args = {
   variant: "link",
   text: "Standalone Link",
   route: "/test",
@@ -167,4 +173,25 @@ StandaloneLink.args = {
     position: "left",
   },
   disabled: false,
+};
+
+export const StandaloneLinkWithIconName = Template.bind({});
+StandaloneLinkWithIconName.args = {
+  variant: "link",
+  text: "Standalone Link",
+  route: "/test",
+  linkStandalone: true,
+  linkSize: "large",
+  linkIcon: {
+    name: "package",
+    position: "right",
+  },
+  disabled: false,
+};
+
+export const InlineLink = Template.bind({});
+InlineLink.args = {
+  variant: "p",
+  text: "This paragraph contains an <a href='#' class='link link--size-medium'><span class='link__label left'>Inline Link</span><i class='link__icon right'><svg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M16 16H2V2H9V0H2C0.89 0 0 0.9 0 2V16C0 17.1 0.89 18 2 18H16C17.1 18 18 17.1 18 16V9H16V16ZM11 0V2H14.59L4.76 11.83L6.17 13.24L16 3.41V7H18V0H11Z' fill='#EB002A'/></svg></i></a> with an icon and another without: <a href='/test' class='link'><span class='link__label'>Another Link</span></a>",
+  route: "/test",
 };

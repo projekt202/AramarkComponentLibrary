@@ -329,16 +329,17 @@
   }
 
   // New 'Link' component
-  .link {
+  .link,
+  ::ng-deep .link {
     display: inline-flex;
     align-items: center;
     justify-content: flex-start;
     text-decoration: underline;
     &__label {
+      font-weight: 500;
       transition: all 0.25s;
       text-decoration: underline;
       color: map-get($colors, primary, brand);
-      transform: translateY(2px);
       &.left {
         order: 0;
       }
@@ -350,8 +351,33 @@
       display: inline-flex;
       align-items: flex-start;
       justify-content: center;
-      ::ng-deep svg path {
-        transition: all 0.25s;
+      ::ng-deep {
+        svg path,
+        .icon {
+          transition: all 0.25s;
+          fill: map-get($colors, primary, brand);
+          color: map-get($colors, primary, brand);
+        }
+        aus-icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      &:not(.link__icon--template) {
+        ::ng-deep {
+          svg {
+            width: 0.875em !important;
+            height: 0.875em !important;
+            transform: translateY(-2px);
+            @include iota-breakpoint(md) {
+              transform: translateY(-1px);
+            }
+          }
+        }
+      }
+      &--template {
+        transform: translateY(-2px);
       }
       &.left {
         order: 0;
@@ -368,8 +394,12 @@
         &__label {
           color: map-get($colors, primary, medium);
         }
-        &__icon ::ng-deep svg path {
-          fill: map-get($colors, primary, medium);
+        &__icon ::ng-deep {
+          svg path,
+          .icon {
+            fill: map-get($colors, primary, medium);
+            color: map-get($colors, primary, medium);
+          }
         }
       }
     }
@@ -378,8 +408,12 @@
         &__label {
           color: map-get($colors, neutral, black);
         }
-        &__icon ::ng-deep svg path {
-          fill: map-get($colors, neutral, black);
+        &__icon ::ng-deep {
+          svg path,
+          .icon {
+            fill: map-get($colors, neutral, black);
+            color: map-get($colors, neutral, black);
+          }
         }
       }
     }
@@ -397,8 +431,12 @@
         &__label {
           color: map-get($colors, neutral, black);
         }
-        &__icon ::ng-deep svg path {
-          fill: map-get($colors, neutral, black);
+        &__icon ::ng-deep {
+          svg path,
+          .icon {
+            fill: map-get($colors, neutral, black);
+            color: map-get($colors, neutral, black);
+          }
         }
       }
     }
@@ -414,6 +452,15 @@
       &-small {
         .link {
           &__icon {
+            ::ng-deep {
+              svg {
+                width: 12px;
+                height: 12px;
+              }
+              .icon {
+                font-size: 20px;
+              }
+            }
             &.left {
               margin-right: 6px;
             }
@@ -426,6 +473,15 @@
       &-medium {
         .link {
           &__icon {
+            ::ng-deep {
+              svg {
+                width: 15px;
+                height: 15px;
+              }
+              .icon {
+                font-size: 22px;
+              }
+            }
             &.left {
               margin-right: 7px;
             }
@@ -438,6 +494,15 @@
       &-large {
         .link {
           &__icon {
+            ::ng-deep {
+              svg {
+                width: 18px;
+                height: 18px;
+              }
+              .icon {
+                font-size: 25px;
+              }
+            }
             &.left {
               margin-right: 8px;
             }
@@ -448,14 +513,19 @@
         }
       }
     }
-    &--disabled {
+    &--disabled,
+    &--disabled:visited {
       pointer-events: none;
       .link {
         &__label {
           color: map-get($colors, neutral, 06);
         }
-        &__icon ::ng-deep svg path {
-          fill: map-get($colors, neutral, 06);
+        &__icon ::ng-deep {
+          svg path,
+          .icon {
+            fill: map-get($colors, neutral, 06);
+            color: map-get($colors, neutral, 06);
+          }
         }
       }
     }
