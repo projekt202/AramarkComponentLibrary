@@ -1,5 +1,5 @@
 import { AfterViewInit, ElementRef } from "@angular/core";
-import { LoadingData, TypographyComponentTags, TypographyComponentVariants, TypographyComponentWeights } from "./typography.component.model";
+import { LoadingData, TypographyComponentTags, TypographyComponentVariants, TypographyComponentWeights, TypographyPresets, TypographyPresetVariants } from "./typography.component.model";
 import { BrowserService } from "../../services/browser/browser.service";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import * as i0 from "@angular/core";
@@ -13,6 +13,8 @@ export declare class TypographyComponent implements AfterViewInit {
     weight?: TypographyComponentWeights;
     tag?: TypographyComponentTags;
     variant?: TypographyComponentVariants;
+    presetClassNames?: TypographyPresets[];
+    presetVariant?: TypographyPresetVariants;
     disabled?: boolean;
     route?: string;
     href?: string;
@@ -30,5 +32,5 @@ export declare class TypographyComponent implements AfterViewInit {
     ngOnChange(): void;
     sanitize(text: string): SafeHtml;
     static ɵfac: i0.ɵɵFactoryDeclaration<TypographyComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<TypographyComponent, "aus-typography", never, { "text": "text"; "for": "for"; "color": "color"; "weight": "weight"; "tag": "tag"; "variant": "variant"; "disabled": "disabled"; "route": "route"; "href": "href"; "idName": "idName"; "loading": "loading"; "loadingData": "loadingData"; }, {}, never, never, false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<TypographyComponent, "aus-typography", never, { "text": "text"; "for": "for"; "color": "color"; "weight": "weight"; "tag": "tag"; "variant": "variant"; "presetClassNames": "presetClassNames"; "presetVariant": "presetVariant"; "disabled": "disabled"; "route": "route"; "href": "href"; "idName": "idName"; "loading": "loading"; "loadingData": "loadingData"; }, {}, never, never, false>;
 }
