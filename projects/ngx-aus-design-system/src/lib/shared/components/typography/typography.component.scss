@@ -364,18 +364,6 @@
           justify-content: center;
         }
       }
-      &:not(.link__icon--template) {
-        ::ng-deep {
-          svg {
-            width: 0.875em !important;
-            height: 0.875em !important;
-            transform: translateY(-2px);
-            @include iota-breakpoint(md) {
-              transform: translateY(-1px);
-            }
-          }
-        }
-      }
       &--template {
         transform: translateY(-2px);
       }
@@ -445,6 +433,22 @@
       .link {
         &__label {
           text-decoration: none;
+        }
+      }
+    }
+    &--inline {
+      .link {
+        &__icon {
+          ::ng-deep {
+            svg {
+              width: 0.875em !important;
+              height: 0.875em !important;
+              transform: translateY(-2px);
+              @include iota-breakpoint(md) {
+                transform: translateY(-1px);
+              }
+            }
+          }
         }
       }
     }
