@@ -2,7 +2,7 @@
   <div *ngFor="let alert of alerts; index as i" class="alert">
     <aus-alert
       class="alert"
-      [alertType]="alert['alertType']"
+      [type]="alert['type']"
       [title]="alert['title']"
       [msg]="alert['msg']"
       [timeToHide]="alert['timeToHide']"

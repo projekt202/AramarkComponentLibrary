@@ -9,7 +9,7 @@ import { AlertComponent } from "../alert/alert.component.model";
 export class AlertsComponent {
   @Input() alerts: AlertComponent[] = [];
   @Output() onHide = new EventEmitter<number>();
-  
+
   hide(i: number) {
     this.onHide.emit(i);
   }

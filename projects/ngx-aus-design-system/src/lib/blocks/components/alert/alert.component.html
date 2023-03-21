@@ -1,6 +1,6 @@
 <div class="alert" [ngClass]="showAlert ? 'alert--show' : 'alert--hide'">
   <div class="alert--grid">
-    <div class="alert--grid--icon" [ngClass]="'alert--grid--icon--' + alertType"  [ngSwitch]="alertType">
+    <div class="alert--grid--icon" [ngClass]="'alert--grid--icon--' + type"  [ngSwitch]="type">
       <svg *ngSwitchCase="'successful'" width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M20 3.68L8.59 15.1L4.35 10.86L5.76 9.45L8.59 12.28L18.59 2.28L20 3.68ZM17.79 8.72C17.92 9.29 18 9.89 18 10.5C18 14.92 14.42 18.5 10 18.5C5.58 18.5 2 14.92 2 10.5C2 6.08 5.58 2.5 10 2.5C11.58 2.5 13.04 2.96 14.28 3.75L15.72 2.31C14.1 1.17 12.13 0.5 10 0.5C4.48 0.5 0 4.98 0 10.5C0 16.02 4.48 20.5 10 20.5C15.52 20.5 20 16.02 20 10.5C20 9.31 19.78 8.17 19.4 7.11L17.79 8.72Z" fill="#128816"/>
       </svg>

@@ -1,7 +1,7 @@
 export type AlertType = "successful" | "error";
 
 export type AlertComponent = {
-  alertType: AlertType;
+  type: AlertType;
   title?: string;
   msg: string;
   timeToHide?: number;
