@@ -1,7 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { timer } from "rxjs";
-import { Subscription } from "rxjs";
-import { BehaviorSubject } from "rxjs";
+import { timer, Subscription, BehaviorSubject } from "rxjs";
 import { AlertType } from "./alert.component.model";
 
 @Component({
