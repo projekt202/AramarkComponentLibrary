@@ -37,6 +37,11 @@
   &__control-wrapper {
     position: relative;
   }
+  &__control-icon {
+    position: absolute;
+    left: 19px;
+    pointer-events: none;
+  }
   &__visibility-toggle {
     border: 0;
     margin: 0;
@@ -146,6 +151,9 @@
   &--size {
     &-small {
       .input {
+        &__control-icon {
+          top: 10px;
+        }
         &__visibility-toggle {
           top: 7px;
         }
@@ -165,6 +173,9 @@
     }
     &-medium {
       .input {
+        &__control-icon {
+          top: 15px;
+        }
         &__visibility-toggle {
           top: 13px;
         }
@@ -174,6 +185,13 @@
           line-height: 24px;
           letter-spacing: 0.16px;
         }
+      }
+    }
+  }
+  &--search {
+    .input {
+      &__control {
+        padding-left: spacing(09);
       }
     }
   }

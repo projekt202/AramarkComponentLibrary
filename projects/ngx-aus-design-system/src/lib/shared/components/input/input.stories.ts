@@ -90,3 +90,12 @@ Password.args = {
   validationErrorMsg: "This field is required",
   size: "small",
 };
+
+export const Search = Template.bind({});
+Search.args = {
+  name: "search",
+  type: "search",
+  label: "Search",
+  size: "medium",
+  placeholder: "Keywords",
+};
