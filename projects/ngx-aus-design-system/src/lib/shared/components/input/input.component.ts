@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { InputKeypressEvt, InputSizes } from "./input.model";
+import { InputKeypressEvt, InputSizes, InputStatus } from "./input.model";
 
 @Component({
   selector: "aus-input",
@@ -24,6 +24,7 @@ export class InputComponent implements OnInit {
   @Input() mask?: string;
   @Input() visibilityToggle?: boolean;
   @Input() size?: InputSizes = "medium";
+  @Input() statusIcon?: InputStatus;
 
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
   @Output() keypress: EventEmitter<InputKeypressEvt> =

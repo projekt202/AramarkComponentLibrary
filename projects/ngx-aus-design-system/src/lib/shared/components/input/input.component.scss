@@ -90,20 +90,29 @@
     }
   }
   &__custom-status {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
     padding: 6px 8px 0 8px;
     &:empty {
       display: none;
     }
-    ::ng-deep {
-      .typography {
-        @include iota-type(
-          (
-            null: (
-              10px,
-              12px,
-            ),
-          )
-        );
+    &-icon {
+      margin-right: spacing(03);
+    }
+    &-content {
+      flex: 1;
+      ::ng-deep {
+        .typography {
+          @include iota-type(
+            (
+              null: (
+                10px,
+                12px,
+              ),
+            )
+          );
+        }
       }
     }
   }
@@ -115,15 +124,9 @@
     pointer-events: none;
     transition: all 0.25s;
     &-icon {
-      width: 13px;
-      height: 13px;
-      min-width: 13px;
-      min-height: 13px;
       display: flex;
-      border-radius: 100%;
       align-items: center;
       justify-content: center;
-      background-color: $c-red;
       margin-right: 8px;
     }
     ::ng-deep {

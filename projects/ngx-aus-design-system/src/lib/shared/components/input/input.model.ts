@@ -4,3 +4,5 @@ export type InputKeypressEvt = {
 };
 
 export type InputSizes = "small" | "medium";
+
+export type InputStatus = "negative" | "positive";
