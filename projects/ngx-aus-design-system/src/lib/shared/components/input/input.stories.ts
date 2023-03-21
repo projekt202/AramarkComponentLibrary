@@ -1,4 +1,3 @@
-import { EventEmitter } from "@angular/core";
 import { Array2StringPipe } from "./../../pipes/array2string/array2string.pipe";
 import { FormsModule } from "@angular/forms";
 import {
@@ -51,8 +50,10 @@ Default.args = {
   maxLength: 100,
   isRequired: true,
   isDisabled: false,
-  label: "Last Name",
+  label: "Label",
   validationErrorMsg: "Error message lorem ipsum dolor sit amet.",
+  placeholder: "Placeholder text",
+  size: "small",
 };
 
 export const WithSubtitle = Template.bind({});
@@ -64,6 +65,7 @@ WithSubtitle.args = {
   label: "Last Name",
   subtitle: "(XXXXX)",
   validationErrorMsg: "Error message lorem ipsum dolor sit amet.",
+  size: "medium",
 };
 
 export const Disabled = Template.bind({});
@@ -72,6 +74,8 @@ Disabled.args = {
   maxLength: 100,
   isDisabled: true,
   label: "Last Name",
+  placeholder: "Placeholder text",
+  size: "small",
 };
 
 export const Password = Template.bind({});
@@ -84,4 +88,5 @@ Password.args = {
   isRequired: true,
   visibilityToggle: true,
   validationErrorMsg: "This field is required",
+  size: "small",
 };
