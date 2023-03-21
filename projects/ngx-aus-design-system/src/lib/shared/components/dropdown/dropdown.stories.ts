@@ -38,7 +38,11 @@ export default {
 } as Meta;
 
 const Template: Story<DropdownComponent> = (args: DropdownComponent) => ({
-  props: args,
+  props: {
+    ...args,
+    change: () => {},
+    selectedChange: () => {},
+  },
 });
 
 export const Default = Template.bind({});
