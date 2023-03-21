@@ -1,3 +1,4 @@
+import { EventEmitter } from "@angular/core";
 import { Array2StringPipe } from "./../../pipes/array2string/array2string.pipe";
 import { FormsModule } from "@angular/forms";
 import {
@@ -37,7 +38,11 @@ export default {
 } as Meta;
 
 const Template: Story<InputComponent> = (args: InputComponent) => ({
-  props: args,
+  props: {
+    ...args,
+    keypress: () => {},
+    valueChange: () => {},
+  },
 });
 
 export const Default = Template.bind({});
