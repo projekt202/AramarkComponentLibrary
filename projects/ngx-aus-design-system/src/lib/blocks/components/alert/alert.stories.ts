@@ -33,24 +33,30 @@ const Template: Story<AlertComponent> = (args: AlertComponent) => ({
   props: args,
 });
 
-export const AlertSuccessful = Template.bind({});
-AlertSuccessful.args = {
+export const Successful = Template.bind({});
+Successful.args = {
   alertType: "successful",
   title: "Success!",
   msg: "Your password has successfully been reset. Please log in.",
   timeToHide: 99999
 };
-export const AlertError = Template.bind({});
-AlertError.args = {
+export const Error = Template.bind({});
+Error.args = {
   alertType: "error",
   title: "Something went wrong.",
   msg: "This user does not exist.",
   timeToHide: 99999
 };
-export const Alert_HideIn5s = Template.bind({});
-Alert_HideIn5s.args = {
+export const _HideIn5s = Template.bind({});
+_HideIn5s.args = {
   alertType: "error",
   title: "Something went wrong.",
+  msg: "This user does not exist.",
+  timeToHide: 5000
+};
+export const _AlertWithoutTitle = Template.bind({});
+_AlertWithoutTitle.args = {
+  alertType: "error",
   msg: "This user does not exist.",
   timeToHide: 5000
 };
