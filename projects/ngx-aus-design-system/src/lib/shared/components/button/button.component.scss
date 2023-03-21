@@ -88,7 +88,7 @@
   }
   &--primary-brand {
     background-color: color(primary, brand);
-    border-radius: to-rem(8);
+    border-radius: 8px;
     .button__icon,
     .button__label {
       ::ng-deep {
@@ -112,7 +112,7 @@
   }
   &--primary-neutral {
     background-color: color(neutral, black);
-    border-radius: to-rem(8);
+    border-radius: 8px;
     .button__icon,
     .button__label {
       ::ng-deep {
@@ -138,7 +138,7 @@
     box-sizing: border-box;
     border: 2px solid color(neutral, black);
     background-color: color(neutral, white);
-    border-radius: to-rem(8);
+    border-radius: 8px;
     .button__icon,
     .button__label {
       ::ng-deep {
@@ -162,7 +162,7 @@
   }
   &--tertiary {
     background-color: transparent;
-    border-radius: to-rem(8);
+    border-radius: 8px;
     .button__icon,
     .button__label {
       ::ng-deep {
