@@ -35,16 +35,29 @@ const Template: Story<AlertsComponent> = (args: AlertsComponent) => ({
   props: args,
 });
 
-export const Default = Template.bind({});
-Default.args = {
+export const Alerts = Template.bind({});
+Alerts.args = {
   alerts: [{
-    alertType: "successful",
+    type: "successful",
     title: "Success!",
     msg: "Your password has successfully been reset. Please log in.",
     timeToHide: 99999
   }, {
-    alertType: "error",
+    type: "error",
     title: "Something went wrong.",
+    msg: "This user does not exist.",
+    timeToHide: 99999
+  }]
+};
+
+export const AlertsWithoutTitle = Template.bind({});
+AlertsWithoutTitle.args = {
+  alerts: [{
+    type: "successful",
+    msg: "Your password has successfully been reset. Please log in.",
+    timeToHide: 99999
+  }, {
+    type: "error",
     msg: "This user does not exist.",
     timeToHide: 99999
   }]
