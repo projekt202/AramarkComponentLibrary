@@ -6,10 +6,13 @@
 >
   <label [for]="name" *ngIf="label">
     <span class="dropdown__label">
-      <aus-typography variant="p-sm" [text]="label"></aus-typography>
+      <aus-typography
+        [presetClassNames]="['text-preset-7--medium']"
+        [text]="label"
+      ></aus-typography>
       <div class="dropdown__label-required-mark">
         <aus-typography
-          variant="p-sm"
+          [presetClassNames]="['text-preset-7--medium']"
           text="*"
           *ngIf="isRequired"
         ></aus-typography>
@@ -25,7 +28,18 @@
 <ng-template #dropdown>
   <div class="dropdown__main">
     <div class="dropdown__arrow">
-      <aus-icon name="arrow" color="black" [fontSize]="15"></aus-icon>
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 10.6667L4 6.66669L4.94 5.72669L8 8.78002L11.06 5.72669L12 6.66669L8 10.6667Z"
+          fill="#464646"
+        />
+      </svg>
     </div>
     <div
       class="dropdown__control"
@@ -45,7 +59,10 @@
         (ngModelChange)="selectedChange.emit(selected)"
       >
         <ng-option *ngFor="let item of items" [value]="item">
-          <aus-typography [text]="item" variant="p-sm"></aus-typography>
+          <aus-typography
+            [text]="item"
+            [presetClassNames]="['text-preset-7']"
+          ></aus-typography>
         </ng-option>
       </ng-select>
     </div>

@@ -1,3 +1,4 @@
+import { InputSizes } from "./../input/input.model";
 import {
   ChangeDetectorRef,
   Component,
@@ -19,6 +20,7 @@ export class DropdownComponent {
   @Input() isDisabled?: boolean;
   @Input() isRequired?: boolean;
   @Input() initialIdx?: number;
+  @Input() size?: InputSizes = "medium";
 
   @Output() selectedChange: EventEmitter<string> = new EventEmitter<string>();
   @Output() change: EventEmitter<string> = new EventEmitter<string>();
