@@ -271,6 +271,28 @@
       }
     }
   }
+  &--size {
+    &-small {
+      .dropdown {
+        &__control {
+          ::ng-deep .ng-select .ng-select-container {
+            padding: spacing(03) spacing(05);
+            padding-right: spacing(08);
+          }
+        }
+      }
+    }
+    &-medium {
+      .dropdown {
+        &__control {
+          ::ng-deep .ng-select .ng-select-container {
+            padding: spacing(04) spacing(05);
+            padding-right: spacing(08);
+          }
+        }
+      }
+    }
+  }
   &--disabled {
     pointer-events: none;
     .dropdown {

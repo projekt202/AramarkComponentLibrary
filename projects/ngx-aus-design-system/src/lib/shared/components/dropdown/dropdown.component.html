@@ -3,7 +3,9 @@
   [ngClass]="{
     'dropdown--disabled': isDisabled,
     'dropdown--negative': statusIcon === 'negative',
-    'dropdown--positive': statusIcon === 'positive'
+    'dropdown--positive': statusIcon === 'positive',
+    'dropdown--size-small': size === 'small',
+    'dropdown--size-medium': size === 'medium'
   }"
 >
   <label [for]="name" *ngIf="label">
