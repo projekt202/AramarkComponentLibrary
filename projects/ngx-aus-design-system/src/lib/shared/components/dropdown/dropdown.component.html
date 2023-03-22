@@ -44,7 +44,7 @@
     <div
       class="dropdown__control"
       [ngClass]="{
-        'no-value': !selected
+        'no-value': !selected && !searchTerm
       }"
     >
       <ng-select
@@ -57,6 +57,7 @@
         [placeholder]="placeholder"
         (change)="onChange($event)"
         (ngModelChange)="selectedChange.emit(selected)"
+        (search)="onSearch($event)"
       >
         <ng-option *ngFor="let item of items" [value]="item">
           <aus-typography

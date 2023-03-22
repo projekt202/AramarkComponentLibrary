@@ -27,6 +27,7 @@ export class DropdownComponent {
 
   selected: string = "";
   didInteract: boolean = false;
+  searchTerm?: string;
 
   constructor(private cdr: ChangeDetectorRef) {}
 
@@ -46,5 +47,9 @@ export class DropdownComponent {
 
   setSelected(val: string) {
     this.selected = val;
+  }
+
+  onSearch(e: { term: string; items: any[] }) {
+    this.searchTerm = e.term;
   }
 }
