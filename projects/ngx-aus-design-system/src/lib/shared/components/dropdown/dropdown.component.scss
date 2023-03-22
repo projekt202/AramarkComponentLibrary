@@ -215,6 +215,11 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    &-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     &-content {
       flex: 1;
       margin-left: spacing(03);
