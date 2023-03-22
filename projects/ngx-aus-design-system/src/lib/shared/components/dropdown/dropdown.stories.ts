@@ -73,5 +73,4 @@ Error.args = {
   isDisabled: false,
   placeholder: "Select",
   items: ["State 1", "State 2", "State 3", "State 4"],
-  statusIcon: "negative",
 };

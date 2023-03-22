@@ -61,11 +61,25 @@
         (ngModelChange)="selectedChange.emit(selected)"
         (search)="onSearch($event)"
       >
-        <ng-option *ngFor="let item of items" [value]="item">
+        <ng-option *ngFor="let item of items" [value]="item" tabindex="0">
           <aus-typography
             [text]="item"
             [presetClassNames]="['text-preset-7']"
           ></aus-typography>
+          <i class="check-icon">
+            <svg
+              width="16"
+              height="12"
+              viewBox="0 0 16 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.15833 8.98329L1.68333 5.50829L0.5 6.68329L5.15833 11.3416L15.1583 1.34163L13.9833 0.166626L5.15833 8.98329Z"
+                fill="white"
+              />
+            </svg>
+          </i>
         </ng-option>
       </ng-select>
     </div>
