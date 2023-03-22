@@ -18,8 +18,10 @@ export class AlertComponent implements OnInit {
 
   ngOnInit(): void {
     this.soureSuscribe = timer(this.timeToHide ?? 20000).subscribe(() => {
-      this.showAlert$.next(false);
-      this.onHide.emit();
+      if (this.showAlert$.value) {
+        this.showAlert$.next(false);
+        this.onHide.emit();
+      }
     });
   }
 }
