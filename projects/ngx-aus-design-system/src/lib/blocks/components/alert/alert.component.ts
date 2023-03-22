@@ -15,6 +15,11 @@ export class AlertComponent implements OnInit {
   public showAlert = true;
 
   ngOnInit(): void {
-    if(this.timeToHide) setTimeout(() => {this.showAlert = false}, this.timeToHide)
+    if (this.timeToHide) setTimeout(() => this.hide(), this.timeToHide ?? 20000);
+  }
+
+  hide(): void {
+    if (this.showAlert) this.onHide.emit();
+    this.showAlert = false;
   }
 }
