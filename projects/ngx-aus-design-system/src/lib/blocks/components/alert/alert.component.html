@@ -12,7 +12,7 @@
       <aus-typography *ngIf="title" class="title" [presetClassNames]="['text-preset-8--bold']" [text]="title"></aus-typography>
       <aus-typography [presetClassNames]="['text-preset-8']" [text]="msg"></aus-typography>
     </div>
-    <div class="alert--grid--close" (click)="[soureSuscribe?.unsubscribe(), this.showAlert$.value && onHide.emit(), showAlert$.next(false)]">
+    <div class="alert--grid--close" (click)="[showAlert$.next(false), this.onHide.emit()]">
       <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M9.66659 1.7735L8.72659 0.833496L4.99992 4.56016L1.27325 0.833496L0.333252 1.7735L4.05992 5.50016L0.333252 9.22683L1.27325 10.1668L4.99992 6.44016L8.72659 10.1668L9.66659 9.22683L5.93992 5.50016L9.66659 1.7735Z" fill="black"/>
       </svg>

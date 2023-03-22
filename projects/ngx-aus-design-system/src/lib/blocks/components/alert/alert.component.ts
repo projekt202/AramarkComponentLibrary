@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { timer, Subscription, BehaviorSubject } from "rxjs";
+import { of, BehaviorSubject } from "rxjs";
+import { delay } from 'rxjs/operators';
 import { AlertType } from "./alert.component.model";
 
 @Component({
@@ -14,10 +15,9 @@ export class AlertComponent implements OnInit {
   @Input() timeToHide?: number;// Miliseconds.
   @Output() onHide = new EventEmitter<void>();
   showAlert$ = new BehaviorSubject<boolean>(true);
-  soureSuscribe?: Subscription;
 
   ngOnInit(): void {
-    this.soureSuscribe = timer(this.timeToHide ?? 20000).subscribe(() => {
+    of(true).pipe(delay(this.timeToHide ?? 20000)).subscribe(() => {
       if (this.showAlert$.value) {
         this.showAlert$.next(false);
         this.onHide.emit();
