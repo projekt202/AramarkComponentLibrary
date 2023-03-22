@@ -81,6 +81,17 @@ Disabled.args = {
   items: ["State 1", "State 2", "State 3", "State 4"],
 };
 
+export const Multiselect = Template.bind({});
+Multiselect.args = {
+  name: "state",
+  label: "State",
+  isRequired: false,
+  isDisabled: false,
+  multiselect: true,
+  placeholder: "Select",
+  items: ["State 1", "State 2", "State 3", "State 4"],
+};
+
 export const Error = StatusTemplate.bind({});
 Error.args = {
   name: "state",

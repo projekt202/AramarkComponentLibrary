@@ -22,6 +22,7 @@ export class DropdownComponent {
   @Input() initialIdx?: number;
   @Input() size?: InputSizes = "medium";
   @Input() statusIcon?: InputStatus;
+  @Input() multiselect?: boolean;
 
   @Output() selectedChange: EventEmitter<string> = new EventEmitter<string>();
   @Output() change: EventEmitter<string> = new EventEmitter<string>();
@@ -30,7 +31,7 @@ export class DropdownComponent {
   didInteract: boolean = false;
   searchTerm?: string;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor() {}
 
   hasInitialIdx() {
     return typeof this.initialIdx === "number";
@@ -44,6 +45,7 @@ export class DropdownComponent {
     this.didInteract = true;
     this.selected = val || "";
     this.change.emit(val);
+    this.selectedChange.emit(val);
   }
 
   setSelected(val: string) {
@@ -52,5 +54,9 @@ export class DropdownComponent {
 
   onSearch(e: { term: string; items: any[] }) {
     this.searchTerm = e.term;
+  }
+
+  clearSelected() {
+    this.onChange("");
   }
 }

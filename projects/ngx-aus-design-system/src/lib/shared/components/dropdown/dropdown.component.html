@@ -5,7 +5,8 @@
     'dropdown--negative': statusIcon === 'negative',
     'dropdown--positive': statusIcon === 'positive',
     'dropdown--size-small': size === 'small',
-    'dropdown--size-medium': size === 'medium'
+    'dropdown--size-medium': size === 'medium',
+    'dropdown--multiselect': multiselect
   }"
 >
   <label [for]="name" *ngIf="label">
@@ -31,24 +32,45 @@
 
 <ng-template #dropdown>
   <div class="dropdown__main">
-    <div class="dropdown__arrow">
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 16 16"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+    <div class="dropdown__btns">
+      <button
+        *ngIf="multiselect && selected?.length"
+        class="dropdown__clear"
+        aria-label="Clear input"
+        (click)="clearSelected()"
       >
-        <path
-          d="M8 10.6667L4 6.66669L4.94 5.72669L8 8.78002L11.06 5.72669L12 6.66669L8 10.6667Z"
-          fill="#464646"
-        />
-      </svg>
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 14 14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7.00004 0.333374C3.31337 0.333374 0.333374 3.31337 0.333374 7.00004C0.333374 10.6867 3.31337 13.6667 7.00004 13.6667C10.6867 13.6667 13.6667 10.6867 13.6667 7.00004C13.6667 3.31337 10.6867 0.333374 7.00004 0.333374ZM7.00004 12.3334C4.06004 12.3334 1.66671 9.94004 1.66671 7.00004C1.66671 4.06004 4.06004 1.66671 7.00004 1.66671C9.94004 1.66671 12.3334 4.06004 12.3334 7.00004C12.3334 9.94004 9.94004 12.3334 7.00004 12.3334ZM9.39337 3.66671L7.00004 6.06004L4.60671 3.66671L3.66671 4.60671L6.06004 7.00004L3.66671 9.39337L4.60671 10.3334L7.00004 7.94004L9.39337 10.3334L10.3334 9.39337L7.94004 7.00004L10.3334 4.60671L9.39337 3.66671Z"
+            fill="#464646"
+          />
+        </svg>
+      </button>
+      <div class="dropdown__arrow" aria-hidden="true">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 10.6667L4 6.66669L4.94 5.72669L8 8.78002L11.06 5.72669L12 6.66669L8 10.6667Z"
+            fill="#464646"
+          />
+        </svg>
+      </div>
     </div>
     <div
       class="dropdown__control"
       [ngClass]="{
-        'no-value': !selected && !searchTerm
+        'no-value': (!selected || !selected.length) && !searchTerm
       }"
     >
       <ng-select
@@ -59,6 +81,8 @@
         "
         [disabled]="!!isDisabled"
         [placeholder]="placeholder"
+        [multiple]="multiselect ?? false"
+        [closeOnSelect]="!multiselect"
         (change)="onChange($event)"
         (ngModelChange)="selectedChange.emit(selected)"
         (search)="onSearch($event)"
