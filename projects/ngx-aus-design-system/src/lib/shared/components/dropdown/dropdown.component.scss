@@ -45,8 +45,8 @@
           width: 100%;
           padding: 11px 15px;
           border-radius: 5px;
-          background-color: $c-white;
-          border: 1px solid $c-gray-med;
+          background-color: color(neutral, white);
+          border: 1px solid color(neutral, 03);
           transition: border-color 0.25s;
           input {
             caret-color: transparent;
@@ -193,6 +193,67 @@
     align-items: center;
     justify-content: center;
   }
+  &__status {
+    padding: spacing(03) spacing(03) 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    &-content {
+      flex: 1;
+      margin-left: spacing(03);
+    }
+  }
+  &--negative {
+    .dropdown {
+      &__control {
+        ::ng-deep {
+          .ng-select {
+            .ng-select-container {
+              border-color: color(support, error);
+              box-shadow: inset 0 0 0 1px color(support, error);
+            }
+            .ng-dropdown-panel {
+              border: 1px solid color(support, error);
+            }
+            &-opened,
+            &-focused {
+              .ng-select-container {
+                border-color: color(support, error);
+                box-shadow: inset 0 0 0 1px color(support, error);
+                &:hover {
+                  border-color: color(support, error);
+                }
+              }
+              .ng-dropdown-panel {
+                box-shadow: 0px 0px 10px 2px rgba(color(neutral, black), 0.102),
+                  inset 0 0 0 1px color(support, error);
+              }
+            }
+          }
+        }
+      }
+      &__status {
+        &-content {
+          color: color(support, error);
+          ::ng-deep .typography {
+            color: color(support, error);
+          }
+        }
+      }
+    }
+  }
+  &--positive {
+    .dropdown {
+      &__status {
+        &-content {
+          color: color(support, success);
+          ::ng-deep .typography {
+            color: color(support, success);
+          }
+        }
+      }
+    }
+  }
   &--disabled {
     pointer-events: none;
     .dropdown {
@@ -202,6 +263,11 @@
             border-color: color(neutral, 01);
             background-color: color(neutral, 01);
           }
+        }
+      }
+      &__arrow {
+        svg path {
+          fill: color(neutral, 06);
         }
       }
     }

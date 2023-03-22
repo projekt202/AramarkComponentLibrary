@@ -1,7 +1,9 @@
 <fieldset
   class="dropdown"
   [ngClass]="{
-    'dropdown--disabled': isDisabled
+    'dropdown--disabled': isDisabled,
+    'dropdown--negative': statusIcon === 'negative',
+    'dropdown--positive': statusIcon === 'positive'
   }"
 >
   <label [for]="name" *ngIf="label">
@@ -68,4 +70,47 @@
       </ng-select>
     </div>
   </div>
+  <div class="dropdown__status">
+    <div class="dropdown__status-icon">
+      <ng-container *ngIf="statusIcon === 'negative'">
+        <ng-container *ngTemplateOutlet="iconStatusNegative"></ng-container>
+      </ng-container>
+      <ng-container *ngIf="statusIcon === 'positive'">
+        <ng-container *ngTemplateOutlet="iconStatusPositive"></ng-container>
+      </ng-container>
+    </div>
+    <div class="dropdown__status-content">
+      <ng-content select="[statusMsg]"></ng-content>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #iconStatusNegative>
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.33333 9.00001H7.66666V10.3333H6.33333V9.00001ZM6.33333 3.66668H7.66666V7.66668H6.33333V3.66668ZM6.99333 0.333344C3.31333 0.333344 0.333328 3.32001 0.333328 7.00001C0.333328 10.68 3.31333 13.6667 6.99333 13.6667C10.68 13.6667 13.6667 10.68 13.6667 7.00001C13.6667 3.32001 10.68 0.333344 6.99333 0.333344ZM7 12.3333C4.05333 12.3333 1.66666 9.94668 1.66666 7.00001C1.66666 4.05334 4.05333 1.66668 7 1.66668C9.94666 1.66668 12.3333 4.05334 12.3333 7.00001C12.3333 9.94668 9.94666 12.3333 7 12.3333Z"
+      fill="#EB002A"
+    />
+  </svg>
+</ng-template>
+
+<ng-template #iconStatusPositive>
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M13.6666 2.45334L6.05998 10.0667L3.23331 7.24001L4.17331 6.30001L6.05998 8.18668L12.7266 1.52001L13.6666 2.45334ZM12.1933 5.81334C12.28 6.19334 12.3333 6.59334 12.3333 7.00001C12.3333 9.94668 9.94665 12.3333 6.99998 12.3333C4.05331 12.3333 1.66665 9.94668 1.66665 7.00001C1.66665 4.05334 4.05331 1.66668 6.99998 1.66668C8.05331 1.66668 9.02665 1.97334 9.85331 2.50001L10.8133 1.54001C9.73331 0.78001 8.41998 0.333344 6.99998 0.333344C3.31998 0.333344 0.333313 3.32001 0.333313 7.00001C0.333313 10.68 3.31998 13.6667 6.99998 13.6667C10.68 13.6667 13.6666 10.68 13.6666 7.00001C13.6666 6.20668 13.52 5.44668 13.2666 4.74001L12.1933 5.81334Z"
+      fill="#128816"
+    />
+  </svg>
 </ng-template>

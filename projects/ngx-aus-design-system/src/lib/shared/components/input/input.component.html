@@ -5,7 +5,9 @@
     'input--multiline': multiline,
     'input--size-small': size === 'small',
     'input--size-medium': size === 'medium',
-    'input--search': type === 'search'
+    'input--search': type === 'search',
+    'input--negative': statusIcon === 'negative',
+    'input--positive': statusIcon === 'positive'
   }"
 >
   <label [for]="name" *ngIf="label">

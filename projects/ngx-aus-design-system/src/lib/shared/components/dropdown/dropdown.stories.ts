@@ -64,3 +64,14 @@ Disabled.args = {
   placeholder: "Select",
   items: ["State 1", "State 2", "State 3", "State 4"],
 };
+
+export const Error = Template.bind({});
+Error.args = {
+  name: "state",
+  label: "State",
+  isRequired: false,
+  isDisabled: false,
+  placeholder: "Select",
+  items: ["State 1", "State 2", "State 3", "State 4"],
+  statusIcon: "negative",
+};
