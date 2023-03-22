@@ -55,7 +55,7 @@ const StatusTemplate: Story<DropdownComponent> = (args: DropdownComponent) => ({
     ...outputs,
   },
   template: `
-    <aus-dropdown [name]="name" [label]="label" [isRequired]="isRequired" [isDisabled]="isDisabled" [placeholder]="placeholder" [items]="items" [statusIcon]="statusIcon">
+    <aus-dropdown [name]="name" [label]="label" [isRequired]="isRequired" [isDisabled]="isDisabled" [placeholder]="placeholder" [items]="items" [statusIcon]="statusIcon" [size]="size || 'medium'">
       <aus-typography statusMsg [presetClassNames]="['text-preset-9']" text="Error message lorem ipsum"></aus-typography>
     </aus-dropdown>
   `,
