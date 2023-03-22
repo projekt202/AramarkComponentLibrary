@@ -14,10 +14,12 @@ export class AlertComponent implements OnInit {
   @Input() timeToHide?: number;// Miliseconds.
   @Output() onHide = new EventEmitter<void>();
   showAlert$ = new BehaviorSubject<boolean>(true);
+  soureSuscribe?: Subscription;
 
   ngOnInit(): void {
-    timer(this.timeToHide ?? 20000).subscribe(() => {
+    this.soureSuscribe = timer(this.timeToHide ?? 20000).subscribe(() => {
       this.showAlert$.next(false);
+      this.onHide.emit();
     });
   }
 }
