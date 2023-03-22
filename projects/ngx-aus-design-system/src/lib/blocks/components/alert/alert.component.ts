@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { of, BehaviorSubject } from "rxjs";
-import { delay, skip, tap } from 'rxjs/operators';
 import { AlertType } from "./alert.component.model";
 
 @Component({
