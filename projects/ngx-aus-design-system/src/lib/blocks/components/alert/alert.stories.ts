@@ -13,8 +13,7 @@ export default {
       declarations: [
         TypographyComponent,
         SanitizePipe,
-        Array2StringPipe,
-        
+        Array2StringPipe
       ],
       imports: [
         CommonModule,
