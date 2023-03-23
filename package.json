@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
-    "storybook": "npm run docs:json && start-storybook -p 6006",
+    "storybook": "npm run docs:json && start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "npm run docs:json && build-storybook",
     "lib:build": "ng build NgxAusDesignSystem",
     "lib:publish": "ng build NgxAusDesignSystem && cd dist/ngx-aus-design-system/ && npm publish && cd ../../"

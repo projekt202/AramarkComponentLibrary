@@ -1,4 +1,4 @@
-<div class="alert" [ngClass]="showAlert ? 'alert--show' : 'alert--hide'">
+<div class="alert" *ngIf="show" [@fade]>
   <div class="alert--grid">
     <div class="alert--grid--icon" [ngClass]="'alert--grid--icon--' + type" [ngSwitch]="type">
       <svg *ngSwitchCase="'successful'" width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -13,7 +13,7 @@
       <aus-typography [presetClassNames]="['text-preset-8']" [text]="msg"></aus-typography>
     </div>
     <div class="alert--grid--close" (click)="[
-        showAlert = false,  
+        show = false,  
         this.onHide.emit()
       ]">
       <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
