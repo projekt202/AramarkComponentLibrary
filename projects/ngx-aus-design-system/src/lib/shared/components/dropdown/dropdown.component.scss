@@ -250,6 +250,9 @@
       flex: 1;
       margin-left: spacing(03);
     }
+    &:has(.dropdown__status-content:empty) {
+      display: none;
+    }
   }
   &--negative {
     .dropdown {
