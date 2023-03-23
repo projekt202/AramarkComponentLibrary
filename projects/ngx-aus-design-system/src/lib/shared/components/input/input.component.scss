@@ -100,7 +100,7 @@
     align-items: center;
     justify-content: flex-start;
     padding: spacing(03) spacing(03) 0 0;
-    &:empty {
+    &:has(.input__custom-status-content:empty) {
       display: none;
     }
     &-icon {
@@ -151,6 +151,42 @@
       }
     }
   }
+  &__datepicker {
+    position: relative;
+    &-control {
+      height: 0;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      appearance: none;
+      pointer-events: none;
+      transform: scaleY(0);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+    &-btn {
+      position: absolute;
+      top: 50%;
+      right: spacing(04);
+      transform: translateY(-50%);
+      background-color: transparent;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      &:focus-visible {
+        border: 0;
+        outline: none;
+        box-shadow: 0 0 0 2px color(support, focus);
+      }
+    }
+  }
   &--negative {
     .input {
       &__control {
@@ -188,6 +224,9 @@
         &__visibility-toggle {
           top: 7px;
           transform: scale(0.8);
+        }
+        &__datepicker-btn {
+          transform: translateY(-50%) scale(0.8);
         }
         &__control {
           padding: spacing(03) spacing(05);
@@ -252,6 +291,105 @@
         border-color: color(neutral, 01);
         background-color: color(neutral, 01);
       }
+    }
+  }
+}
+
+// Datepicker widget styles
+::ng-deep {
+  .mat-calendar {
+    height: auto !important;
+    padding: spacing(05);
+    background-color: color(neutral, white);
+    box-shadow: 0px 0px 10px 2px rgba(color(neutral, black), 0.102);
+    &-header {
+      padding: 0 !important;
+      margin-bottom: 15px;
+    }
+    &-table-header {
+      th {
+        padding-bottom: 3px !important;
+      }
+      span {
+        font-weight: 300;
+        font-family: $font-main;
+        color: color(neutral, 06);
+        font-size: 12px;
+        line-height: 20px;
+        letter-spacing: 0.16px;
+      }
+    }
+    &-period-button {
+      line-height: 1 !important;
+      padding: 0 6px !important;
+      background-color: transparent;
+      span {
+        color: color(neutral, 06);
+        font-family: $font-main;
+        font-size: 12px;
+        line-height: 20px;
+        letter-spacing: 0.16px;
+        font-weight: 300;
+      }
+      svg {
+        margin-left: spacing(04);
+        polygon {
+          fill: color(neutral, 06);
+        }
+      }
+    }
+    &-previous-button,
+    &-next-button {
+      width: 20px !important;
+      height: 20px !important;
+      background-color: transparent;
+      &:after {
+        margin: 7px !important;
+        color: color(neutral, 07);
+      }
+    }
+    &-previous-button {
+      margin-right: 3px !important;
+    }
+    &-controls {
+      margin: 0 !important;
+      align-items: center;
+    }
+    &-content {
+      padding: 0 !important;
+    }
+    &-body-label {
+      opacity: 0;
+      height: 0 !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      pointer-events: none;
+    }
+    &-body-cell {
+      border-radius: 100px;
+    }
+    &-body-cell-content {
+      border-color: transparent;
+      transition: all 0.25s;
+      font-family: $font-main;
+      color: color(neutral, black);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.16px;
+      border-radius: 100px;
+      &:hover {
+        background-color: color(neutral, 02);
+      }
+    }
+    &-body-today {
+      border-color: color(primary, brand);
+    }
+    &-body-selected,
+    &-body-selected:hover {
+      color: color(neutral, white);
+      border-color: color(primary, brand);
+      background-color: color(primary, brand);
     }
   }
 }

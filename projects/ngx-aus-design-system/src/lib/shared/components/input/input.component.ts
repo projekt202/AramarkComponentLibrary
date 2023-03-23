@@ -1,4 +1,13 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from "@angular/core";
+import { MatDatepicker } from "@angular/material/datepicker";
 import { InputKeypressEvt, InputSizes, InputStatus } from "./input.model";
 
 @Component({
@@ -25,15 +34,22 @@ export class InputComponent implements OnInit {
   @Input() visibilityToggle?: boolean;
   @Input() size?: InputSizes = "medium";
   @Input() statusIcon?: InputStatus;
+  @Input() datepicker?: boolean;
 
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
   @Output() keypress: EventEmitter<InputKeypressEvt> =
     new EventEmitter<InputKeypressEvt>();
 
+  @ViewChild("control") control?: ElementRef<HTMLInputElement>;
+  @ViewChild("picker") picker?: MatDatepicker<any>;
+
   isValueVisible: boolean = true;
 
   setValue(val: string) {
     this.value = val;
+    if (this.control) {
+      this.control.nativeElement.value = val;
+    }
   }
 
   onKeypress(e: KeyboardEvent) {
@@ -57,5 +73,25 @@ export class InputComponent implements OnInit {
 
   ngOnInit(): void {
     this.isValueVisible = this.type !== "password";
+  }
+
+  onDateChange(e: { value: string }) {
+    this.setValue(new Date(e.value).toLocaleDateString());
+  }
+
+  onClick() {
+    if (this.datepicker && this.picker) {
+      this.picker.open();
+    }
+  }
+
+  toggleCalendar() {
+    if (this.datepicker && this.picker) {
+      if (this.picker.opened) {
+        this.picker.close();
+      } else {
+        this.picker.open();
+      }
+    }
   }
 }

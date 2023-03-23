@@ -1,3 +1,6 @@
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule, NativeDateAdapter } from "@angular/material/core";
 import { Array2StringPipe } from "./../../pipes/array2string/array2string.pipe";
 import { FormsModule } from "@angular/forms";
 import {
@@ -23,7 +26,14 @@ export default {
         SanitizePipe,
         Array2StringPipe,
       ],
-      imports: [FormsModule, NgxMaskModule.forRoot()],
+      providers: [NativeDateAdapter, NativeDateAdapter],
+      imports: [
+        FormsModule,
+        NgxMaskModule.forRoot(),
+        BrowserAnimationsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+      ],
     }),
     componentWrapperDecorator(
       (story) =>
@@ -98,4 +108,14 @@ Search.args = {
   label: "Search",
   size: "medium",
   placeholder: "Keywords",
+};
+
+export const Datepicker = Template.bind({});
+Datepicker.args = {
+  name: "datepicker",
+  label: "Date",
+  size: "medium",
+  placeholder: "Select date",
+  isRequired: true,
+  datepicker: true,
 };

@@ -35,6 +35,7 @@
     <div class="dropdown__btns">
       <button
         *ngIf="multiselect && selected?.length"
+        [tabIndex]="isDisabled ? -1 : 0"
         class="dropdown__clear"
         aria-label="Clear input"
         (click)="clearSelected()"

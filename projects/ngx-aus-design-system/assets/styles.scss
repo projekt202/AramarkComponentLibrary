@@ -1,3 +1,6 @@
+@use "@angular/material" as mat;
+@include mat.core();
+
 /* You can add global styles to this file, and also import other style files */
 @import "./libs/swiper/swiper.min";
 @import "./libs/swiper/navigation.min";
@@ -43,8 +46,7 @@ $font-main: "Gotham", "Montserrat", sans-serif;
 }
 
 *:not([class*="nsm-"]):focus-visible {
-  outline: 2px solid $c-red;
-  box-shadow: 0 0 0 6px rgba($c-red, 0.4);
+  box-shadow: 0 0 0 2px color(support, focus);
 }
 
 body {
