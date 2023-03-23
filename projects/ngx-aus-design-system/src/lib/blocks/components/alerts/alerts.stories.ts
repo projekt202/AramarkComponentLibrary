@@ -6,6 +6,7 @@ import { AlertsComponent } from "./alerts.component";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
 import { AlertComponent } from "../alert/alert.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 export default {
   decorators: [
@@ -16,7 +17,10 @@ export default {
         Array2StringPipe,
         AlertComponent
       ],
-      imports: [CommonModule],
+      imports: [
+        CommonModule,
+        BrowserAnimationsModule
+      ],
     }),
     componentWrapperDecorator(
       (story) =>

@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { AlertsComponent } from "./alerts.component";
 import { AlertModule } from "../alert/alert.module";
 import { CommonModule } from "@angular/common";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { CommonModule } from "@angular/common";
   ],
   imports: [
     CommonModule,
-    AlertModule
+    AlertModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   exports: [AlertsComponent],
