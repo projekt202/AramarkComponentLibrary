@@ -327,6 +327,213 @@
       )
     );
   }
+
+  // New 'Link' component
+  .link,
+  ::ng-deep .link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: underline;
+    &__label {
+      font-weight: 500;
+      transition: all 0.25s;
+      text-decoration: underline;
+      color: map-get($colors, primary, brand);
+      &.left {
+        order: 0;
+      }
+      &.right {
+        order: 1;
+      }
+    }
+    &__icon {
+      display: inline-flex;
+      align-items: flex-start;
+      justify-content: center;
+      ::ng-deep {
+        svg path,
+        .icon {
+          transition: all 0.25s;
+          fill: map-get($colors, primary, brand);
+          color: map-get($colors, primary, brand);
+        }
+        aus-icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      &--template {
+        transform: translateY(-2px);
+      }
+      &.left {
+        order: 0;
+      }
+      &.right {
+        order: 1;
+      }
+    }
+    &:before {
+      display: none;
+    }
+    &:visited {
+      .link {
+        &__label {
+          color: map-get($colors, primary, medium);
+        }
+        &__icon ::ng-deep {
+          svg path,
+          .icon {
+            fill: map-get($colors, primary, medium);
+            color: map-get($colors, primary, medium);
+          }
+        }
+      }
+    }
+    &:hover {
+      .link {
+        &__label {
+          color: map-get($colors, neutral, black);
+        }
+        &__icon ::ng-deep {
+          svg path,
+          .icon {
+            fill: map-get($colors, neutral, black);
+            color: map-get($colors, neutral, black);
+          }
+        }
+      }
+    }
+    &:focus {
+      border: 0;
+      box-shadow: none;
+    }
+    &:focus-visible {
+      border: 0;
+      box-shadow: none;
+      border-radius: 8px;
+      outline-offset: 2px;
+      outline: 2px solid map-get($colors, support, focus);
+      .link {
+        &__label {
+          color: map-get($colors, neutral, black);
+        }
+        &__icon ::ng-deep {
+          svg path,
+          .icon {
+            fill: map-get($colors, neutral, black);
+            color: map-get($colors, neutral, black);
+          }
+        }
+      }
+    }
+    &--standalone {
+      text-decoration: none;
+      .link {
+        &__label {
+          text-decoration: none;
+        }
+      }
+    }
+    &--inline {
+      .link {
+        &__icon {
+          ::ng-deep {
+            svg {
+              width: 0.875em !important;
+              height: 0.875em !important;
+              transform: translateY(-2px);
+              @include iota-breakpoint(md) {
+                transform: translateY(-1px);
+              }
+            }
+          }
+        }
+      }
+    }
+    &--size {
+      &-small {
+        .link {
+          &__icon {
+            ::ng-deep {
+              svg {
+                width: 12px;
+                height: 12px;
+              }
+              .icon {
+                font-size: 20px;
+              }
+            }
+            &.left {
+              margin-right: 6px;
+            }
+            &.right {
+              margin-left: 6px;
+            }
+          }
+        }
+      }
+      &-medium {
+        .link {
+          &__icon {
+            ::ng-deep {
+              svg {
+                width: 15px;
+                height: 15px;
+              }
+              .icon {
+                font-size: 22px;
+              }
+            }
+            &.left {
+              margin-right: 7px;
+            }
+            &.right {
+              margin-left: 7px;
+            }
+          }
+        }
+      }
+      &-large {
+        .link {
+          &__icon {
+            ::ng-deep {
+              svg {
+                width: 18px;
+                height: 18px;
+              }
+              .icon {
+                font-size: 25px;
+              }
+            }
+            &.left {
+              margin-right: 8px;
+            }
+            &.right {
+              margin-left: 8px;
+            }
+          }
+        }
+      }
+    }
+    &--disabled,
+    &--disabled:visited {
+      pointer-events: none;
+      .link {
+        &__label {
+          color: map-get($colors, neutral, 06);
+        }
+        &__icon ::ng-deep {
+          svg path,
+          .icon {
+            fill: map-get($colors, neutral, 06);
+            color: map-get($colors, neutral, 06);
+          }
+        }
+      }
+    }
+  }
 }
 
 @include typography-base();

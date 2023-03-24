@@ -1,3 +1,4 @@
+import { IconModule } from "./../icon/icon.module";
 import { Array2StringPipeModule } from "./../../pipes/array2string/array2string.module";
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
@@ -12,6 +13,7 @@ import { TypographyComponent } from "./typography.component";
     RouterModule,
     SanitizePipeModule,
     Array2StringPipeModule,
+    IconModule,
   ],
   providers: [],
   exports: [TypographyComponent],
