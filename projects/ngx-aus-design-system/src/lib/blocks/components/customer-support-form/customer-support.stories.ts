@@ -1,3 +1,4 @@
+import { TypographyModule } from "./../../../shared/components/typography/typography.module";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { NgSelectModule } from "@ng-select/ng-select";
@@ -21,10 +22,10 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [
-        /* TypographyComponent, */
-        /* SanitizePipe, */
-        /* Array2StringPipe, */
-        /* InputComponent, */
+        /* TypographyComponent,
+        SanitizePipe,
+        Array2StringPipe,
+        InputComponent, */
         IconComponent,
         ButtonComponent,
         CheckboxComponent,
@@ -36,6 +37,7 @@ export default {
         HttpClientModule,
         GoogleTagManagerModule,
         NgxMaskModule.forRoot(),
+        TypographyModule,
         InputComponent,
       ],
       providers: [{ provide: "googleTagManagerId", useValue: "GTM-NMCM4JJ" }],

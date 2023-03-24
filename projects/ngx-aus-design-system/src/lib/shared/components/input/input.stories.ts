@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {
   Story,
   Meta,
@@ -12,7 +13,9 @@ export default {
   title: "Components/Shared/Input",
   component: InputComponent,
   decorators: [
-    moduleMetadata({ imports: [NgxMaskModule.forRoot()] }),
+    moduleMetadata({
+      imports: [NgxMaskModule.forRoot(), BrowserAnimationsModule],
+    }),
     componentWrapperDecorator(
       (story) =>
         `<div class="o-container">

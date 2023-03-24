@@ -1,3 +1,4 @@
+import { TypographyModule } from "./../../../shared/components/typography/typography.module";
 import { APP_BASE_HREF } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { Story, Meta, moduleMetadata } from "@storybook/angular";
@@ -61,6 +62,7 @@ export default {
           animation: "progress",
           loadingText: "Loading...",
         }),
+        TypographyModule,
       ],
       providers: [
         {

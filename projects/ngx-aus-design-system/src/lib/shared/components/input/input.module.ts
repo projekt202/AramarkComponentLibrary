@@ -21,7 +21,9 @@ import { InputComponent } from "./input.component";
     MatDatepickerModule,
     MatNativeDateModule, */
   ],
-  providers: [NativeDateAdapter],
+  providers: [
+    /* NativeDateAdapter */
+  ],
   exports: [
     /* InputComponent */
   ],

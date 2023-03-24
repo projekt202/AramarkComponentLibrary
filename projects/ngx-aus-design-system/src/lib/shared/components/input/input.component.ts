@@ -1,9 +1,8 @@
 import { TypographyModule } from "./../typography/typography.module";
 import { MatNativeDateModule, NativeDateAdapter } from "@angular/material/core";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgxMaskModule } from "ngx-mask";
 import { FormsModule } from "@angular/forms";
-import { CommonModule } from "@angular/common";
+import { NgClass, NgIf, NgTemplateOutlet } from "@angular/common";
 import {
   Component,
   ElementRef,
@@ -22,10 +21,11 @@ import { InputKeypressEvt, InputSizes, InputStatus } from "./input.model";
 @Component({
   standalone: true,
   imports: [
-    CommonModule,
+    NgIf,
+    NgClass,
+    NgTemplateOutlet,
     FormsModule,
     NgxMaskModule,
-    BrowserAnimationsModule,
     TypographyModule,
     MatNativeDateModule,
     MatDatepickerModule,

@@ -1,3 +1,4 @@
+import { TypographyModule } from "./../../../shared/components/typography/typography.module";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { GoogleMapsModule } from "@angular/google-maps";
@@ -15,6 +16,7 @@ import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { LocationMapComponent } from "../location-map/location-map.component";
 import { LocationsFiltersComponent } from "../locations-filters/locations-filters.component";
 import { LocationSearchComponent } from "./location-search.component";
+import { NgxMaskModule } from "ngx-mask";
 
 export default {
   title: "Components/Blocks/Location Search",
@@ -22,10 +24,10 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [
-        TypographyComponent,
+        /* TypographyComponent,
         SanitizePipe,
         Array2StringPipe,
-        InputComponent,
+        InputComponent, */
         DropdownComponent,
         ButtonComponent,
         IconComponent,
@@ -38,6 +40,9 @@ export default {
         GoogleMapsModule,
         GraphQLModule,
         HttpClientModule,
+        InputComponent,
+        TypographyModule,
+        NgxMaskModule.forRoot(),
       ],
     }),
   ],
