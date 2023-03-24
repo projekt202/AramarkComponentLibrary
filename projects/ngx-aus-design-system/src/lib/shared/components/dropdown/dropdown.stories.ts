@@ -37,8 +37,28 @@ export default {
   ],
 } as Meta;
 
+const outputs = {
+  change: () => {},
+  selectedChange: () => {},
+};
+
 const Template: Story<DropdownComponent> = (args: DropdownComponent) => ({
-  props: args,
+  props: {
+    ...args,
+    ...outputs,
+  },
+});
+
+const StatusTemplate: Story<DropdownComponent> = (args: DropdownComponent) => ({
+  props: {
+    ...args,
+    ...outputs,
+  },
+  template: `
+    <aus-dropdown [name]="name" [label]="label" [isRequired]="isRequired" [isDisabled]="isDisabled" [placeholder]="placeholder" [items]="items" [statusIcon]="statusIcon" [size]="size || 'medium'">
+      <aus-typography statusMsg [presetClassNames]="['text-preset-9']" text="Error message lorem ipsum"></aus-typography>
+    </aus-dropdown>
+  `,
 });
 
 export const Default = Template.bind({});
@@ -59,4 +79,26 @@ Disabled.args = {
   isDisabled: true,
   placeholder: "Select",
   items: ["State 1", "State 2", "State 3", "State 4"],
+};
+
+export const Multiselect = Template.bind({});
+Multiselect.args = {
+  name: "state",
+  label: "State",
+  isRequired: false,
+  isDisabled: false,
+  multiselect: true,
+  placeholder: "Select",
+  items: ["State 1", "State 2", "State 3", "State 4"],
+};
+
+export const Error = StatusTemplate.bind({});
+Error.args = {
+  name: "state",
+  label: "State",
+  isRequired: false,
+  isDisabled: false,
+  placeholder: "Select",
+  items: ["State 1", "State 2", "State 3", "State 4"],
+  statusIcon: "negative",
 };

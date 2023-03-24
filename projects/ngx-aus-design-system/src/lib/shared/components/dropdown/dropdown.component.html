@@ -1,15 +1,23 @@
 <fieldset
   class="dropdown"
   [ngClass]="{
-    'dropdown--disabled': isDisabled
+    'dropdown--disabled': isDisabled,
+    'dropdown--negative': statusIcon === 'negative',
+    'dropdown--positive': statusIcon === 'positive',
+    'dropdown--size-small': size === 'small',
+    'dropdown--size-medium': size === 'medium',
+    'dropdown--multiselect': multiselect
   }"
 >
   <label [for]="name" *ngIf="label">
     <span class="dropdown__label">
-      <aus-typography variant="p-sm" [text]="label"></aus-typography>
+      <aus-typography
+        [presetClassNames]="['text-preset-7--medium']"
+        [text]="label"
+      ></aus-typography>
       <div class="dropdown__label-required-mark">
         <aus-typography
-          variant="p-sm"
+          [presetClassNames]="['text-preset-7--medium']"
           text="*"
           *ngIf="isRequired"
         ></aus-typography>
@@ -24,13 +32,46 @@
 
 <ng-template #dropdown>
   <div class="dropdown__main">
-    <div class="dropdown__arrow">
-      <aus-icon name="arrow" color="black" [fontSize]="15"></aus-icon>
+    <div class="dropdown__btns">
+      <button
+        *ngIf="multiselect && selected?.length"
+        [tabIndex]="isDisabled ? -1 : 0"
+        class="dropdown__clear"
+        aria-label="Clear input"
+        (click)="clearSelected()"
+      >
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 14 14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7.00004 0.333374C3.31337 0.333374 0.333374 3.31337 0.333374 7.00004C0.333374 10.6867 3.31337 13.6667 7.00004 13.6667C10.6867 13.6667 13.6667 10.6867 13.6667 7.00004C13.6667 3.31337 10.6867 0.333374 7.00004 0.333374ZM7.00004 12.3334C4.06004 12.3334 1.66671 9.94004 1.66671 7.00004C1.66671 4.06004 4.06004 1.66671 7.00004 1.66671C9.94004 1.66671 12.3334 4.06004 12.3334 7.00004C12.3334 9.94004 9.94004 12.3334 7.00004 12.3334ZM9.39337 3.66671L7.00004 6.06004L4.60671 3.66671L3.66671 4.60671L6.06004 7.00004L3.66671 9.39337L4.60671 10.3334L7.00004 7.94004L9.39337 10.3334L10.3334 9.39337L7.94004 7.00004L10.3334 4.60671L9.39337 3.66671Z"
+            fill="#464646"
+          />
+        </svg>
+      </button>
+      <div class="dropdown__arrow" aria-hidden="true">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 10.6667L4 6.66669L4.94 5.72669L8 8.78002L11.06 5.72669L12 6.66669L8 10.6667Z"
+            fill="#464646"
+          />
+        </svg>
+      </div>
     </div>
     <div
       class="dropdown__control"
       [ngClass]="{
-        'no-value': !selected
+        'no-value': (!selected || !selected.length) && !searchTerm
       }"
     >
       <ng-select
@@ -41,13 +82,115 @@
         "
         [disabled]="!!isDisabled"
         [placeholder]="placeholder"
+        [multiple]="multiselect ?? false"
+        [closeOnSelect]="!multiselect"
+        [clearSearchOnAdd]="true"
         (change)="onChange($event)"
         (ngModelChange)="selectedChange.emit(selected)"
+        (search)="onSearch($event)"
       >
-        <ng-option *ngFor="let item of items" [value]="item">
-          <aus-typography [text]="item" variant="p-sm"></aus-typography>
+        <ng-template ng-label-tmp let-item="item" let-clear="clear">
+          <aus-typography
+            [text]="item"
+            class="ng-value-label"
+            [presetClassNames]="
+              multiselect
+                ? ['text-preset-9']
+                : size === 'medium'
+                ? ['text-preset-7--medium']
+                : ['text-preset-8--medium']
+            "
+          ></aus-typography>
+          <button
+            *ngIf="multiselect"
+            class="ng-value-icon right"
+            (click)="clear(item)"
+            [attr.aria-label]="'Deselect ' + item"
+          >
+            <svg
+              width="8"
+              height="8"
+              viewBox="0 0 8 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.5 1.205L6.795 0.5L4 3.295L1.205 0.5L0.5 1.205L3.295 4L0.5 6.795L1.205 7.5L4 4.705L6.795 7.5L7.5 6.795L4.705 4L7.5 1.205Z"
+                fill="#464646"
+              />
+            </svg>
+          </button>
+          <span
+            *ngIf="multiselect"
+            class="ng-value-bg-focused"
+            aria-hidden="true"
+            >&nbsp;</span
+          >
+        </ng-template>
+        <ng-option *ngFor="let item of items" [value]="item" tabindex="0">
+          <aus-typography
+            [text]="item"
+            [presetClassNames]="['text-preset-7']"
+          ></aus-typography>
+          <i class="check-icon">
+            <svg
+              width="16"
+              height="12"
+              viewBox="0 0 16 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.15833 8.98329L1.68333 5.50829L0.5 6.68329L5.15833 11.3416L15.1583 1.34163L13.9833 0.166626L5.15833 8.98329Z"
+                fill="white"
+              />
+            </svg>
+          </i>
         </ng-option>
       </ng-select>
     </div>
   </div>
+  <div class="dropdown__status">
+    <div class="dropdown__status-icon">
+      <ng-container *ngIf="statusIcon === 'negative'">
+        <ng-container *ngTemplateOutlet="iconStatusNegative"></ng-container>
+      </ng-container>
+      <ng-container *ngIf="statusIcon === 'positive'">
+        <ng-container *ngTemplateOutlet="iconStatusPositive"></ng-container>
+      </ng-container>
+    </div>
+    <div class="dropdown__status-content">
+      <ng-content select="[statusMsg]"></ng-content>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #iconStatusNegative>
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.33333 9.00001H7.66666V10.3333H6.33333V9.00001ZM6.33333 3.66668H7.66666V7.66668H6.33333V3.66668ZM6.99333 0.333344C3.31333 0.333344 0.333328 3.32001 0.333328 7.00001C0.333328 10.68 3.31333 13.6667 6.99333 13.6667C10.68 13.6667 13.6667 10.68 13.6667 7.00001C13.6667 3.32001 10.68 0.333344 6.99333 0.333344ZM7 12.3333C4.05333 12.3333 1.66666 9.94668 1.66666 7.00001C1.66666 4.05334 4.05333 1.66668 7 1.66668C9.94666 1.66668 12.3333 4.05334 12.3333 7.00001C12.3333 9.94668 9.94666 12.3333 7 12.3333Z"
+      fill="#EB002A"
+    />
+  </svg>
+</ng-template>
+
+<ng-template #iconStatusPositive>
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M13.6666 2.45334L6.05998 10.0667L3.23331 7.24001L4.17331 6.30001L6.05998 8.18668L12.7266 1.52001L13.6666 2.45334ZM12.1933 5.81334C12.28 6.19334 12.3333 6.59334 12.3333 7.00001C12.3333 9.94668 9.94665 12.3333 6.99998 12.3333C4.05331 12.3333 1.66665 9.94668 1.66665 7.00001C1.66665 4.05334 4.05331 1.66668 6.99998 1.66668C8.05331 1.66668 9.02665 1.97334 9.85331 2.50001L10.8133 1.54001C9.73331 0.78001 8.41998 0.333344 6.99998 0.333344C3.31998 0.333344 0.333313 3.32001 0.333313 7.00001C0.333313 10.68 3.31998 13.6667 6.99998 13.6667C10.68 13.6667 13.6666 10.68 13.6666 7.00001C13.6666 6.20668 13.52 5.44668 13.2666 4.74001L12.1933 5.81334Z"
+      fill="#128816"
+    />
+  </svg>
 </ng-template>

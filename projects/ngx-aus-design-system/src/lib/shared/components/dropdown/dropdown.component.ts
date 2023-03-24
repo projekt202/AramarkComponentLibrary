@@ -1,3 +1,4 @@
+import { InputSizes, InputStatus } from "./../input/input.model";
 import {
   ChangeDetectorRef,
   Component,
@@ -19,14 +20,18 @@ export class DropdownComponent {
   @Input() isDisabled?: boolean;
   @Input() isRequired?: boolean;
   @Input() initialIdx?: number;
+  @Input() size?: InputSizes = "medium";
+  @Input() statusIcon?: InputStatus;
+  @Input() multiselect?: boolean;
 
   @Output() selectedChange: EventEmitter<string> = new EventEmitter<string>();
   @Output() change: EventEmitter<string> = new EventEmitter<string>();
 
   selected: string = "";
   didInteract: boolean = false;
+  searchTerm?: string;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor() {}
 
   hasInitialIdx() {
     return typeof this.initialIdx === "number";
@@ -40,9 +45,18 @@ export class DropdownComponent {
     this.didInteract = true;
     this.selected = val || "";
     this.change.emit(val);
+    this.selectedChange.emit(val);
   }
 
   setSelected(val: string) {
     this.selected = val;
+  }
+
+  onSearch(e: { term: string; items: any[] }) {
+    this.searchTerm = e.term;
+  }
+
+  clearSelected() {
+    this.onChange("");
   }
 }

@@ -37,6 +37,11 @@
   &__control-wrapper {
     position: relative;
   }
+  &__control-icon {
+    position: absolute;
+    pointer-events: none;
+    transition: all 0.25s;
+  }
   &__visibility-toggle {
     border: 0;
     margin: 0;
@@ -45,68 +50,77 @@
     background-color: transparent;
     position: absolute;
     z-index: 1;
-    top: 50%;
     right: 15px;
-    transform: translateY(-50%);
-    &--visible {
-      svg path {
-        fill: $c-red;
-      }
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+    transition: all 0.25s;
   }
   &__control {
     width: 100%;
-    color: $c-black;
-    font-size: 16px;
+    color: color(neutral, black);
     font-weight: 500;
-    padding: 12px 15px;
-    border-radius: 5px;
+    border-radius: 4px;
     font-family: $font-main;
-    background-color: $c-white;
-    border: 1px solid $c-gray-med;
+    background-color: color(neutral, white);
+    border: 1px solid color(neutral, 03);
     transition: all 0.25s;
     &::placeholder {
-      font-weight: 300;
-      color: $c-white-drk;
+      font-weight: 400;
+      color: color(neutral, 06);
     }
-    &:focus {
+    &:hover {
+      border-color: color(neutral, black);
+    }
+    &:focus,
+    &:focus-visible {
       outline: none;
-      border-color: $c-black;
-      box-shadow: 0 0 0 4px rgba($c-black, 0.4);
+      border-color: color(support, focus);
+      box-shadow: inset 0 0 0 1px color(support, focus);
     }
     &.ng-dirty:invalid,
     &.ng-dirty.ng-invalid,
     &.ng-touched.ng-invalid,
     &.ng-touched.invalid {
-      border-color: $c-red;
-      box-shadow: none;
-      &:focus {
-        box-shadow: 0 0 0 4px rgba($c-red, 0.4);
-      }
-      & + .input__error {
+      border-color: color(support, error);
+      box-shadow: inset 0 0 0 1px color(support, error);
+      & ~ .input__error {
         display: flex;
       }
     }
     &--textarea {
       resize: none;
-      height: 80px;
+      height: 124px;
     }
   }
   &__custom-status {
-    padding: 6px 8px 0 8px;
-    &:empty {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: spacing(03) spacing(03) 0 0;
+    &:has(.input__custom-status-content:empty) {
       display: none;
     }
-    ::ng-deep {
-      .typography {
-        @include iota-type(
-          (
-            null: (
-              10px,
-              12px,
-            ),
-          )
-        );
+    &-icon {
+      margin-right: spacing(03);
+      display: flex;
+      align-items: center;
+    }
+    &-content {
+      flex: 1;
+      ::ng-deep {
+        .typography {
+          @include iota-type(
+            (
+              null: (
+                10px,
+                12px,
+              ),
+            )
+          );
+        }
       }
     }
   }
@@ -114,19 +128,13 @@
     display: none;
     align-items: center;
     justify-content: flex-start;
-    padding: 6px 8px 0 8px;
+    padding: spacing(03) spacing(03) 0 0;
     pointer-events: none;
     transition: all 0.25s;
     &-icon {
-      width: 13px;
-      height: 13px;
-      min-width: 13px;
-      min-height: 13px;
       display: flex;
-      border-radius: 100%;
       align-items: center;
       justify-content: center;
-      background-color: $c-red;
       margin-right: 8px;
     }
     ::ng-deep {
@@ -143,13 +151,265 @@
       }
     }
   }
+  &__datepicker {
+    position: relative;
+    &-control {
+      height: 0;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      appearance: none;
+      pointer-events: none;
+      transform: scaleY(0);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+    &-btn {
+      position: absolute;
+      right: spacing(04);
+      background-color: transparent;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      &:focus-visible {
+        border: 0;
+        outline: none;
+        box-shadow: 0 0 0 2px color(support, focus);
+      }
+    }
+  }
+  &--negative {
+    .input {
+      &__control {
+        border-color: color(support, error);
+        box-shadow: inset 0 0 0 1px color(support, error);
+      }
+      &__custom-status {
+        &-content {
+          color: color(support, error);
+          ::ng-deep .typography {
+            color: color(support, error);
+          }
+        }
+      }
+    }
+  }
+  &--positive {
+    .input {
+      &__custom-status {
+        &-content {
+          color: color(support, success);
+          ::ng-deep .typography {
+            color: color(support, success);
+          }
+        }
+      }
+    }
+  }
+  &--size {
+    &-small {
+      .input {
+        &__control-icon {
+          top: 10px;
+        }
+        &__visibility-toggle {
+          top: 7px;
+          transform: scale(0.8);
+        }
+        &__datepicker-btn {
+          top: 8px;
+          transform: scale(0.8);
+        }
+        &__control {
+          padding: spacing(03) spacing(05);
+          font-size: 14px;
+          line-height: 20px;
+          letter-spacing: 0.16px;
+          &--textarea {
+            padding: spacing(04) spacing(05);
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.16px;
+          }
+        }
+      }
+    }
+    &-medium {
+      .input {
+        &__control-icon {
+          top: 15px;
+        }
+        &__visibility-toggle {
+          top: 13px;
+        }
+        &__datepicker-btn {
+          top: 14px;
+        }
+        &__control {
+          padding: spacing(04) spacing(05);
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: 0.16px;
+        }
+      }
+    }
+  }
+  &--search {
+    .input__control {
+      &::-ms-clear {
+        display: none;
+        width: 0;
+        height: 0;
+      }
+      &::-ms-reveal {
+        display: none;
+        width: 0;
+        height: 0;
+      }
+      &::-webkit-search-decoration,
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-results-button,
+      &::-webkit-search-results-decoration {
+        display: none;
+      }
+    }
+    &.input--size {
+      &-small {
+        .input {
+          &__control {
+            padding-left: spacing(08);
+            &-icon {
+              left: 16px;
+              transform: scale(0.8);
+            }
+          }
+        }
+      }
+      &-medium {
+        .input {
+          &__control {
+            padding-left: spacing(09);
+            &-icon {
+              left: 19px;
+            }
+          }
+        }
+      }
+    }
+  }
   &--disabled {
     pointer-events: none;
     .input {
       &__control {
-        border-color: $c-white-lgt;
-        background-color: $c-white-lgt;
+        border-color: color(neutral, 01);
+        background-color: color(neutral, 01);
       }
+    }
+  }
+}
+
+// Datepicker widget styles
+::ng-deep {
+  .mat-calendar {
+    height: auto !important;
+    padding: spacing(05);
+    background-color: color(neutral, white);
+    box-shadow: 0px 0px 10px 2px rgba(color(neutral, black), 0.102);
+    &-header {
+      padding: 0 !important;
+      margin-bottom: 15px;
+    }
+    &-table-header {
+      th {
+        padding-bottom: 3px !important;
+      }
+      span {
+        font-weight: 300;
+        font-family: $font-main;
+        color: color(neutral, 06);
+        font-size: 12px;
+        line-height: 20px;
+        letter-spacing: 0.16px;
+      }
+    }
+    &-period-button {
+      line-height: 1 !important;
+      padding: 0 6px !important;
+      background-color: transparent;
+      span {
+        color: color(neutral, 06);
+        font-family: $font-main;
+        font-size: 12px;
+        line-height: 20px;
+        letter-spacing: 0.16px;
+        font-weight: 300;
+      }
+      svg {
+        margin-left: spacing(04);
+        polygon {
+          fill: color(neutral, 06);
+        }
+      }
+    }
+    &-previous-button,
+    &-next-button {
+      width: 20px !important;
+      height: 20px !important;
+      background-color: transparent;
+      &:after {
+        margin: 7px !important;
+        color: color(neutral, 07);
+      }
+    }
+    &-previous-button {
+      margin-right: 3px !important;
+    }
+    &-controls {
+      margin: 0 !important;
+      align-items: center;
+    }
+    &-content {
+      padding: 0 !important;
+    }
+    &-body-label {
+      opacity: 0;
+      height: 0 !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      pointer-events: none;
+    }
+    &-body-cell {
+      border-radius: 100px;
+    }
+    &-body-cell-content {
+      border-color: transparent;
+      transition: all 0.25s;
+      font-family: $font-main;
+      color: color(neutral, black);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.16px;
+      border-radius: 100px;
+      &:hover {
+        background-color: color(neutral, 02);
+      }
+    }
+    &-body-today {
+      border-color: color(primary, brand);
+    }
+    &-body-selected,
+    &-body-selected:hover {
+      color: color(neutral, white);
+      border-color: color(primary, brand);
+      background-color: color(primary, brand);
     }
   }
 }
