@@ -3,9 +3,15 @@ import { NgModule } from "@angular/core";
 import { DividerComponent } from "./divider.component";
 
 @NgModule({
-  declarations: [DividerComponent],
-  imports: [CommonModule],
+  declarations: [
+    /* DividerComponent */
+  ],
+  imports: [
+    /* CommonModule */
+  ],
   providers: [],
-  exports: [DividerComponent],
+  exports: [
+    /* DividerComponent */
+  ],
 })
 export class DividerModule {}

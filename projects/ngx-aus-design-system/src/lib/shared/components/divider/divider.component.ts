@@ -1,7 +1,10 @@
+import { CommonModule } from "@angular/common";
 import { Component, Input } from "@angular/core";
 import { DividerAlignment, DividerMargin } from "./divider.model";
 
 @Component({
+  standalone: true,
+  imports: [CommonModule],
   selector: "aus-divider",
   templateUrl: "./divider.component.html",
   styleUrls: ["./divider.component.scss"],

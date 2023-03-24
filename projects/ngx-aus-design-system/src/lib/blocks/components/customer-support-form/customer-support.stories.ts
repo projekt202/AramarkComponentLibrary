@@ -21,10 +21,10 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [
-        TypographyComponent,
-        SanitizePipe,
-        Array2StringPipe,
-        InputComponent,
+        /* TypographyComponent, */
+        /* SanitizePipe, */
+        /* Array2StringPipe, */
+        /* InputComponent, */
         IconComponent,
         ButtonComponent,
         CheckboxComponent,
@@ -36,6 +36,7 @@ export default {
         HttpClientModule,
         GoogleTagManagerModule,
         NgxMaskModule.forRoot(),
+        InputComponent,
       ],
       providers: [{ provide: "googleTagManagerId", useValue: "GTM-NMCM4JJ" }],
     }),

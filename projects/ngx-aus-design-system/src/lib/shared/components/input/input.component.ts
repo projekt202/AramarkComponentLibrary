@@ -1,3 +1,9 @@
+import { TypographyModule } from "./../typography/typography.module";
+import { MatNativeDateModule, NativeDateAdapter } from "@angular/material/core";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgxMaskModule } from "ngx-mask";
+import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 import {
   Component,
   ElementRef,
@@ -7,10 +13,24 @@ import {
   Output,
   ViewChild,
 } from "@angular/core";
-import { MatDatepicker } from "@angular/material/datepicker";
+import {
+  MatDatepicker,
+  MatDatepickerModule,
+} from "@angular/material/datepicker";
 import { InputKeypressEvt, InputSizes, InputStatus } from "./input.model";
 
 @Component({
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    NgxMaskModule,
+    BrowserAnimationsModule,
+    TypographyModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+  ],
+  providers: [NativeDateAdapter],
   selector: "aus-input",
   templateUrl: "./input.component.html",
   styleUrls: ["./input.component.scss"],

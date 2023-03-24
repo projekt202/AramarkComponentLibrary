@@ -1,8 +1,3 @@
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatDatepickerModule } from "@angular/material/datepicker";
-import { MatNativeDateModule, NativeDateAdapter } from "@angular/material/core";
-import { Array2StringPipe } from "./../../pipes/array2string/array2string.pipe";
-import { FormsModule } from "@angular/forms";
 import {
   Story,
   Meta,
@@ -10,8 +5,6 @@ import {
   componentWrapperDecorator,
 } from "@storybook/angular";
 import { NgxMaskModule } from "ngx-mask";
-import { SanitizePipe } from "../../pipes/sanitize/sanitize.pipe";
-import { TypographyComponent } from "../typography/typography.component";
 
 import { InputComponent } from "./input.component";
 
@@ -19,22 +12,7 @@ export default {
   title: "Components/Shared/Input",
   component: InputComponent,
   decorators: [
-    moduleMetadata({
-      declarations: [
-        InputComponent,
-        TypographyComponent,
-        SanitizePipe,
-        Array2StringPipe,
-      ],
-      providers: [NativeDateAdapter, NativeDateAdapter],
-      imports: [
-        FormsModule,
-        NgxMaskModule.forRoot(),
-        BrowserAnimationsModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-      ],
-    }),
+    moduleMetadata({ imports: [NgxMaskModule.forRoot()] }),
     componentWrapperDecorator(
       (story) =>
         `<div class="o-container">

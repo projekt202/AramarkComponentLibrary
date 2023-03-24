@@ -9,17 +9,21 @@ import { TypographyModule } from "../typography/typography.module";
 import { InputComponent } from "./input.component";
 
 @NgModule({
-  declarations: [InputComponent],
+  declarations: [
+    /* InputComponent */
+  ],
   imports: [
-    CommonModule,
+    /* CommonModule,
     FormsModule,
     NgxMaskModule,
     TypographyModule,
     BrowserAnimationsModule,
     MatDatepickerModule,
-    MatNativeDateModule,
+    MatNativeDateModule, */
   ],
   providers: [NativeDateAdapter],
-  exports: [InputComponent],
+  exports: [
+    /* InputComponent */
+  ],
 })
 export class InputModule {}

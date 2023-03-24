@@ -1,3 +1,4 @@
+import { InputComponent } from "./../../../shared/components/input/input.component";
 import { NgxMaskModule } from "ngx-mask";
 import { GoogleTagManagerModule } from "angular-google-tag-manager";
 import { HttpClientModule } from "@angular/common/http";
@@ -19,9 +20,9 @@ import { CustomerSupportFormComponent } from "./customer-support-form.component"
   declarations: [CustomerSupportFormComponent],
   imports: [
     CommonModule,
-    TypographyModule,
-    SanitizePipeModule,
-    InputModule,
+    /* TypographyModule,
+    SanitizePipeModule, */
+    InputComponent,
     IconModule,
     ButtonModule,
     CheckboxModule,

@@ -1,14 +1,9 @@
-import { Story, Meta, moduleMetadata } from "@storybook/angular";
+import { Story, Meta } from "@storybook/angular";
 import { DividerComponent } from "./divider.component";
 
 export default {
   title: "Components/Shared/Divider",
   component: DividerComponent,
-  decorators: [
-    moduleMetadata({
-      declarations: [DividerComponent],
-    }),
-  ],
 } as Meta;
 
 const Template: Story<DividerComponent> = (args: DividerComponent) => ({
