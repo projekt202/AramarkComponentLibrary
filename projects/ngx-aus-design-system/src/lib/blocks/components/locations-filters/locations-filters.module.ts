@@ -1,3 +1,4 @@
+import { InputComponent } from "./../../../shared/components/input/input.component";
 import { NgSelectModule } from "@ng-select/ng-select";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
@@ -10,6 +11,7 @@ import { ButtonModule } from "../../../shared/components/button/button.module";
 import { TypographyModule } from "../../../shared/components/typography/typography.module";
 import { SanitizePipeModule } from "../../../shared/pipes/sanitize/sanitize.module";
 import { LocationsFiltersComponent } from "./locations-filters.component";
+import { NgxMaskModule } from "ngx-mask";
 
 @NgModule({
   declarations: [LocationsFiltersComponent],
@@ -19,10 +21,11 @@ import { LocationsFiltersComponent } from "./locations-filters.component";
     SanitizePipeModule,
     ButtonModule,
     IconModule,
-    InputModule,
+    InputComponent,
     DropdownModule,
     FormsModule,
     NgSelectModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   exports: [LocationsFiltersComponent],

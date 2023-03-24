@@ -23,6 +23,8 @@ import { TypographyModule } from "../../../shared/components/typography/typograp
 import { SanitizePipeModule } from "../../../shared/pipes/sanitize/sanitize.module";
 import { GraphQLModule } from "../../../graphql.module";
 import { SearchComponent } from "./search.component";
+import { InputComponent } from "../../../shared/components/input/input.component";
+import { NgxMaskModule } from "ngx-mask";
 
 @NgModule({
   declarations: [SearchComponent],
@@ -31,7 +33,8 @@ import { SearchComponent } from "./search.component";
     TypographyModule,
     SanitizePipeModule,
     ButtonModule,
-    InputModule,
+    InputComponent,
+    NgxMaskModule.forRoot(),
     TabsModule,
     IconModule,
     CarouselModule,

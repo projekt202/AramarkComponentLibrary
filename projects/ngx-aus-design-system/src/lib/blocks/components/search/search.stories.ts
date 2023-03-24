@@ -24,6 +24,7 @@ import { TabsComponent } from "../../../shared/components/tabs/tabs.component";
 import { WysiwygComponent } from "../../../shared/components/wysiwyg/wysiwyg.component";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
+import { NgxMaskModule } from "ngx-mask";
 
 export default {
   title: "Components/Blocks/Search",
@@ -31,9 +32,9 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [
-        TypographyComponent,
+        /* TypographyComponent, */
         ButtonComponent,
-        InputComponent,
+        /* InputComponent, */
         IconComponent,
         TabsComponent,
         CarouselComponent,
@@ -42,8 +43,8 @@ export default {
         LocationCardComponent,
         PaginationComponent,
         WysiwygComponent,
-        SanitizePipe,
-        Array2StringPipe,
+        /* SanitizePipe,
+        Array2StringPipe, */
       ],
       imports: [
         NgxSmartModalModule.forRoot(),
@@ -54,6 +55,8 @@ export default {
         FormsModule,
         GraphQLModule,
         HttpClientModule,
+        InputComponent,
+        NgxMaskModule.forRoot(),
         NgxSkeletonLoaderModule.forRoot({
           animation: "progress",
           loadingText: "Loading...",

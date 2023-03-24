@@ -8,5 +8,5 @@ export declare class DividerComponent {
     alignment?: DividerAlignment;
     constructor();
     static ɵfac: i0.ɵɵFactoryDeclaration<DividerComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<DividerComponent, "aus-divider", never, { "width": "width"; "thickness": "thickness"; "color": "color"; "margin": "margin"; "alignment": "alignment"; }, {}, never, never, false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<DividerComponent, "aus-divider", never, { "width": "width"; "thickness": "thickness"; "color": "color"; "margin": "margin"; "alignment": "alignment"; }, {}, never, never, true>;
 }

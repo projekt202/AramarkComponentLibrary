@@ -1,6 +1,7 @@
 import { FormsModule } from "@angular/forms";
 import { NgSelectModule } from "@ng-select/ng-select";
 import { Story, Meta, moduleMetadata } from "@storybook/angular";
+import { NgxMaskModule } from "ngx-mask";
 
 import { ButtonComponent } from "../../../shared/components/button/button.component";
 import { DropdownComponent } from "../../../shared/components/dropdown/dropdown.component";
@@ -17,15 +18,20 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [
-        TypographyComponent,
+        /* TypographyComponent,
         SanitizePipe,
         Array2StringPipe,
-        InputComponent,
+        InputComponent, */
         DropdownComponent,
         ButtonComponent,
         IconComponent,
       ],
-      imports: [FormsModule, NgSelectModule],
+      imports: [
+        FormsModule,
+        NgSelectModule,
+        InputComponent,
+        NgxMaskModule.forRoot(),
+      ],
     }),
   ],
 } as Meta;
