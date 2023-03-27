@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { CheckboxSizes } from "./checkbox.model";
 
 @Component({
   selector: "aus-checkbox",
@@ -11,6 +12,10 @@ export class CheckboxComponent {
   @Input() isChecked?: boolean = false;
   @Input() isDisabled?: boolean = false;
   @Input() labelUrl?: string;
+  @Input() nested?: boolean = false;
+  @Input() indeterminate?: boolean = false;
+  @Input() size?: CheckboxSizes = "medium";
+  @Input() error?: boolean;
 
   @Output() isCheckedChange: EventEmitter<boolean> =
     new EventEmitter<boolean>();

@@ -3,6 +3,7 @@ import { Story, Meta, moduleMetadata } from "@storybook/angular";
 import { SanitizePipe } from "../../pipes/sanitize/sanitize.pipe";
 import { TypographyComponent } from "../typography/typography.component";
 import { CheckboxComponent } from "./checkbox.component";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 
 export default {
   title: "Components/Shared/Checkbox",
@@ -15,12 +16,16 @@ export default {
         SanitizePipe,
         Array2StringPipe,
       ],
+      imports: [MatCheckboxModule],
     }),
   ],
 } as Meta;
 
 const Template: Story<CheckboxComponent> = (args: CheckboxComponent) => ({
-  props: args,
+  props: {
+    ...args,
+    checked: () => {},
+  },
 });
 
 export const Default = Template.bind({});
@@ -46,4 +51,23 @@ Disabled.args = {
   label: "Uniforms",
   isChecked: false,
   isDisabled: true,
+};
+
+export const Indeterminate = Template.bind({});
+Indeterminate.args = {
+  name: "indeterminate",
+  label: "Uniforms",
+  isChecked: true,
+  isDisabled: false,
+  indeterminate: true,
+};
+
+export const Error = Template.bind({});
+Error.args = {
+  name: "error",
+  label: "Uniforms",
+  isChecked: true,
+  isDisabled: false,
+  indeterminate: false,
+  error: true,
 };
