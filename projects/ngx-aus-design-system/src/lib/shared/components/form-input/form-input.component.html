@@ -1,41 +1,45 @@
 <fieldset
   class="input"
   [ngClass]="{
-    'input--disabled': isDisabled,
-    'input--multiline': multiline,
-    'input--size-small': size === 'small',
-    'input--size-medium': size === 'medium',
-    'input--search': type === 'search',
-    'input--negative': statusIcon === 'negative',
-    'input--positive': statusIcon === 'positive',
-    'input--datepicker': datepicker
+    'input--disabled': props['isDisabled'],
+    'input--multiline': props['multiline'],
+    'input--size-small': props['size'] === 'small',
+    'input--size-medium': props['size'] === 'medium',
+    'input--search': props['type'] === 'search',
+    'input--negative': props['statusIcon'] === 'negative',
+    'input--positive': props['statusIcon'] === 'positive',
+    'input--datepicker': props['datepicker']
   }"
 >
-  <label [for]="name" *ngIf="label">
+  <label [for]="props['name']" *ngIf="props['label']">
     <span class="input__label">
       <div class="input__label-main">
         <aus-typography
           [presetClassNames]="['text-preset-7--medium']"
-          [text]="label"
+          [text]="props['label']"
         ></aus-typography>
         <div class="input__label-required-mark">
           <aus-typography
             [presetClassNames]="['text-preset-7--medium']"
             text="*"
-            *ngIf="isRequired"
+            *ngIf="props['isRequired']"
           ></aus-typography>
         </div>
       </div>
-      <div *ngIf="subtitle" class="input__label-subtitle">
+      <div *ngIf="props['subtitle']" class="input__label-subtitle">
         <aus-typography
-          [text]="subtitle"
+          [text]="props['subtitle']"
           [presetClassNames]="['text-preset-7--medium']"
         ></aus-typography>
       </div>
     </span>
   </label>
   <div class="input__control-wrapper">
-    <i class="input__control-icon" *ngIf="type === 'search'" aria-hidden="true">
+    <i
+      class="input__control-icon"
+      *ngIf="props['type'] === 'search'"
+      aria-hidden="true"
+    >
       <svg
         width="18"
         height="18"
@@ -50,12 +54,12 @@
       </svg>
     </i>
     <ng-container
-      *ngTemplateOutlet="multiline ? textarea : input"
+      *ngTemplateOutlet="props['multiline'] ? textarea : input"
     ></ng-container>
     <button
       type="button"
       [attr.aria-label]="isValueVisible ? 'Hide content' : 'Show content'"
-      *ngIf="visibilityToggle"
+      *ngIf="props['visibilityToggle']"
       (click)="toggleVisibility()"
       class="input__visibility-toggle"
     >
@@ -88,18 +92,18 @@
         </svg>
       </ng-template>
     </button>
-    <div class="input__error" *ngIf="validationErrorMsg">
+    <div class="input__error" *ngIf="props['validationErrorMsg']">
       <span class="input__error-icon">
         <ng-container *ngTemplateOutlet="iconStatusNegative"></ng-container>
       </span>
-      <aus-typography [text]="validationErrorMsg"></aus-typography>
+      <aus-typography [text]="props['validationErrorMsg']"></aus-typography>
     </div>
     <div class="input__custom-status">
       <div class="input__custom-status-icon">
-        <ng-container *ngIf="statusIcon === 'negative'">
+        <ng-container *ngIf="props['statusIcon'] === 'negative'">
           <ng-container *ngTemplateOutlet="iconStatusNegative"></ng-container>
         </ng-container>
-        <ng-container *ngIf="statusIcon === 'positive'">
+        <ng-container *ngIf="props['statusIcon'] === 'positive'">
           <ng-container *ngTemplateOutlet="iconStatusPositive"></ng-container>
         </ng-container>
       </div>
@@ -142,31 +146,31 @@
 
 <ng-template #input>
   <input
-    [id]="name"
-    [name]="name"
-    [type]="type"
-    [(ngModel)]="value"
-    [disabled]="!!isDisabled"
-    [pattern]="pattern || '.*'"
-    [required]="isRequired ?? false"
-    [maxLength]="maxLength ?? 10000"
-    [minLength]="minLength ?? 0"
-    [placeholder]="placeholder || ''"
-    (ngModelChange)="valueChange.emit(value)"
+    [id]="props['name']"
+    [name]="props['name']"
+    [type]="props['type']"
+    [disabled]="!!props['isDisabled']"
+    [pattern]="props['pattern'] || '.*'"
+    [required]="props['isRequired'] ?? false"
+    [maxLength]="props['maxLength'] ?? 10000"
+    [minLength]="props['minLength'] ?? 0"
+    [placeholder]="props['placeholder'] || ''"
     (keypress)="onKeypress($event)"
     class="input__control"
     #control
     autocomplete="off"
-    [mask]="mask || null"
+    [mask]="props['mask'] || null"
     (click)="onClick()"
+    [formControl]="formControl"
+    [formlyAttributes]="field"
   />
-  <ng-container *ngIf="datepicker">
+  <ng-container *ngIf="props['datepicker']">
     <button
       type="button"
       class="input__datepicker-btn"
       (click)="toggleCalendar()"
       aria-label="Toggle calendar"
-      [tabIndex]="isDisabled ? -1 : 0"
+      [tabIndex]="props['isDisabled'] ? -1 : 0"
     >
       <svg
         width="20"
@@ -200,17 +204,18 @@
 
 <ng-template #textarea>
   <textarea
-    [id]="name"
-    [name]="name"
-    [(ngModel)]="value"
-    [disabled]="!!isDisabled"
-    [required]="isRequired ?? false"
-    [maxLength]="maxLength ?? 10000"
-    [placeholder]="placeholder || ''"
+    [id]="props['name']"
+    [name]="props['name']"
+    [disabled]="!!props['isDisabled']"
+    [required]="props['isRequired'] ?? false"
+    [maxLength]="props['maxLength'] ?? 10000"
+    [placeholder]="props['placeholder'] || ''"
     (ngModelChange)="valueChange.emit(value)"
     class="input__control input__control--textarea"
     #control
     autocomplete="off"
+    [formControl]="formControl"
+    [formlyAttributes]="field"
   >
   </textarea>
 </ng-template>
