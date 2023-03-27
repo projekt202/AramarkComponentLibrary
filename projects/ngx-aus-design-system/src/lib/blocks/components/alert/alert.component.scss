@@ -1,21 +1,6 @@
 @import "styles";
 
 .alert {
-  @keyframes armk-alert-show {
-    0% { opacity: 0; height: auto; }
-    100% { opacity: 1;  }
-  }
-  @keyframes armk-alert-hide {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 0; height: 0; }
-  }
-  &--show {
-    animation: armk-alert-show 100ms linear forwards;
-  }
-  &--hide {
-    animation: armk-alert-hide 600ms linear forwards;
-  }
   &--grid {
     display: grid;
     grid-template-columns: 2.125rem auto 2.25rem;

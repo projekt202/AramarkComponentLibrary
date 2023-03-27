@@ -1,4 +1,4 @@
-<div class="alert" [ngClass]="showAlert ? 'alert--show' : 'alert--hide'">
+<div class="alert" *ngIf="show" [@fade]>
   <div class="alert--grid">
     <div class="alert--grid--icon" [ngClass]="'alert--grid--icon--' + type" [ngSwitch]="type">
       <svg *ngSwitchCase="'successful'" width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">

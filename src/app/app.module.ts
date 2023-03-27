@@ -8,10 +8,11 @@ import { PageSectionComponent } from './documentation/components/page-section/pa
 import { AccessibilityPreviewComponent } from './documentation/components/accessibility-preview/accessibility-preview.component';
 import { TypographyComponent } from './documentation/pages/typography/typography.component';
 import { SpacingComponent } from './documentation/pages/spacing/spacing.component';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [AppComponent, PageLayoutComponent, ColorsComponent, PageSectionComponent, AccessibilityPreviewComponent, TypographyComponent, SpacingComponent],
   bootstrap: [AppComponent],
-  imports: [BrowserModule, NgxAusDesignSystemModule],
+  imports: [BrowserModule, NgxAusDesignSystemModule, BrowserAnimationsModule],
 })
 export class AppModule {}

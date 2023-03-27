@@ -5,6 +5,7 @@ import { TypographyComponent } from "../../../shared/components/typography/typog
 import { AlertComponent } from "./alert.component";
 import { SanitizePipe } from "../../../shared/pipes/sanitize/sanitize.pipe";
 import { Array2StringPipe } from "../../../shared/pipes/array2string/array2string.pipe";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 export default {
   decorators: [
@@ -12,9 +13,12 @@ export default {
       declarations: [
         TypographyComponent,
         SanitizePipe,
-        Array2StringPipe,
+        Array2StringPipe
       ],
-      imports: [CommonModule],
+      imports: [
+        CommonModule,
+        BrowserAnimationsModule
+      ],
     }),
     componentWrapperDecorator(
       (story) =>
