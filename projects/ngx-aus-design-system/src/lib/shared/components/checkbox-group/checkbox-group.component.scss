@@ -1,0 +1,37 @@
+@import "styles";
+
+.checkbox-group {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    &-required-mark {
+      margin-left: spacing(02);
+      ::ng-deep .typography {
+        color: color(primary, brand);
+      }
+    }
+  }
+  &__controls {
+    aus-checkbox {
+      display: block;
+      margin-top: spacing(05);
+    }
+  }
+  &__status {
+    display: none;
+    align-items: center;
+    padding: spacing(05) spacing(05) 0 0;
+    ::ng-deep {
+      svg {
+        margin-right: spacing(02);
+      }
+      .error .typography {
+        color: color(primary, brand);
+      }
+    }
+    &:not(:empty) {
+      display: flex;
+    }
+  }
+}
