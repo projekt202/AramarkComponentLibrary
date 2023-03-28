@@ -92,3 +92,7 @@ $colors: (
     @include color-classes-factory($namespace, nth(map-keys($palette), $i));
   }
 }
+
+@function color($palette, $color) {
+  @return map-get($colors, $palette, $color);
+}

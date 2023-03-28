@@ -1,3 +1,4 @@
+import { TypographyPresets } from "./../typography/typography.component.model";
 import { OnInit } from "@angular/core";
 import { IconComponentNames } from "../icon/icon.model";
 import { ButtonComponentTarget, ButtonComponentVariants, ButtonSizes } from "./button.component.model";
@@ -24,6 +25,7 @@ export declare class ButtonComponent implements OnInit {
     getText(): string;
     anchorPreview(): void;
     getClasses(): string;
+    getTextClasses(): TypographyPresets[];
     static ɵfac: i0.ɵɵFactoryDeclaration<ButtonComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<ButtonComponent, "aus-button", never, { "route": "route"; "href": "href"; "target": "target"; "text": "text"; "variant": "variant"; "disabled": "disabled"; "icon": "icon"; "fullwidth": "fullwidth"; "btnType": "btnType"; "useButton": "useButton"; "origin": "origin"; "size": "size"; }, {}, never, never, false>;
 }

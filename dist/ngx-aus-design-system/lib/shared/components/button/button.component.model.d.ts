@@ -1,4 +1,4 @@
-export declare type ButtonComponentVariants = "white" | "black" | "red" | "transparent" | "outline";
+export declare type ButtonComponentVariants = "white" | "black" | "red" | "transparent" | "outline" | "primary-brand" | "primary-neutral" | "secondary" | "tertiary";
 export declare type ButtonComponentTarget = "_blank" | "_parent" | "_self" | "_top";
 export declare type ButtonConfig = {
     variant?: ButtonComponentVariants;

@@ -1,5 +1,6 @@
-import { EventEmitter, OnInit } from "@angular/core";
-import { InputKeypressEvt } from "./input.model";
+import { ElementRef, EventEmitter, OnInit } from "@angular/core";
+import { MatDatepicker } from "@angular/material/datepicker";
+import { InputKeypressEvt, InputSizes, InputStatus } from "./input.model";
 import * as i0 from "@angular/core";
 export declare class InputComponent implements OnInit {
     pattern?: string;
@@ -17,14 +18,24 @@ export declare class InputComponent implements OnInit {
     type: "text" | "number" | "email" | "tel" | "search" | "password";
     mask?: string;
     visibilityToggle?: boolean;
+    size?: InputSizes;
+    statusIcon?: InputStatus;
+    datepicker?: boolean;
     valueChange: EventEmitter<string>;
     keypress: EventEmitter<InputKeypressEvt>;
+    control?: ElementRef<HTMLInputElement>;
+    picker?: MatDatepicker<any>;
     isValueVisible: boolean;
     setValue(val: string): void;
     onKeypress(e: KeyboardEvent): void;
     toggleVisibility(): void;
     constructor();
     ngOnInit(): void;
+    onDateChange(e: {
+        value: string;
+    }): void;
+    onClick(): void;
+    toggleCalendar(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<InputComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<InputComponent, "aus-input", never, { "pattern": "pattern"; "name": "name"; "value": "value"; "label": "label"; "subtitle": "subtitle"; "minLength": "minLength"; "maxLength": "maxLength"; "multiline": "multiline"; "placeholder": "placeholder"; "isDisabled": "isDisabled"; "isRequired": "isRequired"; "validationErrorMsg": "validationErrorMsg"; "type": "type"; "mask": "mask"; "visibilityToggle": "visibilityToggle"; }, { "valueChange": "valueChange"; "keypress": "keypress"; }, never, ["[statusMsg]"], false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<InputComponent, "aus-input", never, { "pattern": "pattern"; "name": "name"; "value": "value"; "label": "label"; "subtitle": "subtitle"; "minLength": "minLength"; "maxLength": "maxLength"; "multiline": "multiline"; "placeholder": "placeholder"; "isDisabled": "isDisabled"; "isRequired": "isRequired"; "validationErrorMsg": "validationErrorMsg"; "type": "type"; "mask": "mask"; "visibilityToggle": "visibilityToggle"; "size": "size"; "statusIcon": "statusIcon"; "datepicker": "datepicker"; }, { "valueChange": "valueChange"; "keypress": "keypress"; }, never, ["[statusMsg]"], false>;
 }
